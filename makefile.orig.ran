@@ -1,0 +1,66 @@
+[smooker@smoolap ~/src/STM32F103VHB6_RevZ_Demo1/stm32]$ make clean
+rm *.o lib/src/*.o lib/libstm32.a main.elf main.bin
+[smooker@smoolap ~/src/STM32F103VHB6_RevZ_Demo1/stm32]$ make
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -Wall -g -O0 -I . -I lib/inc   -c -o main.o main.c
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -Wall -g -O0 -I . -I lib/inc   -c -o stm32f10x_it.o stm32f10x_it.c
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -Wall -g -O0 -I . -I lib/inc   -c -o lib/src/stm32f10x_adc.o lib/src/stm32f10x_adc.c
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -Wall -g -O0 -I . -I lib/inc   -c -o lib/src/stm32f10x_bkp.o lib/src/stm32f10x_bkp.c
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -Wall -g -O0 -I . -I lib/inc   -c -o lib/src/stm32f10x_can.o lib/src/stm32f10x_can.c
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -Wall -g -O0 -I . -I lib/inc   -c -o lib/src/stm32f10x_dma.o lib/src/stm32f10x_dma.c
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -Wall -g -O0 -I . -I lib/inc   -c -o lib/src/stm32f10x_exti.o lib/src/stm32f10x_exti.c
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -Wall -g -O0 -I . -I lib/inc   -c -o lib/src/stm32f10x_flash.o lib/src/stm32f10x_flash.c
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -Wall -g -O0 -I . -I lib/inc   -c -o lib/src/stm32f10x_gpio.o lib/src/stm32f10x_gpio.c
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -Wall -g -O0 -I . -I lib/inc   -c -o lib/src/stm32f10x_i2c.o lib/src/stm32f10x_i2c.c
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -Wall -g -O0 -I . -I lib/inc   -c -o lib/src/stm32f10x_iwdg.o lib/src/stm32f10x_iwdg.c
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -Wall -g -O0 -I . -I lib/inc   -c -o lib/src/stm32f10x_lib.o lib/src/stm32f10x_lib.c
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -Wall -g -O0 -I . -I lib/inc   -c -o lib/src/stm32f10x_nvic.o lib/src/stm32f10x_nvic.c
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -Wall -g -O0 -I . -I lib/inc   -c -o lib/src/stm32f10x_pwr.o lib/src/stm32f10x_pwr.c
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -Wall -g -O0 -I . -I lib/inc   -c -o lib/src/stm32f10x_rcc.o lib/src/stm32f10x_rcc.c
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -Wall -g -O0 -I . -I lib/inc   -c -o lib/src/stm32f10x_rtc.o lib/src/stm32f10x_rtc.c
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -Wall -g -O0 -I . -I lib/inc   -c -o lib/src/stm32f10x_spi.o lib/src/stm32f10x_spi.c
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -Wall -g -O0 -I . -I lib/inc   -c -o lib/src/stm32f10x_systick.o lib/src/stm32f10x_systick.c
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -Wall -g -O0 -I . -I lib/inc   -c -o lib/src/stm32f10x_tim.o lib/src/stm32f10x_tim.c
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -Wall -g -O0 -I . -I lib/inc   -c -o lib/src/stm32f10x_tim1.o lib/src/stm32f10x_tim1.c
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -Wall -g -O0 -I . -I lib/inc   -c -o lib/src/stm32f10x_usart.o lib/src/stm32f10x_usart.c
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -Wall -g -O0 -I . -I lib/inc   -c -o lib/src/stm32f10x_wwdg.o lib/src/stm32f10x_wwdg.c
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -Wall -g -O0 -c  -o lib/src/cortexm3_macro.o lib/src/cortexm3_macro.s
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -Wall -g -O0 -I . -I lib/inc   -c -o lib/src/stm32f10x_vector.o lib/src/stm32f10x_vector.c
+lib/src/stm32f10x_vector.c:111:3: warning: taking address of expression of type 'void'
+   &_estack,            // The initial stack pointer
+   ^
+lib/src/stm32f10x_vector.c:174:3: warning: initialization makes pointer from integer without a cast [-Wint-conversion]
+   (unsigned short)0xF108F85F //this is a workaround for boot in RAM mode.
+   ^
+lib/src/stm32f10x_vector.c:174:3: note: (near initialization for 'g_pfnVectors[66]')
+arm-none-eabi-ar cr lib/libstm32.a lib/src/stm32f10x_adc.o lib/src/stm32f10x_bkp.o lib/src/stm32f10x_can.o lib/src/stm32f10x_dma.o lib/src/stm32f10x_exti.o lib/src/stm32f10x_flash.o lib/src/stm32f10x_gpio.o lib/src/stm32f10x_i2c.o lib/src/stm32f10x_iwdg.o lib/src/stm32f10x_lib.o lib/src/stm32f10x_nvic.o lib/src/stm32f10x_pwr.o lib/src/stm32f10x_rcc.o lib/src/stm32f10x_rtc.o lib/src/stm32f10x_spi.o lib/src/stm32f10x_systick.o lib/src/stm32f10x_tim.o lib/src/stm32f10x_tim1.o lib/src/stm32f10x_usart.o lib/src/stm32f10x_wwdg.o lib/src/cortexm3_macro.o lib/src/stm32f10x_vector.o
+arm-none-eabi-gcc -Wl,--gc-sections,-Map=main.elf.map,-cref,-u,Reset_Handler -I . -I lib/inc -L lib -T stm32.ld main.o stm32f10x_it.o lib/libstm32.a --output main.elf
+arm-none-eabi-objcopy -O binary main.elf main.bin
+[smooker@smoolap ~/src/STM32F103VHB6_RevZ_Demo1/stm32]$ ls -al
+total 556
+drwxrwxr-x 5 smooker smooker   4096 мар 28 14:39 .
+drwxrwxr-x 5 smooker smooker   4096 мар 28 14:34 ..
+-rw-rw-r-- 1 smooker smooker   2787 окт  8  2007 clean-main.c
+drwxrwxr-x 2 smooker smooker   4096 мар 27 09:47 jtag
+drwxrwxr-x 4 smooker smooker   4096 мар 28 14:39 lib
+-rwxrwxr-x 1 smooker smooker   6844 мар 28 14:39 main.bin
+-rw-rw-r-- 1 smooker smooker   6149 мар 28 14:29 main.c
+-rwxrwxr-x 1 smooker smooker 105260 мар 28 14:39 main.elf
+-rw-rw-r-- 1 smooker smooker  78309 мар 28 14:39 main.elf.map
+-rw-rw-r-- 1 smooker smooker   5084 мар 28 14:39 main.o
+-rw-rw-r-- 1 smooker smooker   1896 фев 10  2008 makefile
+-rw-rw-r-- 1 smooker smooker  53679 мар 28 14:39 Makefile
+drwxrwxr-x 2 smooker smooker   4096 мар 27 09:47 programmer
+-rw-rw-r-- 1 smooker smooker    739 мар 28 14:36 .qmake.stash
+-rw-rw-r-- 1 smooker smooker    161 мар 27 09:58 README.md
+-rw-rw-r-- 1 smooker smooker   6308 фев 10  2008 readme.txt
+-rw-rw-r-- 1 smooker smooker   5506 окт  8  2007 stm32f10x_conf.h
+-rw-rw-r-- 1 smooker smooker  22693 окт  8  2007 stm32f10x_it.c
+-rw-rw-r-- 1 smooker smooker   3272 окт  8  2007 stm32f10x_it.h
+-rw-rw-r-- 1 smooker smooker   9732 мар 28 14:39 stm32f10x_it.o
+-rw-rw-r-- 1 smooker smooker   1419 мар 27 09:51 stm32.files
+-rw-rw-r-- 1 smooker smooker     10 мар 27 09:51 stm32.includes
+-rw-rw-r-- 1 smooker smooker    973 фев  1  2008 stm32.ld
+-rw-rw-r-- 1 smooker smooker   2397 мар 28 14:38 stm32.pro
+-rw-rw-r-- 1 smooker smooker  24114 мар 28 14:37 stm32.pro.user
+
+

@@ -53,20 +53,20 @@ int main(void)
   RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC, ENABLE);
   
   /* Configure PC.4 as Output push-pull */
-  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_4;
-  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_10MHz;
+  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_13;
+  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;
   GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
   GPIO_Init(GPIOC, &GPIO_InitStructure);
 
   while (1)
   {
     /* Turn on led connected to PC.4 pin */
-    GPIO_SetBits(GPIOC, GPIO_Pin_4);
+    GPIO_SetBits(GPIOC, GPIO_Pin_13);
     /* Insert delay */
     Delay(0xAFFFF);
 
     /* Turn off led connected to PC.4 pin */
-    GPIO_ResetBits(GPIOC, GPIO_Pin_4);
+    GPIO_ResetBits(GPIOC, GPIO_Pin_13);
     /* Insert delay */
     Delay(0xAFFFF);
   }
