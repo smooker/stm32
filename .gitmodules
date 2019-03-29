@@ -9,3 +9,6 @@
 	url = https://github.com/leaflabs/maple-bootloader.git
     ignore = all
     initrepo = true
+[submodule "other/STM32F103"]
+	path = other/STM32F103
+	url = https://github.com/avislab/STM32F103.git
