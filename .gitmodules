@@ -5,7 +5,7 @@
     initrepo = true
 
 [submodule "other/maple-bootloader"]
-    path = other/maple-bootloader
-    url = https://github.com/leaflabs/maple-bootloader.git
+	path = other/maple-bootloader
+	url = https://github.com/leaflabs/maple-bootloader.git
     ignore = all
     initrepo = true
