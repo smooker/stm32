@@ -63,12 +63,12 @@ int main(void)
     /* Turn on led connected to PC.4 pin */
     GPIO_SetBits(GPIOC, GPIO_Pin_13);
     /* Insert delay */
-    Delay(0xAFFFF);
+    Delay(0xBFFFF);
 
     /* Turn off led connected to PC.4 pin */
     GPIO_ResetBits(GPIOC, GPIO_Pin_13);
     /* Insert delay */
-    Delay(0xAFFFF);
+    Delay(0xBFFFF);
   }
 }
 
