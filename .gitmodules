@@ -1,0 +1,6 @@
+[submodule "other/STM32duino-bootloader"]
+    path = other/STM32duino-bootloader
+    url = https://github.com/rogerclarkmelbourne/STM32duino-bootloader.git
+    ignore = all
+    initrepo = true
+
