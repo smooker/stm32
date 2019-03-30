@@ -1,0 +1,15 @@
+#!/bin/bash
+gdb-multiarch \
+	-ex "target extended-remote localhost:1234" \
+    -ex "where" \
+	-ex "display/i $pc" \
+	-ex "stepi" \
+	-ex "next" \
+	-ex "b main:2" \
+	-ex "x/16wx 0x20000000" \
+	$@
+#	-cont
+#info reg
+#info variables
+#print *pProperty
+#$@
