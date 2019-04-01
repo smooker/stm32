@@ -1,0 +1,687 @@
+ARM GAS  /tmp/ccvk9m29.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 1
+   9              		.eabi_attribute 34, 1
+  10              		.eabi_attribute 18, 4
+  11              		.file	"usbd_core.c"
+  12              		.text
+  13              		.section	.text.USBD_Init,"ax",%progbits
+  14              		.align	1
+  15              		.global	USBD_Init
+  16              		.arch armv7-m
+  17              		.syntax unified
+  18              		.thumb
+  19              		.thumb_func
+  20              		.fpu softvfp
+  22              	USBD_Init:
+  23              		@ args = 0, pretend = 0, frame = 0
+  24              		@ frame_needed = 0, uses_anonymous_args = 0
+  25 0000 08B5     		push	{r3, lr}
+  26 0002 90B1     		cbz	r0, .L7
+  27 0004 0346     		mov	r3, r0
+  28 0006 D0F81402 		ldr	r0, [r0, #532]
+  29 000a 10B1     		cbz	r0, .L4
+  30 000c 0020     		movs	r0, #0
+  31 000e C3F81402 		str	r0, [r3, #532]
+  32              	.L4:
+  33 0012 09B1     		cbz	r1, .L5
+  34 0014 C3F81012 		str	r1, [r3, #528]
+  35              	.L5:
+  36 0018 0121     		movs	r1, #1
+  37 001a 83F8FC11 		strb	r1, [r3, #508]
+  38 001e 1A70     		strb	r2, [r3]
+  39 0020 1846     		mov	r0, r3
+  40 0022 FFF7FEFF 		bl	USBD_LL_Init
+  41 0026 0020     		movs	r0, #0
+  42              	.L3:
+  43 0028 08BD     		pop	{r3, pc}
+  44              	.L7:
+  45 002a 0548     		ldr	r0, .L8
+  46 002c FFF7FEFF 		bl	printf
+  47 0030 0448     		ldr	r0, .L8+4
+  48 0032 FFF7FEFF 		bl	printf
+  49 0036 0A20     		movs	r0, #10
+  50 0038 FFF7FEFF 		bl	putchar
+  51 003c 0220     		movs	r0, #2
+  52 003e F3E7     		b	.L3
+  53              	.L9:
+  54              		.align	2
+  55              	.L8:
+  56 0040 00000000 		.word	.LC0
+  57 0044 08000000 		.word	.LC1
+  59              		.section	.text.USBD_DeInit,"ax",%progbits
+ARM GAS  /tmp/ccvk9m29.s 			page 2
+
+
+  60              		.align	1
+  61              		.global	USBD_DeInit
+  62              		.syntax unified
+  63              		.thumb
+  64              		.thumb_func
+  65              		.fpu softvfp
+  67              	USBD_DeInit:
+  68              		@ args = 0, pretend = 0, frame = 0
+  69              		@ frame_needed = 0, uses_anonymous_args = 0
+  70 0000 10B5     		push	{r4, lr}
+  71 0002 0446     		mov	r4, r0
+  72 0004 0123     		movs	r3, #1
+  73 0006 80F8FC31 		strb	r3, [r0, #508]
+  74 000a D0F81432 		ldr	r3, [r0, #532]
+  75 000e 5B68     		ldr	r3, [r3, #4]
+  76 0010 0179     		ldrb	r1, [r0, #4]	@ zero_extendqisi2
+  77 0012 9847     		blx	r3
+  78 0014 2046     		mov	r0, r4
+  79 0016 FFF7FEFF 		bl	USBD_LL_Stop
+  80 001a 2046     		mov	r0, r4
+  81 001c FFF7FEFF 		bl	USBD_LL_DeInit
+  82 0020 0020     		movs	r0, #0
+  83 0022 10BD     		pop	{r4, pc}
+  85              		.section	.text.USBD_RegisterClass,"ax",%progbits
+  86              		.align	1
+  87              		.global	USBD_RegisterClass
+  88              		.syntax unified
+  89              		.thumb
+  90              		.thumb_func
+  91              		.fpu softvfp
+  93              	USBD_RegisterClass:
+  94              		@ args = 0, pretend = 0, frame = 0
+  95              		@ frame_needed = 0, uses_anonymous_args = 0
+  96 0000 08B5     		push	{r3, lr}
+  97 0002 19B1     		cbz	r1, .L13
+  98 0004 C0F81412 		str	r1, [r0, #532]
+  99 0008 0020     		movs	r0, #0
+ 100              	.L14:
+ 101 000a 08BD     		pop	{r3, pc}
+ 102              	.L13:
+ 103 000c 0548     		ldr	r0, .L16
+ 104 000e FFF7FEFF 		bl	printf
+ 105 0012 0548     		ldr	r0, .L16+4
+ 106 0014 FFF7FEFF 		bl	printf
+ 107 0018 0A20     		movs	r0, #10
+ 108 001a FFF7FEFF 		bl	putchar
+ 109 001e 0220     		movs	r0, #2
+ 110 0020 F3E7     		b	.L14
+ 111              	.L17:
+ 112 0022 00BF     		.align	2
+ 113              	.L16:
+ 114 0024 00000000 		.word	.LC0
+ 115 0028 00000000 		.word	.LC2
+ 117              		.section	.text.USBD_Start,"ax",%progbits
+ 118              		.align	1
+ 119              		.global	USBD_Start
+ 120              		.syntax unified
+ARM GAS  /tmp/ccvk9m29.s 			page 3
+
+
+ 121              		.thumb
+ 122              		.thumb_func
+ 123              		.fpu softvfp
+ 125              	USBD_Start:
+ 126              		@ args = 0, pretend = 0, frame = 0
+ 127              		@ frame_needed = 0, uses_anonymous_args = 0
+ 128 0000 08B5     		push	{r3, lr}
+ 129 0002 FFF7FEFF 		bl	USBD_LL_Start
+ 130 0006 0020     		movs	r0, #0
+ 131 0008 08BD     		pop	{r3, pc}
+ 133              		.section	.text.USBD_Stop,"ax",%progbits
+ 134              		.align	1
+ 135              		.global	USBD_Stop
+ 136              		.syntax unified
+ 137              		.thumb
+ 138              		.thumb_func
+ 139              		.fpu softvfp
+ 141              	USBD_Stop:
+ 142              		@ args = 0, pretend = 0, frame = 0
+ 143              		@ frame_needed = 0, uses_anonymous_args = 0
+ 144 0000 10B5     		push	{r4, lr}
+ 145 0002 0446     		mov	r4, r0
+ 146 0004 D0F81432 		ldr	r3, [r0, #532]
+ 147 0008 5B68     		ldr	r3, [r3, #4]
+ 148 000a 0179     		ldrb	r1, [r0, #4]	@ zero_extendqisi2
+ 149 000c 9847     		blx	r3
+ 150 000e 2046     		mov	r0, r4
+ 151 0010 FFF7FEFF 		bl	USBD_LL_Stop
+ 152 0014 0020     		movs	r0, #0
+ 153 0016 10BD     		pop	{r4, pc}
+ 155              		.section	.text.USBD_RunTestMode,"ax",%progbits
+ 156              		.align	1
+ 157              		.global	USBD_RunTestMode
+ 158              		.syntax unified
+ 159              		.thumb
+ 160              		.thumb_func
+ 161              		.fpu softvfp
+ 163              	USBD_RunTestMode:
+ 164              		@ args = 0, pretend = 0, frame = 0
+ 165              		@ frame_needed = 0, uses_anonymous_args = 0
+ 166              		@ link register save eliminated.
+ 167 0000 0020     		movs	r0, #0
+ 168 0002 7047     		bx	lr
+ 170              		.section	.text.USBD_SetClassConfig,"ax",%progbits
+ 171              		.align	1
+ 172              		.global	USBD_SetClassConfig
+ 173              		.syntax unified
+ 174              		.thumb
+ 175              		.thumb_func
+ 176              		.fpu softvfp
+ 178              	USBD_SetClassConfig:
+ 179              		@ args = 0, pretend = 0, frame = 0
+ 180              		@ frame_needed = 0, uses_anonymous_args = 0
+ 181 0000 08B5     		push	{r3, lr}
+ 182 0002 D0F81432 		ldr	r3, [r0, #532]
+ 183 0006 33B1     		cbz	r3, .L25
+ 184 0008 1B68     		ldr	r3, [r3]
+ARM GAS  /tmp/ccvk9m29.s 			page 4
+
+
+ 185 000a 9847     		blx	r3
+ 186 000c 08B9     		cbnz	r0, .L28
+ 187 000e 0020     		movs	r0, #0
+ 188              	.L24:
+ 189 0010 08BD     		pop	{r3, pc}
+ 190              	.L28:
+ 191 0012 0220     		movs	r0, #2
+ 192 0014 FCE7     		b	.L24
+ 193              	.L25:
+ 194 0016 0220     		movs	r0, #2
+ 195 0018 FAE7     		b	.L24
+ 197              		.section	.text.USBD_ClrClassConfig,"ax",%progbits
+ 198              		.align	1
+ 199              		.global	USBD_ClrClassConfig
+ 200              		.syntax unified
+ 201              		.thumb
+ 202              		.thumb_func
+ 203              		.fpu softvfp
+ 205              	USBD_ClrClassConfig:
+ 206              		@ args = 0, pretend = 0, frame = 0
+ 207              		@ frame_needed = 0, uses_anonymous_args = 0
+ 208 0000 08B5     		push	{r3, lr}
+ 209 0002 D0F81432 		ldr	r3, [r0, #532]
+ 210 0006 5B68     		ldr	r3, [r3, #4]
+ 211 0008 9847     		blx	r3
+ 212 000a 0020     		movs	r0, #0
+ 213 000c 08BD     		pop	{r3, pc}
+ 215              		.section	.text.USBD_LL_SetupStage,"ax",%progbits
+ 216              		.align	1
+ 217              		.global	USBD_LL_SetupStage
+ 218              		.syntax unified
+ 219              		.thumb
+ 220              		.thumb_func
+ 221              		.fpu softvfp
+ 223              	USBD_LL_SetupStage:
+ 224              		@ args = 0, pretend = 0, frame = 0
+ 225              		@ frame_needed = 0, uses_anonymous_args = 0
+ 226 0000 38B5     		push	{r3, r4, r5, lr}
+ 227 0002 0446     		mov	r4, r0
+ 228 0004 00F50275 		add	r5, r0, #520
+ 229 0008 2846     		mov	r0, r5
+ 230 000a FFF7FEFF 		bl	USBD_ParseSetupRequest
+ 231 000e 0123     		movs	r3, #1
+ 232 0010 C4F8F431 		str	r3, [r4, #500]
+ 233 0014 B4F80E32 		ldrh	r3, [r4, #526]
+ 234 0018 C4F8F831 		str	r3, [r4, #504]
+ 235 001c 94F80812 		ldrb	r1, [r4, #520]	@ zero_extendqisi2
+ 236 0020 01F01F03 		and	r3, r1, #31
+ 237 0024 012B     		cmp	r3, #1
+ 238 0026 0FD0     		beq	.L32
+ 239 0028 5AB2     		sxtb	r2, r3
+ 240 002a 3AB1     		cbz	r2, .L33
+ 241 002c 022B     		cmp	r3, #2
+ 242 002e 10D0     		beq	.L34
+ 243 0030 01F08001 		and	r1, r1, #128
+ 244 0034 2046     		mov	r0, r4
+ 245 0036 FFF7FEFF 		bl	USBD_LL_StallEP
+ARM GAS  /tmp/ccvk9m29.s 			page 5
+
+
+ 246 003a 03E0     		b	.L36
+ 247              	.L33:
+ 248 003c 2946     		mov	r1, r5
+ 249 003e 2046     		mov	r0, r4
+ 250 0040 FFF7FEFF 		bl	USBD_StdDevReq
+ 251              	.L36:
+ 252 0044 0020     		movs	r0, #0
+ 253 0046 38BD     		pop	{r3, r4, r5, pc}
+ 254              	.L32:
+ 255 0048 2946     		mov	r1, r5
+ 256 004a 2046     		mov	r0, r4
+ 257 004c FFF7FEFF 		bl	USBD_StdItfReq
+ 258 0050 F8E7     		b	.L36
+ 259              	.L34:
+ 260 0052 2946     		mov	r1, r5
+ 261 0054 2046     		mov	r0, r4
+ 262 0056 FFF7FEFF 		bl	USBD_StdEPReq
+ 263 005a F3E7     		b	.L36
+ 265              		.section	.text.USBD_LL_DataOutStage,"ax",%progbits
+ 266              		.align	1
+ 267              		.global	USBD_LL_DataOutStage
+ 268              		.syntax unified
+ 269              		.thumb
+ 270              		.thumb_func
+ 271              		.fpu softvfp
+ 273              	USBD_LL_DataOutStage:
+ 274              		@ args = 0, pretend = 0, frame = 0
+ 275              		@ frame_needed = 0, uses_anonymous_args = 0
+ 276 0000 10B5     		push	{r4, lr}
+ 277 0002 0446     		mov	r4, r0
+ 278 0004 29BB     		cbnz	r1, .L40
+ 279 0006 1346     		mov	r3, r2
+ 280 0008 D0F8F421 		ldr	r2, [r0, #500]
+ 281 000c 032A     		cmp	r2, #3
+ 282 000e 01D0     		beq	.L45
+ 283              	.L41:
+ 284 0010 0020     		movs	r0, #0
+ 285 0012 10BD     		pop	{r4, pc}
+ 286              	.L45:
+ 287 0014 D0F80C11 		ldr	r1, [r0, #268]
+ 288 0018 D0F81021 		ldr	r2, [r0, #272]
+ 289 001c 9142     		cmp	r1, r2
+ 290 001e 0BD8     		bhi	.L46
+ 291 0020 D0F81432 		ldr	r3, [r0, #532]
+ 292 0024 1B69     		ldr	r3, [r3, #16]
+ 293 0026 1BB1     		cbz	r3, .L43
+ 294 0028 90F8FC21 		ldrb	r2, [r0, #508]	@ zero_extendqisi2
+ 295 002c 032A     		cmp	r2, #3
+ 296 002e 0ED0     		beq	.L47
+ 297              	.L43:
+ 298 0030 2046     		mov	r0, r4
+ 299 0032 FFF7FEFF 		bl	USBD_CtlSendStatus
+ 300 0036 EBE7     		b	.L41
+ 301              	.L46:
+ 302 0038 891A     		subs	r1, r1, r2
+ 303 003a C0F80C11 		str	r1, [r0, #268]
+ 304 003e 8A42     		cmp	r2, r1
+ARM GAS  /tmp/ccvk9m29.s 			page 6
+
+
+ 305 0040 28BF     		it	cs
+ 306 0042 0A46     		movcs	r2, r1
+ 307 0044 92B2     		uxth	r2, r2
+ 308 0046 1946     		mov	r1, r3
+ 309 0048 FFF7FEFF 		bl	USBD_CtlContinueRx
+ 310 004c E0E7     		b	.L41
+ 311              	.L47:
+ 312 004e 9847     		blx	r3
+ 313 0050 EEE7     		b	.L43
+ 314              	.L40:
+ 315 0052 0A46     		mov	r2, r1
+ 316 0054 D0F81432 		ldr	r3, [r0, #532]
+ 317 0058 9B69     		ldr	r3, [r3, #24]
+ 318 005a 002B     		cmp	r3, #0
+ 319 005c D8D0     		beq	.L41
+ 320 005e 90F8FC11 		ldrb	r1, [r0, #508]	@ zero_extendqisi2
+ 321 0062 0329     		cmp	r1, #3
+ 322 0064 D4D1     		bne	.L41
+ 323 0066 1146     		mov	r1, r2
+ 324 0068 9847     		blx	r3
+ 325 006a D1E7     		b	.L41
+ 327              		.section	.text.USBD_LL_DataInStage,"ax",%progbits
+ 328              		.align	1
+ 329              		.global	USBD_LL_DataInStage
+ 330              		.syntax unified
+ 331              		.thumb
+ 332              		.thumb_func
+ 333              		.fpu softvfp
+ 335              	USBD_LL_DataInStage:
+ 336              		@ args = 0, pretend = 0, frame = 0
+ 337              		@ frame_needed = 0, uses_anonymous_args = 0
+ 338 0000 10B5     		push	{r4, lr}
+ 339 0002 0446     		mov	r4, r0
+ 340 0004 0029     		cmp	r1, #0
+ 341 0006 47D1     		bne	.L49
+ 342 0008 1346     		mov	r3, r2
+ 343 000a D0F8F421 		ldr	r2, [r0, #500]
+ 344 000e 022A     		cmp	r2, #2
+ 345 0010 05D0     		beq	.L56
+ 346              	.L50:
+ 347 0012 94F80032 		ldrb	r3, [r4, #512]	@ zero_extendqisi2
+ 348 0016 012B     		cmp	r3, #1
+ 349 0018 3AD0     		beq	.L57
+ 350              	.L54:
+ 351 001a 0020     		movs	r0, #0
+ 352 001c 10BD     		pop	{r4, pc}
+ 353              	.L56:
+ 354 001e C169     		ldr	r1, [r0, #28]
+ 355 0020 026A     		ldr	r2, [r0, #32]
+ 356 0022 9142     		cmp	r1, r2
+ 357 0024 17D8     		bhi	.L58
+ 358 0026 8169     		ldr	r1, [r0, #24]
+ 359 0028 B1FBF2F3 		udiv	r3, r1, r2
+ 360 002c 02FB1313 		mls	r3, r2, r3, r1
+ 361 0030 2BB9     		cbnz	r3, .L52
+ 362 0032 8A42     		cmp	r2, r1
+ 363 0034 03D8     		bhi	.L52
+ARM GAS  /tmp/ccvk9m29.s 			page 7
+
+
+ 364 0036 D0F8F831 		ldr	r3, [r0, #504]
+ 365 003a 9942     		cmp	r1, r3
+ 366 003c 18D3     		bcc	.L59
+ 367              	.L52:
+ 368 003e D4F81432 		ldr	r3, [r4, #532]
+ 369 0042 DB68     		ldr	r3, [r3, #12]
+ 370 0044 1BB1     		cbz	r3, .L53
+ 371 0046 94F8FC21 		ldrb	r2, [r4, #508]	@ zero_extendqisi2
+ 372 004a 032A     		cmp	r2, #3
+ 373 004c 1DD0     		beq	.L60
+ 374              	.L53:
+ 375 004e 2046     		mov	r0, r4
+ 376 0050 FFF7FEFF 		bl	USBD_CtlReceiveStatus
+ 377 0054 DDE7     		b	.L50
+ 378              	.L58:
+ 379 0056 8A1A     		subs	r2, r1, r2
+ 380 0058 C261     		str	r2, [r0, #28]
+ 381 005a 92B2     		uxth	r2, r2
+ 382 005c 1946     		mov	r1, r3
+ 383 005e FFF7FEFF 		bl	USBD_CtlContinueSendData
+ 384 0062 0023     		movs	r3, #0
+ 385 0064 1A46     		mov	r2, r3
+ 386 0066 1946     		mov	r1, r3
+ 387 0068 2046     		mov	r0, r4
+ 388 006a FFF7FEFF 		bl	USBD_LL_PrepareReceive
+ 389 006e D0E7     		b	.L50
+ 390              	.L59:
+ 391 0070 0022     		movs	r2, #0
+ 392 0072 1146     		mov	r1, r2
+ 393 0074 FFF7FEFF 		bl	USBD_CtlContinueSendData
+ 394 0078 0021     		movs	r1, #0
+ 395 007a C4F8F811 		str	r1, [r4, #504]
+ 396 007e 0B46     		mov	r3, r1
+ 397 0080 0A46     		mov	r2, r1
+ 398 0082 2046     		mov	r0, r4
+ 399 0084 FFF7FEFF 		bl	USBD_LL_PrepareReceive
+ 400 0088 C3E7     		b	.L50
+ 401              	.L60:
+ 402 008a 2046     		mov	r0, r4
+ 403 008c 9847     		blx	r3
+ 404 008e DEE7     		b	.L53
+ 405              	.L57:
+ 406 0090 0023     		movs	r3, #0
+ 407 0092 84F80032 		strb	r3, [r4, #512]
+ 408 0096 C0E7     		b	.L54
+ 409              	.L49:
+ 410 0098 0A46     		mov	r2, r1
+ 411 009a D0F81432 		ldr	r3, [r0, #532]
+ 412 009e 5B69     		ldr	r3, [r3, #20]
+ 413 00a0 002B     		cmp	r3, #0
+ 414 00a2 BAD0     		beq	.L54
+ 415 00a4 90F8FC11 		ldrb	r1, [r0, #508]	@ zero_extendqisi2
+ 416 00a8 0329     		cmp	r1, #3
+ 417 00aa B6D1     		bne	.L54
+ 418 00ac 1146     		mov	r1, r2
+ 419 00ae 9847     		blx	r3
+ 420 00b0 B3E7     		b	.L54
+ARM GAS  /tmp/ccvk9m29.s 			page 8
+
+
+ 422              		.section	.text.USBD_LL_Reset,"ax",%progbits
+ 423              		.align	1
+ 424              		.global	USBD_LL_Reset
+ 425              		.syntax unified
+ 426              		.thumb
+ 427              		.thumb_func
+ 428              		.fpu softvfp
+ 430              	USBD_LL_Reset:
+ 431              		@ args = 0, pretend = 0, frame = 0
+ 432              		@ frame_needed = 0, uses_anonymous_args = 0
+ 433 0000 38B5     		push	{r3, r4, r5, lr}
+ 434 0002 0446     		mov	r4, r0
+ 435 0004 4023     		movs	r3, #64
+ 436 0006 0022     		movs	r2, #0
+ 437 0008 1146     		mov	r1, r2
+ 438 000a FFF7FEFF 		bl	USBD_LL_OpenEP
+ 439 000e 4025     		movs	r5, #64
+ 440 0010 C4F81051 		str	r5, [r4, #272]
+ 441 0014 2B46     		mov	r3, r5
+ 442 0016 0022     		movs	r2, #0
+ 443 0018 8021     		movs	r1, #128
+ 444 001a 2046     		mov	r0, r4
+ 445 001c FFF7FEFF 		bl	USBD_LL_OpenEP
+ 446 0020 2562     		str	r5, [r4, #32]
+ 447 0022 0123     		movs	r3, #1
+ 448 0024 84F8FC31 		strb	r3, [r4, #508]
+ 449 0028 D4F81832 		ldr	r3, [r4, #536]
+ 450 002c 2BB1     		cbz	r3, .L62
+ 451 002e D4F81432 		ldr	r3, [r4, #532]
+ 452 0032 5B68     		ldr	r3, [r3, #4]
+ 453 0034 2179     		ldrb	r1, [r4, #4]	@ zero_extendqisi2
+ 454 0036 2046     		mov	r0, r4
+ 455 0038 9847     		blx	r3
+ 456              	.L62:
+ 457 003a 0020     		movs	r0, #0
+ 458 003c 38BD     		pop	{r3, r4, r5, pc}
+ 460              		.section	.text.USBD_LL_SetSpeed,"ax",%progbits
+ 461              		.align	1
+ 462              		.global	USBD_LL_SetSpeed
+ 463              		.syntax unified
+ 464              		.thumb
+ 465              		.thumb_func
+ 466              		.fpu softvfp
+ 468              	USBD_LL_SetSpeed:
+ 469              		@ args = 0, pretend = 0, frame = 0
+ 470              		@ frame_needed = 0, uses_anonymous_args = 0
+ 471              		@ link register save eliminated.
+ 472 0000 0174     		strb	r1, [r0, #16]
+ 473 0002 0020     		movs	r0, #0
+ 474 0004 7047     		bx	lr
+ 476              		.section	.text.USBD_LL_Suspend,"ax",%progbits
+ 477              		.align	1
+ 478              		.global	USBD_LL_Suspend
+ 479              		.syntax unified
+ 480              		.thumb
+ 481              		.thumb_func
+ 482              		.fpu softvfp
+ARM GAS  /tmp/ccvk9m29.s 			page 9
+
+
+ 484              	USBD_LL_Suspend:
+ 485              		@ args = 0, pretend = 0, frame = 0
+ 486              		@ frame_needed = 0, uses_anonymous_args = 0
+ 487              		@ link register save eliminated.
+ 488 0000 90F8FC31 		ldrb	r3, [r0, #508]	@ zero_extendqisi2
+ 489 0004 80F8FD31 		strb	r3, [r0, #509]
+ 490 0008 0423     		movs	r3, #4
+ 491 000a 80F8FC31 		strb	r3, [r0, #508]
+ 492 000e 0020     		movs	r0, #0
+ 493 0010 7047     		bx	lr
+ 495              		.section	.text.USBD_LL_Resume,"ax",%progbits
+ 496              		.align	1
+ 497              		.global	USBD_LL_Resume
+ 498              		.syntax unified
+ 499              		.thumb
+ 500              		.thumb_func
+ 501              		.fpu softvfp
+ 503              	USBD_LL_Resume:
+ 504              		@ args = 0, pretend = 0, frame = 0
+ 505              		@ frame_needed = 0, uses_anonymous_args = 0
+ 506              		@ link register save eliminated.
+ 507 0000 90F8FD31 		ldrb	r3, [r0, #509]	@ zero_extendqisi2
+ 508 0004 80F8FC31 		strb	r3, [r0, #508]
+ 509 0008 0020     		movs	r0, #0
+ 510 000a 7047     		bx	lr
+ 512              		.section	.text.USBD_LL_SOF,"ax",%progbits
+ 513              		.align	1
+ 514              		.global	USBD_LL_SOF
+ 515              		.syntax unified
+ 516              		.thumb
+ 517              		.thumb_func
+ 518              		.fpu softvfp
+ 520              	USBD_LL_SOF:
+ 521              		@ args = 0, pretend = 0, frame = 0
+ 522              		@ frame_needed = 0, uses_anonymous_args = 0
+ 523 0000 08B5     		push	{r3, lr}
+ 524 0002 90F8FC31 		ldrb	r3, [r0, #508]	@ zero_extendqisi2
+ 525 0006 032B     		cmp	r3, #3
+ 526 0008 01D0     		beq	.L70
+ 527              	.L68:
+ 528 000a 0020     		movs	r0, #0
+ 529 000c 08BD     		pop	{r3, pc}
+ 530              	.L70:
+ 531 000e D0F81432 		ldr	r3, [r0, #532]
+ 532 0012 DB69     		ldr	r3, [r3, #28]
+ 533 0014 002B     		cmp	r3, #0
+ 534 0016 F8D0     		beq	.L68
+ 535 0018 9847     		blx	r3
+ 536 001a F6E7     		b	.L68
+ 538              		.section	.text.USBD_LL_IsoINIncomplete,"ax",%progbits
+ 539              		.align	1
+ 540              		.global	USBD_LL_IsoINIncomplete
+ 541              		.syntax unified
+ 542              		.thumb
+ 543              		.thumb_func
+ 544              		.fpu softvfp
+ 546              	USBD_LL_IsoINIncomplete:
+ARM GAS  /tmp/ccvk9m29.s 			page 10
+
+
+ 547              		@ args = 0, pretend = 0, frame = 0
+ 548              		@ frame_needed = 0, uses_anonymous_args = 0
+ 549              		@ link register save eliminated.
+ 550 0000 0020     		movs	r0, #0
+ 551 0002 7047     		bx	lr
+ 553              		.section	.text.USBD_LL_IsoOUTIncomplete,"ax",%progbits
+ 554              		.align	1
+ 555              		.global	USBD_LL_IsoOUTIncomplete
+ 556              		.syntax unified
+ 557              		.thumb
+ 558              		.thumb_func
+ 559              		.fpu softvfp
+ 561              	USBD_LL_IsoOUTIncomplete:
+ 562              		@ args = 0, pretend = 0, frame = 0
+ 563              		@ frame_needed = 0, uses_anonymous_args = 0
+ 564              		@ link register save eliminated.
+ 565 0000 0020     		movs	r0, #0
+ 566 0002 7047     		bx	lr
+ 568              		.section	.text.USBD_LL_DevConnected,"ax",%progbits
+ 569              		.align	1
+ 570              		.global	USBD_LL_DevConnected
+ 571              		.syntax unified
+ 572              		.thumb
+ 573              		.thumb_func
+ 574              		.fpu softvfp
+ 576              	USBD_LL_DevConnected:
+ 577              		@ args = 0, pretend = 0, frame = 0
+ 578              		@ frame_needed = 0, uses_anonymous_args = 0
+ 579              		@ link register save eliminated.
+ 580 0000 0020     		movs	r0, #0
+ 581 0002 7047     		bx	lr
+ 583              		.section	.text.USBD_LL_DevDisconnected,"ax",%progbits
+ 584              		.align	1
+ 585              		.global	USBD_LL_DevDisconnected
+ 586              		.syntax unified
+ 587              		.thumb
+ 588              		.thumb_func
+ 589              		.fpu softvfp
+ 591              	USBD_LL_DevDisconnected:
+ 592              		@ args = 0, pretend = 0, frame = 0
+ 593              		@ frame_needed = 0, uses_anonymous_args = 0
+ 594 0000 08B5     		push	{r3, lr}
+ 595 0002 0122     		movs	r2, #1
+ 596 0004 80F8FC21 		strb	r2, [r0, #508]
+ 597 0008 D0F81422 		ldr	r2, [r0, #532]
+ 598 000c 5268     		ldr	r2, [r2, #4]
+ 599 000e 0179     		ldrb	r1, [r0, #4]	@ zero_extendqisi2
+ 600 0010 9047     		blx	r2
+ 601 0012 0020     		movs	r0, #0
+ 602 0014 08BD     		pop	{r3, pc}
+ 604              		.section	.rodata.USBD_Init.str1.4,"aMS",%progbits,1
+ 605              		.align	2
+ 606              	.LC0:
+ 607 0000 4552524F 		.ascii	"ERROR: \000"
+ 607      523A2000 
+ 608              	.LC1:
+ 609 0008 496E7661 		.ascii	"Invalid Device handle\000"
+ARM GAS  /tmp/ccvk9m29.s 			page 11
+
+
+ 609      6C696420 
+ 609      44657669 
+ 609      63652068 
+ 609      616E646C 
+ 610              		.section	.rodata.USBD_RegisterClass.str1.4,"aMS",%progbits,1
+ 611              		.align	2
+ 612              	.LC2:
+ 613 0000 496E7661 		.ascii	"Invalid Class handle\000"
+ 613      6C696420 
+ 613      436C6173 
+ 613      73206861 
+ 613      6E646C65 
+ 614              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 8-2018-q4-major) 8.2.1 20181213 (release) [gcc
+ARM GAS  /tmp/ccvk9m29.s 			page 12
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 usbd_core.c
+     /tmp/ccvk9m29.s:14     .text.USBD_Init:0000000000000000 $t
+     /tmp/ccvk9m29.s:22     .text.USBD_Init:0000000000000000 USBD_Init
+     /tmp/ccvk9m29.s:56     .text.USBD_Init:0000000000000040 $d
+     /tmp/ccvk9m29.s:60     .text.USBD_DeInit:0000000000000000 $t
+     /tmp/ccvk9m29.s:67     .text.USBD_DeInit:0000000000000000 USBD_DeInit
+     /tmp/ccvk9m29.s:86     .text.USBD_RegisterClass:0000000000000000 $t
+     /tmp/ccvk9m29.s:93     .text.USBD_RegisterClass:0000000000000000 USBD_RegisterClass
+     /tmp/ccvk9m29.s:114    .text.USBD_RegisterClass:0000000000000024 $d
+     /tmp/ccvk9m29.s:118    .text.USBD_Start:0000000000000000 $t
+     /tmp/ccvk9m29.s:125    .text.USBD_Start:0000000000000000 USBD_Start
+     /tmp/ccvk9m29.s:134    .text.USBD_Stop:0000000000000000 $t
+     /tmp/ccvk9m29.s:141    .text.USBD_Stop:0000000000000000 USBD_Stop
+     /tmp/ccvk9m29.s:156    .text.USBD_RunTestMode:0000000000000000 $t
+     /tmp/ccvk9m29.s:163    .text.USBD_RunTestMode:0000000000000000 USBD_RunTestMode
+     /tmp/ccvk9m29.s:171    .text.USBD_SetClassConfig:0000000000000000 $t
+     /tmp/ccvk9m29.s:178    .text.USBD_SetClassConfig:0000000000000000 USBD_SetClassConfig
+     /tmp/ccvk9m29.s:198    .text.USBD_ClrClassConfig:0000000000000000 $t
+     /tmp/ccvk9m29.s:205    .text.USBD_ClrClassConfig:0000000000000000 USBD_ClrClassConfig
+     /tmp/ccvk9m29.s:216    .text.USBD_LL_SetupStage:0000000000000000 $t
+     /tmp/ccvk9m29.s:223    .text.USBD_LL_SetupStage:0000000000000000 USBD_LL_SetupStage
+     /tmp/ccvk9m29.s:266    .text.USBD_LL_DataOutStage:0000000000000000 $t
+     /tmp/ccvk9m29.s:273    .text.USBD_LL_DataOutStage:0000000000000000 USBD_LL_DataOutStage
+     /tmp/ccvk9m29.s:328    .text.USBD_LL_DataInStage:0000000000000000 $t
+     /tmp/ccvk9m29.s:335    .text.USBD_LL_DataInStage:0000000000000000 USBD_LL_DataInStage
+     /tmp/ccvk9m29.s:423    .text.USBD_LL_Reset:0000000000000000 $t
+     /tmp/ccvk9m29.s:430    .text.USBD_LL_Reset:0000000000000000 USBD_LL_Reset
+     /tmp/ccvk9m29.s:461    .text.USBD_LL_SetSpeed:0000000000000000 $t
+     /tmp/ccvk9m29.s:468    .text.USBD_LL_SetSpeed:0000000000000000 USBD_LL_SetSpeed
+     /tmp/ccvk9m29.s:477    .text.USBD_LL_Suspend:0000000000000000 $t
+     /tmp/ccvk9m29.s:484    .text.USBD_LL_Suspend:0000000000000000 USBD_LL_Suspend
+     /tmp/ccvk9m29.s:496    .text.USBD_LL_Resume:0000000000000000 $t
+     /tmp/ccvk9m29.s:503    .text.USBD_LL_Resume:0000000000000000 USBD_LL_Resume
+     /tmp/ccvk9m29.s:513    .text.USBD_LL_SOF:0000000000000000 $t
+     /tmp/ccvk9m29.s:520    .text.USBD_LL_SOF:0000000000000000 USBD_LL_SOF
+     /tmp/ccvk9m29.s:539    .text.USBD_LL_IsoINIncomplete:0000000000000000 $t
+     /tmp/ccvk9m29.s:546    .text.USBD_LL_IsoINIncomplete:0000000000000000 USBD_LL_IsoINIncomplete
+     /tmp/ccvk9m29.s:554    .text.USBD_LL_IsoOUTIncomplete:0000000000000000 $t
+     /tmp/ccvk9m29.s:561    .text.USBD_LL_IsoOUTIncomplete:0000000000000000 USBD_LL_IsoOUTIncomplete
+     /tmp/ccvk9m29.s:569    .text.USBD_LL_DevConnected:0000000000000000 $t
+     /tmp/ccvk9m29.s:576    .text.USBD_LL_DevConnected:0000000000000000 USBD_LL_DevConnected
+     /tmp/ccvk9m29.s:584    .text.USBD_LL_DevDisconnected:0000000000000000 $t
+     /tmp/ccvk9m29.s:591    .text.USBD_LL_DevDisconnected:0000000000000000 USBD_LL_DevDisconnected
+     /tmp/ccvk9m29.s:605    .rodata.USBD_Init.str1.4:0000000000000000 $d
+     /tmp/ccvk9m29.s:611    .rodata.USBD_RegisterClass.str1.4:0000000000000000 $d
+
+UNDEFINED SYMBOLS
+USBD_LL_Init
+printf
+putchar
+USBD_LL_Stop
+USBD_LL_DeInit
+USBD_LL_Start
+USBD_ParseSetupRequest
+USBD_LL_StallEP
+USBD_StdDevReq
+ARM GAS  /tmp/ccvk9m29.s 			page 13
+
+
+USBD_StdItfReq
+USBD_StdEPReq
+USBD_CtlSendStatus
+USBD_CtlContinueRx
+USBD_CtlReceiveStatus
+USBD_CtlContinueSendData
+USBD_LL_PrepareReceive
+USBD_LL_OpenEP

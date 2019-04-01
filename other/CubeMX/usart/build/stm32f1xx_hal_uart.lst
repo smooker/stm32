@@ -1,0 +1,2667 @@
+ARM GAS  /tmp/ccL7ClOf.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 1
+   9              		.eabi_attribute 34, 1
+  10              		.eabi_attribute 18, 4
+  11              		.file	"stm32f1xx_hal_uart.c"
+  12              		.text
+  13              		.section	.text.UART_EndTxTransfer,"ax",%progbits
+  14              		.align	1
+  15              		.arch armv7-m
+  16              		.syntax unified
+  17              		.thumb
+  18              		.thumb_func
+  19              		.fpu softvfp
+  21              	UART_EndTxTransfer:
+  22              		@ args = 0, pretend = 0, frame = 0
+  23              		@ frame_needed = 0, uses_anonymous_args = 0
+  24              		@ link register save eliminated.
+  25 0000 0268     		ldr	r2, [r0]
+  26 0002 D368     		ldr	r3, [r2, #12]
+  27 0004 23F0C003 		bic	r3, r3, #192
+  28 0008 D360     		str	r3, [r2, #12]
+  29 000a 2023     		movs	r3, #32
+  30 000c 80F83930 		strb	r3, [r0, #57]
+  31 0010 7047     		bx	lr
+  33              		.section	.text.UART_EndRxTransfer,"ax",%progbits
+  34              		.align	1
+  35              		.syntax unified
+  36              		.thumb
+  37              		.thumb_func
+  38              		.fpu softvfp
+  40              	UART_EndRxTransfer:
+  41              		@ args = 0, pretend = 0, frame = 0
+  42              		@ frame_needed = 0, uses_anonymous_args = 0
+  43              		@ link register save eliminated.
+  44 0000 0268     		ldr	r2, [r0]
+  45 0002 D368     		ldr	r3, [r2, #12]
+  46 0004 23F49073 		bic	r3, r3, #288
+  47 0008 D360     		str	r3, [r2, #12]
+  48 000a 0268     		ldr	r2, [r0]
+  49 000c 5369     		ldr	r3, [r2, #20]
+  50 000e 23F00103 		bic	r3, r3, #1
+  51 0012 5361     		str	r3, [r2, #20]
+  52 0014 2023     		movs	r3, #32
+  53 0016 80F83A30 		strb	r3, [r0, #58]
+  54 001a 7047     		bx	lr
+  56              		.section	.text.UART_Transmit_IT,"ax",%progbits
+  57              		.align	1
+  58              		.syntax unified
+  59              		.thumb
+  60              		.thumb_func
+  61              		.fpu softvfp
+ARM GAS  /tmp/ccL7ClOf.s 			page 2
+
+
+  63              	UART_Transmit_IT:
+  64              		@ args = 0, pretend = 0, frame = 0
+  65              		@ frame_needed = 0, uses_anonymous_args = 0
+  66              		@ link register save eliminated.
+  67 0000 90F83930 		ldrb	r3, [r0, #57]	@ zero_extendqisi2
+  68 0004 DBB2     		uxtb	r3, r3
+  69 0006 212B     		cmp	r3, #33
+  70 0008 01D0     		beq	.L10
+  71 000a 0220     		movs	r0, #2
+  72 000c 7047     		bx	lr
+  73              	.L10:
+  74 000e 8368     		ldr	r3, [r0, #8]
+  75 0010 B3F5805F 		cmp	r3, #4096
+  76 0014 16D0     		beq	.L11
+  77 0016 036A     		ldr	r3, [r0, #32]
+  78 0018 5A1C     		adds	r2, r3, #1
+  79 001a 0262     		str	r2, [r0, #32]
+  80 001c 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+  81 001e 0368     		ldr	r3, [r0]
+  82 0020 5A60     		str	r2, [r3, #4]
+  83              	.L7:
+  84 0022 C38C     		ldrh	r3, [r0, #38]
+  85 0024 013B     		subs	r3, r3, #1
+  86 0026 9BB2     		uxth	r3, r3
+  87 0028 C384     		strh	r3, [r0, #38]	@ movhi
+  88 002a 4BB9     		cbnz	r3, .L8
+  89 002c 0268     		ldr	r2, [r0]
+  90 002e D368     		ldr	r3, [r2, #12]
+  91 0030 23F08003 		bic	r3, r3, #128
+  92 0034 D360     		str	r3, [r2, #12]
+  93 0036 0268     		ldr	r2, [r0]
+  94 0038 D368     		ldr	r3, [r2, #12]
+  95 003a 43F04003 		orr	r3, r3, #64
+  96 003e D360     		str	r3, [r2, #12]
+  97              	.L8:
+  98 0040 0020     		movs	r0, #0
+  99 0042 7047     		bx	lr
+ 100              	.L11:
+ 101 0044 036A     		ldr	r3, [r0, #32]
+ 102 0046 1B88     		ldrh	r3, [r3]
+ 103 0048 0268     		ldr	r2, [r0]
+ 104 004a C3F30803 		ubfx	r3, r3, #0, #9
+ 105 004e 5360     		str	r3, [r2, #4]
+ 106 0050 0369     		ldr	r3, [r0, #16]
+ 107 0052 1BB9     		cbnz	r3, .L6
+ 108 0054 036A     		ldr	r3, [r0, #32]
+ 109 0056 0233     		adds	r3, r3, #2
+ 110 0058 0362     		str	r3, [r0, #32]
+ 111 005a E2E7     		b	.L7
+ 112              	.L6:
+ 113 005c 036A     		ldr	r3, [r0, #32]
+ 114 005e 0133     		adds	r3, r3, #1
+ 115 0060 0362     		str	r3, [r0, #32]
+ 116 0062 DEE7     		b	.L7
+ 118              		.section	.text.UART_SetConfig,"ax",%progbits
+ 119              		.align	1
+ 120              		.syntax unified
+ARM GAS  /tmp/ccL7ClOf.s 			page 3
+
+
+ 121              		.thumb
+ 122              		.thumb_func
+ 123              		.fpu softvfp
+ 125              	UART_SetConfig:
+ 126              		@ args = 0, pretend = 0, frame = 0
+ 127              		@ frame_needed = 0, uses_anonymous_args = 0
+ 128 0000 2DE9F843 		push	{r3, r4, r5, r6, r7, r8, r9, lr}
+ 129 0004 0546     		mov	r5, r0
+ 130 0006 0268     		ldr	r2, [r0]
+ 131 0008 1369     		ldr	r3, [r2, #16]
+ 132 000a 23F44053 		bic	r3, r3, #12288
+ 133 000e C168     		ldr	r1, [r0, #12]
+ 134 0010 0B43     		orrs	r3, r3, r1
+ 135 0012 1361     		str	r3, [r2, #16]
+ 136 0014 8368     		ldr	r3, [r0, #8]
+ 137 0016 0269     		ldr	r2, [r0, #16]
+ 138 0018 1343     		orrs	r3, r3, r2
+ 139 001a 4269     		ldr	r2, [r0, #20]
+ 140 001c 1343     		orrs	r3, r3, r2
+ 141 001e 0168     		ldr	r1, [r0]
+ 142 0020 CA68     		ldr	r2, [r1, #12]
+ 143 0022 22F4B052 		bic	r2, r2, #5632
+ 144 0026 22F00C02 		bic	r2, r2, #12
+ 145 002a 1343     		orrs	r3, r3, r2
+ 146 002c CB60     		str	r3, [r1, #12]
+ 147 002e 0268     		ldr	r2, [r0]
+ 148 0030 5369     		ldr	r3, [r2, #20]
+ 149 0032 23F44073 		bic	r3, r3, #768
+ 150 0036 8169     		ldr	r1, [r0, #24]
+ 151 0038 0B43     		orrs	r3, r3, r1
+ 152 003a 5361     		str	r3, [r2, #20]
+ 153 003c 0268     		ldr	r2, [r0]
+ 154 003e 594B     		ldr	r3, .L17
+ 155 0040 9A42     		cmp	r2, r3
+ 156 0042 57D0     		beq	.L16
+ 157 0044 FFF7FEFF 		bl	HAL_RCC_GetPCLK1Freq
+ 158 0048 00EB8000 		add	r0, r0, r0, lsl #2
+ 159 004c 00EB8000 		add	r0, r0, r0, lsl #2
+ 160 0050 6C68     		ldr	r4, [r5, #4]
+ 161 0052 A400     		lsls	r4, r4, #2
+ 162 0054 B0FBF4F4 		udiv	r4, r0, r4
+ 163 0058 534F     		ldr	r7, .L17+4
+ 164 005a A7FB0434 		umull	r3, r4, r7, r4
+ 165 005e 6409     		lsrs	r4, r4, #5
+ 166 0060 2601     		lsls	r6, r4, #4
+ 167 0062 FFF7FEFF 		bl	HAL_RCC_GetPCLK1Freq
+ 168 0066 00EB8000 		add	r0, r0, r0, lsl #2
+ 169 006a 00EB8000 		add	r0, r0, r0, lsl #2
+ 170 006e 6C68     		ldr	r4, [r5, #4]
+ 171 0070 A400     		lsls	r4, r4, #2
+ 172 0072 B0FBF4F9 		udiv	r9, r0, r4
+ 173 0076 FFF7FEFF 		bl	HAL_RCC_GetPCLK1Freq
+ 174 007a 00EB8000 		add	r0, r0, r0, lsl #2
+ 175 007e 00EB8000 		add	r0, r0, r0, lsl #2
+ 176 0082 6C68     		ldr	r4, [r5, #4]
+ 177 0084 A400     		lsls	r4, r4, #2
+ 178 0086 B0FBF4F4 		udiv	r4, r0, r4
+ARM GAS  /tmp/ccL7ClOf.s 			page 4
+
+
+ 179 008a A7FB0434 		umull	r3, r4, r7, r4
+ 180 008e 6409     		lsrs	r4, r4, #5
+ 181 0090 4FF06408 		mov	r8, #100
+ 182 0094 08FB1494 		mls	r4, r8, r4, r9
+ 183 0098 2401     		lsls	r4, r4, #4
+ 184 009a 3234     		adds	r4, r4, #50
+ 185 009c A7FB0434 		umull	r3, r4, r7, r4
+ 186 00a0 6409     		lsrs	r4, r4, #5
+ 187 00a2 04F0F004 		and	r4, r4, #240
+ 188 00a6 3444     		add	r4, r4, r6
+ 189 00a8 FFF7FEFF 		bl	HAL_RCC_GetPCLK1Freq
+ 190 00ac 00EB8000 		add	r0, r0, r0, lsl #2
+ 191 00b0 00EB8000 		add	r0, r0, r0, lsl #2
+ 192 00b4 6E68     		ldr	r6, [r5, #4]
+ 193 00b6 B600     		lsls	r6, r6, #2
+ 194 00b8 B0FBF6F6 		udiv	r6, r0, r6
+ 195 00bc FFF7FEFF 		bl	HAL_RCC_GetPCLK1Freq
+ 196 00c0 00EB8000 		add	r0, r0, r0, lsl #2
+ 197 00c4 00EB8000 		add	r0, r0, r0, lsl #2
+ 198 00c8 6B68     		ldr	r3, [r5, #4]
+ 199 00ca 9B00     		lsls	r3, r3, #2
+ 200 00cc B0FBF3F0 		udiv	r0, r0, r3
+ 201 00d0 A7FB0030 		umull	r3, r0, r7, r0
+ 202 00d4 4009     		lsrs	r0, r0, #5
+ 203 00d6 08FB1068 		mls	r8, r8, r0, r6
+ 204 00da 4FEA0818 		lsl	r8, r8, #4
+ 205 00de 08F13208 		add	r8, r8, #50
+ 206 00e2 A7FB0837 		umull	r3, r7, r7, r8
+ 207 00e6 C7F34317 		ubfx	r7, r7, #5, #4
+ 208 00ea 2B68     		ldr	r3, [r5]
+ 209 00ec 2744     		add	r7, r7, r4
+ 210 00ee 9F60     		str	r7, [r3, #8]
+ 211              	.L12:
+ 212 00f0 BDE8F883 		pop	{r3, r4, r5, r6, r7, r8, r9, pc}
+ 213              	.L16:
+ 214 00f4 FFF7FEFF 		bl	HAL_RCC_GetPCLK2Freq
+ 215 00f8 00EB8000 		add	r0, r0, r0, lsl #2
+ 216 00fc 00EB8000 		add	r0, r0, r0, lsl #2
+ 217 0100 6C68     		ldr	r4, [r5, #4]
+ 218 0102 A400     		lsls	r4, r4, #2
+ 219 0104 B0FBF4F4 		udiv	r4, r0, r4
+ 220 0108 274F     		ldr	r7, .L17+4
+ 221 010a A7FB0434 		umull	r3, r4, r7, r4
+ 222 010e 6409     		lsrs	r4, r4, #5
+ 223 0110 2601     		lsls	r6, r4, #4
+ 224 0112 FFF7FEFF 		bl	HAL_RCC_GetPCLK2Freq
+ 225 0116 00EB8000 		add	r0, r0, r0, lsl #2
+ 226 011a 00EB8000 		add	r0, r0, r0, lsl #2
+ 227 011e 6C68     		ldr	r4, [r5, #4]
+ 228 0120 A400     		lsls	r4, r4, #2
+ 229 0122 B0FBF4F9 		udiv	r9, r0, r4
+ 230 0126 FFF7FEFF 		bl	HAL_RCC_GetPCLK2Freq
+ 231 012a 00EB8000 		add	r0, r0, r0, lsl #2
+ 232 012e 00EB8000 		add	r0, r0, r0, lsl #2
+ 233 0132 6C68     		ldr	r4, [r5, #4]
+ 234 0134 A400     		lsls	r4, r4, #2
+ 235 0136 B0FBF4F4 		udiv	r4, r0, r4
+ARM GAS  /tmp/ccL7ClOf.s 			page 5
+
+
+ 236 013a A7FB0434 		umull	r3, r4, r7, r4
+ 237 013e 6409     		lsrs	r4, r4, #5
+ 238 0140 4FF06408 		mov	r8, #100
+ 239 0144 08FB1494 		mls	r4, r8, r4, r9
+ 240 0148 2401     		lsls	r4, r4, #4
+ 241 014a 3234     		adds	r4, r4, #50
+ 242 014c A7FB0434 		umull	r3, r4, r7, r4
+ 243 0150 6409     		lsrs	r4, r4, #5
+ 244 0152 04F0F004 		and	r4, r4, #240
+ 245 0156 3444     		add	r4, r4, r6
+ 246 0158 FFF7FEFF 		bl	HAL_RCC_GetPCLK2Freq
+ 247 015c 00EB8000 		add	r0, r0, r0, lsl #2
+ 248 0160 00EB8000 		add	r0, r0, r0, lsl #2
+ 249 0164 6E68     		ldr	r6, [r5, #4]
+ 250 0166 B600     		lsls	r6, r6, #2
+ 251 0168 B0FBF6F6 		udiv	r6, r0, r6
+ 252 016c FFF7FEFF 		bl	HAL_RCC_GetPCLK2Freq
+ 253 0170 00EB8000 		add	r0, r0, r0, lsl #2
+ 254 0174 00EB8000 		add	r0, r0, r0, lsl #2
+ 255 0178 6B68     		ldr	r3, [r5, #4]
+ 256 017a 9B00     		lsls	r3, r3, #2
+ 257 017c B0FBF3F0 		udiv	r0, r0, r3
+ 258 0180 A7FB0030 		umull	r3, r0, r7, r0
+ 259 0184 4009     		lsrs	r0, r0, #5
+ 260 0186 08FB1068 		mls	r8, r8, r0, r6
+ 261 018a 4FEA0818 		lsl	r8, r8, #4
+ 262 018e 08F13208 		add	r8, r8, #50
+ 263 0192 A7FB0837 		umull	r3, r7, r7, r8
+ 264 0196 C7F34317 		ubfx	r7, r7, #5, #4
+ 265 019a 2B68     		ldr	r3, [r5]
+ 266 019c 2744     		add	r7, r7, r4
+ 267 019e 9F60     		str	r7, [r3, #8]
+ 268 01a0 A6E7     		b	.L12
+ 269              	.L18:
+ 270 01a2 00BF     		.align	2
+ 271              	.L17:
+ 272 01a4 00380140 		.word	1073821696
+ 273 01a8 1F85EB51 		.word	1374389535
+ 275              		.section	.text.UART_WaitOnFlagUntilTimeout,"ax",%progbits
+ 276              		.align	1
+ 277              		.syntax unified
+ 278              		.thumb
+ 279              		.thumb_func
+ 280              		.fpu softvfp
+ 282              	UART_WaitOnFlagUntilTimeout:
+ 283              		@ args = 4, pretend = 0, frame = 0
+ 284              		@ frame_needed = 0, uses_anonymous_args = 0
+ 285 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 286 0004 0546     		mov	r5, r0
+ 287 0006 0F46     		mov	r7, r1
+ 288 0008 1646     		mov	r6, r2
+ 289 000a 9846     		mov	r8, r3
+ 290 000c 069C     		ldr	r4, [sp, #24]
+ 291              	.L21:
+ 292 000e 2B68     		ldr	r3, [r5]
+ 293 0010 1B68     		ldr	r3, [r3]
+ 294 0012 37EA0303 		bics	r3, r7, r3
+ARM GAS  /tmp/ccL7ClOf.s 			page 6
+
+
+ 295 0016 0CBF     		ite	eq
+ 296 0018 0123     		moveq	r3, #1
+ 297 001a 0023     		movne	r3, #0
+ 298 001c B342     		cmp	r3, r6
+ 299 001e 1DD1     		bne	.L26
+ 300 0020 B4F1FF3F 		cmp	r4, #-1
+ 301 0024 F3D0     		beq	.L21
+ 302 0026 2CB1     		cbz	r4, .L22
+ 303 0028 FFF7FEFF 		bl	HAL_GetTick
+ 304 002c A0EB0800 		sub	r0, r0, r8
+ 305 0030 A042     		cmp	r0, r4
+ 306 0032 ECD9     		bls	.L21
+ 307              	.L22:
+ 308 0034 2A68     		ldr	r2, [r5]
+ 309 0036 D368     		ldr	r3, [r2, #12]
+ 310 0038 23F4D073 		bic	r3, r3, #416
+ 311 003c D360     		str	r3, [r2, #12]
+ 312 003e 2A68     		ldr	r2, [r5]
+ 313 0040 5369     		ldr	r3, [r2, #20]
+ 314 0042 23F00103 		bic	r3, r3, #1
+ 315 0046 5361     		str	r3, [r2, #20]
+ 316 0048 2023     		movs	r3, #32
+ 317 004a 85F83930 		strb	r3, [r5, #57]
+ 318 004e 85F83A30 		strb	r3, [r5, #58]
+ 319 0052 0023     		movs	r3, #0
+ 320 0054 85F83830 		strb	r3, [r5, #56]
+ 321 0058 0320     		movs	r0, #3
+ 322 005a 00E0     		b	.L23
+ 323              	.L26:
+ 324 005c 0020     		movs	r0, #0
+ 325              	.L23:
+ 326 005e BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 328              		.section	.text.HAL_UART_MspInit,"ax",%progbits
+ 329              		.align	1
+ 330              		.weak	HAL_UART_MspInit
+ 331              		.syntax unified
+ 332              		.thumb
+ 333              		.thumb_func
+ 334              		.fpu softvfp
+ 336              	HAL_UART_MspInit:
+ 337              		@ args = 0, pretend = 0, frame = 0
+ 338              		@ frame_needed = 0, uses_anonymous_args = 0
+ 339              		@ link register save eliminated.
+ 340 0000 7047     		bx	lr
+ 342              		.section	.text.HAL_UART_Init,"ax",%progbits
+ 343              		.align	1
+ 344              		.global	HAL_UART_Init
+ 345              		.syntax unified
+ 346              		.thumb
+ 347              		.thumb_func
+ 348              		.fpu softvfp
+ 350              	HAL_UART_Init:
+ 351              		@ args = 0, pretend = 0, frame = 0
+ 352              		@ frame_needed = 0, uses_anonymous_args = 0
+ 353 0000 58B3     		cbz	r0, .L31
+ 354 0002 10B5     		push	{r4, lr}
+ 355 0004 0446     		mov	r4, r0
+ARM GAS  /tmp/ccL7ClOf.s 			page 7
+
+
+ 356 0006 90F83930 		ldrb	r3, [r0, #57]	@ zero_extendqisi2
+ 357 000a 0BB3     		cbz	r3, .L36
+ 358              	.L30:
+ 359 000c 2423     		movs	r3, #36
+ 360 000e 84F83930 		strb	r3, [r4, #57]
+ 361 0012 2268     		ldr	r2, [r4]
+ 362 0014 D368     		ldr	r3, [r2, #12]
+ 363 0016 23F40053 		bic	r3, r3, #8192
+ 364 001a D360     		str	r3, [r2, #12]
+ 365 001c 2046     		mov	r0, r4
+ 366 001e FFF7FEFF 		bl	UART_SetConfig
+ 367 0022 2268     		ldr	r2, [r4]
+ 368 0024 1369     		ldr	r3, [r2, #16]
+ 369 0026 23F49043 		bic	r3, r3, #18432
+ 370 002a 1361     		str	r3, [r2, #16]
+ 371 002c 2268     		ldr	r2, [r4]
+ 372 002e 5369     		ldr	r3, [r2, #20]
+ 373 0030 23F02A03 		bic	r3, r3, #42
+ 374 0034 5361     		str	r3, [r2, #20]
+ 375 0036 2268     		ldr	r2, [r4]
+ 376 0038 D368     		ldr	r3, [r2, #12]
+ 377 003a 43F40053 		orr	r3, r3, #8192
+ 378 003e D360     		str	r3, [r2, #12]
+ 379 0040 0020     		movs	r0, #0
+ 380 0042 E063     		str	r0, [r4, #60]
+ 381 0044 2023     		movs	r3, #32
+ 382 0046 84F83930 		strb	r3, [r4, #57]
+ 383 004a 84F83A30 		strb	r3, [r4, #58]
+ 384 004e 10BD     		pop	{r4, pc}
+ 385              	.L36:
+ 386 0050 80F83830 		strb	r3, [r0, #56]
+ 387 0054 FFF7FEFF 		bl	HAL_UART_MspInit
+ 388 0058 D8E7     		b	.L30
+ 389              	.L31:
+ 390 005a 0120     		movs	r0, #1
+ 391 005c 7047     		bx	lr
+ 393              		.section	.text.HAL_HalfDuplex_Init,"ax",%progbits
+ 394              		.align	1
+ 395              		.global	HAL_HalfDuplex_Init
+ 396              		.syntax unified
+ 397              		.thumb
+ 398              		.thumb_func
+ 399              		.fpu softvfp
+ 401              	HAL_HalfDuplex_Init:
+ 402              		@ args = 0, pretend = 0, frame = 0
+ 403              		@ frame_needed = 0, uses_anonymous_args = 0
+ 404 0000 0028     		cmp	r0, #0
+ 405 0002 30D0     		beq	.L40
+ 406 0004 10B5     		push	{r4, lr}
+ 407 0006 0446     		mov	r4, r0
+ 408 0008 90F83930 		ldrb	r3, [r0, #57]	@ zero_extendqisi2
+ 409 000c 33B3     		cbz	r3, .L45
+ 410              	.L39:
+ 411 000e 2423     		movs	r3, #36
+ 412 0010 84F83930 		strb	r3, [r4, #57]
+ 413 0014 2268     		ldr	r2, [r4]
+ 414 0016 D368     		ldr	r3, [r2, #12]
+ARM GAS  /tmp/ccL7ClOf.s 			page 8
+
+
+ 415 0018 23F40053 		bic	r3, r3, #8192
+ 416 001c D360     		str	r3, [r2, #12]
+ 417 001e 2046     		mov	r0, r4
+ 418 0020 FFF7FEFF 		bl	UART_SetConfig
+ 419 0024 2268     		ldr	r2, [r4]
+ 420 0026 1369     		ldr	r3, [r2, #16]
+ 421 0028 23F49043 		bic	r3, r3, #18432
+ 422 002c 1361     		str	r3, [r2, #16]
+ 423 002e 2268     		ldr	r2, [r4]
+ 424 0030 5369     		ldr	r3, [r2, #20]
+ 425 0032 23F02203 		bic	r3, r3, #34
+ 426 0036 5361     		str	r3, [r2, #20]
+ 427 0038 2268     		ldr	r2, [r4]
+ 428 003a 5369     		ldr	r3, [r2, #20]
+ 429 003c 43F00803 		orr	r3, r3, #8
+ 430 0040 5361     		str	r3, [r2, #20]
+ 431 0042 2268     		ldr	r2, [r4]
+ 432 0044 D368     		ldr	r3, [r2, #12]
+ 433 0046 43F40053 		orr	r3, r3, #8192
+ 434 004a D360     		str	r3, [r2, #12]
+ 435 004c 0020     		movs	r0, #0
+ 436 004e E063     		str	r0, [r4, #60]
+ 437 0050 2023     		movs	r3, #32
+ 438 0052 84F83930 		strb	r3, [r4, #57]
+ 439 0056 84F83A30 		strb	r3, [r4, #58]
+ 440 005a 10BD     		pop	{r4, pc}
+ 441              	.L45:
+ 442 005c 80F83830 		strb	r3, [r0, #56]
+ 443 0060 FFF7FEFF 		bl	HAL_UART_MspInit
+ 444 0064 D3E7     		b	.L39
+ 445              	.L40:
+ 446 0066 0120     		movs	r0, #1
+ 447 0068 7047     		bx	lr
+ 449              		.section	.text.HAL_LIN_Init,"ax",%progbits
+ 450              		.align	1
+ 451              		.global	HAL_LIN_Init
+ 452              		.syntax unified
+ 453              		.thumb
+ 454              		.thumb_func
+ 455              		.fpu softvfp
+ 457              	HAL_LIN_Init:
+ 458              		@ args = 0, pretend = 0, frame = 0
+ 459              		@ frame_needed = 0, uses_anonymous_args = 0
+ 460 0000 0028     		cmp	r0, #0
+ 461 0002 37D0     		beq	.L49
+ 462 0004 38B5     		push	{r3, r4, r5, lr}
+ 463 0006 0446     		mov	r4, r0
+ 464 0008 0D46     		mov	r5, r1
+ 465 000a 90F83930 		ldrb	r3, [r0, #57]	@ zero_extendqisi2
+ 466 000e 63B3     		cbz	r3, .L54
+ 467              	.L48:
+ 468 0010 2423     		movs	r3, #36
+ 469 0012 84F83930 		strb	r3, [r4, #57]
+ 470 0016 2268     		ldr	r2, [r4]
+ 471 0018 D368     		ldr	r3, [r2, #12]
+ 472 001a 23F40053 		bic	r3, r3, #8192
+ 473 001e D360     		str	r3, [r2, #12]
+ARM GAS  /tmp/ccL7ClOf.s 			page 9
+
+
+ 474 0020 2046     		mov	r0, r4
+ 475 0022 FFF7FEFF 		bl	UART_SetConfig
+ 476 0026 2268     		ldr	r2, [r4]
+ 477 0028 1369     		ldr	r3, [r2, #16]
+ 478 002a 23F40063 		bic	r3, r3, #2048
+ 479 002e 1361     		str	r3, [r2, #16]
+ 480 0030 2268     		ldr	r2, [r4]
+ 481 0032 5369     		ldr	r3, [r2, #20]
+ 482 0034 23F02A03 		bic	r3, r3, #42
+ 483 0038 5361     		str	r3, [r2, #20]
+ 484 003a 2268     		ldr	r2, [r4]
+ 485 003c 1369     		ldr	r3, [r2, #16]
+ 486 003e 43F48043 		orr	r3, r3, #16384
+ 487 0042 1361     		str	r3, [r2, #16]
+ 488 0044 2268     		ldr	r2, [r4]
+ 489 0046 1369     		ldr	r3, [r2, #16]
+ 490 0048 23F02003 		bic	r3, r3, #32
+ 491 004c 2B43     		orrs	r3, r3, r5
+ 492 004e 1361     		str	r3, [r2, #16]
+ 493 0050 2268     		ldr	r2, [r4]
+ 494 0052 D368     		ldr	r3, [r2, #12]
+ 495 0054 43F40053 		orr	r3, r3, #8192
+ 496 0058 D360     		str	r3, [r2, #12]
+ 497 005a 0020     		movs	r0, #0
+ 498 005c E063     		str	r0, [r4, #60]
+ 499 005e 2023     		movs	r3, #32
+ 500 0060 84F83930 		strb	r3, [r4, #57]
+ 501 0064 84F83A30 		strb	r3, [r4, #58]
+ 502 0068 38BD     		pop	{r3, r4, r5, pc}
+ 503              	.L54:
+ 504 006a 80F83830 		strb	r3, [r0, #56]
+ 505 006e FFF7FEFF 		bl	HAL_UART_MspInit
+ 506 0072 CDE7     		b	.L48
+ 507              	.L49:
+ 508 0074 0120     		movs	r0, #1
+ 509 0076 7047     		bx	lr
+ 511              		.section	.text.HAL_MultiProcessor_Init,"ax",%progbits
+ 512              		.align	1
+ 513              		.global	HAL_MultiProcessor_Init
+ 514              		.syntax unified
+ 515              		.thumb
+ 516              		.thumb_func
+ 517              		.fpu softvfp
+ 519              	HAL_MultiProcessor_Init:
+ 520              		@ args = 0, pretend = 0, frame = 0
+ 521              		@ frame_needed = 0, uses_anonymous_args = 0
+ 522 0000 0028     		cmp	r0, #0
+ 523 0002 3AD0     		beq	.L58
+ 524 0004 70B5     		push	{r4, r5, r6, lr}
+ 525 0006 0446     		mov	r4, r0
+ 526 0008 1646     		mov	r6, r2
+ 527 000a 0D46     		mov	r5, r1
+ 528 000c 90F83930 		ldrb	r3, [r0, #57]	@ zero_extendqisi2
+ 529 0010 002B     		cmp	r3, #0
+ 530 0012 2DD0     		beq	.L63
+ 531              	.L57:
+ 532 0014 2423     		movs	r3, #36
+ARM GAS  /tmp/ccL7ClOf.s 			page 10
+
+
+ 533 0016 84F83930 		strb	r3, [r4, #57]
+ 534 001a 2268     		ldr	r2, [r4]
+ 535 001c D368     		ldr	r3, [r2, #12]
+ 536 001e 23F40053 		bic	r3, r3, #8192
+ 537 0022 D360     		str	r3, [r2, #12]
+ 538 0024 2046     		mov	r0, r4
+ 539 0026 FFF7FEFF 		bl	UART_SetConfig
+ 540 002a 2268     		ldr	r2, [r4]
+ 541 002c 1369     		ldr	r3, [r2, #16]
+ 542 002e 23F49043 		bic	r3, r3, #18432
+ 543 0032 1361     		str	r3, [r2, #16]
+ 544 0034 2268     		ldr	r2, [r4]
+ 545 0036 5369     		ldr	r3, [r2, #20]
+ 546 0038 23F02A03 		bic	r3, r3, #42
+ 547 003c 5361     		str	r3, [r2, #20]
+ 548 003e 2368     		ldr	r3, [r4]
+ 549 0040 1969     		ldr	r1, [r3, #16]
+ 550 0042 21F00F01 		bic	r1, r1, #15
+ 551 0046 0D43     		orrs	r5, r5, r1
+ 552 0048 1D61     		str	r5, [r3, #16]
+ 553 004a 2168     		ldr	r1, [r4]
+ 554 004c CB68     		ldr	r3, [r1, #12]
+ 555 004e 23F40063 		bic	r3, r3, #2048
+ 556 0052 3343     		orrs	r3, r3, r6
+ 557 0054 CB60     		str	r3, [r1, #12]
+ 558 0056 2268     		ldr	r2, [r4]
+ 559 0058 D368     		ldr	r3, [r2, #12]
+ 560 005a 43F40053 		orr	r3, r3, #8192
+ 561 005e D360     		str	r3, [r2, #12]
+ 562 0060 0020     		movs	r0, #0
+ 563 0062 E063     		str	r0, [r4, #60]
+ 564 0064 2023     		movs	r3, #32
+ 565 0066 84F83930 		strb	r3, [r4, #57]
+ 566 006a 84F83A30 		strb	r3, [r4, #58]
+ 567 006e 70BD     		pop	{r4, r5, r6, pc}
+ 568              	.L63:
+ 569 0070 80F83830 		strb	r3, [r0, #56]
+ 570 0074 FFF7FEFF 		bl	HAL_UART_MspInit
+ 571 0078 CCE7     		b	.L57
+ 572              	.L58:
+ 573 007a 0120     		movs	r0, #1
+ 574 007c 7047     		bx	lr
+ 576              		.section	.text.HAL_UART_MspDeInit,"ax",%progbits
+ 577              		.align	1
+ 578              		.weak	HAL_UART_MspDeInit
+ 579              		.syntax unified
+ 580              		.thumb
+ 581              		.thumb_func
+ 582              		.fpu softvfp
+ 584              	HAL_UART_MspDeInit:
+ 585              		@ args = 0, pretend = 0, frame = 0
+ 586              		@ frame_needed = 0, uses_anonymous_args = 0
+ 587              		@ link register save eliminated.
+ 588 0000 7047     		bx	lr
+ 590              		.section	.text.HAL_UART_DeInit,"ax",%progbits
+ 591              		.align	1
+ 592              		.global	HAL_UART_DeInit
+ARM GAS  /tmp/ccL7ClOf.s 			page 11
+
+
+ 593              		.syntax unified
+ 594              		.thumb
+ 595              		.thumb_func
+ 596              		.fpu softvfp
+ 598              	HAL_UART_DeInit:
+ 599              		@ args = 0, pretend = 0, frame = 0
+ 600              		@ frame_needed = 0, uses_anonymous_args = 0
+ 601 0000 78B1     		cbz	r0, .L67
+ 602 0002 10B5     		push	{r4, lr}
+ 603 0004 0446     		mov	r4, r0
+ 604 0006 2423     		movs	r3, #36
+ 605 0008 80F83930 		strb	r3, [r0, #57]
+ 606 000c FFF7FEFF 		bl	HAL_UART_MspDeInit
+ 607 0010 0020     		movs	r0, #0
+ 608 0012 E063     		str	r0, [r4, #60]
+ 609 0014 84F83900 		strb	r0, [r4, #57]
+ 610 0018 84F83A00 		strb	r0, [r4, #58]
+ 611 001c 84F83800 		strb	r0, [r4, #56]
+ 612 0020 10BD     		pop	{r4, pc}
+ 613              	.L67:
+ 614 0022 0120     		movs	r0, #1
+ 615 0024 7047     		bx	lr
+ 617              		.section	.text.HAL_UART_Transmit,"ax",%progbits
+ 618              		.align	1
+ 619              		.global	HAL_UART_Transmit
+ 620              		.syntax unified
+ 621              		.thumb
+ 622              		.thumb_func
+ 623              		.fpu softvfp
+ 625              	HAL_UART_Transmit:
+ 626              		@ args = 0, pretend = 0, frame = 0
+ 627              		@ frame_needed = 0, uses_anonymous_args = 0
+ 628 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 629 0004 82B0     		sub	sp, sp, #8
+ 630 0006 1E46     		mov	r6, r3
+ 631 0008 90F83930 		ldrb	r3, [r0, #57]	@ zero_extendqisi2
+ 632 000c DBB2     		uxtb	r3, r3
+ 633 000e 202B     		cmp	r3, #32
+ 634 0010 55D1     		bne	.L79
+ 635 0012 0446     		mov	r4, r0
+ 636 0014 0D46     		mov	r5, r1
+ 637 0016 9046     		mov	r8, r2
+ 638 0018 0029     		cmp	r1, #0
+ 639 001a 55D0     		beq	.L80
+ 640 001c 002A     		cmp	r2, #0
+ 641 001e 55D0     		beq	.L81
+ 642 0020 90F83830 		ldrb	r3, [r0, #56]	@ zero_extendqisi2
+ 643 0024 012B     		cmp	r3, #1
+ 644 0026 53D0     		beq	.L82
+ 645 0028 0123     		movs	r3, #1
+ 646 002a 80F83830 		strb	r3, [r0, #56]
+ 647 002e 0023     		movs	r3, #0
+ 648 0030 C363     		str	r3, [r0, #60]
+ 649 0032 2123     		movs	r3, #33
+ 650 0034 80F83930 		strb	r3, [r0, #57]
+ 651 0038 FFF7FEFF 		bl	HAL_GetTick
+ 652 003c 0746     		mov	r7, r0
+ARM GAS  /tmp/ccL7ClOf.s 			page 12
+
+
+ 653 003e A4F82480 		strh	r8, [r4, #36]	@ movhi
+ 654 0042 A4F82680 		strh	r8, [r4, #38]	@ movhi
+ 655 0046 10E0     		b	.L74
+ 656              	.L88:
+ 657 0048 0096     		str	r6, [sp]
+ 658 004a 3B46     		mov	r3, r7
+ 659 004c 0022     		movs	r2, #0
+ 660 004e 8021     		movs	r1, #128
+ 661 0050 2046     		mov	r0, r4
+ 662 0052 FFF7FEFF 		bl	UART_WaitOnFlagUntilTimeout
+ 663 0056 0028     		cmp	r0, #0
+ 664 0058 3CD1     		bne	.L83
+ 665 005a 2B88     		ldrh	r3, [r5]
+ 666 005c 2268     		ldr	r2, [r4]
+ 667 005e C3F30803 		ubfx	r3, r3, #0, #9
+ 668 0062 5360     		str	r3, [r2, #4]
+ 669 0064 2369     		ldr	r3, [r4, #16]
+ 670 0066 C3B9     		cbnz	r3, .L76
+ 671 0068 0235     		adds	r5, r5, #2
+ 672              	.L74:
+ 673 006a E38C     		ldrh	r3, [r4, #38]
+ 674 006c 9BB2     		uxth	r3, r3
+ 675 006e B3B1     		cbz	r3, .L87
+ 676 0070 E38C     		ldrh	r3, [r4, #38]
+ 677 0072 013B     		subs	r3, r3, #1
+ 678 0074 9BB2     		uxth	r3, r3
+ 679 0076 E384     		strh	r3, [r4, #38]	@ movhi
+ 680 0078 A368     		ldr	r3, [r4, #8]
+ 681 007a B3F5805F 		cmp	r3, #4096
+ 682 007e E3D0     		beq	.L88
+ 683 0080 0096     		str	r6, [sp]
+ 684 0082 3B46     		mov	r3, r7
+ 685 0084 0022     		movs	r2, #0
+ 686 0086 8021     		movs	r1, #128
+ 687 0088 2046     		mov	r0, r4
+ 688 008a FFF7FEFF 		bl	UART_WaitOnFlagUntilTimeout
+ 689 008e 18BB     		cbnz	r0, .L84
+ 690 0090 15F8012B 		ldrb	r2, [r5], #1	@ zero_extendqisi2
+ 691 0094 2368     		ldr	r3, [r4]
+ 692 0096 5A60     		str	r2, [r3, #4]
+ 693 0098 E7E7     		b	.L74
+ 694              	.L76:
+ 695 009a 0135     		adds	r5, r5, #1
+ 696 009c E5E7     		b	.L74
+ 697              	.L87:
+ 698 009e 0096     		str	r6, [sp]
+ 699 00a0 3B46     		mov	r3, r7
+ 700 00a2 0022     		movs	r2, #0
+ 701 00a4 4021     		movs	r1, #64
+ 702 00a6 2046     		mov	r0, r4
+ 703 00a8 FFF7FEFF 		bl	UART_WaitOnFlagUntilTimeout
+ 704 00ac 0346     		mov	r3, r0
+ 705 00ae A8B9     		cbnz	r0, .L85
+ 706 00b0 2022     		movs	r2, #32
+ 707 00b2 84F83920 		strb	r2, [r4, #57]
+ 708 00b6 0022     		movs	r2, #0
+ 709 00b8 84F83820 		strb	r2, [r4, #56]
+ARM GAS  /tmp/ccL7ClOf.s 			page 13
+
+
+ 710 00bc 00E0     		b	.L73
+ 711              	.L79:
+ 712 00be 0223     		movs	r3, #2
+ 713              	.L73:
+ 714 00c0 1846     		mov	r0, r3
+ 715 00c2 02B0     		add	sp, sp, #8
+ 716              		@ sp needed
+ 717 00c4 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 718              	.L80:
+ 719 00c8 0123     		movs	r3, #1
+ 720 00ca F9E7     		b	.L73
+ 721              	.L81:
+ 722 00cc 0123     		movs	r3, #1
+ 723 00ce F7E7     		b	.L73
+ 724              	.L82:
+ 725 00d0 0223     		movs	r3, #2
+ 726 00d2 F5E7     		b	.L73
+ 727              	.L83:
+ 728 00d4 0323     		movs	r3, #3
+ 729 00d6 F3E7     		b	.L73
+ 730              	.L84:
+ 731 00d8 0323     		movs	r3, #3
+ 732 00da F1E7     		b	.L73
+ 733              	.L85:
+ 734 00dc 0323     		movs	r3, #3
+ 735 00de EFE7     		b	.L73
+ 737              		.section	.text.HAL_UART_Receive,"ax",%progbits
+ 738              		.align	1
+ 739              		.global	HAL_UART_Receive
+ 740              		.syntax unified
+ 741              		.thumb
+ 742              		.thumb_func
+ 743              		.fpu softvfp
+ 745              	HAL_UART_Receive:
+ 746              		@ args = 0, pretend = 0, frame = 0
+ 747              		@ frame_needed = 0, uses_anonymous_args = 0
+ 748 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 749 0004 82B0     		sub	sp, sp, #8
+ 750 0006 1E46     		mov	r6, r3
+ 751 0008 90F83A30 		ldrb	r3, [r0, #58]	@ zero_extendqisi2
+ 752 000c DBB2     		uxtb	r3, r3
+ 753 000e 202B     		cmp	r3, #32
+ 754 0010 5AD1     		bne	.L97
+ 755 0012 0446     		mov	r4, r0
+ 756 0014 0D46     		mov	r5, r1
+ 757 0016 9046     		mov	r8, r2
+ 758 0018 0029     		cmp	r1, #0
+ 759 001a 59D0     		beq	.L98
+ 760 001c 002A     		cmp	r2, #0
+ 761 001e 59D0     		beq	.L99
+ 762 0020 90F83830 		ldrb	r3, [r0, #56]	@ zero_extendqisi2
+ 763 0024 012B     		cmp	r3, #1
+ 764 0026 57D0     		beq	.L100
+ 765 0028 0123     		movs	r3, #1
+ 766 002a 80F83830 		strb	r3, [r0, #56]
+ 767 002e 0023     		movs	r3, #0
+ 768 0030 C363     		str	r3, [r0, #60]
+ARM GAS  /tmp/ccL7ClOf.s 			page 14
+
+
+ 769 0032 2223     		movs	r3, #34
+ 770 0034 80F83A30 		strb	r3, [r0, #58]
+ 771 0038 FFF7FEFF 		bl	HAL_GetTick
+ 772 003c 0746     		mov	r7, r0
+ 773 003e A4F82C80 		strh	r8, [r4, #44]	@ movhi
+ 774 0042 A4F82E80 		strh	r8, [r4, #46]	@ movhi
+ 775 0046 1DE0     		b	.L91
+ 776              	.L105:
+ 777 0048 0096     		str	r6, [sp]
+ 778 004a 3B46     		mov	r3, r7
+ 779 004c 0022     		movs	r2, #0
+ 780 004e 2021     		movs	r1, #32
+ 781 0050 2046     		mov	r0, r4
+ 782 0052 FFF7FEFF 		bl	UART_WaitOnFlagUntilTimeout
+ 783 0056 0028     		cmp	r0, #0
+ 784 0058 40D1     		bne	.L101
+ 785 005a 2369     		ldr	r3, [r4, #16]
+ 786 005c 33B9     		cbnz	r3, .L93
+ 787 005e 2368     		ldr	r3, [r4]
+ 788 0060 5B68     		ldr	r3, [r3, #4]
+ 789 0062 C3F30803 		ubfx	r3, r3, #0, #9
+ 790 0066 25F8023B 		strh	r3, [r5], #2	@ movhi
+ 791 006a 0BE0     		b	.L91
+ 792              	.L93:
+ 793 006c 2368     		ldr	r3, [r4]
+ 794 006e 5B68     		ldr	r3, [r3, #4]
+ 795 0070 DBB2     		uxtb	r3, r3
+ 796 0072 25F8013B 		strh	r3, [r5], #1	@ movhi
+ 797 0076 05E0     		b	.L91
+ 798              	.L95:
+ 799 0078 2368     		ldr	r3, [r4]
+ 800 007a 5B68     		ldr	r3, [r3, #4]
+ 801 007c 03F07F03 		and	r3, r3, #127
+ 802 0080 05F8013B 		strb	r3, [r5], #1
+ 803              	.L91:
+ 804 0084 E38D     		ldrh	r3, [r4, #46]
+ 805 0086 9BB2     		uxth	r3, r3
+ 806 0088 BBB1     		cbz	r3, .L104
+ 807 008a E38D     		ldrh	r3, [r4, #46]
+ 808 008c 013B     		subs	r3, r3, #1
+ 809 008e 9BB2     		uxth	r3, r3
+ 810 0090 E385     		strh	r3, [r4, #46]	@ movhi
+ 811 0092 A368     		ldr	r3, [r4, #8]
+ 812 0094 B3F5805F 		cmp	r3, #4096
+ 813 0098 D6D0     		beq	.L105
+ 814 009a 0096     		str	r6, [sp]
+ 815 009c 3B46     		mov	r3, r7
+ 816 009e 0022     		movs	r2, #0
+ 817 00a0 2021     		movs	r1, #32
+ 818 00a2 2046     		mov	r0, r4
+ 819 00a4 FFF7FEFF 		bl	UART_WaitOnFlagUntilTimeout
+ 820 00a8 D0B9     		cbnz	r0, .L102
+ 821 00aa 2369     		ldr	r3, [r4, #16]
+ 822 00ac 002B     		cmp	r3, #0
+ 823 00ae E3D1     		bne	.L95
+ 824 00b0 2368     		ldr	r3, [r4]
+ 825 00b2 5B68     		ldr	r3, [r3, #4]
+ARM GAS  /tmp/ccL7ClOf.s 			page 15
+
+
+ 826 00b4 05F8013B 		strb	r3, [r5], #1
+ 827 00b8 E4E7     		b	.L91
+ 828              	.L104:
+ 829 00ba 2023     		movs	r3, #32
+ 830 00bc 84F83A30 		strb	r3, [r4, #58]
+ 831 00c0 0020     		movs	r0, #0
+ 832 00c2 84F83800 		strb	r0, [r4, #56]
+ 833 00c6 00E0     		b	.L90
+ 834              	.L97:
+ 835 00c8 0220     		movs	r0, #2
+ 836              	.L90:
+ 837 00ca 02B0     		add	sp, sp, #8
+ 838              		@ sp needed
+ 839 00cc BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 840              	.L98:
+ 841 00d0 0120     		movs	r0, #1
+ 842 00d2 FAE7     		b	.L90
+ 843              	.L99:
+ 844 00d4 0120     		movs	r0, #1
+ 845 00d6 F8E7     		b	.L90
+ 846              	.L100:
+ 847 00d8 0220     		movs	r0, #2
+ 848 00da F6E7     		b	.L90
+ 849              	.L101:
+ 850 00dc 0320     		movs	r0, #3
+ 851 00de F4E7     		b	.L90
+ 852              	.L102:
+ 853 00e0 0320     		movs	r0, #3
+ 854 00e2 F2E7     		b	.L90
+ 856              		.section	.text.HAL_UART_Transmit_IT,"ax",%progbits
+ 857              		.align	1
+ 858              		.global	HAL_UART_Transmit_IT
+ 859              		.syntax unified
+ 860              		.thumb
+ 861              		.thumb_func
+ 862              		.fpu softvfp
+ 864              	HAL_UART_Transmit_IT:
+ 865              		@ args = 0, pretend = 0, frame = 0
+ 866              		@ frame_needed = 0, uses_anonymous_args = 0
+ 867              		@ link register save eliminated.
+ 868 0000 90F83930 		ldrb	r3, [r0, #57]	@ zero_extendqisi2
+ 869 0004 DBB2     		uxtb	r3, r3
+ 870 0006 202B     		cmp	r3, #32
+ 871 0008 16D1     		bne	.L108
+ 872 000a B9B1     		cbz	r1, .L109
+ 873 000c C2B1     		cbz	r2, .L110
+ 874 000e 90F83830 		ldrb	r3, [r0, #56]	@ zero_extendqisi2
+ 875 0012 012B     		cmp	r3, #1
+ 876 0014 16D0     		beq	.L111
+ 877 0016 0162     		str	r1, [r0, #32]
+ 878 0018 8284     		strh	r2, [r0, #36]	@ movhi
+ 879 001a C284     		strh	r2, [r0, #38]	@ movhi
+ 880 001c 0023     		movs	r3, #0
+ 881 001e C363     		str	r3, [r0, #60]
+ 882 0020 2122     		movs	r2, #33
+ 883 0022 80F83920 		strb	r2, [r0, #57]
+ 884 0026 80F83830 		strb	r3, [r0, #56]
+ARM GAS  /tmp/ccL7ClOf.s 			page 16
+
+
+ 885 002a 0168     		ldr	r1, [r0]
+ 886 002c CA68     		ldr	r2, [r1, #12]
+ 887 002e 42F08002 		orr	r2, r2, #128
+ 888 0032 CA60     		str	r2, [r1, #12]
+ 889 0034 1846     		mov	r0, r3
+ 890 0036 7047     		bx	lr
+ 891              	.L108:
+ 892 0038 0220     		movs	r0, #2
+ 893 003a 7047     		bx	lr
+ 894              	.L109:
+ 895 003c 0120     		movs	r0, #1
+ 896 003e 7047     		bx	lr
+ 897              	.L110:
+ 898 0040 0120     		movs	r0, #1
+ 899 0042 7047     		bx	lr
+ 900              	.L111:
+ 901 0044 0220     		movs	r0, #2
+ 902 0046 7047     		bx	lr
+ 904              		.section	.text.HAL_UART_Receive_IT,"ax",%progbits
+ 905              		.align	1
+ 906              		.global	HAL_UART_Receive_IT
+ 907              		.syntax unified
+ 908              		.thumb
+ 909              		.thumb_func
+ 910              		.fpu softvfp
+ 912              	HAL_UART_Receive_IT:
+ 913              		@ args = 0, pretend = 0, frame = 0
+ 914              		@ frame_needed = 0, uses_anonymous_args = 0
+ 915              		@ link register save eliminated.
+ 916 0000 90F83A30 		ldrb	r3, [r0, #58]	@ zero_extendqisi2
+ 917 0004 DBB2     		uxtb	r3, r3
+ 918 0006 202B     		cmp	r3, #32
+ 919 0008 20D1     		bne	.L114
+ 920 000a 09B3     		cbz	r1, .L115
+ 921 000c 12B3     		cbz	r2, .L116
+ 922 000e 90F83830 		ldrb	r3, [r0, #56]	@ zero_extendqisi2
+ 923 0012 012B     		cmp	r3, #1
+ 924 0014 20D0     		beq	.L117
+ 925 0016 8162     		str	r1, [r0, #40]
+ 926 0018 8285     		strh	r2, [r0, #44]	@ movhi
+ 927 001a C285     		strh	r2, [r0, #46]	@ movhi
+ 928 001c 0023     		movs	r3, #0
+ 929 001e C363     		str	r3, [r0, #60]
+ 930 0020 2222     		movs	r2, #34
+ 931 0022 80F83A20 		strb	r2, [r0, #58]
+ 932 0026 80F83830 		strb	r3, [r0, #56]
+ 933 002a 0168     		ldr	r1, [r0]
+ 934 002c CA68     		ldr	r2, [r1, #12]
+ 935 002e 42F48072 		orr	r2, r2, #256
+ 936 0032 CA60     		str	r2, [r1, #12]
+ 937 0034 0168     		ldr	r1, [r0]
+ 938 0036 4A69     		ldr	r2, [r1, #20]
+ 939 0038 42F00102 		orr	r2, r2, #1
+ 940 003c 4A61     		str	r2, [r1, #20]
+ 941 003e 0168     		ldr	r1, [r0]
+ 942 0040 CA68     		ldr	r2, [r1, #12]
+ 943 0042 42F02002 		orr	r2, r2, #32
+ARM GAS  /tmp/ccL7ClOf.s 			page 17
+
+
+ 944 0046 CA60     		str	r2, [r1, #12]
+ 945 0048 1846     		mov	r0, r3
+ 946 004a 7047     		bx	lr
+ 947              	.L114:
+ 948 004c 0220     		movs	r0, #2
+ 949 004e 7047     		bx	lr
+ 950              	.L115:
+ 951 0050 0120     		movs	r0, #1
+ 952 0052 7047     		bx	lr
+ 953              	.L116:
+ 954 0054 0120     		movs	r0, #1
+ 955 0056 7047     		bx	lr
+ 956              	.L117:
+ 957 0058 0220     		movs	r0, #2
+ 958 005a 7047     		bx	lr
+ 960              		.section	.text.HAL_UART_Transmit_DMA,"ax",%progbits
+ 961              		.align	1
+ 962              		.global	HAL_UART_Transmit_DMA
+ 963              		.syntax unified
+ 964              		.thumb
+ 965              		.thumb_func
+ 966              		.fpu softvfp
+ 968              	HAL_UART_Transmit_DMA:
+ 969              		@ args = 0, pretend = 0, frame = 0
+ 970              		@ frame_needed = 0, uses_anonymous_args = 0
+ 971 0000 38B5     		push	{r3, r4, r5, lr}
+ 972 0002 90F83950 		ldrb	r5, [r0, #57]	@ zero_extendqisi2
+ 973 0006 EDB2     		uxtb	r5, r5
+ 974 0008 202D     		cmp	r5, #32
+ 975 000a 31D1     		bne	.L120
+ 976 000c 0029     		cmp	r1, #0
+ 977 000e 31D0     		beq	.L121
+ 978 0010 002A     		cmp	r2, #0
+ 979 0012 31D0     		beq	.L122
+ 980 0014 90F83830 		ldrb	r3, [r0, #56]	@ zero_extendqisi2
+ 981 0018 012B     		cmp	r3, #1
+ 982 001a 2FD0     		beq	.L123
+ 983 001c 1346     		mov	r3, r2
+ 984 001e 0446     		mov	r4, r0
+ 985 0020 0122     		movs	r2, #1
+ 986 0022 80F83820 		strb	r2, [r0, #56]
+ 987 0026 0162     		str	r1, [r0, #32]
+ 988 0028 8384     		strh	r3, [r0, #36]	@ movhi
+ 989 002a C384     		strh	r3, [r0, #38]	@ movhi
+ 990 002c 0025     		movs	r5, #0
+ 991 002e C563     		str	r5, [r0, #60]
+ 992 0030 2122     		movs	r2, #33
+ 993 0032 80F83920 		strb	r2, [r0, #57]
+ 994 0036 026B     		ldr	r2, [r0, #48]
+ 995 0038 1148     		ldr	r0, .L125
+ 996 003a 9062     		str	r0, [r2, #40]
+ 997 003c 226B     		ldr	r2, [r4, #48]
+ 998 003e 1148     		ldr	r0, .L125+4
+ 999 0040 D062     		str	r0, [r2, #44]
+ 1000 0042 226B     		ldr	r2, [r4, #48]
+ 1001 0044 1048     		ldr	r0, .L125+8
+ 1002 0046 1063     		str	r0, [r2, #48]
+ARM GAS  /tmp/ccL7ClOf.s 			page 18
+
+
+ 1003 0048 226B     		ldr	r2, [r4, #48]
+ 1004 004a 5563     		str	r5, [r2, #52]
+ 1005 004c 2268     		ldr	r2, [r4]
+ 1006 004e 0432     		adds	r2, r2, #4
+ 1007 0050 206B     		ldr	r0, [r4, #48]
+ 1008 0052 FFF7FEFF 		bl	HAL_DMA_Start_IT
+ 1009 0056 2368     		ldr	r3, [r4]
+ 1010 0058 6FF04002 		mvn	r2, #64
+ 1011 005c 1A60     		str	r2, [r3]
+ 1012 005e 84F83850 		strb	r5, [r4, #56]
+ 1013 0062 2268     		ldr	r2, [r4]
+ 1014 0064 5369     		ldr	r3, [r2, #20]
+ 1015 0066 43F08003 		orr	r3, r3, #128
+ 1016 006a 5361     		str	r3, [r2, #20]
+ 1017 006c 2846     		mov	r0, r5
+ 1018 006e 00E0     		b	.L119
+ 1019              	.L120:
+ 1020 0070 0220     		movs	r0, #2
+ 1021              	.L119:
+ 1022 0072 38BD     		pop	{r3, r4, r5, pc}
+ 1023              	.L121:
+ 1024 0074 0120     		movs	r0, #1
+ 1025 0076 FCE7     		b	.L119
+ 1026              	.L122:
+ 1027 0078 0120     		movs	r0, #1
+ 1028 007a FAE7     		b	.L119
+ 1029              	.L123:
+ 1030 007c 0220     		movs	r0, #2
+ 1031 007e F8E7     		b	.L119
+ 1032              	.L126:
+ 1033              		.align	2
+ 1034              	.L125:
+ 1035 0080 00000000 		.word	UART_DMATransmitCplt
+ 1036 0084 00000000 		.word	UART_DMATxHalfCplt
+ 1037 0088 00000000 		.word	UART_DMAError
+ 1039              		.section	.text.HAL_UART_Receive_DMA,"ax",%progbits
+ 1040              		.align	1
+ 1041              		.global	HAL_UART_Receive_DMA
+ 1042              		.syntax unified
+ 1043              		.thumb
+ 1044              		.thumb_func
+ 1045              		.fpu softvfp
+ 1047              	HAL_UART_Receive_DMA:
+ 1048              		@ args = 0, pretend = 0, frame = 8
+ 1049              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1050 0000 30B5     		push	{r4, r5, lr}
+ 1051 0002 83B0     		sub	sp, sp, #12
+ 1052 0004 90F83A50 		ldrb	r5, [r0, #58]	@ zero_extendqisi2
+ 1053 0008 EDB2     		uxtb	r5, r5
+ 1054 000a 202D     		cmp	r5, #32
+ 1055 000c 3DD1     		bne	.L129
+ 1056 000e 0029     		cmp	r1, #0
+ 1057 0010 3ED0     		beq	.L130
+ 1058 0012 002A     		cmp	r2, #0
+ 1059 0014 3ED0     		beq	.L131
+ 1060 0016 90F83830 		ldrb	r3, [r0, #56]	@ zero_extendqisi2
+ 1061 001a 012B     		cmp	r3, #1
+ARM GAS  /tmp/ccL7ClOf.s 			page 19
+
+
+ 1062 001c 3CD0     		beq	.L132
+ 1063 001e 1346     		mov	r3, r2
+ 1064 0020 0A46     		mov	r2, r1
+ 1065 0022 0446     		mov	r4, r0
+ 1066 0024 0121     		movs	r1, #1
+ 1067 0026 80F83810 		strb	r1, [r0, #56]
+ 1068 002a 8262     		str	r2, [r0, #40]
+ 1069 002c 8385     		strh	r3, [r0, #44]	@ movhi
+ 1070 002e 0025     		movs	r5, #0
+ 1071 0030 C563     		str	r5, [r0, #60]
+ 1072 0032 2221     		movs	r1, #34
+ 1073 0034 80F83A10 		strb	r1, [r0, #58]
+ 1074 0038 416B     		ldr	r1, [r0, #52]
+ 1075 003a 1848     		ldr	r0, .L134
+ 1076 003c 8862     		str	r0, [r1, #40]
+ 1077 003e 616B     		ldr	r1, [r4, #52]
+ 1078 0040 1748     		ldr	r0, .L134+4
+ 1079 0042 C862     		str	r0, [r1, #44]
+ 1080 0044 616B     		ldr	r1, [r4, #52]
+ 1081 0046 1748     		ldr	r0, .L134+8
+ 1082 0048 0863     		str	r0, [r1, #48]
+ 1083 004a 616B     		ldr	r1, [r4, #52]
+ 1084 004c 4D63     		str	r5, [r1, #52]
+ 1085 004e 2168     		ldr	r1, [r4]
+ 1086 0050 0431     		adds	r1, r1, #4
+ 1087 0052 606B     		ldr	r0, [r4, #52]
+ 1088 0054 FFF7FEFF 		bl	HAL_DMA_Start_IT
+ 1089 0058 0195     		str	r5, [sp, #4]
+ 1090 005a 2368     		ldr	r3, [r4]
+ 1091 005c 1A68     		ldr	r2, [r3]
+ 1092 005e 0192     		str	r2, [sp, #4]
+ 1093 0060 5A68     		ldr	r2, [r3, #4]
+ 1094 0062 0192     		str	r2, [sp, #4]
+ 1095 0064 019A     		ldr	r2, [sp, #4]
+ 1096 0066 84F83850 		strb	r5, [r4, #56]
+ 1097 006a DA68     		ldr	r2, [r3, #12]
+ 1098 006c 42F48072 		orr	r2, r2, #256
+ 1099 0070 DA60     		str	r2, [r3, #12]
+ 1100 0072 2268     		ldr	r2, [r4]
+ 1101 0074 5369     		ldr	r3, [r2, #20]
+ 1102 0076 43F00103 		orr	r3, r3, #1
+ 1103 007a 5361     		str	r3, [r2, #20]
+ 1104 007c 2268     		ldr	r2, [r4]
+ 1105 007e 5369     		ldr	r3, [r2, #20]
+ 1106 0080 43F04003 		orr	r3, r3, #64
+ 1107 0084 5361     		str	r3, [r2, #20]
+ 1108 0086 2846     		mov	r0, r5
+ 1109 0088 00E0     		b	.L128
+ 1110              	.L129:
+ 1111 008a 0220     		movs	r0, #2
+ 1112              	.L128:
+ 1113 008c 03B0     		add	sp, sp, #12
+ 1114              		@ sp needed
+ 1115 008e 30BD     		pop	{r4, r5, pc}
+ 1116              	.L130:
+ 1117 0090 0120     		movs	r0, #1
+ 1118 0092 FBE7     		b	.L128
+ARM GAS  /tmp/ccL7ClOf.s 			page 20
+
+
+ 1119              	.L131:
+ 1120 0094 0120     		movs	r0, #1
+ 1121 0096 F9E7     		b	.L128
+ 1122              	.L132:
+ 1123 0098 0220     		movs	r0, #2
+ 1124 009a F7E7     		b	.L128
+ 1125              	.L135:
+ 1126              		.align	2
+ 1127              	.L134:
+ 1128 009c 00000000 		.word	UART_DMAReceiveCplt
+ 1129 00a0 00000000 		.word	UART_DMARxHalfCplt
+ 1130 00a4 00000000 		.word	UART_DMAError
+ 1132              		.section	.text.HAL_UART_DMAPause,"ax",%progbits
+ 1133              		.align	1
+ 1134              		.global	HAL_UART_DMAPause
+ 1135              		.syntax unified
+ 1136              		.thumb
+ 1137              		.thumb_func
+ 1138              		.fpu softvfp
+ 1140              	HAL_UART_DMAPause:
+ 1141              		@ args = 0, pretend = 0, frame = 0
+ 1142              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1143              		@ link register save eliminated.
+ 1144 0000 90F83830 		ldrb	r3, [r0, #56]	@ zero_extendqisi2
+ 1145 0004 012B     		cmp	r3, #1
+ 1146 0006 31D0     		beq	.L140
+ 1147 0008 0123     		movs	r3, #1
+ 1148 000a 80F83830 		strb	r3, [r0, #56]
+ 1149 000e 0168     		ldr	r1, [r0]
+ 1150 0010 4A69     		ldr	r2, [r1, #20]
+ 1151 0012 02F08002 		and	r2, r2, #128
+ 1152 0016 90F83930 		ldrb	r3, [r0, #57]	@ zero_extendqisi2
+ 1153 001a DBB2     		uxtb	r3, r3
+ 1154 001c 212B     		cmp	r3, #33
+ 1155 001e 0DD0     		beq	.L141
+ 1156              	.L138:
+ 1157 0020 0168     		ldr	r1, [r0]
+ 1158 0022 4A69     		ldr	r2, [r1, #20]
+ 1159 0024 02F04002 		and	r2, r2, #64
+ 1160 0028 90F83A30 		ldrb	r3, [r0, #58]	@ zero_extendqisi2
+ 1161 002c DBB2     		uxtb	r3, r3
+ 1162 002e 222B     		cmp	r3, #34
+ 1163 0030 0BD0     		beq	.L142
+ 1164              	.L139:
+ 1165 0032 0023     		movs	r3, #0
+ 1166 0034 80F83830 		strb	r3, [r0, #56]
+ 1167 0038 1846     		mov	r0, r3
+ 1168 003a 7047     		bx	lr
+ 1169              	.L141:
+ 1170 003c 002A     		cmp	r2, #0
+ 1171 003e EFD0     		beq	.L138
+ 1172 0040 4B69     		ldr	r3, [r1, #20]
+ 1173 0042 23F08003 		bic	r3, r3, #128
+ 1174 0046 4B61     		str	r3, [r1, #20]
+ 1175 0048 EAE7     		b	.L138
+ 1176              	.L142:
+ 1177 004a 002A     		cmp	r2, #0
+ARM GAS  /tmp/ccL7ClOf.s 			page 21
+
+
+ 1178 004c F1D0     		beq	.L139
+ 1179 004e CB68     		ldr	r3, [r1, #12]
+ 1180 0050 23F48073 		bic	r3, r3, #256
+ 1181 0054 CB60     		str	r3, [r1, #12]
+ 1182 0056 0268     		ldr	r2, [r0]
+ 1183 0058 5369     		ldr	r3, [r2, #20]
+ 1184 005a 23F00103 		bic	r3, r3, #1
+ 1185 005e 5361     		str	r3, [r2, #20]
+ 1186 0060 0268     		ldr	r2, [r0]
+ 1187 0062 5369     		ldr	r3, [r2, #20]
+ 1188 0064 23F04003 		bic	r3, r3, #64
+ 1189 0068 5361     		str	r3, [r2, #20]
+ 1190 006a E2E7     		b	.L139
+ 1191              	.L140:
+ 1192 006c 0220     		movs	r0, #2
+ 1193 006e 7047     		bx	lr
+ 1195              		.section	.text.HAL_UART_DMAResume,"ax",%progbits
+ 1196              		.align	1
+ 1197              		.global	HAL_UART_DMAResume
+ 1198              		.syntax unified
+ 1199              		.thumb
+ 1200              		.thumb_func
+ 1201              		.fpu softvfp
+ 1203              	HAL_UART_DMAResume:
+ 1204              		@ args = 0, pretend = 0, frame = 8
+ 1205              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1206              		@ link register save eliminated.
+ 1207 0000 90F83830 		ldrb	r3, [r0, #56]	@ zero_extendqisi2
+ 1208 0004 012B     		cmp	r3, #1
+ 1209 0006 34D0     		beq	.L147
+ 1210 0008 0123     		movs	r3, #1
+ 1211 000a 80F83830 		strb	r3, [r0, #56]
+ 1212 000e 90F83930 		ldrb	r3, [r0, #57]	@ zero_extendqisi2
+ 1213 0012 DBB2     		uxtb	r3, r3
+ 1214 0014 212B     		cmp	r3, #33
+ 1215 0016 09D0     		beq	.L153
+ 1216              	.L145:
+ 1217 0018 90F83A30 		ldrb	r3, [r0, #58]	@ zero_extendqisi2
+ 1218 001c DBB2     		uxtb	r3, r3
+ 1219 001e 222B     		cmp	r3, #34
+ 1220 0020 0AD0     		beq	.L154
+ 1221 0022 0023     		movs	r3, #0
+ 1222 0024 80F83830 		strb	r3, [r0, #56]
+ 1223 0028 1846     		mov	r0, r3
+ 1224 002a 7047     		bx	lr
+ 1225              	.L153:
+ 1226 002c 0268     		ldr	r2, [r0]
+ 1227 002e 5369     		ldr	r3, [r2, #20]
+ 1228 0030 43F08003 		orr	r3, r3, #128
+ 1229 0034 5361     		str	r3, [r2, #20]
+ 1230 0036 EFE7     		b	.L145
+ 1231              	.L154:
+ 1232 0038 82B0     		sub	sp, sp, #8
+ 1233 003a 0023     		movs	r3, #0
+ 1234 003c 0193     		str	r3, [sp, #4]
+ 1235 003e 0368     		ldr	r3, [r0]
+ 1236 0040 1A68     		ldr	r2, [r3]
+ARM GAS  /tmp/ccL7ClOf.s 			page 22
+
+
+ 1237 0042 0192     		str	r2, [sp, #4]
+ 1238 0044 5A68     		ldr	r2, [r3, #4]
+ 1239 0046 0192     		str	r2, [sp, #4]
+ 1240 0048 019A     		ldr	r2, [sp, #4]
+ 1241 004a DA68     		ldr	r2, [r3, #12]
+ 1242 004c 42F48072 		orr	r2, r2, #256
+ 1243 0050 DA60     		str	r2, [r3, #12]
+ 1244 0052 0268     		ldr	r2, [r0]
+ 1245 0054 5369     		ldr	r3, [r2, #20]
+ 1246 0056 43F00103 		orr	r3, r3, #1
+ 1247 005a 5361     		str	r3, [r2, #20]
+ 1248 005c 0268     		ldr	r2, [r0]
+ 1249 005e 5369     		ldr	r3, [r2, #20]
+ 1250 0060 43F04003 		orr	r3, r3, #64
+ 1251 0064 5361     		str	r3, [r2, #20]
+ 1252 0066 0023     		movs	r3, #0
+ 1253 0068 80F83830 		strb	r3, [r0, #56]
+ 1254 006c 1846     		mov	r0, r3
+ 1255 006e 02B0     		add	sp, sp, #8
+ 1256              		@ sp needed
+ 1257 0070 7047     		bx	lr
+ 1258              	.L147:
+ 1259 0072 0220     		movs	r0, #2
+ 1260 0074 7047     		bx	lr
+ 1262              		.section	.text.HAL_UART_DMAStop,"ax",%progbits
+ 1263              		.align	1
+ 1264              		.global	HAL_UART_DMAStop
+ 1265              		.syntax unified
+ 1266              		.thumb
+ 1267              		.thumb_func
+ 1268              		.fpu softvfp
+ 1270              	HAL_UART_DMAStop:
+ 1271              		@ args = 0, pretend = 0, frame = 0
+ 1272              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1273 0000 10B5     		push	{r4, lr}
+ 1274 0002 0446     		mov	r4, r0
+ 1275 0004 0168     		ldr	r1, [r0]
+ 1276 0006 4A69     		ldr	r2, [r1, #20]
+ 1277 0008 90F83930 		ldrb	r3, [r0, #57]	@ zero_extendqisi2
+ 1278 000c DBB2     		uxtb	r3, r3
+ 1279 000e 212B     		cmp	r3, #33
+ 1280 0010 0AD0     		beq	.L161
+ 1281              	.L156:
+ 1282 0012 2168     		ldr	r1, [r4]
+ 1283 0014 4A69     		ldr	r2, [r1, #20]
+ 1284 0016 02F04002 		and	r2, r2, #64
+ 1285 001a 94F83A30 		ldrb	r3, [r4, #58]	@ zero_extendqisi2
+ 1286 001e DBB2     		uxtb	r3, r3
+ 1287 0020 222B     		cmp	r3, #34
+ 1288 0022 11D0     		beq	.L162
+ 1289              	.L158:
+ 1290 0024 0020     		movs	r0, #0
+ 1291 0026 10BD     		pop	{r4, pc}
+ 1292              	.L161:
+ 1293 0028 02F08002 		and	r2, r2, #128
+ 1294 002c 002A     		cmp	r2, #0
+ 1295 002e F0D0     		beq	.L156
+ARM GAS  /tmp/ccL7ClOf.s 			page 23
+
+
+ 1296 0030 4B69     		ldr	r3, [r1, #20]
+ 1297 0032 23F08003 		bic	r3, r3, #128
+ 1298 0036 4B61     		str	r3, [r1, #20]
+ 1299 0038 006B     		ldr	r0, [r0, #48]
+ 1300 003a 08B1     		cbz	r0, .L157
+ 1301 003c FFF7FEFF 		bl	HAL_DMA_Abort
+ 1302              	.L157:
+ 1303 0040 2046     		mov	r0, r4
+ 1304 0042 FFF7FEFF 		bl	UART_EndTxTransfer
+ 1305 0046 E4E7     		b	.L156
+ 1306              	.L162:
+ 1307 0048 002A     		cmp	r2, #0
+ 1308 004a EBD0     		beq	.L158
+ 1309 004c 4B69     		ldr	r3, [r1, #20]
+ 1310 004e 23F04003 		bic	r3, r3, #64
+ 1311 0052 4B61     		str	r3, [r1, #20]
+ 1312 0054 606B     		ldr	r0, [r4, #52]
+ 1313 0056 08B1     		cbz	r0, .L159
+ 1314 0058 FFF7FEFF 		bl	HAL_DMA_Abort
+ 1315              	.L159:
+ 1316 005c 2046     		mov	r0, r4
+ 1317 005e FFF7FEFF 		bl	UART_EndRxTransfer
+ 1318 0062 DFE7     		b	.L158
+ 1320              		.section	.text.HAL_UART_Abort,"ax",%progbits
+ 1321              		.align	1
+ 1322              		.global	HAL_UART_Abort
+ 1323              		.syntax unified
+ 1324              		.thumb
+ 1325              		.thumb_func
+ 1326              		.fpu softvfp
+ 1328              	HAL_UART_Abort:
+ 1329              		@ args = 0, pretend = 0, frame = 0
+ 1330              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1331 0000 10B5     		push	{r4, lr}
+ 1332 0002 0446     		mov	r4, r0
+ 1333 0004 0268     		ldr	r2, [r0]
+ 1334 0006 D368     		ldr	r3, [r2, #12]
+ 1335 0008 23F4F073 		bic	r3, r3, #480
+ 1336 000c D360     		str	r3, [r2, #12]
+ 1337 000e 0268     		ldr	r2, [r0]
+ 1338 0010 5369     		ldr	r3, [r2, #20]
+ 1339 0012 23F00103 		bic	r3, r3, #1
+ 1340 0016 5361     		str	r3, [r2, #20]
+ 1341 0018 0368     		ldr	r3, [r0]
+ 1342 001a 5A69     		ldr	r2, [r3, #20]
+ 1343 001c 12F0800F 		tst	r2, #128
+ 1344 0020 0AD0     		beq	.L164
+ 1345 0022 5A69     		ldr	r2, [r3, #20]
+ 1346 0024 22F08002 		bic	r2, r2, #128
+ 1347 0028 5A61     		str	r2, [r3, #20]
+ 1348 002a 036B     		ldr	r3, [r0, #48]
+ 1349 002c 23B1     		cbz	r3, .L164
+ 1350 002e 0022     		movs	r2, #0
+ 1351 0030 5A63     		str	r2, [r3, #52]
+ 1352 0032 006B     		ldr	r0, [r0, #48]
+ 1353 0034 FFF7FEFF 		bl	HAL_DMA_Abort
+ 1354              	.L164:
+ARM GAS  /tmp/ccL7ClOf.s 			page 24
+
+
+ 1355 0038 2368     		ldr	r3, [r4]
+ 1356 003a 5A69     		ldr	r2, [r3, #20]
+ 1357 003c 12F0400F 		tst	r2, #64
+ 1358 0040 0AD0     		beq	.L165
+ 1359 0042 5A69     		ldr	r2, [r3, #20]
+ 1360 0044 22F04002 		bic	r2, r2, #64
+ 1361 0048 5A61     		str	r2, [r3, #20]
+ 1362 004a 636B     		ldr	r3, [r4, #52]
+ 1363 004c 23B1     		cbz	r3, .L165
+ 1364 004e 0022     		movs	r2, #0
+ 1365 0050 5A63     		str	r2, [r3, #52]
+ 1366 0052 606B     		ldr	r0, [r4, #52]
+ 1367 0054 FFF7FEFF 		bl	HAL_DMA_Abort
+ 1368              	.L165:
+ 1369 0058 0020     		movs	r0, #0
+ 1370 005a E084     		strh	r0, [r4, #38]	@ movhi
+ 1371 005c E085     		strh	r0, [r4, #46]	@ movhi
+ 1372 005e E063     		str	r0, [r4, #60]
+ 1373 0060 2023     		movs	r3, #32
+ 1374 0062 84F83A30 		strb	r3, [r4, #58]
+ 1375 0066 84F83930 		strb	r3, [r4, #57]
+ 1376 006a 10BD     		pop	{r4, pc}
+ 1378              		.section	.text.HAL_UART_AbortTransmit,"ax",%progbits
+ 1379              		.align	1
+ 1380              		.global	HAL_UART_AbortTransmit
+ 1381              		.syntax unified
+ 1382              		.thumb
+ 1383              		.thumb_func
+ 1384              		.fpu softvfp
+ 1386              	HAL_UART_AbortTransmit:
+ 1387              		@ args = 0, pretend = 0, frame = 0
+ 1388              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1389 0000 10B5     		push	{r4, lr}
+ 1390 0002 0446     		mov	r4, r0
+ 1391 0004 0268     		ldr	r2, [r0]
+ 1392 0006 D368     		ldr	r3, [r2, #12]
+ 1393 0008 23F0C003 		bic	r3, r3, #192
+ 1394 000c D360     		str	r3, [r2, #12]
+ 1395 000e 0368     		ldr	r3, [r0]
+ 1396 0010 5A69     		ldr	r2, [r3, #20]
+ 1397 0012 12F0800F 		tst	r2, #128
+ 1398 0016 0AD0     		beq	.L168
+ 1399 0018 5A69     		ldr	r2, [r3, #20]
+ 1400 001a 22F08002 		bic	r2, r2, #128
+ 1401 001e 5A61     		str	r2, [r3, #20]
+ 1402 0020 036B     		ldr	r3, [r0, #48]
+ 1403 0022 23B1     		cbz	r3, .L168
+ 1404 0024 0022     		movs	r2, #0
+ 1405 0026 5A63     		str	r2, [r3, #52]
+ 1406 0028 006B     		ldr	r0, [r0, #48]
+ 1407 002a FFF7FEFF 		bl	HAL_DMA_Abort
+ 1408              	.L168:
+ 1409 002e 0020     		movs	r0, #0
+ 1410 0030 E084     		strh	r0, [r4, #38]	@ movhi
+ 1411 0032 2023     		movs	r3, #32
+ 1412 0034 84F83930 		strb	r3, [r4, #57]
+ 1413 0038 10BD     		pop	{r4, pc}
+ARM GAS  /tmp/ccL7ClOf.s 			page 25
+
+
+ 1415              		.section	.text.HAL_UART_AbortReceive,"ax",%progbits
+ 1416              		.align	1
+ 1417              		.global	HAL_UART_AbortReceive
+ 1418              		.syntax unified
+ 1419              		.thumb
+ 1420              		.thumb_func
+ 1421              		.fpu softvfp
+ 1423              	HAL_UART_AbortReceive:
+ 1424              		@ args = 0, pretend = 0, frame = 0
+ 1425              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1426 0000 10B5     		push	{r4, lr}
+ 1427 0002 0446     		mov	r4, r0
+ 1428 0004 0268     		ldr	r2, [r0]
+ 1429 0006 D368     		ldr	r3, [r2, #12]
+ 1430 0008 23F49073 		bic	r3, r3, #288
+ 1431 000c D360     		str	r3, [r2, #12]
+ 1432 000e 0268     		ldr	r2, [r0]
+ 1433 0010 5369     		ldr	r3, [r2, #20]
+ 1434 0012 23F00103 		bic	r3, r3, #1
+ 1435 0016 5361     		str	r3, [r2, #20]
+ 1436 0018 0368     		ldr	r3, [r0]
+ 1437 001a 5A69     		ldr	r2, [r3, #20]
+ 1438 001c 12F0400F 		tst	r2, #64
+ 1439 0020 0AD0     		beq	.L171
+ 1440 0022 5A69     		ldr	r2, [r3, #20]
+ 1441 0024 22F04002 		bic	r2, r2, #64
+ 1442 0028 5A61     		str	r2, [r3, #20]
+ 1443 002a 436B     		ldr	r3, [r0, #52]
+ 1444 002c 23B1     		cbz	r3, .L171
+ 1445 002e 0022     		movs	r2, #0
+ 1446 0030 5A63     		str	r2, [r3, #52]
+ 1447 0032 406B     		ldr	r0, [r0, #52]
+ 1448 0034 FFF7FEFF 		bl	HAL_DMA_Abort
+ 1449              	.L171:
+ 1450 0038 0020     		movs	r0, #0
+ 1451 003a E085     		strh	r0, [r4, #46]	@ movhi
+ 1452 003c 2023     		movs	r3, #32
+ 1453 003e 84F83A30 		strb	r3, [r4, #58]
+ 1454 0042 10BD     		pop	{r4, pc}
+ 1456              		.section	.text.HAL_UART_TxCpltCallback,"ax",%progbits
+ 1457              		.align	1
+ 1458              		.weak	HAL_UART_TxCpltCallback
+ 1459              		.syntax unified
+ 1460              		.thumb
+ 1461              		.thumb_func
+ 1462              		.fpu softvfp
+ 1464              	HAL_UART_TxCpltCallback:
+ 1465              		@ args = 0, pretend = 0, frame = 0
+ 1466              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1467              		@ link register save eliminated.
+ 1468 0000 7047     		bx	lr
+ 1470              		.section	.text.UART_DMATransmitCplt,"ax",%progbits
+ 1471              		.align	1
+ 1472              		.syntax unified
+ 1473              		.thumb
+ 1474              		.thumb_func
+ 1475              		.fpu softvfp
+ARM GAS  /tmp/ccL7ClOf.s 			page 26
+
+
+ 1477              	UART_DMATransmitCplt:
+ 1478              		@ args = 0, pretend = 0, frame = 0
+ 1479              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1480 0000 08B5     		push	{r3, lr}
+ 1481 0002 436A     		ldr	r3, [r0, #36]
+ 1482 0004 0268     		ldr	r2, [r0]
+ 1483 0006 1268     		ldr	r2, [r2]
+ 1484 0008 12F0200F 		tst	r2, #32
+ 1485 000c 0CD1     		bne	.L175
+ 1486 000e 0022     		movs	r2, #0
+ 1487 0010 DA84     		strh	r2, [r3, #38]	@ movhi
+ 1488 0012 1968     		ldr	r1, [r3]
+ 1489 0014 4A69     		ldr	r2, [r1, #20]
+ 1490 0016 22F08002 		bic	r2, r2, #128
+ 1491 001a 4A61     		str	r2, [r1, #20]
+ 1492 001c 1A68     		ldr	r2, [r3]
+ 1493 001e D368     		ldr	r3, [r2, #12]
+ 1494 0020 43F04003 		orr	r3, r3, #64
+ 1495 0024 D360     		str	r3, [r2, #12]
+ 1496              	.L174:
+ 1497 0026 08BD     		pop	{r3, pc}
+ 1498              	.L175:
+ 1499 0028 1846     		mov	r0, r3
+ 1500 002a FFF7FEFF 		bl	HAL_UART_TxCpltCallback
+ 1501 002e FAE7     		b	.L174
+ 1503              		.section	.text.UART_EndTransmit_IT,"ax",%progbits
+ 1504              		.align	1
+ 1505              		.syntax unified
+ 1506              		.thumb
+ 1507              		.thumb_func
+ 1508              		.fpu softvfp
+ 1510              	UART_EndTransmit_IT:
+ 1511              		@ args = 0, pretend = 0, frame = 0
+ 1512              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1513 0000 08B5     		push	{r3, lr}
+ 1514 0002 0168     		ldr	r1, [r0]
+ 1515 0004 CB68     		ldr	r3, [r1, #12]
+ 1516 0006 23F04003 		bic	r3, r3, #64
+ 1517 000a CB60     		str	r3, [r1, #12]
+ 1518 000c 2023     		movs	r3, #32
+ 1519 000e 80F83930 		strb	r3, [r0, #57]
+ 1520 0012 FFF7FEFF 		bl	HAL_UART_TxCpltCallback
+ 1521 0016 0020     		movs	r0, #0
+ 1522 0018 08BD     		pop	{r3, pc}
+ 1524              		.section	.text.HAL_UART_TxHalfCpltCallback,"ax",%progbits
+ 1525              		.align	1
+ 1526              		.weak	HAL_UART_TxHalfCpltCallback
+ 1527              		.syntax unified
+ 1528              		.thumb
+ 1529              		.thumb_func
+ 1530              		.fpu softvfp
+ 1532              	HAL_UART_TxHalfCpltCallback:
+ 1533              		@ args = 0, pretend = 0, frame = 0
+ 1534              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1535              		@ link register save eliminated.
+ 1536 0000 7047     		bx	lr
+ 1538              		.section	.text.UART_DMATxHalfCplt,"ax",%progbits
+ARM GAS  /tmp/ccL7ClOf.s 			page 27
+
+
+ 1539              		.align	1
+ 1540              		.syntax unified
+ 1541              		.thumb
+ 1542              		.thumb_func
+ 1543              		.fpu softvfp
+ 1545              	UART_DMATxHalfCplt:
+ 1546              		@ args = 0, pretend = 0, frame = 0
+ 1547              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1548 0000 08B5     		push	{r3, lr}
+ 1549 0002 406A     		ldr	r0, [r0, #36]
+ 1550 0004 FFF7FEFF 		bl	HAL_UART_TxHalfCpltCallback
+ 1551 0008 08BD     		pop	{r3, pc}
+ 1553              		.section	.text.HAL_UART_RxCpltCallback,"ax",%progbits
+ 1554              		.align	1
+ 1555              		.weak	HAL_UART_RxCpltCallback
+ 1556              		.syntax unified
+ 1557              		.thumb
+ 1558              		.thumb_func
+ 1559              		.fpu softvfp
+ 1561              	HAL_UART_RxCpltCallback:
+ 1562              		@ args = 0, pretend = 0, frame = 0
+ 1563              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1564              		@ link register save eliminated.
+ 1565 0000 7047     		bx	lr
+ 1567              		.section	.text.UART_DMAReceiveCplt,"ax",%progbits
+ 1568              		.align	1
+ 1569              		.syntax unified
+ 1570              		.thumb
+ 1571              		.thumb_func
+ 1572              		.fpu softvfp
+ 1574              	UART_DMAReceiveCplt:
+ 1575              		@ args = 0, pretend = 0, frame = 0
+ 1576              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1577 0000 08B5     		push	{r3, lr}
+ 1578 0002 436A     		ldr	r3, [r0, #36]
+ 1579 0004 0268     		ldr	r2, [r0]
+ 1580 0006 1268     		ldr	r2, [r2]
+ 1581 0008 12F0200F 		tst	r2, #32
+ 1582 000c 13D1     		bne	.L185
+ 1583 000e 0022     		movs	r2, #0
+ 1584 0010 DA85     		strh	r2, [r3, #46]	@ movhi
+ 1585 0012 1968     		ldr	r1, [r3]
+ 1586 0014 CA68     		ldr	r2, [r1, #12]
+ 1587 0016 22F48072 		bic	r2, r2, #256
+ 1588 001a CA60     		str	r2, [r1, #12]
+ 1589 001c 1968     		ldr	r1, [r3]
+ 1590 001e 4A69     		ldr	r2, [r1, #20]
+ 1591 0020 22F00102 		bic	r2, r2, #1
+ 1592 0024 4A61     		str	r2, [r1, #20]
+ 1593 0026 1968     		ldr	r1, [r3]
+ 1594 0028 4A69     		ldr	r2, [r1, #20]
+ 1595 002a 22F04002 		bic	r2, r2, #64
+ 1596 002e 4A61     		str	r2, [r1, #20]
+ 1597 0030 2022     		movs	r2, #32
+ 1598 0032 83F83A20 		strb	r2, [r3, #58]
+ 1599              	.L185:
+ 1600 0036 1846     		mov	r0, r3
+ARM GAS  /tmp/ccL7ClOf.s 			page 28
+
+
+ 1601 0038 FFF7FEFF 		bl	HAL_UART_RxCpltCallback
+ 1602 003c 08BD     		pop	{r3, pc}
+ 1604              		.section	.text.UART_Receive_IT,"ax",%progbits
+ 1605              		.align	1
+ 1606              		.syntax unified
+ 1607              		.thumb
+ 1608              		.thumb_func
+ 1609              		.fpu softvfp
+ 1611              	UART_Receive_IT:
+ 1612              		@ args = 0, pretend = 0, frame = 0
+ 1613              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1614 0000 08B5     		push	{r3, lr}
+ 1615 0002 90F83A30 		ldrb	r3, [r0, #58]	@ zero_extendqisi2
+ 1616 0006 DBB2     		uxtb	r3, r3
+ 1617 0008 222B     		cmp	r3, #34
+ 1618 000a 45D1     		bne	.L193
+ 1619 000c 8368     		ldr	r3, [r0, #8]
+ 1620 000e B3F5805F 		cmp	r3, #4096
+ 1621 0012 0ED0     		beq	.L196
+ 1622 0014 0369     		ldr	r3, [r0, #16]
+ 1623 0016 03BB     		cbnz	r3, .L192
+ 1624 0018 0368     		ldr	r3, [r0]
+ 1625 001a 5A68     		ldr	r2, [r3, #4]
+ 1626 001c 836A     		ldr	r3, [r0, #40]
+ 1627 001e 591C     		adds	r1, r3, #1
+ 1628 0020 8162     		str	r1, [r0, #40]
+ 1629 0022 1A70     		strb	r2, [r3]
+ 1630              	.L191:
+ 1631 0024 C38D     		ldrh	r3, [r0, #46]
+ 1632 0026 013B     		subs	r3, r3, #1
+ 1633 0028 9BB2     		uxth	r3, r3
+ 1634 002a C385     		strh	r3, [r0, #46]	@ movhi
+ 1635 002c F3B1     		cbz	r3, .L197
+ 1636 002e 0020     		movs	r0, #0
+ 1637              	.L188:
+ 1638 0030 08BD     		pop	{r3, pc}
+ 1639              	.L196:
+ 1640 0032 826A     		ldr	r2, [r0, #40]
+ 1641 0034 0369     		ldr	r3, [r0, #16]
+ 1642 0036 43B9     		cbnz	r3, .L190
+ 1643 0038 0368     		ldr	r3, [r0]
+ 1644 003a 5B68     		ldr	r3, [r3, #4]
+ 1645 003c C3F30803 		ubfx	r3, r3, #0, #9
+ 1646 0040 1380     		strh	r3, [r2]	@ movhi
+ 1647 0042 836A     		ldr	r3, [r0, #40]
+ 1648 0044 0233     		adds	r3, r3, #2
+ 1649 0046 8362     		str	r3, [r0, #40]
+ 1650 0048 ECE7     		b	.L191
+ 1651              	.L190:
+ 1652 004a 0368     		ldr	r3, [r0]
+ 1653 004c 5B68     		ldr	r3, [r3, #4]
+ 1654 004e DBB2     		uxtb	r3, r3
+ 1655 0050 1380     		strh	r3, [r2]	@ movhi
+ 1656 0052 836A     		ldr	r3, [r0, #40]
+ 1657 0054 0133     		adds	r3, r3, #1
+ 1658 0056 8362     		str	r3, [r0, #40]
+ 1659 0058 E4E7     		b	.L191
+ARM GAS  /tmp/ccL7ClOf.s 			page 29
+
+
+ 1660              	.L192:
+ 1661 005a 0368     		ldr	r3, [r0]
+ 1662 005c 5B68     		ldr	r3, [r3, #4]
+ 1663 005e 826A     		ldr	r2, [r0, #40]
+ 1664 0060 511C     		adds	r1, r2, #1
+ 1665 0062 8162     		str	r1, [r0, #40]
+ 1666 0064 03F07F03 		and	r3, r3, #127
+ 1667 0068 1370     		strb	r3, [r2]
+ 1668 006a DBE7     		b	.L191
+ 1669              	.L197:
+ 1670 006c 0268     		ldr	r2, [r0]
+ 1671 006e D368     		ldr	r3, [r2, #12]
+ 1672 0070 23F02003 		bic	r3, r3, #32
+ 1673 0074 D360     		str	r3, [r2, #12]
+ 1674 0076 0268     		ldr	r2, [r0]
+ 1675 0078 D368     		ldr	r3, [r2, #12]
+ 1676 007a 23F48073 		bic	r3, r3, #256
+ 1677 007e D360     		str	r3, [r2, #12]
+ 1678 0080 0268     		ldr	r2, [r0]
+ 1679 0082 5369     		ldr	r3, [r2, #20]
+ 1680 0084 23F00103 		bic	r3, r3, #1
+ 1681 0088 5361     		str	r3, [r2, #20]
+ 1682 008a 2023     		movs	r3, #32
+ 1683 008c 80F83A30 		strb	r3, [r0, #58]
+ 1684 0090 FFF7FEFF 		bl	HAL_UART_RxCpltCallback
+ 1685 0094 0020     		movs	r0, #0
+ 1686 0096 CBE7     		b	.L188
+ 1687              	.L193:
+ 1688 0098 0220     		movs	r0, #2
+ 1689 009a C9E7     		b	.L188
+ 1691              		.section	.text.HAL_UART_RxHalfCpltCallback,"ax",%progbits
+ 1692              		.align	1
+ 1693              		.weak	HAL_UART_RxHalfCpltCallback
+ 1694              		.syntax unified
+ 1695              		.thumb
+ 1696              		.thumb_func
+ 1697              		.fpu softvfp
+ 1699              	HAL_UART_RxHalfCpltCallback:
+ 1700              		@ args = 0, pretend = 0, frame = 0
+ 1701              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1702              		@ link register save eliminated.
+ 1703 0000 7047     		bx	lr
+ 1705              		.section	.text.UART_DMARxHalfCplt,"ax",%progbits
+ 1706              		.align	1
+ 1707              		.syntax unified
+ 1708              		.thumb
+ 1709              		.thumb_func
+ 1710              		.fpu softvfp
+ 1712              	UART_DMARxHalfCplt:
+ 1713              		@ args = 0, pretend = 0, frame = 0
+ 1714              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1715 0000 08B5     		push	{r3, lr}
+ 1716 0002 406A     		ldr	r0, [r0, #36]
+ 1717 0004 FFF7FEFF 		bl	HAL_UART_RxHalfCpltCallback
+ 1718 0008 08BD     		pop	{r3, pc}
+ 1720              		.section	.text.HAL_UART_ErrorCallback,"ax",%progbits
+ 1721              		.align	1
+ARM GAS  /tmp/ccL7ClOf.s 			page 30
+
+
+ 1722              		.weak	HAL_UART_ErrorCallback
+ 1723              		.syntax unified
+ 1724              		.thumb
+ 1725              		.thumb_func
+ 1726              		.fpu softvfp
+ 1728              	HAL_UART_ErrorCallback:
+ 1729              		@ args = 0, pretend = 0, frame = 0
+ 1730              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1731              		@ link register save eliminated.
+ 1732 0000 7047     		bx	lr
+ 1734              		.section	.text.UART_DMAError,"ax",%progbits
+ 1735              		.align	1
+ 1736              		.syntax unified
+ 1737              		.thumb
+ 1738              		.thumb_func
+ 1739              		.fpu softvfp
+ 1741              	UART_DMAError:
+ 1742              		@ args = 0, pretend = 0, frame = 0
+ 1743              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1744 0000 10B5     		push	{r4, lr}
+ 1745 0002 446A     		ldr	r4, [r0, #36]
+ 1746 0004 2368     		ldr	r3, [r4]
+ 1747 0006 5A69     		ldr	r2, [r3, #20]
+ 1748 0008 94F83930 		ldrb	r3, [r4, #57]	@ zero_extendqisi2
+ 1749 000c DBB2     		uxtb	r3, r3
+ 1750 000e 212B     		cmp	r3, #33
+ 1751 0010 10D0     		beq	.L206
+ 1752              	.L203:
+ 1753 0012 2368     		ldr	r3, [r4]
+ 1754 0014 5A69     		ldr	r2, [r3, #20]
+ 1755 0016 02F04002 		and	r2, r2, #64
+ 1756 001a 94F83A30 		ldrb	r3, [r4, #58]	@ zero_extendqisi2
+ 1757 001e DBB2     		uxtb	r3, r3
+ 1758 0020 222B     		cmp	r3, #34
+ 1759 0022 11D0     		beq	.L207
+ 1760              	.L204:
+ 1761 0024 E36B     		ldr	r3, [r4, #60]
+ 1762 0026 43F01003 		orr	r3, r3, #16
+ 1763 002a E363     		str	r3, [r4, #60]
+ 1764 002c 2046     		mov	r0, r4
+ 1765 002e FFF7FEFF 		bl	HAL_UART_ErrorCallback
+ 1766 0032 10BD     		pop	{r4, pc}
+ 1767              	.L206:
+ 1768 0034 02F08002 		and	r2, r2, #128
+ 1769 0038 002A     		cmp	r2, #0
+ 1770 003a EAD0     		beq	.L203
+ 1771 003c 0023     		movs	r3, #0
+ 1772 003e E384     		strh	r3, [r4, #38]	@ movhi
+ 1773 0040 2046     		mov	r0, r4
+ 1774 0042 FFF7FEFF 		bl	UART_EndTxTransfer
+ 1775 0046 E4E7     		b	.L203
+ 1776              	.L207:
+ 1777 0048 002A     		cmp	r2, #0
+ 1778 004a EBD0     		beq	.L204
+ 1779 004c 0023     		movs	r3, #0
+ 1780 004e E385     		strh	r3, [r4, #46]	@ movhi
+ 1781 0050 2046     		mov	r0, r4
+ARM GAS  /tmp/ccL7ClOf.s 			page 31
+
+
+ 1782 0052 FFF7FEFF 		bl	UART_EndRxTransfer
+ 1783 0056 E5E7     		b	.L204
+ 1785              		.section	.text.HAL_UART_IRQHandler,"ax",%progbits
+ 1786              		.align	1
+ 1787              		.global	HAL_UART_IRQHandler
+ 1788              		.syntax unified
+ 1789              		.thumb
+ 1790              		.thumb_func
+ 1791              		.fpu softvfp
+ 1793              	HAL_UART_IRQHandler:
+ 1794              		@ args = 0, pretend = 0, frame = 0
+ 1795              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1796 0000 10B5     		push	{r4, lr}
+ 1797 0002 0446     		mov	r4, r0
+ 1798 0004 0268     		ldr	r2, [r0]
+ 1799 0006 1368     		ldr	r3, [r2]
+ 1800 0008 D168     		ldr	r1, [r2, #12]
+ 1801 000a 5269     		ldr	r2, [r2, #20]
+ 1802 000c 13F00F00 		ands	r0, r3, #15
+ 1803 0010 05D1     		bne	.L209
+ 1804 0012 13F0200F 		tst	r3, #32
+ 1805 0016 02D0     		beq	.L209
+ 1806 0018 11F0200F 		tst	r1, #32
+ 1807 001c 13D1     		bne	.L225
+ 1808              	.L209:
+ 1809 001e 28B1     		cbz	r0, .L211
+ 1810 0020 12F00102 		ands	r2, r2, #1
+ 1811 0024 13D1     		bne	.L212
+ 1812 0026 11F4907F 		tst	r1, #288
+ 1813 002a 10D1     		bne	.L212
+ 1814              	.L211:
+ 1815 002c 13F0800F 		tst	r3, #128
+ 1816 0030 02D0     		beq	.L223
+ 1817 0032 11F0800F 		tst	r1, #128
+ 1818 0036 69D1     		bne	.L226
+ 1819              	.L223:
+ 1820 0038 13F0400F 		tst	r3, #64
+ 1821 003c 02D0     		beq	.L208
+ 1822 003e 11F0400F 		tst	r1, #64
+ 1823 0042 67D1     		bne	.L227
+ 1824              	.L208:
+ 1825 0044 10BD     		pop	{r4, pc}
+ 1826              	.L225:
+ 1827 0046 2046     		mov	r0, r4
+ 1828 0048 FFF7FEFF 		bl	UART_Receive_IT
+ 1829 004c FAE7     		b	.L208
+ 1830              	.L212:
+ 1831 004e 13F0010F 		tst	r3, #1
+ 1832 0052 06D0     		beq	.L213
+ 1833 0054 11F4807F 		tst	r1, #256
+ 1834 0058 03D0     		beq	.L213
+ 1835 005a E06B     		ldr	r0, [r4, #60]
+ 1836 005c 40F00100 		orr	r0, r0, #1
+ 1837 0060 E063     		str	r0, [r4, #60]
+ 1838              	.L213:
+ 1839 0062 13F0040F 		tst	r3, #4
+ 1840 0066 04D0     		beq	.L214
+ARM GAS  /tmp/ccL7ClOf.s 			page 32
+
+
+ 1841 0068 1AB1     		cbz	r2, .L214
+ 1842 006a E06B     		ldr	r0, [r4, #60]
+ 1843 006c 40F00200 		orr	r0, r0, #2
+ 1844 0070 E063     		str	r0, [r4, #60]
+ 1845              	.L214:
+ 1846 0072 13F0020F 		tst	r3, #2
+ 1847 0076 04D0     		beq	.L215
+ 1848 0078 1AB1     		cbz	r2, .L215
+ 1849 007a E06B     		ldr	r0, [r4, #60]
+ 1850 007c 40F00400 		orr	r0, r0, #4
+ 1851 0080 E063     		str	r0, [r4, #60]
+ 1852              	.L215:
+ 1853 0082 13F0080F 		tst	r3, #8
+ 1854 0086 04D0     		beq	.L216
+ 1855 0088 1AB1     		cbz	r2, .L216
+ 1856 008a E26B     		ldr	r2, [r4, #60]
+ 1857 008c 42F00802 		orr	r2, r2, #8
+ 1858 0090 E263     		str	r2, [r4, #60]
+ 1859              	.L216:
+ 1860 0092 E26B     		ldr	r2, [r4, #60]
+ 1861 0094 002A     		cmp	r2, #0
+ 1862 0096 D5D0     		beq	.L208
+ 1863 0098 13F0200F 		tst	r3, #32
+ 1864 009c 02D0     		beq	.L218
+ 1865 009e 11F0200F 		tst	r1, #32
+ 1866 00a2 21D1     		bne	.L228
+ 1867              	.L218:
+ 1868 00a4 2368     		ldr	r3, [r4]
+ 1869 00a6 5B69     		ldr	r3, [r3, #20]
+ 1870 00a8 03F04003 		and	r3, r3, #64
+ 1871 00ac E26B     		ldr	r2, [r4, #60]
+ 1872 00ae 12F0080F 		tst	r2, #8
+ 1873 00b2 00D1     		bne	.L219
+ 1874 00b4 23B3     		cbz	r3, .L220
+ 1875              	.L219:
+ 1876 00b6 2046     		mov	r0, r4
+ 1877 00b8 FFF7FEFF 		bl	UART_EndRxTransfer
+ 1878 00bc 2368     		ldr	r3, [r4]
+ 1879 00be 5A69     		ldr	r2, [r3, #20]
+ 1880 00c0 12F0400F 		tst	r2, #64
+ 1881 00c4 18D0     		beq	.L221
+ 1882 00c6 5A69     		ldr	r2, [r3, #20]
+ 1883 00c8 22F04002 		bic	r2, r2, #64
+ 1884 00cc 5A61     		str	r2, [r3, #20]
+ 1885 00ce 636B     		ldr	r3, [r4, #52]
+ 1886 00d0 73B1     		cbz	r3, .L222
+ 1887 00d2 124A     		ldr	r2, .L229
+ 1888 00d4 5A63     		str	r2, [r3, #52]
+ 1889 00d6 606B     		ldr	r0, [r4, #52]
+ 1890 00d8 FFF7FEFF 		bl	HAL_DMA_Abort_IT
+ 1891 00dc 0028     		cmp	r0, #0
+ 1892 00de B1D0     		beq	.L208
+ 1893 00e0 606B     		ldr	r0, [r4, #52]
+ 1894 00e2 436B     		ldr	r3, [r0, #52]
+ 1895 00e4 9847     		blx	r3
+ 1896 00e6 ADE7     		b	.L208
+ 1897              	.L228:
+ARM GAS  /tmp/ccL7ClOf.s 			page 33
+
+
+ 1898 00e8 2046     		mov	r0, r4
+ 1899 00ea FFF7FEFF 		bl	UART_Receive_IT
+ 1900 00ee D9E7     		b	.L218
+ 1901              	.L222:
+ 1902 00f0 2046     		mov	r0, r4
+ 1903 00f2 FFF7FEFF 		bl	HAL_UART_ErrorCallback
+ 1904 00f6 A5E7     		b	.L208
+ 1905              	.L221:
+ 1906 00f8 2046     		mov	r0, r4
+ 1907 00fa FFF7FEFF 		bl	HAL_UART_ErrorCallback
+ 1908 00fe A1E7     		b	.L208
+ 1909              	.L220:
+ 1910 0100 2046     		mov	r0, r4
+ 1911 0102 FFF7FEFF 		bl	HAL_UART_ErrorCallback
+ 1912 0106 0023     		movs	r3, #0
+ 1913 0108 E363     		str	r3, [r4, #60]
+ 1914 010a 9BE7     		b	.L208
+ 1915              	.L226:
+ 1916 010c 2046     		mov	r0, r4
+ 1917 010e FFF7FEFF 		bl	UART_Transmit_IT
+ 1918 0112 97E7     		b	.L208
+ 1919              	.L227:
+ 1920 0114 2046     		mov	r0, r4
+ 1921 0116 FFF7FEFF 		bl	UART_EndTransmit_IT
+ 1922 011a 93E7     		b	.L208
+ 1923              	.L230:
+ 1924              		.align	2
+ 1925              	.L229:
+ 1926 011c 00000000 		.word	UART_DMAAbortOnError
+ 1928              		.section	.text.UART_DMAAbortOnError,"ax",%progbits
+ 1929              		.align	1
+ 1930              		.syntax unified
+ 1931              		.thumb
+ 1932              		.thumb_func
+ 1933              		.fpu softvfp
+ 1935              	UART_DMAAbortOnError:
+ 1936              		@ args = 0, pretend = 0, frame = 0
+ 1937              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1938 0000 08B5     		push	{r3, lr}
+ 1939 0002 406A     		ldr	r0, [r0, #36]
+ 1940 0004 0023     		movs	r3, #0
+ 1941 0006 C385     		strh	r3, [r0, #46]	@ movhi
+ 1942 0008 C384     		strh	r3, [r0, #38]	@ movhi
+ 1943 000a FFF7FEFF 		bl	HAL_UART_ErrorCallback
+ 1944 000e 08BD     		pop	{r3, pc}
+ 1946              		.section	.text.HAL_UART_AbortCpltCallback,"ax",%progbits
+ 1947              		.align	1
+ 1948              		.weak	HAL_UART_AbortCpltCallback
+ 1949              		.syntax unified
+ 1950              		.thumb
+ 1951              		.thumb_func
+ 1952              		.fpu softvfp
+ 1954              	HAL_UART_AbortCpltCallback:
+ 1955              		@ args = 0, pretend = 0, frame = 0
+ 1956              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1957              		@ link register save eliminated.
+ 1958 0000 7047     		bx	lr
+ARM GAS  /tmp/ccL7ClOf.s 			page 34
+
+
+ 1960              		.section	.text.HAL_UART_Abort_IT,"ax",%progbits
+ 1961              		.align	1
+ 1962              		.global	HAL_UART_Abort_IT
+ 1963              		.syntax unified
+ 1964              		.thumb
+ 1965              		.thumb_func
+ 1966              		.fpu softvfp
+ 1968              	HAL_UART_Abort_IT:
+ 1969              		@ args = 0, pretend = 0, frame = 0
+ 1970              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1971 0000 10B5     		push	{r4, lr}
+ 1972 0002 0446     		mov	r4, r0
+ 1973 0004 0268     		ldr	r2, [r0]
+ 1974 0006 D368     		ldr	r3, [r2, #12]
+ 1975 0008 23F4F073 		bic	r3, r3, #480
+ 1976 000c D360     		str	r3, [r2, #12]
+ 1977 000e 0268     		ldr	r2, [r0]
+ 1978 0010 5369     		ldr	r3, [r2, #20]
+ 1979 0012 23F00103 		bic	r3, r3, #1
+ 1980 0016 5361     		str	r3, [r2, #20]
+ 1981 0018 036B     		ldr	r3, [r0, #48]
+ 1982 001a 33B1     		cbz	r3, .L235
+ 1983 001c 0268     		ldr	r2, [r0]
+ 1984 001e 5269     		ldr	r2, [r2, #20]
+ 1985 0020 12F0800F 		tst	r2, #128
+ 1986 0024 1DD0     		beq	.L236
+ 1987 0026 254A     		ldr	r2, .L247
+ 1988 0028 5A63     		str	r2, [r3, #52]
+ 1989              	.L235:
+ 1990 002a 636B     		ldr	r3, [r4, #52]
+ 1991 002c 33B1     		cbz	r3, .L237
+ 1992 002e 2268     		ldr	r2, [r4]
+ 1993 0030 5269     		ldr	r2, [r2, #20]
+ 1994 0032 12F0400F 		tst	r2, #64
+ 1995 0036 17D0     		beq	.L238
+ 1996 0038 214A     		ldr	r2, .L247+4
+ 1997 003a 5A63     		str	r2, [r3, #52]
+ 1998              	.L237:
+ 1999 003c 2368     		ldr	r3, [r4]
+ 2000 003e 5A69     		ldr	r2, [r3, #20]
+ 2001 0040 12F0800F 		tst	r2, #128
+ 2002 0044 13D0     		beq	.L243
+ 2003 0046 5A69     		ldr	r2, [r3, #20]
+ 2004 0048 22F08002 		bic	r2, r2, #128
+ 2005 004c 5A61     		str	r2, [r3, #20]
+ 2006 004e 206B     		ldr	r0, [r4, #48]
+ 2007 0050 60B3     		cbz	r0, .L244
+ 2008 0052 FFF7FEFF 		bl	HAL_DMA_Abort_IT
+ 2009 0056 58B3     		cbz	r0, .L245
+ 2010 0058 236B     		ldr	r3, [r4, #48]
+ 2011 005a 0022     		movs	r2, #0
+ 2012 005c 5A63     		str	r2, [r3, #52]
+ 2013 005e 0121     		movs	r1, #1
+ 2014 0060 06E0     		b	.L239
+ 2015              	.L236:
+ 2016 0062 0022     		movs	r2, #0
+ 2017 0064 5A63     		str	r2, [r3, #52]
+ARM GAS  /tmp/ccL7ClOf.s 			page 35
+
+
+ 2018 0066 E0E7     		b	.L235
+ 2019              	.L238:
+ 2020 0068 0022     		movs	r2, #0
+ 2021 006a 5A63     		str	r2, [r3, #52]
+ 2022 006c E6E7     		b	.L237
+ 2023              	.L243:
+ 2024 006e 0121     		movs	r1, #1
+ 2025              	.L239:
+ 2026 0070 2368     		ldr	r3, [r4]
+ 2027 0072 5A69     		ldr	r2, [r3, #20]
+ 2028 0074 12F0400F 		tst	r2, #64
+ 2029 0078 1CD0     		beq	.L240
+ 2030 007a 5A69     		ldr	r2, [r3, #20]
+ 2031 007c 22F04002 		bic	r2, r2, #64
+ 2032 0080 5A61     		str	r2, [r3, #20]
+ 2033 0082 606B     		ldr	r0, [r4, #52]
+ 2034 0084 B0B1     		cbz	r0, .L240
+ 2035 0086 FFF7FEFF 		bl	HAL_DMA_Abort_IT
+ 2036 008a A8B1     		cbz	r0, .L241
+ 2037 008c 636B     		ldr	r3, [r4, #52]
+ 2038 008e 0022     		movs	r2, #0
+ 2039 0090 5A63     		str	r2, [r3, #52]
+ 2040              	.L242:
+ 2041 0092 0023     		movs	r3, #0
+ 2042 0094 E384     		strh	r3, [r4, #38]	@ movhi
+ 2043 0096 E385     		strh	r3, [r4, #46]	@ movhi
+ 2044 0098 E363     		str	r3, [r4, #60]
+ 2045 009a 2023     		movs	r3, #32
+ 2046 009c 84F83930 		strb	r3, [r4, #57]
+ 2047 00a0 84F83A30 		strb	r3, [r4, #58]
+ 2048 00a4 2046     		mov	r0, r4
+ 2049 00a6 FFF7FEFF 		bl	HAL_UART_AbortCpltCallback
+ 2050 00aa 05E0     		b	.L241
+ 2051              	.L244:
+ 2052 00ac 0121     		movs	r1, #1
+ 2053 00ae DFE7     		b	.L239
+ 2054              	.L245:
+ 2055 00b0 0021     		movs	r1, #0
+ 2056 00b2 DDE7     		b	.L239
+ 2057              	.L240:
+ 2058 00b4 0029     		cmp	r1, #0
+ 2059 00b6 ECD1     		bne	.L242
+ 2060              	.L241:
+ 2061 00b8 0020     		movs	r0, #0
+ 2062 00ba 10BD     		pop	{r4, pc}
+ 2063              	.L248:
+ 2064              		.align	2
+ 2065              	.L247:
+ 2066 00bc 00000000 		.word	UART_DMATxAbortCallback
+ 2067 00c0 00000000 		.word	UART_DMARxAbortCallback
+ 2069              		.section	.text.UART_DMARxAbortCallback,"ax",%progbits
+ 2070              		.align	1
+ 2071              		.syntax unified
+ 2072              		.thumb
+ 2073              		.thumb_func
+ 2074              		.fpu softvfp
+ 2076              	UART_DMARxAbortCallback:
+ARM GAS  /tmp/ccL7ClOf.s 			page 36
+
+
+ 2077              		@ args = 0, pretend = 0, frame = 0
+ 2078              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2079 0000 08B5     		push	{r3, lr}
+ 2080 0002 406A     		ldr	r0, [r0, #36]
+ 2081 0004 436B     		ldr	r3, [r0, #52]
+ 2082 0006 0022     		movs	r2, #0
+ 2083 0008 5A63     		str	r2, [r3, #52]
+ 2084 000a 036B     		ldr	r3, [r0, #48]
+ 2085 000c 0BB1     		cbz	r3, .L250
+ 2086 000e 5B6B     		ldr	r3, [r3, #52]
+ 2087 0010 53B9     		cbnz	r3, .L249
+ 2088              	.L250:
+ 2089 0012 0023     		movs	r3, #0
+ 2090 0014 C384     		strh	r3, [r0, #38]	@ movhi
+ 2091 0016 C385     		strh	r3, [r0, #46]	@ movhi
+ 2092 0018 C363     		str	r3, [r0, #60]
+ 2093 001a 2023     		movs	r3, #32
+ 2094 001c 80F83930 		strb	r3, [r0, #57]
+ 2095 0020 80F83A30 		strb	r3, [r0, #58]
+ 2096 0024 FFF7FEFF 		bl	HAL_UART_AbortCpltCallback
+ 2097              	.L249:
+ 2098 0028 08BD     		pop	{r3, pc}
+ 2100              		.section	.text.UART_DMATxAbortCallback,"ax",%progbits
+ 2101              		.align	1
+ 2102              		.syntax unified
+ 2103              		.thumb
+ 2104              		.thumb_func
+ 2105              		.fpu softvfp
+ 2107              	UART_DMATxAbortCallback:
+ 2108              		@ args = 0, pretend = 0, frame = 0
+ 2109              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2110 0000 08B5     		push	{r3, lr}
+ 2111 0002 406A     		ldr	r0, [r0, #36]
+ 2112 0004 036B     		ldr	r3, [r0, #48]
+ 2113 0006 0022     		movs	r2, #0
+ 2114 0008 5A63     		str	r2, [r3, #52]
+ 2115 000a 436B     		ldr	r3, [r0, #52]
+ 2116 000c 0BB1     		cbz	r3, .L254
+ 2117 000e 5B6B     		ldr	r3, [r3, #52]
+ 2118 0010 53B9     		cbnz	r3, .L253
+ 2119              	.L254:
+ 2120 0012 0023     		movs	r3, #0
+ 2121 0014 C384     		strh	r3, [r0, #38]	@ movhi
+ 2122 0016 C385     		strh	r3, [r0, #46]	@ movhi
+ 2123 0018 C363     		str	r3, [r0, #60]
+ 2124 001a 2023     		movs	r3, #32
+ 2125 001c 80F83930 		strb	r3, [r0, #57]
+ 2126 0020 80F83A30 		strb	r3, [r0, #58]
+ 2127 0024 FFF7FEFF 		bl	HAL_UART_AbortCpltCallback
+ 2128              	.L253:
+ 2129 0028 08BD     		pop	{r3, pc}
+ 2131              		.section	.text.HAL_UART_AbortTransmitCpltCallback,"ax",%progbits
+ 2132              		.align	1
+ 2133              		.weak	HAL_UART_AbortTransmitCpltCallback
+ 2134              		.syntax unified
+ 2135              		.thumb
+ 2136              		.thumb_func
+ARM GAS  /tmp/ccL7ClOf.s 			page 37
+
+
+ 2137              		.fpu softvfp
+ 2139              	HAL_UART_AbortTransmitCpltCallback:
+ 2140              		@ args = 0, pretend = 0, frame = 0
+ 2141              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2142              		@ link register save eliminated.
+ 2143 0000 7047     		bx	lr
+ 2145              		.section	.text.HAL_UART_AbortTransmit_IT,"ax",%progbits
+ 2146              		.align	1
+ 2147              		.global	HAL_UART_AbortTransmit_IT
+ 2148              		.syntax unified
+ 2149              		.thumb
+ 2150              		.thumb_func
+ 2151              		.fpu softvfp
+ 2153              	HAL_UART_AbortTransmit_IT:
+ 2154              		@ args = 0, pretend = 0, frame = 0
+ 2155              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2156 0000 10B5     		push	{r4, lr}
+ 2157 0002 0446     		mov	r4, r0
+ 2158 0004 0268     		ldr	r2, [r0]
+ 2159 0006 D368     		ldr	r3, [r2, #12]
+ 2160 0008 23F0C003 		bic	r3, r3, #192
+ 2161 000c D360     		str	r3, [r2, #12]
+ 2162 000e 0368     		ldr	r3, [r0]
+ 2163 0010 5A69     		ldr	r2, [r3, #20]
+ 2164 0012 12F0800F 		tst	r2, #128
+ 2165 0016 17D0     		beq	.L259
+ 2166 0018 5A69     		ldr	r2, [r3, #20]
+ 2167 001a 22F08002 		bic	r2, r2, #128
+ 2168 001e 5A61     		str	r2, [r3, #20]
+ 2169 0020 036B     		ldr	r3, [r0, #48]
+ 2170 0022 4BB1     		cbz	r3, .L260
+ 2171 0024 0D4A     		ldr	r2, .L263
+ 2172 0026 5A63     		str	r2, [r3, #52]
+ 2173 0028 006B     		ldr	r0, [r0, #48]
+ 2174 002a FFF7FEFF 		bl	HAL_DMA_Abort_IT
+ 2175 002e 90B1     		cbz	r0, .L261
+ 2176 0030 206B     		ldr	r0, [r4, #48]
+ 2177 0032 436B     		ldr	r3, [r0, #52]
+ 2178 0034 9847     		blx	r3
+ 2179 0036 0EE0     		b	.L261
+ 2180              	.L260:
+ 2181 0038 0023     		movs	r3, #0
+ 2182 003a C384     		strh	r3, [r0, #38]	@ movhi
+ 2183 003c 2023     		movs	r3, #32
+ 2184 003e 80F83930 		strb	r3, [r0, #57]
+ 2185 0042 FFF7FEFF 		bl	HAL_UART_AbortTransmitCpltCallback
+ 2186 0046 06E0     		b	.L261
+ 2187              	.L259:
+ 2188 0048 0023     		movs	r3, #0
+ 2189 004a C384     		strh	r3, [r0, #38]	@ movhi
+ 2190 004c 2023     		movs	r3, #32
+ 2191 004e 80F83930 		strb	r3, [r0, #57]
+ 2192 0052 FFF7FEFF 		bl	HAL_UART_AbortTransmitCpltCallback
+ 2193              	.L261:
+ 2194 0056 0020     		movs	r0, #0
+ 2195 0058 10BD     		pop	{r4, pc}
+ 2196              	.L264:
+ARM GAS  /tmp/ccL7ClOf.s 			page 38
+
+
+ 2197 005a 00BF     		.align	2
+ 2198              	.L263:
+ 2199 005c 00000000 		.word	UART_DMATxOnlyAbortCallback
+ 2201              		.section	.text.UART_DMATxOnlyAbortCallback,"ax",%progbits
+ 2202              		.align	1
+ 2203              		.syntax unified
+ 2204              		.thumb
+ 2205              		.thumb_func
+ 2206              		.fpu softvfp
+ 2208              	UART_DMATxOnlyAbortCallback:
+ 2209              		@ args = 0, pretend = 0, frame = 0
+ 2210              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2211 0000 08B5     		push	{r3, lr}
+ 2212 0002 406A     		ldr	r0, [r0, #36]
+ 2213 0004 0023     		movs	r3, #0
+ 2214 0006 C384     		strh	r3, [r0, #38]	@ movhi
+ 2215 0008 2023     		movs	r3, #32
+ 2216 000a 80F83930 		strb	r3, [r0, #57]
+ 2217 000e FFF7FEFF 		bl	HAL_UART_AbortTransmitCpltCallback
+ 2218 0012 08BD     		pop	{r3, pc}
+ 2220              		.section	.text.HAL_UART_AbortReceiveCpltCallback,"ax",%progbits
+ 2221              		.align	1
+ 2222              		.weak	HAL_UART_AbortReceiveCpltCallback
+ 2223              		.syntax unified
+ 2224              		.thumb
+ 2225              		.thumb_func
+ 2226              		.fpu softvfp
+ 2228              	HAL_UART_AbortReceiveCpltCallback:
+ 2229              		@ args = 0, pretend = 0, frame = 0
+ 2230              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2231              		@ link register save eliminated.
+ 2232 0000 7047     		bx	lr
+ 2234              		.section	.text.HAL_UART_AbortReceive_IT,"ax",%progbits
+ 2235              		.align	1
+ 2236              		.global	HAL_UART_AbortReceive_IT
+ 2237              		.syntax unified
+ 2238              		.thumb
+ 2239              		.thumb_func
+ 2240              		.fpu softvfp
+ 2242              	HAL_UART_AbortReceive_IT:
+ 2243              		@ args = 0, pretend = 0, frame = 0
+ 2244              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2245 0000 10B5     		push	{r4, lr}
+ 2246 0002 0446     		mov	r4, r0
+ 2247 0004 0268     		ldr	r2, [r0]
+ 2248 0006 D368     		ldr	r3, [r2, #12]
+ 2249 0008 23F49073 		bic	r3, r3, #288
+ 2250 000c D360     		str	r3, [r2, #12]
+ 2251 000e 0268     		ldr	r2, [r0]
+ 2252 0010 5369     		ldr	r3, [r2, #20]
+ 2253 0012 23F00103 		bic	r3, r3, #1
+ 2254 0016 5361     		str	r3, [r2, #20]
+ 2255 0018 0368     		ldr	r3, [r0]
+ 2256 001a 5A69     		ldr	r2, [r3, #20]
+ 2257 001c 12F0400F 		tst	r2, #64
+ 2258 0020 17D0     		beq	.L269
+ 2259 0022 5A69     		ldr	r2, [r3, #20]
+ARM GAS  /tmp/ccL7ClOf.s 			page 39
+
+
+ 2260 0024 22F04002 		bic	r2, r2, #64
+ 2261 0028 5A61     		str	r2, [r3, #20]
+ 2262 002a 436B     		ldr	r3, [r0, #52]
+ 2263 002c 4BB1     		cbz	r3, .L270
+ 2264 002e 0D4A     		ldr	r2, .L273
+ 2265 0030 5A63     		str	r2, [r3, #52]
+ 2266 0032 406B     		ldr	r0, [r0, #52]
+ 2267 0034 FFF7FEFF 		bl	HAL_DMA_Abort_IT
+ 2268 0038 90B1     		cbz	r0, .L271
+ 2269 003a 606B     		ldr	r0, [r4, #52]
+ 2270 003c 436B     		ldr	r3, [r0, #52]
+ 2271 003e 9847     		blx	r3
+ 2272 0040 0EE0     		b	.L271
+ 2273              	.L270:
+ 2274 0042 0023     		movs	r3, #0
+ 2275 0044 C385     		strh	r3, [r0, #46]	@ movhi
+ 2276 0046 2023     		movs	r3, #32
+ 2277 0048 80F83A30 		strb	r3, [r0, #58]
+ 2278 004c FFF7FEFF 		bl	HAL_UART_AbortReceiveCpltCallback
+ 2279 0050 06E0     		b	.L271
+ 2280              	.L269:
+ 2281 0052 0023     		movs	r3, #0
+ 2282 0054 C385     		strh	r3, [r0, #46]	@ movhi
+ 2283 0056 2023     		movs	r3, #32
+ 2284 0058 80F83A30 		strb	r3, [r0, #58]
+ 2285 005c FFF7FEFF 		bl	HAL_UART_AbortReceiveCpltCallback
+ 2286              	.L271:
+ 2287 0060 0020     		movs	r0, #0
+ 2288 0062 10BD     		pop	{r4, pc}
+ 2289              	.L274:
+ 2290              		.align	2
+ 2291              	.L273:
+ 2292 0064 00000000 		.word	UART_DMARxOnlyAbortCallback
+ 2294              		.section	.text.UART_DMARxOnlyAbortCallback,"ax",%progbits
+ 2295              		.align	1
+ 2296              		.syntax unified
+ 2297              		.thumb
+ 2298              		.thumb_func
+ 2299              		.fpu softvfp
+ 2301              	UART_DMARxOnlyAbortCallback:
+ 2302              		@ args = 0, pretend = 0, frame = 0
+ 2303              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2304 0000 08B5     		push	{r3, lr}
+ 2305 0002 406A     		ldr	r0, [r0, #36]
+ 2306 0004 0023     		movs	r3, #0
+ 2307 0006 C385     		strh	r3, [r0, #46]	@ movhi
+ 2308 0008 2023     		movs	r3, #32
+ 2309 000a 80F83A30 		strb	r3, [r0, #58]
+ 2310 000e FFF7FEFF 		bl	HAL_UART_AbortReceiveCpltCallback
+ 2311 0012 08BD     		pop	{r3, pc}
+ 2313              		.section	.text.HAL_LIN_SendBreak,"ax",%progbits
+ 2314              		.align	1
+ 2315              		.global	HAL_LIN_SendBreak
+ 2316              		.syntax unified
+ 2317              		.thumb
+ 2318              		.thumb_func
+ 2319              		.fpu softvfp
+ARM GAS  /tmp/ccL7ClOf.s 			page 40
+
+
+ 2321              	HAL_LIN_SendBreak:
+ 2322              		@ args = 0, pretend = 0, frame = 0
+ 2323              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2324              		@ link register save eliminated.
+ 2325 0000 90F83830 		ldrb	r3, [r0, #56]	@ zero_extendqisi2
+ 2326 0004 012B     		cmp	r3, #1
+ 2327 0006 12D0     		beq	.L279
+ 2328 0008 0123     		movs	r3, #1
+ 2329 000a 80F83830 		strb	r3, [r0, #56]
+ 2330 000e 2423     		movs	r3, #36
+ 2331 0010 80F83930 		strb	r3, [r0, #57]
+ 2332 0014 0268     		ldr	r2, [r0]
+ 2333 0016 D368     		ldr	r3, [r2, #12]
+ 2334 0018 43F00103 		orr	r3, r3, #1
+ 2335 001c D360     		str	r3, [r2, #12]
+ 2336 001e 2023     		movs	r3, #32
+ 2337 0020 80F83930 		strb	r3, [r0, #57]
+ 2338 0024 0023     		movs	r3, #0
+ 2339 0026 80F83830 		strb	r3, [r0, #56]
+ 2340 002a 1846     		mov	r0, r3
+ 2341 002c 7047     		bx	lr
+ 2342              	.L279:
+ 2343 002e 0220     		movs	r0, #2
+ 2344 0030 7047     		bx	lr
+ 2346              		.section	.text.HAL_MultiProcessor_EnterMuteMode,"ax",%progbits
+ 2347              		.align	1
+ 2348              		.global	HAL_MultiProcessor_EnterMuteMode
+ 2349              		.syntax unified
+ 2350              		.thumb
+ 2351              		.thumb_func
+ 2352              		.fpu softvfp
+ 2354              	HAL_MultiProcessor_EnterMuteMode:
+ 2355              		@ args = 0, pretend = 0, frame = 0
+ 2356              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2357              		@ link register save eliminated.
+ 2358 0000 90F83830 		ldrb	r3, [r0, #56]	@ zero_extendqisi2
+ 2359 0004 012B     		cmp	r3, #1
+ 2360 0006 12D0     		beq	.L282
+ 2361 0008 0123     		movs	r3, #1
+ 2362 000a 80F83830 		strb	r3, [r0, #56]
+ 2363 000e 2423     		movs	r3, #36
+ 2364 0010 80F83930 		strb	r3, [r0, #57]
+ 2365 0014 0268     		ldr	r2, [r0]
+ 2366 0016 D368     		ldr	r3, [r2, #12]
+ 2367 0018 43F00203 		orr	r3, r3, #2
+ 2368 001c D360     		str	r3, [r2, #12]
+ 2369 001e 2023     		movs	r3, #32
+ 2370 0020 80F83930 		strb	r3, [r0, #57]
+ 2371 0024 0023     		movs	r3, #0
+ 2372 0026 80F83830 		strb	r3, [r0, #56]
+ 2373 002a 1846     		mov	r0, r3
+ 2374 002c 7047     		bx	lr
+ 2375              	.L282:
+ 2376 002e 0220     		movs	r0, #2
+ 2377 0030 7047     		bx	lr
+ 2379              		.section	.text.HAL_MultiProcessor_ExitMuteMode,"ax",%progbits
+ 2380              		.align	1
+ARM GAS  /tmp/ccL7ClOf.s 			page 41
+
+
+ 2381              		.global	HAL_MultiProcessor_ExitMuteMode
+ 2382              		.syntax unified
+ 2383              		.thumb
+ 2384              		.thumb_func
+ 2385              		.fpu softvfp
+ 2387              	HAL_MultiProcessor_ExitMuteMode:
+ 2388              		@ args = 0, pretend = 0, frame = 0
+ 2389              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2390              		@ link register save eliminated.
+ 2391 0000 90F83830 		ldrb	r3, [r0, #56]	@ zero_extendqisi2
+ 2392 0004 012B     		cmp	r3, #1
+ 2393 0006 12D0     		beq	.L285
+ 2394 0008 0123     		movs	r3, #1
+ 2395 000a 80F83830 		strb	r3, [r0, #56]
+ 2396 000e 2423     		movs	r3, #36
+ 2397 0010 80F83930 		strb	r3, [r0, #57]
+ 2398 0014 0268     		ldr	r2, [r0]
+ 2399 0016 D368     		ldr	r3, [r2, #12]
+ 2400 0018 23F00203 		bic	r3, r3, #2
+ 2401 001c D360     		str	r3, [r2, #12]
+ 2402 001e 2023     		movs	r3, #32
+ 2403 0020 80F83930 		strb	r3, [r0, #57]
+ 2404 0024 0023     		movs	r3, #0
+ 2405 0026 80F83830 		strb	r3, [r0, #56]
+ 2406 002a 1846     		mov	r0, r3
+ 2407 002c 7047     		bx	lr
+ 2408              	.L285:
+ 2409 002e 0220     		movs	r0, #2
+ 2410 0030 7047     		bx	lr
+ 2412              		.section	.text.HAL_HalfDuplex_EnableTransmitter,"ax",%progbits
+ 2413              		.align	1
+ 2414              		.global	HAL_HalfDuplex_EnableTransmitter
+ 2415              		.syntax unified
+ 2416              		.thumb
+ 2417              		.thumb_func
+ 2418              		.fpu softvfp
+ 2420              	HAL_HalfDuplex_EnableTransmitter:
+ 2421              		@ args = 0, pretend = 0, frame = 0
+ 2422              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2423              		@ link register save eliminated.
+ 2424 0000 90F83830 		ldrb	r3, [r0, #56]	@ zero_extendqisi2
+ 2425 0004 012B     		cmp	r3, #1
+ 2426 0006 14D0     		beq	.L288
+ 2427 0008 0123     		movs	r3, #1
+ 2428 000a 80F83830 		strb	r3, [r0, #56]
+ 2429 000e 2423     		movs	r3, #36
+ 2430 0010 80F83930 		strb	r3, [r0, #57]
+ 2431 0014 0268     		ldr	r2, [r0]
+ 2432 0016 D368     		ldr	r3, [r2, #12]
+ 2433 0018 23F00C03 		bic	r3, r3, #12
+ 2434 001c 43F00803 		orr	r3, r3, #8
+ 2435 0020 D360     		str	r3, [r2, #12]
+ 2436 0022 2023     		movs	r3, #32
+ 2437 0024 80F83930 		strb	r3, [r0, #57]
+ 2438 0028 0023     		movs	r3, #0
+ 2439 002a 80F83830 		strb	r3, [r0, #56]
+ 2440 002e 1846     		mov	r0, r3
+ARM GAS  /tmp/ccL7ClOf.s 			page 42
+
+
+ 2441 0030 7047     		bx	lr
+ 2442              	.L288:
+ 2443 0032 0220     		movs	r0, #2
+ 2444 0034 7047     		bx	lr
+ 2446              		.section	.text.HAL_HalfDuplex_EnableReceiver,"ax",%progbits
+ 2447              		.align	1
+ 2448              		.global	HAL_HalfDuplex_EnableReceiver
+ 2449              		.syntax unified
+ 2450              		.thumb
+ 2451              		.thumb_func
+ 2452              		.fpu softvfp
+ 2454              	HAL_HalfDuplex_EnableReceiver:
+ 2455              		@ args = 0, pretend = 0, frame = 0
+ 2456              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2457              		@ link register save eliminated.
+ 2458 0000 90F83830 		ldrb	r3, [r0, #56]	@ zero_extendqisi2
+ 2459 0004 012B     		cmp	r3, #1
+ 2460 0006 14D0     		beq	.L291
+ 2461 0008 0123     		movs	r3, #1
+ 2462 000a 80F83830 		strb	r3, [r0, #56]
+ 2463 000e 2423     		movs	r3, #36
+ 2464 0010 80F83930 		strb	r3, [r0, #57]
+ 2465 0014 0268     		ldr	r2, [r0]
+ 2466 0016 D368     		ldr	r3, [r2, #12]
+ 2467 0018 23F00C03 		bic	r3, r3, #12
+ 2468 001c 43F00403 		orr	r3, r3, #4
+ 2469 0020 D360     		str	r3, [r2, #12]
+ 2470 0022 2023     		movs	r3, #32
+ 2471 0024 80F83930 		strb	r3, [r0, #57]
+ 2472 0028 0023     		movs	r3, #0
+ 2473 002a 80F83830 		strb	r3, [r0, #56]
+ 2474 002e 1846     		mov	r0, r3
+ 2475 0030 7047     		bx	lr
+ 2476              	.L291:
+ 2477 0032 0220     		movs	r0, #2
+ 2478 0034 7047     		bx	lr
+ 2480              		.section	.text.HAL_UART_GetState,"ax",%progbits
+ 2481              		.align	1
+ 2482              		.global	HAL_UART_GetState
+ 2483              		.syntax unified
+ 2484              		.thumb
+ 2485              		.thumb_func
+ 2486              		.fpu softvfp
+ 2488              	HAL_UART_GetState:
+ 2489              		@ args = 0, pretend = 0, frame = 0
+ 2490              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2491              		@ link register save eliminated.
+ 2492 0000 90F83930 		ldrb	r3, [r0, #57]	@ zero_extendqisi2
+ 2493 0004 90F83A00 		ldrb	r0, [r0, #58]	@ zero_extendqisi2
+ 2494 0008 1843     		orrs	r0, r0, r3
+ 2495 000a 7047     		bx	lr
+ 2497              		.section	.text.HAL_UART_GetError,"ax",%progbits
+ 2498              		.align	1
+ 2499              		.global	HAL_UART_GetError
+ 2500              		.syntax unified
+ 2501              		.thumb
+ 2502              		.thumb_func
+ARM GAS  /tmp/ccL7ClOf.s 			page 43
+
+
+ 2503              		.fpu softvfp
+ 2505              	HAL_UART_GetError:
+ 2506              		@ args = 0, pretend = 0, frame = 0
+ 2507              		@ frame_needed = 0, uses_anonymous_args = 0
+ 2508              		@ link register save eliminated.
+ 2509 0000 C06B     		ldr	r0, [r0, #60]
+ 2510 0002 7047     		bx	lr
+ 2512              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 8-2018-q4-major) 8.2.1 20181213 (release) [gcc
+ARM GAS  /tmp/ccL7ClOf.s 			page 44
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 stm32f1xx_hal_uart.c
+     /tmp/ccL7ClOf.s:14     .text.UART_EndTxTransfer:0000000000000000 $t
+     /tmp/ccL7ClOf.s:21     .text.UART_EndTxTransfer:0000000000000000 UART_EndTxTransfer
+     /tmp/ccL7ClOf.s:34     .text.UART_EndRxTransfer:0000000000000000 $t
+     /tmp/ccL7ClOf.s:40     .text.UART_EndRxTransfer:0000000000000000 UART_EndRxTransfer
+     /tmp/ccL7ClOf.s:57     .text.UART_Transmit_IT:0000000000000000 $t
+     /tmp/ccL7ClOf.s:63     .text.UART_Transmit_IT:0000000000000000 UART_Transmit_IT
+     /tmp/ccL7ClOf.s:119    .text.UART_SetConfig:0000000000000000 $t
+     /tmp/ccL7ClOf.s:125    .text.UART_SetConfig:0000000000000000 UART_SetConfig
+     /tmp/ccL7ClOf.s:272    .text.UART_SetConfig:00000000000001a4 $d
+     /tmp/ccL7ClOf.s:276    .text.UART_WaitOnFlagUntilTimeout:0000000000000000 $t
+     /tmp/ccL7ClOf.s:282    .text.UART_WaitOnFlagUntilTimeout:0000000000000000 UART_WaitOnFlagUntilTimeout
+     /tmp/ccL7ClOf.s:329    .text.HAL_UART_MspInit:0000000000000000 $t
+     /tmp/ccL7ClOf.s:336    .text.HAL_UART_MspInit:0000000000000000 HAL_UART_MspInit
+     /tmp/ccL7ClOf.s:343    .text.HAL_UART_Init:0000000000000000 $t
+     /tmp/ccL7ClOf.s:350    .text.HAL_UART_Init:0000000000000000 HAL_UART_Init
+     /tmp/ccL7ClOf.s:394    .text.HAL_HalfDuplex_Init:0000000000000000 $t
+     /tmp/ccL7ClOf.s:401    .text.HAL_HalfDuplex_Init:0000000000000000 HAL_HalfDuplex_Init
+     /tmp/ccL7ClOf.s:450    .text.HAL_LIN_Init:0000000000000000 $t
+     /tmp/ccL7ClOf.s:457    .text.HAL_LIN_Init:0000000000000000 HAL_LIN_Init
+     /tmp/ccL7ClOf.s:512    .text.HAL_MultiProcessor_Init:0000000000000000 $t
+     /tmp/ccL7ClOf.s:519    .text.HAL_MultiProcessor_Init:0000000000000000 HAL_MultiProcessor_Init
+     /tmp/ccL7ClOf.s:577    .text.HAL_UART_MspDeInit:0000000000000000 $t
+     /tmp/ccL7ClOf.s:584    .text.HAL_UART_MspDeInit:0000000000000000 HAL_UART_MspDeInit
+     /tmp/ccL7ClOf.s:591    .text.HAL_UART_DeInit:0000000000000000 $t
+     /tmp/ccL7ClOf.s:598    .text.HAL_UART_DeInit:0000000000000000 HAL_UART_DeInit
+     /tmp/ccL7ClOf.s:618    .text.HAL_UART_Transmit:0000000000000000 $t
+     /tmp/ccL7ClOf.s:625    .text.HAL_UART_Transmit:0000000000000000 HAL_UART_Transmit
+     /tmp/ccL7ClOf.s:738    .text.HAL_UART_Receive:0000000000000000 $t
+     /tmp/ccL7ClOf.s:745    .text.HAL_UART_Receive:0000000000000000 HAL_UART_Receive
+     /tmp/ccL7ClOf.s:857    .text.HAL_UART_Transmit_IT:0000000000000000 $t
+     /tmp/ccL7ClOf.s:864    .text.HAL_UART_Transmit_IT:0000000000000000 HAL_UART_Transmit_IT
+     /tmp/ccL7ClOf.s:905    .text.HAL_UART_Receive_IT:0000000000000000 $t
+     /tmp/ccL7ClOf.s:912    .text.HAL_UART_Receive_IT:0000000000000000 HAL_UART_Receive_IT
+     /tmp/ccL7ClOf.s:961    .text.HAL_UART_Transmit_DMA:0000000000000000 $t
+     /tmp/ccL7ClOf.s:968    .text.HAL_UART_Transmit_DMA:0000000000000000 HAL_UART_Transmit_DMA
+     /tmp/ccL7ClOf.s:1035   .text.HAL_UART_Transmit_DMA:0000000000000080 $d
+     /tmp/ccL7ClOf.s:1477   .text.UART_DMATransmitCplt:0000000000000000 UART_DMATransmitCplt
+     /tmp/ccL7ClOf.s:1545   .text.UART_DMATxHalfCplt:0000000000000000 UART_DMATxHalfCplt
+     /tmp/ccL7ClOf.s:1741   .text.UART_DMAError:0000000000000000 UART_DMAError
+     /tmp/ccL7ClOf.s:1040   .text.HAL_UART_Receive_DMA:0000000000000000 $t
+     /tmp/ccL7ClOf.s:1047   .text.HAL_UART_Receive_DMA:0000000000000000 HAL_UART_Receive_DMA
+     /tmp/ccL7ClOf.s:1128   .text.HAL_UART_Receive_DMA:000000000000009c $d
+     /tmp/ccL7ClOf.s:1574   .text.UART_DMAReceiveCplt:0000000000000000 UART_DMAReceiveCplt
+     /tmp/ccL7ClOf.s:1712   .text.UART_DMARxHalfCplt:0000000000000000 UART_DMARxHalfCplt
+     /tmp/ccL7ClOf.s:1133   .text.HAL_UART_DMAPause:0000000000000000 $t
+     /tmp/ccL7ClOf.s:1140   .text.HAL_UART_DMAPause:0000000000000000 HAL_UART_DMAPause
+     /tmp/ccL7ClOf.s:1196   .text.HAL_UART_DMAResume:0000000000000000 $t
+     /tmp/ccL7ClOf.s:1203   .text.HAL_UART_DMAResume:0000000000000000 HAL_UART_DMAResume
+     /tmp/ccL7ClOf.s:1263   .text.HAL_UART_DMAStop:0000000000000000 $t
+     /tmp/ccL7ClOf.s:1270   .text.HAL_UART_DMAStop:0000000000000000 HAL_UART_DMAStop
+     /tmp/ccL7ClOf.s:1321   .text.HAL_UART_Abort:0000000000000000 $t
+     /tmp/ccL7ClOf.s:1328   .text.HAL_UART_Abort:0000000000000000 HAL_UART_Abort
+     /tmp/ccL7ClOf.s:1379   .text.HAL_UART_AbortTransmit:0000000000000000 $t
+     /tmp/ccL7ClOf.s:1386   .text.HAL_UART_AbortTransmit:0000000000000000 HAL_UART_AbortTransmit
+     /tmp/ccL7ClOf.s:1416   .text.HAL_UART_AbortReceive:0000000000000000 $t
+ARM GAS  /tmp/ccL7ClOf.s 			page 45
+
+
+     /tmp/ccL7ClOf.s:1423   .text.HAL_UART_AbortReceive:0000000000000000 HAL_UART_AbortReceive
+     /tmp/ccL7ClOf.s:1457   .text.HAL_UART_TxCpltCallback:0000000000000000 $t
+     /tmp/ccL7ClOf.s:1464   .text.HAL_UART_TxCpltCallback:0000000000000000 HAL_UART_TxCpltCallback
+     /tmp/ccL7ClOf.s:1471   .text.UART_DMATransmitCplt:0000000000000000 $t
+     /tmp/ccL7ClOf.s:1504   .text.UART_EndTransmit_IT:0000000000000000 $t
+     /tmp/ccL7ClOf.s:1510   .text.UART_EndTransmit_IT:0000000000000000 UART_EndTransmit_IT
+     /tmp/ccL7ClOf.s:1525   .text.HAL_UART_TxHalfCpltCallback:0000000000000000 $t
+     /tmp/ccL7ClOf.s:1532   .text.HAL_UART_TxHalfCpltCallback:0000000000000000 HAL_UART_TxHalfCpltCallback
+     /tmp/ccL7ClOf.s:1539   .text.UART_DMATxHalfCplt:0000000000000000 $t
+     /tmp/ccL7ClOf.s:1554   .text.HAL_UART_RxCpltCallback:0000000000000000 $t
+     /tmp/ccL7ClOf.s:1561   .text.HAL_UART_RxCpltCallback:0000000000000000 HAL_UART_RxCpltCallback
+     /tmp/ccL7ClOf.s:1568   .text.UART_DMAReceiveCplt:0000000000000000 $t
+     /tmp/ccL7ClOf.s:1605   .text.UART_Receive_IT:0000000000000000 $t
+     /tmp/ccL7ClOf.s:1611   .text.UART_Receive_IT:0000000000000000 UART_Receive_IT
+     /tmp/ccL7ClOf.s:1692   .text.HAL_UART_RxHalfCpltCallback:0000000000000000 $t
+     /tmp/ccL7ClOf.s:1699   .text.HAL_UART_RxHalfCpltCallback:0000000000000000 HAL_UART_RxHalfCpltCallback
+     /tmp/ccL7ClOf.s:1706   .text.UART_DMARxHalfCplt:0000000000000000 $t
+     /tmp/ccL7ClOf.s:1721   .text.HAL_UART_ErrorCallback:0000000000000000 $t
+     /tmp/ccL7ClOf.s:1728   .text.HAL_UART_ErrorCallback:0000000000000000 HAL_UART_ErrorCallback
+     /tmp/ccL7ClOf.s:1735   .text.UART_DMAError:0000000000000000 $t
+     /tmp/ccL7ClOf.s:1786   .text.HAL_UART_IRQHandler:0000000000000000 $t
+     /tmp/ccL7ClOf.s:1793   .text.HAL_UART_IRQHandler:0000000000000000 HAL_UART_IRQHandler
+     /tmp/ccL7ClOf.s:1926   .text.HAL_UART_IRQHandler:000000000000011c $d
+     /tmp/ccL7ClOf.s:1935   .text.UART_DMAAbortOnError:0000000000000000 UART_DMAAbortOnError
+     /tmp/ccL7ClOf.s:1929   .text.UART_DMAAbortOnError:0000000000000000 $t
+     /tmp/ccL7ClOf.s:1947   .text.HAL_UART_AbortCpltCallback:0000000000000000 $t
+     /tmp/ccL7ClOf.s:1954   .text.HAL_UART_AbortCpltCallback:0000000000000000 HAL_UART_AbortCpltCallback
+     /tmp/ccL7ClOf.s:1961   .text.HAL_UART_Abort_IT:0000000000000000 $t
+     /tmp/ccL7ClOf.s:1968   .text.HAL_UART_Abort_IT:0000000000000000 HAL_UART_Abort_IT
+     /tmp/ccL7ClOf.s:2066   .text.HAL_UART_Abort_IT:00000000000000bc $d
+     /tmp/ccL7ClOf.s:2107   .text.UART_DMATxAbortCallback:0000000000000000 UART_DMATxAbortCallback
+     /tmp/ccL7ClOf.s:2076   .text.UART_DMARxAbortCallback:0000000000000000 UART_DMARxAbortCallback
+     /tmp/ccL7ClOf.s:2070   .text.UART_DMARxAbortCallback:0000000000000000 $t
+     /tmp/ccL7ClOf.s:2101   .text.UART_DMATxAbortCallback:0000000000000000 $t
+     /tmp/ccL7ClOf.s:2132   .text.HAL_UART_AbortTransmitCpltCallback:0000000000000000 $t
+     /tmp/ccL7ClOf.s:2139   .text.HAL_UART_AbortTransmitCpltCallback:0000000000000000 HAL_UART_AbortTransmitCpltCallback
+     /tmp/ccL7ClOf.s:2146   .text.HAL_UART_AbortTransmit_IT:0000000000000000 $t
+     /tmp/ccL7ClOf.s:2153   .text.HAL_UART_AbortTransmit_IT:0000000000000000 HAL_UART_AbortTransmit_IT
+     /tmp/ccL7ClOf.s:2199   .text.HAL_UART_AbortTransmit_IT:000000000000005c $d
+     /tmp/ccL7ClOf.s:2208   .text.UART_DMATxOnlyAbortCallback:0000000000000000 UART_DMATxOnlyAbortCallback
+     /tmp/ccL7ClOf.s:2202   .text.UART_DMATxOnlyAbortCallback:0000000000000000 $t
+     /tmp/ccL7ClOf.s:2221   .text.HAL_UART_AbortReceiveCpltCallback:0000000000000000 $t
+     /tmp/ccL7ClOf.s:2228   .text.HAL_UART_AbortReceiveCpltCallback:0000000000000000 HAL_UART_AbortReceiveCpltCallback
+     /tmp/ccL7ClOf.s:2235   .text.HAL_UART_AbortReceive_IT:0000000000000000 $t
+     /tmp/ccL7ClOf.s:2242   .text.HAL_UART_AbortReceive_IT:0000000000000000 HAL_UART_AbortReceive_IT
+     /tmp/ccL7ClOf.s:2292   .text.HAL_UART_AbortReceive_IT:0000000000000064 $d
+     /tmp/ccL7ClOf.s:2301   .text.UART_DMARxOnlyAbortCallback:0000000000000000 UART_DMARxOnlyAbortCallback
+     /tmp/ccL7ClOf.s:2295   .text.UART_DMARxOnlyAbortCallback:0000000000000000 $t
+     /tmp/ccL7ClOf.s:2314   .text.HAL_LIN_SendBreak:0000000000000000 $t
+     /tmp/ccL7ClOf.s:2321   .text.HAL_LIN_SendBreak:0000000000000000 HAL_LIN_SendBreak
+     /tmp/ccL7ClOf.s:2347   .text.HAL_MultiProcessor_EnterMuteMode:0000000000000000 $t
+     /tmp/ccL7ClOf.s:2354   .text.HAL_MultiProcessor_EnterMuteMode:0000000000000000 HAL_MultiProcessor_EnterMuteMode
+     /tmp/ccL7ClOf.s:2380   .text.HAL_MultiProcessor_ExitMuteMode:0000000000000000 $t
+     /tmp/ccL7ClOf.s:2387   .text.HAL_MultiProcessor_ExitMuteMode:0000000000000000 HAL_MultiProcessor_ExitMuteMode
+     /tmp/ccL7ClOf.s:2413   .text.HAL_HalfDuplex_EnableTransmitter:0000000000000000 $t
+     /tmp/ccL7ClOf.s:2420   .text.HAL_HalfDuplex_EnableTransmitter:0000000000000000 HAL_HalfDuplex_EnableTransmitter
+     /tmp/ccL7ClOf.s:2447   .text.HAL_HalfDuplex_EnableReceiver:0000000000000000 $t
+ARM GAS  /tmp/ccL7ClOf.s 			page 46
+
+
+     /tmp/ccL7ClOf.s:2454   .text.HAL_HalfDuplex_EnableReceiver:0000000000000000 HAL_HalfDuplex_EnableReceiver
+     /tmp/ccL7ClOf.s:2481   .text.HAL_UART_GetState:0000000000000000 $t
+     /tmp/ccL7ClOf.s:2488   .text.HAL_UART_GetState:0000000000000000 HAL_UART_GetState
+     /tmp/ccL7ClOf.s:2498   .text.HAL_UART_GetError:0000000000000000 $t
+     /tmp/ccL7ClOf.s:2505   .text.HAL_UART_GetError:0000000000000000 HAL_UART_GetError
+
+UNDEFINED SYMBOLS
+HAL_RCC_GetPCLK1Freq
+HAL_RCC_GetPCLK2Freq
+HAL_GetTick
+HAL_DMA_Start_IT
+HAL_DMA_Abort
+HAL_DMA_Abort_IT
