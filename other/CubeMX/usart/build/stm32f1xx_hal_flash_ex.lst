@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccKmR4aC.s 			page 1
+ARM GAS  /tmp/ccWMuNyu.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccKmR4aC.s 			page 1
   58              	.L5:
   59 0008 00200240 		.word	1073881088
   61              		.section	.text.FLASH_OB_GetRDP,"ax",%progbits
-ARM GAS  /tmp/ccKmR4aC.s 			page 2
+ARM GAS  /tmp/ccWMuNyu.s 			page 2
 
 
   62              		.align	1
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccKmR4aC.s 			page 1
  121 000e 08B1     		cbz	r0, .L18
  122              	.L16:
  123 0010 1846     		mov	r0, r3
-ARM GAS  /tmp/ccKmR4aC.s 			page 3
+ARM GAS  /tmp/ccWMuNyu.s 			page 3
 
 
  124 0012 38BD     		pop	{r3, r4, r5, pc}
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccKmR4aC.s 			page 1
  180              	.L22:
  181 0010 1846     		mov	r0, r3
  182 0012 38BD     		pop	{r3, r4, r5, pc}
-ARM GAS  /tmp/ccKmR4aC.s 			page 4
+ARM GAS  /tmp/ccWMuNyu.s 			page 4
 
 
  183              	.L24:
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccKmR4aC.s 			page 1
  239 002e FFF7FEFF 		bl	FLASH_WaitForLastOperation
  240 0032 0346     		mov	r3, r0
  241 0034 2A69     		ldr	r2, [r5, #16]
-ARM GAS  /tmp/ccKmR4aC.s 			page 5
+ARM GAS  /tmp/ccWMuNyu.s 			page 5
 
 
  242 0036 22F01002 		bic	r2, r2, #16
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccKmR4aC.s 			page 1
  298 0050 00000000 		.word	pFlash
  299 0054 00200240 		.word	1073881088
  301              		.section	.text.FLASH_OB_EnableWRP,"ax",%progbits
-ARM GAS  /tmp/ccKmR4aC.s 			page 6
+ARM GAS  /tmp/ccWMuNyu.s 			page 6
 
 
  302              		.align	1
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccKmR4aC.s 			page 1
  357 0062 DDE7     		b	.L40
  358              	.L47:
  359 0064 154B     		ldr	r3, .L51+8
-ARM GAS  /tmp/ccKmR4aC.s 			page 7
+ARM GAS  /tmp/ccWMuNyu.s 			page 7
 
 
  360 0066 1A89     		ldrh	r2, [r3, #8]
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccKmR4aC.s 			page 1
  416 000e C4F30746 		ubfx	r6, r4, #16, #8
  417 0012 4CF25030 		movw	r0, #50000
  418 0016 FFF7FEFF 		bl	FLASH_WaitForLastOperation
-ARM GAS  /tmp/ccKmR4aC.s 			page 8
+ARM GAS  /tmp/ccWMuNyu.s 			page 8
 
 
  419 001a 0346     		mov	r3, r0
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccKmR4aC.s 			page 1
  473 0082 FFF7FEFF 		bl	FLASH_WaitForLastOperation
  474 0086 0346     		mov	r3, r0
  475 0088 DFE7     		b	.L56
-ARM GAS  /tmp/ccKmR4aC.s 			page 9
+ARM GAS  /tmp/ccWMuNyu.s 			page 9
 
 
  476              	.L63:
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccKmR4aC.s 			page 1
  532 002a 1E4A     		ldr	r2, .L85
  533 002c 0021     		movs	r1, #0
  534 002e 1176     		strb	r1, [r2, #24]
-ARM GAS  /tmp/ccKmR4aC.s 			page 10
+ARM GAS  /tmp/ccWMuNyu.s 			page 10
 
 
  535 0030 14E0     		b	.L68
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccKmR4aC.s 			page 1
  589 0096 034A     		ldr	r2, .L85
  590 0098 0021     		movs	r1, #0
  591 009a 1176     		strb	r1, [r2, #24]
-ARM GAS  /tmp/ccKmR4aC.s 			page 11
+ARM GAS  /tmp/ccWMuNyu.s 			page 11
 
 
  592 009c DEE7     		b	.L68
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccKmR4aC.s 			page 1
  650 001a 00BF     		.align	2
  651              	.L93:
  652 001c 04F8FF1F 		.word	536868868
-ARM GAS  /tmp/ccKmR4aC.s 			page 12
+ARM GAS  /tmp/ccWMuNyu.s 			page 12
 
 
  653 0020 00200240 		.word	1073881088
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccKmR4aC.s 			page 1
  711 0022 90BB     		cbnz	r0, .L107
  712 0024 4FF0FF33 		mov	r3, #-1
  713 0028 3360     		str	r3, [r6]
-ARM GAS  /tmp/ccKmR4aC.s 			page 13
+ARM GAS  /tmp/ccWMuNyu.s 			page 13
 
 
  714 002a AC68     		ldr	r4, [r5, #8]
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccKmR4aC.s 			page 1
  768              	.L115:
  769 009c 00000000 		.word	pFlash
  770 00a0 00200240 		.word	1073881088
-ARM GAS  /tmp/ccKmR4aC.s 			page 14
+ARM GAS  /tmp/ccWMuNyu.s 			page 14
 
 
  772              		.section	.text.HAL_FLASHEx_Erase_IT,"ax",%progbits
@@ -838,63 +838,63 @@ ARM GAS  /tmp/ccKmR4aC.s 			page 1
  827              		.align	2
  828              	.L124:
  829 0054 00000000 		.word	pFlash
-ARM GAS  /tmp/ccKmR4aC.s 			page 15
+ARM GAS  /tmp/ccWMuNyu.s 			page 15
 
 
  830 0058 00200240 		.word	1073881088
  832              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 8-2018-q4-major) 8.2.1 20181213 (release) [gcc
-ARM GAS  /tmp/ccKmR4aC.s 			page 16
+ARM GAS  /tmp/ccWMuNyu.s 			page 16
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f1xx_hal_flash_ex.c
-     /tmp/ccKmR4aC.s:14     .text.FLASH_MassErase:0000000000000000 $t
-     /tmp/ccKmR4aC.s:21     .text.FLASH_MassErase:0000000000000000 FLASH_MassErase
-     /tmp/ccKmR4aC.s:39     .text.FLASH_MassErase:000000000000001c $d
-     /tmp/ccKmR4aC.s:43     .text.FLASH_OB_GetWRP:0000000000000000 $t
-     /tmp/ccKmR4aC.s:49     .text.FLASH_OB_GetWRP:0000000000000000 FLASH_OB_GetWRP
-     /tmp/ccKmR4aC.s:59     .text.FLASH_OB_GetWRP:0000000000000008 $d
-     /tmp/ccKmR4aC.s:62     .text.FLASH_OB_GetRDP:0000000000000000 $t
-     /tmp/ccKmR4aC.s:68     .text.FLASH_OB_GetRDP:0000000000000000 FLASH_OB_GetRDP
-     /tmp/ccKmR4aC.s:84     .text.FLASH_OB_GetRDP:0000000000000014 $d
-     /tmp/ccKmR4aC.s:87     .text.FLASH_OB_GetUser:0000000000000000 $t
-     /tmp/ccKmR4aC.s:93     .text.FLASH_OB_GetUser:0000000000000000 FLASH_OB_GetUser
-     /tmp/ccKmR4aC.s:104    .text.FLASH_OB_GetUser:000000000000000c $d
-     /tmp/ccKmR4aC.s:107    .text.FLASH_OB_RDP_LevelConfig:0000000000000000 $t
-     /tmp/ccKmR4aC.s:113    .text.FLASH_OB_RDP_LevelConfig:0000000000000000 FLASH_OB_RDP_LevelConfig
-     /tmp/ccKmR4aC.s:160    .text.FLASH_OB_RDP_LevelConfig:0000000000000064 $d
-     /tmp/ccKmR4aC.s:165    .text.FLASH_OB_UserConfig:0000000000000000 $t
-     /tmp/ccKmR4aC.s:171    .text.FLASH_OB_UserConfig:0000000000000000 FLASH_OB_UserConfig
-     /tmp/ccKmR4aC.s:204    .text.FLASH_OB_UserConfig:0000000000000040 $d
-     /tmp/ccKmR4aC.s:209    .text.FLASH_OB_ProgramData:0000000000000000 $t
-     /tmp/ccKmR4aC.s:215    .text.FLASH_OB_ProgramData:0000000000000000 FLASH_OB_ProgramData
-     /tmp/ccKmR4aC.s:248    .text.FLASH_OB_ProgramData:0000000000000040 $d
-     /tmp/ccKmR4aC.s:252    .text.HAL_FLASHEx_OBErase:0000000000000000 $t
-     /tmp/ccKmR4aC.s:259    .text.HAL_FLASHEx_OBErase:0000000000000000 HAL_FLASHEx_OBErase
-     /tmp/ccKmR4aC.s:298    .text.HAL_FLASHEx_OBErase:0000000000000050 $d
-     /tmp/ccKmR4aC.s:302    .text.FLASH_OB_EnableWRP:0000000000000000 $t
-     /tmp/ccKmR4aC.s:308    .text.FLASH_OB_EnableWRP:0000000000000000 FLASH_OB_EnableWRP
-     /tmp/ccKmR4aC.s:397    .text.FLASH_OB_EnableWRP:00000000000000b4 $d
-     /tmp/ccKmR4aC.s:402    .text.FLASH_OB_DisableWRP:0000000000000000 $t
-     /tmp/ccKmR4aC.s:408    .text.FLASH_OB_DisableWRP:0000000000000000 FLASH_OB_DisableWRP
-     /tmp/ccKmR4aC.s:497    .text.FLASH_OB_DisableWRP:00000000000000b4 $d
-     /tmp/ccKmR4aC.s:502    .text.HAL_FLASHEx_OBProgram:0000000000000000 $t
-     /tmp/ccKmR4aC.s:509    .text.HAL_FLASHEx_OBProgram:0000000000000000 HAL_FLASHEx_OBProgram
-     /tmp/ccKmR4aC.s:600    .text.HAL_FLASHEx_OBProgram:00000000000000a4 $d
-     /tmp/ccKmR4aC.s:603    .text.HAL_FLASHEx_OBGetConfig:0000000000000000 $t
-     /tmp/ccKmR4aC.s:610    .text.HAL_FLASHEx_OBGetConfig:0000000000000000 HAL_FLASHEx_OBGetConfig
-     /tmp/ccKmR4aC.s:626    .text.HAL_FLASHEx_OBGetUserData:0000000000000000 $t
-     /tmp/ccKmR4aC.s:633    .text.HAL_FLASHEx_OBGetUserData:0000000000000000 HAL_FLASHEx_OBGetUserData
-     /tmp/ccKmR4aC.s:652    .text.HAL_FLASHEx_OBGetUserData:000000000000001c $d
-     /tmp/ccKmR4aC.s:656    .text.FLASH_PageErase:0000000000000000 $t
-     /tmp/ccKmR4aC.s:663    .text.FLASH_PageErase:0000000000000000 FLASH_PageErase
-     /tmp/ccKmR4aC.s:682    .text.FLASH_PageErase:000000000000001c $d
-     /tmp/ccKmR4aC.s:686    .text.HAL_FLASHEx_Erase:0000000000000000 $t
-     /tmp/ccKmR4aC.s:693    .text.HAL_FLASHEx_Erase:0000000000000000 HAL_FLASHEx_Erase
-     /tmp/ccKmR4aC.s:769    .text.HAL_FLASHEx_Erase:000000000000009c $d
-     /tmp/ccKmR4aC.s:773    .text.HAL_FLASHEx_Erase_IT:0000000000000000 $t
-     /tmp/ccKmR4aC.s:780    .text.HAL_FLASHEx_Erase_IT:0000000000000000 HAL_FLASHEx_Erase_IT
-     /tmp/ccKmR4aC.s:829    .text.HAL_FLASHEx_Erase_IT:0000000000000054 $d
+     /tmp/ccWMuNyu.s:14     .text.FLASH_MassErase:0000000000000000 $t
+     /tmp/ccWMuNyu.s:21     .text.FLASH_MassErase:0000000000000000 FLASH_MassErase
+     /tmp/ccWMuNyu.s:39     .text.FLASH_MassErase:000000000000001c $d
+     /tmp/ccWMuNyu.s:43     .text.FLASH_OB_GetWRP:0000000000000000 $t
+     /tmp/ccWMuNyu.s:49     .text.FLASH_OB_GetWRP:0000000000000000 FLASH_OB_GetWRP
+     /tmp/ccWMuNyu.s:59     .text.FLASH_OB_GetWRP:0000000000000008 $d
+     /tmp/ccWMuNyu.s:62     .text.FLASH_OB_GetRDP:0000000000000000 $t
+     /tmp/ccWMuNyu.s:68     .text.FLASH_OB_GetRDP:0000000000000000 FLASH_OB_GetRDP
+     /tmp/ccWMuNyu.s:84     .text.FLASH_OB_GetRDP:0000000000000014 $d
+     /tmp/ccWMuNyu.s:87     .text.FLASH_OB_GetUser:0000000000000000 $t
+     /tmp/ccWMuNyu.s:93     .text.FLASH_OB_GetUser:0000000000000000 FLASH_OB_GetUser
+     /tmp/ccWMuNyu.s:104    .text.FLASH_OB_GetUser:000000000000000c $d
+     /tmp/ccWMuNyu.s:107    .text.FLASH_OB_RDP_LevelConfig:0000000000000000 $t
+     /tmp/ccWMuNyu.s:113    .text.FLASH_OB_RDP_LevelConfig:0000000000000000 FLASH_OB_RDP_LevelConfig
+     /tmp/ccWMuNyu.s:160    .text.FLASH_OB_RDP_LevelConfig:0000000000000064 $d
+     /tmp/ccWMuNyu.s:165    .text.FLASH_OB_UserConfig:0000000000000000 $t
+     /tmp/ccWMuNyu.s:171    .text.FLASH_OB_UserConfig:0000000000000000 FLASH_OB_UserConfig
+     /tmp/ccWMuNyu.s:204    .text.FLASH_OB_UserConfig:0000000000000040 $d
+     /tmp/ccWMuNyu.s:209    .text.FLASH_OB_ProgramData:0000000000000000 $t
+     /tmp/ccWMuNyu.s:215    .text.FLASH_OB_ProgramData:0000000000000000 FLASH_OB_ProgramData
+     /tmp/ccWMuNyu.s:248    .text.FLASH_OB_ProgramData:0000000000000040 $d
+     /tmp/ccWMuNyu.s:252    .text.HAL_FLASHEx_OBErase:0000000000000000 $t
+     /tmp/ccWMuNyu.s:259    .text.HAL_FLASHEx_OBErase:0000000000000000 HAL_FLASHEx_OBErase
+     /tmp/ccWMuNyu.s:298    .text.HAL_FLASHEx_OBErase:0000000000000050 $d
+     /tmp/ccWMuNyu.s:302    .text.FLASH_OB_EnableWRP:0000000000000000 $t
+     /tmp/ccWMuNyu.s:308    .text.FLASH_OB_EnableWRP:0000000000000000 FLASH_OB_EnableWRP
+     /tmp/ccWMuNyu.s:397    .text.FLASH_OB_EnableWRP:00000000000000b4 $d
+     /tmp/ccWMuNyu.s:402    .text.FLASH_OB_DisableWRP:0000000000000000 $t
+     /tmp/ccWMuNyu.s:408    .text.FLASH_OB_DisableWRP:0000000000000000 FLASH_OB_DisableWRP
+     /tmp/ccWMuNyu.s:497    .text.FLASH_OB_DisableWRP:00000000000000b4 $d
+     /tmp/ccWMuNyu.s:502    .text.HAL_FLASHEx_OBProgram:0000000000000000 $t
+     /tmp/ccWMuNyu.s:509    .text.HAL_FLASHEx_OBProgram:0000000000000000 HAL_FLASHEx_OBProgram
+     /tmp/ccWMuNyu.s:600    .text.HAL_FLASHEx_OBProgram:00000000000000a4 $d
+     /tmp/ccWMuNyu.s:603    .text.HAL_FLASHEx_OBGetConfig:0000000000000000 $t
+     /tmp/ccWMuNyu.s:610    .text.HAL_FLASHEx_OBGetConfig:0000000000000000 HAL_FLASHEx_OBGetConfig
+     /tmp/ccWMuNyu.s:626    .text.HAL_FLASHEx_OBGetUserData:0000000000000000 $t
+     /tmp/ccWMuNyu.s:633    .text.HAL_FLASHEx_OBGetUserData:0000000000000000 HAL_FLASHEx_OBGetUserData
+     /tmp/ccWMuNyu.s:652    .text.HAL_FLASHEx_OBGetUserData:000000000000001c $d
+     /tmp/ccWMuNyu.s:656    .text.FLASH_PageErase:0000000000000000 $t
+     /tmp/ccWMuNyu.s:663    .text.FLASH_PageErase:0000000000000000 FLASH_PageErase
+     /tmp/ccWMuNyu.s:682    .text.FLASH_PageErase:000000000000001c $d
+     /tmp/ccWMuNyu.s:686    .text.HAL_FLASHEx_Erase:0000000000000000 $t
+     /tmp/ccWMuNyu.s:693    .text.HAL_FLASHEx_Erase:0000000000000000 HAL_FLASHEx_Erase
+     /tmp/ccWMuNyu.s:769    .text.HAL_FLASHEx_Erase:000000000000009c $d
+     /tmp/ccWMuNyu.s:773    .text.HAL_FLASHEx_Erase_IT:0000000000000000 $t
+     /tmp/ccWMuNyu.s:780    .text.HAL_FLASHEx_Erase_IT:0000000000000000 HAL_FLASHEx_Erase_IT
+     /tmp/ccWMuNyu.s:829    .text.HAL_FLASHEx_Erase_IT:0000000000000054 $d
 
 UNDEFINED SYMBOLS
 pFlash

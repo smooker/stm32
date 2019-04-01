@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccIHtlCx.s 			page 1
+ARM GAS  /tmp/ccMxB3r4.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccIHtlCx.s 			page 1
   56 004e 2846     		mov	r0, r5
   57 0050 FFF7FEFF 		bl	HAL_GPIO_WritePin
   58 0054 4FF40053 		mov	r3, #8192
-ARM GAS  /tmp/ccIHtlCx.s 			page 2
+ARM GAS  /tmp/ccMxB3r4.s 			page 2
 
 
   59 0058 0493     		str	r3, [sp, #16]
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccIHtlCx.s 			page 1
  117              	__io_putchar:
  118              		@ args = 0, pretend = 0, frame = 8
  119              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /tmp/ccIHtlCx.s 			page 3
+ARM GAS  /tmp/ccMxB3r4.s 			page 3
 
 
  120 0000 00B5     		push	{lr}
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccIHtlCx.s 			page 1
  176 003e 0F23     		movs	r3, #15
  177 0040 0593     		str	r3, [sp, #20]
  178 0042 0696     		str	r6, [sp, #24]
-ARM GAS  /tmp/ccIHtlCx.s 			page 4
+ARM GAS  /tmp/ccMxB3r4.s 			page 4
 
 
  179 0044 0794     		str	r4, [sp, #28]
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccIHtlCx.s 			page 1
  235 0052 FFF7FEFF 		bl	HAL_GPIO_WritePin
  236 0056 4FF47A70 		mov	r0, #1000
  237 005a FFF7FEFF 		bl	HAL_Delay
-ARM GAS  /tmp/ccIHtlCx.s 			page 5
+ARM GAS  /tmp/ccMxB3r4.s 			page 5
 
 
  238 005e 3446     		mov	r4, r6
@@ -283,29 +283,29 @@ ARM GAS  /tmp/ccIHtlCx.s 			page 1
  269      77772E77 
  269      61766573 
  270              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 8-2018-q4-major) 8.2.1 20181213 (release) [gcc
-ARM GAS  /tmp/ccIHtlCx.s 			page 6
+ARM GAS  /tmp/ccMxB3r4.s 			page 6
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 main.c
-     /tmp/ccIHtlCx.s:14     .text.MX_GPIO_Init:0000000000000000 $t
-     /tmp/ccIHtlCx.s:21     .text.MX_GPIO_Init:0000000000000000 MX_GPIO_Init
-     /tmp/ccIHtlCx.s:74     .text.MX_GPIO_Init:0000000000000070 $d
-     /tmp/ccIHtlCx.s:78     .text.MX_USART1_UART_Init:0000000000000000 $t
-     /tmp/ccIHtlCx.s:84     .text.MX_USART1_UART_Init:0000000000000000 MX_USART1_UART_Init
-     /tmp/ccIHtlCx.s:106    .text.MX_USART1_UART_Init:0000000000000024 $d
+     /tmp/ccMxB3r4.s:14     .text.MX_GPIO_Init:0000000000000000 $t
+     /tmp/ccMxB3r4.s:21     .text.MX_GPIO_Init:0000000000000000 MX_GPIO_Init
+     /tmp/ccMxB3r4.s:74     .text.MX_GPIO_Init:0000000000000070 $d
+     /tmp/ccMxB3r4.s:78     .text.MX_USART1_UART_Init:0000000000000000 $t
+     /tmp/ccMxB3r4.s:84     .text.MX_USART1_UART_Init:0000000000000000 MX_USART1_UART_Init
+     /tmp/ccMxB3r4.s:106    .text.MX_USART1_UART_Init:0000000000000024 $d
                             *COM*:0000000000000040 huart1
-     /tmp/ccIHtlCx.s:110    .text.__io_putchar:0000000000000000 $t
-     /tmp/ccIHtlCx.s:117    .text.__io_putchar:0000000000000000 __io_putchar
-     /tmp/ccIHtlCx.s:135    .text.__io_putchar:000000000000001c $d
-     /tmp/ccIHtlCx.s:138    .text.SystemClock_Config:0000000000000000 $t
-     /tmp/ccIHtlCx.s:145    .text.SystemClock_Config:0000000000000000 SystemClock_Config
-     /tmp/ccIHtlCx.s:197    .text.main:0000000000000000 $t
-     /tmp/ccIHtlCx.s:204    .text.main:0000000000000000 main
-     /tmp/ccIHtlCx.s:243    .text.main:0000000000000064 $d
-     /tmp/ccIHtlCx.s:248    .text.Error_Handler:0000000000000000 $t
-     /tmp/ccIHtlCx.s:255    .text.Error_Handler:0000000000000000 Error_Handler
-     /tmp/ccIHtlCx.s:263    .rodata.main.str1.4:0000000000000000 $d
+     /tmp/ccMxB3r4.s:110    .text.__io_putchar:0000000000000000 $t
+     /tmp/ccMxB3r4.s:117    .text.__io_putchar:0000000000000000 __io_putchar
+     /tmp/ccMxB3r4.s:135    .text.__io_putchar:000000000000001c $d
+     /tmp/ccMxB3r4.s:138    .text.SystemClock_Config:0000000000000000 $t
+     /tmp/ccMxB3r4.s:145    .text.SystemClock_Config:0000000000000000 SystemClock_Config
+     /tmp/ccMxB3r4.s:197    .text.main:0000000000000000 $t
+     /tmp/ccMxB3r4.s:204    .text.main:0000000000000000 main
+     /tmp/ccMxB3r4.s:243    .text.main:0000000000000064 $d
+     /tmp/ccMxB3r4.s:248    .text.Error_Handler:0000000000000000 $t
+     /tmp/ccMxB3r4.s:255    .text.Error_Handler:0000000000000000 Error_Handler
+     /tmp/ccMxB3r4.s:263    .rodata.main.str1.4:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 HAL_GPIO_WritePin

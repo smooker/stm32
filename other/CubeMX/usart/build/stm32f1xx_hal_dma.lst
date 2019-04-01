@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccxTVxL0.s 			page 1
+ARM GAS  /tmp/cc3OjApj.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccxTVxL0.s 			page 1
   58              	HAL_DMA_Init:
   59              		@ args = 0, pretend = 0, frame = 0
   60              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /tmp/ccxTVxL0.s 			page 2
+ARM GAS  /tmp/cc3OjApj.s 			page 2
 
 
   61              		@ link register save eliminated.
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccxTVxL0.s 			page 1
  116              		.thumb
  117              		.thumb_func
  118              		.fpu softvfp
-ARM GAS  /tmp/ccxTVxL0.s 			page 3
+ARM GAS  /tmp/cc3OjApj.s 			page 3
 
 
  120              	HAL_DMA_DeInit:
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccxTVxL0.s 			page 1
  175              		.global	HAL_DMA_Start
  176              		.syntax unified
  177              		.thumb
-ARM GAS  /tmp/ccxTVxL0.s 			page 4
+ARM GAS  /tmp/cc3OjApj.s 			page 4
 
 
  178              		.thumb_func
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccxTVxL0.s 			page 1
  235 000a 0124     		movs	r4, #1
  236 000c 80F82040 		strb	r4, [r0, #32]
  237 0010 90F82140 		ldrb	r4, [r0, #33]	@ zero_extendqisi2
-ARM GAS  /tmp/ccxTVxL0.s 			page 5
+ARM GAS  /tmp/cc3OjApj.s 			page 5
 
 
  238 0014 012C     		cmp	r4, #1
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccxTVxL0.s 			page 1
  294              		@ frame_needed = 0, uses_anonymous_args = 0
  295              		@ link register save eliminated.
  296 0000 0346     		mov	r3, r0
-ARM GAS  /tmp/ccxTVxL0.s 			page 6
+ARM GAS  /tmp/cc3OjApj.s 			page 6
 
 
  297 0002 0168     		ldr	r1, [r0]
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccxTVxL0.s 			page 1
  353 0038 1ED0     		beq	.L45
  354 003a 1432     		adds	r2, r2, #20
  355 003c 9342     		cmp	r3, r2
-ARM GAS  /tmp/ccxTVxL0.s 			page 7
+ARM GAS  /tmp/cc3OjApj.s 			page 7
 
 
  356 003e 1ED0     		beq	.L46
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccxTVxL0.s 			page 1
  412              		@ args = 0, pretend = 0, frame = 0
  413              		@ frame_needed = 0, uses_anonymous_args = 0
  414 0000 90F82130 		ldrb	r3, [r0, #33]	@ zero_extendqisi2
-ARM GAS  /tmp/ccxTVxL0.s 			page 8
+ARM GAS  /tmp/cc3OjApj.s 			page 8
 
 
  415 0004 022B     		cmp	r3, #2
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccxTVxL0.s 			page 1
  469 0074 1434     		adds	r4, r4, #20
  470 0076 A342     		cmp	r3, r4
  471 0078 25D0     		beq	.L79
-ARM GAS  /tmp/ccxTVxL0.s 			page 9
+ARM GAS  /tmp/cc3OjApj.s 			page 9
 
 
  472 007a 1434     		adds	r4, r4, #20
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccxTVxL0.s 			page 1
  526 00dc 29D1     		bne	.L106
  527 00de B5F1FF3F 		cmp	r5, #-1
  528 00e2 35D1     		bne	.L107
-ARM GAS  /tmp/ccxTVxL0.s 			page 10
+ARM GAS  /tmp/cc3OjApj.s 			page 10
 
 
  529              	.L63:
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccxTVxL0.s 			page 1
  583 0150 2DB1     		cbz	r5, .L64
  584 0152 FFF7FEFF 		bl	HAL_GetTick
  585 0156 A0EB0800 		sub	r0, r0, r8
-ARM GAS  /tmp/ccxTVxL0.s 			page 11
+ARM GAS  /tmp/cc3OjApj.s 			page 11
 
 
  586 015a A842     		cmp	r0, r5
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccxTVxL0.s 			page 1
  640              	.L91:
  641 01c6 4FF40052 		mov	r2, #8192
  642 01ca EEE7     		b	.L67
-ARM GAS  /tmp/ccxTVxL0.s 			page 12
+ARM GAS  /tmp/cc3OjApj.s 			page 12
 
 
  643              	.L92:
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccxTVxL0.s 			page 1
  698              		.syntax unified
  699              		.thumb
  700              		.thumb_func
-ARM GAS  /tmp/ccxTVxL0.s 			page 13
+ARM GAS  /tmp/cc3OjApj.s 			page 13
 
 
  701              		.fpu softvfp
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccxTVxL0.s 			page 1
  756 0066 9847     		blx	r3
  757              	.L114:
  758 0068 38BD     		pop	{r3, r4, r5, pc}
-ARM GAS  /tmp/ccxTVxL0.s 			page 14
+ARM GAS  /tmp/cc3OjApj.s 			page 14
 
 
  759              	.L123:
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccxTVxL0.s 			page 1
  813              	.L121:
  814 00d8 194B     		ldr	r3, .L137+4
  815 00da 5A60     		str	r2, [r3, #4]
-ARM GAS  /tmp/ccxTVxL0.s 			page 15
+ARM GAS  /tmp/cc3OjApj.s 			page 15
 
 
  816 00dc 0023     		movs	r3, #0
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccxTVxL0.s 			page 1
  871              		.fpu softvfp
  873              	HAL_DMA_RegisterCallback:
  874              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  /tmp/ccxTVxL0.s 			page 16
+ARM GAS  /tmp/cc3OjApj.s 			page 16
 
 
  875              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccxTVxL0.s 			page 1
  930              		.fpu softvfp
  932              	HAL_DMA_UnRegisterCallback:
  933              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  /tmp/ccxTVxL0.s 			page 17
+ARM GAS  /tmp/cc3OjApj.s 			page 17
 
 
  934              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccxTVxL0.s 			page 1
  988 0058 0220     		movs	r0, #2
  989 005a 7047     		bx	lr
  991              		.section	.text.HAL_DMA_GetState,"ax",%progbits
-ARM GAS  /tmp/ccxTVxL0.s 			page 18
+ARM GAS  /tmp/cc3OjApj.s 			page 18
 
 
  992              		.align	1
@@ -1047,47 +1047,47 @@ ARM GAS  /tmp/ccxTVxL0.s 			page 1
  1018 0000 806B     		ldr	r0, [r0, #56]
  1019 0002 7047     		bx	lr
  1021              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 8-2018-q4-major) 8.2.1 20181213 (release) [gcc
-ARM GAS  /tmp/ccxTVxL0.s 			page 19
+ARM GAS  /tmp/cc3OjApj.s 			page 19
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f1xx_hal_dma.c
-     /tmp/ccxTVxL0.s:14     .text.DMA_SetConfig:0000000000000000 $t
-     /tmp/ccxTVxL0.s:21     .text.DMA_SetConfig:0000000000000000 DMA_SetConfig
-     /tmp/ccxTVxL0.s:51     .text.HAL_DMA_Init:0000000000000000 $t
-     /tmp/ccxTVxL0.s:58     .text.HAL_DMA_Init:0000000000000000 HAL_DMA_Init
-     /tmp/ccxTVxL0.s:108    .text.HAL_DMA_Init:0000000000000060 $d
-     /tmp/ccxTVxL0.s:113    .text.HAL_DMA_DeInit:0000000000000000 $t
-     /tmp/ccxTVxL0.s:120    .text.HAL_DMA_DeInit:0000000000000000 HAL_DMA_DeInit
-     /tmp/ccxTVxL0.s:169    .text.HAL_DMA_DeInit:000000000000005c $d
-     /tmp/ccxTVxL0.s:174    .text.HAL_DMA_Start:0000000000000000 $t
-     /tmp/ccxTVxL0.s:181    .text.HAL_DMA_Start:0000000000000000 HAL_DMA_Start
-     /tmp/ccxTVxL0.s:221    .text.HAL_DMA_Start_IT:0000000000000000 $t
-     /tmp/ccxTVxL0.s:228    .text.HAL_DMA_Start_IT:0000000000000000 HAL_DMA_Start_IT
-     /tmp/ccxTVxL0.s:285    .text.HAL_DMA_Abort:0000000000000000 $t
-     /tmp/ccxTVxL0.s:292    .text.HAL_DMA_Abort:0000000000000000 HAL_DMA_Abort
-     /tmp/ccxTVxL0.s:316    .text.HAL_DMA_Abort_IT:0000000000000000 $t
-     /tmp/ccxTVxL0.s:323    .text.HAL_DMA_Abort_IT:0000000000000000 HAL_DMA_Abort_IT
-     /tmp/ccxTVxL0.s:400    .text.HAL_DMA_Abort_IT:0000000000000090 $d
-     /tmp/ccxTVxL0.s:404    .text.HAL_DMA_PollForTransfer:0000000000000000 $t
-     /tmp/ccxTVxL0.s:411    .text.HAL_DMA_PollForTransfer:0000000000000000 HAL_DMA_PollForTransfer
-     /tmp/ccxTVxL0.s:692    .text.HAL_DMA_PollForTransfer:0000000000000224 $d
-     /tmp/ccxTVxL0.s:696    .text.HAL_DMA_IRQHandler:0000000000000000 $t
-     /tmp/ccxTVxL0.s:703    .text.HAL_DMA_IRQHandler:0000000000000000 HAL_DMA_IRQHandler
-     /tmp/ccxTVxL0.s:862    .text.HAL_DMA_IRQHandler:000000000000013c $d
-     /tmp/ccxTVxL0.s:866    .text.HAL_DMA_RegisterCallback:0000000000000000 $t
-     /tmp/ccxTVxL0.s:873    .text.HAL_DMA_RegisterCallback:0000000000000000 HAL_DMA_RegisterCallback
-     /tmp/ccxTVxL0.s:896    .text.HAL_DMA_RegisterCallback:000000000000002a $d
-     /tmp/ccxTVxL0.s:900    .text.HAL_DMA_RegisterCallback:000000000000002e $t
-     /tmp/ccxTVxL0.s:925    .text.HAL_DMA_UnRegisterCallback:0000000000000000 $t
-     /tmp/ccxTVxL0.s:932    .text.HAL_DMA_UnRegisterCallback:0000000000000000 HAL_DMA_UnRegisterCallback
-     /tmp/ccxTVxL0.s:955    .text.HAL_DMA_UnRegisterCallback:000000000000002a $d
-     /tmp/ccxTVxL0.s:992    .text.HAL_DMA_GetState:0000000000000000 $t
-     /tmp/ccxTVxL0.s:999    .text.HAL_DMA_GetState:0000000000000000 HAL_DMA_GetState
-     /tmp/ccxTVxL0.s:1007   .text.HAL_DMA_GetError:0000000000000000 $t
-     /tmp/ccxTVxL0.s:1014   .text.HAL_DMA_GetError:0000000000000000 HAL_DMA_GetError
-     /tmp/ccxTVxL0.s:960    .text.HAL_DMA_UnRegisterCallback:000000000000002f $d
-     /tmp/ccxTVxL0.s:960    .text.HAL_DMA_UnRegisterCallback:0000000000000030 $t
+     /tmp/cc3OjApj.s:14     .text.DMA_SetConfig:0000000000000000 $t
+     /tmp/cc3OjApj.s:21     .text.DMA_SetConfig:0000000000000000 DMA_SetConfig
+     /tmp/cc3OjApj.s:51     .text.HAL_DMA_Init:0000000000000000 $t
+     /tmp/cc3OjApj.s:58     .text.HAL_DMA_Init:0000000000000000 HAL_DMA_Init
+     /tmp/cc3OjApj.s:108    .text.HAL_DMA_Init:0000000000000060 $d
+     /tmp/cc3OjApj.s:113    .text.HAL_DMA_DeInit:0000000000000000 $t
+     /tmp/cc3OjApj.s:120    .text.HAL_DMA_DeInit:0000000000000000 HAL_DMA_DeInit
+     /tmp/cc3OjApj.s:169    .text.HAL_DMA_DeInit:000000000000005c $d
+     /tmp/cc3OjApj.s:174    .text.HAL_DMA_Start:0000000000000000 $t
+     /tmp/cc3OjApj.s:181    .text.HAL_DMA_Start:0000000000000000 HAL_DMA_Start
+     /tmp/cc3OjApj.s:221    .text.HAL_DMA_Start_IT:0000000000000000 $t
+     /tmp/cc3OjApj.s:228    .text.HAL_DMA_Start_IT:0000000000000000 HAL_DMA_Start_IT
+     /tmp/cc3OjApj.s:285    .text.HAL_DMA_Abort:0000000000000000 $t
+     /tmp/cc3OjApj.s:292    .text.HAL_DMA_Abort:0000000000000000 HAL_DMA_Abort
+     /tmp/cc3OjApj.s:316    .text.HAL_DMA_Abort_IT:0000000000000000 $t
+     /tmp/cc3OjApj.s:323    .text.HAL_DMA_Abort_IT:0000000000000000 HAL_DMA_Abort_IT
+     /tmp/cc3OjApj.s:400    .text.HAL_DMA_Abort_IT:0000000000000090 $d
+     /tmp/cc3OjApj.s:404    .text.HAL_DMA_PollForTransfer:0000000000000000 $t
+     /tmp/cc3OjApj.s:411    .text.HAL_DMA_PollForTransfer:0000000000000000 HAL_DMA_PollForTransfer
+     /tmp/cc3OjApj.s:692    .text.HAL_DMA_PollForTransfer:0000000000000224 $d
+     /tmp/cc3OjApj.s:696    .text.HAL_DMA_IRQHandler:0000000000000000 $t
+     /tmp/cc3OjApj.s:703    .text.HAL_DMA_IRQHandler:0000000000000000 HAL_DMA_IRQHandler
+     /tmp/cc3OjApj.s:862    .text.HAL_DMA_IRQHandler:000000000000013c $d
+     /tmp/cc3OjApj.s:866    .text.HAL_DMA_RegisterCallback:0000000000000000 $t
+     /tmp/cc3OjApj.s:873    .text.HAL_DMA_RegisterCallback:0000000000000000 HAL_DMA_RegisterCallback
+     /tmp/cc3OjApj.s:896    .text.HAL_DMA_RegisterCallback:000000000000002a $d
+     /tmp/cc3OjApj.s:900    .text.HAL_DMA_RegisterCallback:000000000000002e $t
+     /tmp/cc3OjApj.s:925    .text.HAL_DMA_UnRegisterCallback:0000000000000000 $t
+     /tmp/cc3OjApj.s:932    .text.HAL_DMA_UnRegisterCallback:0000000000000000 HAL_DMA_UnRegisterCallback
+     /tmp/cc3OjApj.s:955    .text.HAL_DMA_UnRegisterCallback:000000000000002a $d
+     /tmp/cc3OjApj.s:992    .text.HAL_DMA_GetState:0000000000000000 $t
+     /tmp/cc3OjApj.s:999    .text.HAL_DMA_GetState:0000000000000000 HAL_DMA_GetState
+     /tmp/cc3OjApj.s:1007   .text.HAL_DMA_GetError:0000000000000000 $t
+     /tmp/cc3OjApj.s:1014   .text.HAL_DMA_GetError:0000000000000000 HAL_DMA_GetError
+     /tmp/cc3OjApj.s:960    .text.HAL_DMA_UnRegisterCallback:000000000000002f $d
+     /tmp/cc3OjApj.s:960    .text.HAL_DMA_UnRegisterCallback:0000000000000030 $t
 
 UNDEFINED SYMBOLS
 HAL_GetTick

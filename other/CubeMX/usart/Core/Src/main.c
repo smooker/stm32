@@ -133,7 +133,6 @@ int main(void)
 
   HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, 0);
 
-
   int cnt = 0;
   while (1) {
     HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, 1);

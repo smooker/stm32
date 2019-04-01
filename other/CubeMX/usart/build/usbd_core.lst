@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccvk9m29.s 			page 1
+ARM GAS  /tmp/ccQ0EkUc.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccvk9m29.s 			page 1
   56 0040 00000000 		.word	.LC0
   57 0044 08000000 		.word	.LC1
   59              		.section	.text.USBD_DeInit,"ax",%progbits
-ARM GAS  /tmp/ccvk9m29.s 			page 2
+ARM GAS  /tmp/ccQ0EkUc.s 			page 2
 
 
   60              		.align	1
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccvk9m29.s 			page 1
  118              		.align	1
  119              		.global	USBD_Start
  120              		.syntax unified
-ARM GAS  /tmp/ccvk9m29.s 			page 3
+ARM GAS  /tmp/ccQ0EkUc.s 			page 3
 
 
  121              		.thumb
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccvk9m29.s 			page 1
  182 0002 D0F81432 		ldr	r3, [r0, #532]
  183 0006 33B1     		cbz	r3, .L25
  184 0008 1B68     		ldr	r3, [r3]
-ARM GAS  /tmp/ccvk9m29.s 			page 4
+ARM GAS  /tmp/ccQ0EkUc.s 			page 4
 
 
  185 000a 9847     		blx	r3
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccvk9m29.s 			page 1
  243 0030 01F08001 		and	r1, r1, #128
  244 0034 2046     		mov	r0, r4
  245 0036 FFF7FEFF 		bl	USBD_LL_StallEP
-ARM GAS  /tmp/ccvk9m29.s 			page 5
+ARM GAS  /tmp/ccQ0EkUc.s 			page 5
 
 
  246 003a 03E0     		b	.L36
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccvk9m29.s 			page 1
  302 0038 891A     		subs	r1, r1, r2
  303 003a C0F80C11 		str	r1, [r0, #268]
  304 003e 8A42     		cmp	r2, r1
-ARM GAS  /tmp/ccvk9m29.s 			page 6
+ARM GAS  /tmp/ccQ0EkUc.s 			page 6
 
 
  305 0040 28BF     		it	cs
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccvk9m29.s 			page 1
  361 0030 2BB9     		cbnz	r3, .L52
  362 0032 8A42     		cmp	r2, r1
  363 0034 03D8     		bhi	.L52
-ARM GAS  /tmp/ccvk9m29.s 			page 7
+ARM GAS  /tmp/ccQ0EkUc.s 			page 7
 
 
  364 0036 D0F8F831 		ldr	r3, [r0, #504]
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccvk9m29.s 			page 1
  418 00ac 1146     		mov	r1, r2
  419 00ae 9847     		blx	r3
  420 00b0 B3E7     		b	.L54
-ARM GAS  /tmp/ccvk9m29.s 			page 8
+ARM GAS  /tmp/ccQ0EkUc.s 			page 8
 
 
  422              		.section	.text.USBD_LL_Reset,"ax",%progbits
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccvk9m29.s 			page 1
  480              		.thumb
  481              		.thumb_func
  482              		.fpu softvfp
-ARM GAS  /tmp/ccvk9m29.s 			page 9
+ARM GAS  /tmp/ccQ0EkUc.s 			page 9
 
 
  484              	USBD_LL_Suspend:
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccvk9m29.s 			page 1
  543              		.thumb_func
  544              		.fpu softvfp
  546              	USBD_LL_IsoINIncomplete:
-ARM GAS  /tmp/ccvk9m29.s 			page 10
+ARM GAS  /tmp/ccQ0EkUc.s 			page 10
 
 
  547              		@ args = 0, pretend = 0, frame = 0
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccvk9m29.s 			page 1
  607      523A2000 
  608              	.LC1:
  609 0008 496E7661 		.ascii	"Invalid Device handle\000"
-ARM GAS  /tmp/ccvk9m29.s 			page 11
+ARM GAS  /tmp/ccQ0EkUc.s 			page 11
 
 
  609      6C696420 
@@ -614,55 +614,55 @@ ARM GAS  /tmp/ccvk9m29.s 			page 1
  613      73206861 
  613      6E646C65 
  614              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 8-2018-q4-major) 8.2.1 20181213 (release) [gcc
-ARM GAS  /tmp/ccvk9m29.s 			page 12
+ARM GAS  /tmp/ccQ0EkUc.s 			page 12
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 usbd_core.c
-     /tmp/ccvk9m29.s:14     .text.USBD_Init:0000000000000000 $t
-     /tmp/ccvk9m29.s:22     .text.USBD_Init:0000000000000000 USBD_Init
-     /tmp/ccvk9m29.s:56     .text.USBD_Init:0000000000000040 $d
-     /tmp/ccvk9m29.s:60     .text.USBD_DeInit:0000000000000000 $t
-     /tmp/ccvk9m29.s:67     .text.USBD_DeInit:0000000000000000 USBD_DeInit
-     /tmp/ccvk9m29.s:86     .text.USBD_RegisterClass:0000000000000000 $t
-     /tmp/ccvk9m29.s:93     .text.USBD_RegisterClass:0000000000000000 USBD_RegisterClass
-     /tmp/ccvk9m29.s:114    .text.USBD_RegisterClass:0000000000000024 $d
-     /tmp/ccvk9m29.s:118    .text.USBD_Start:0000000000000000 $t
-     /tmp/ccvk9m29.s:125    .text.USBD_Start:0000000000000000 USBD_Start
-     /tmp/ccvk9m29.s:134    .text.USBD_Stop:0000000000000000 $t
-     /tmp/ccvk9m29.s:141    .text.USBD_Stop:0000000000000000 USBD_Stop
-     /tmp/ccvk9m29.s:156    .text.USBD_RunTestMode:0000000000000000 $t
-     /tmp/ccvk9m29.s:163    .text.USBD_RunTestMode:0000000000000000 USBD_RunTestMode
-     /tmp/ccvk9m29.s:171    .text.USBD_SetClassConfig:0000000000000000 $t
-     /tmp/ccvk9m29.s:178    .text.USBD_SetClassConfig:0000000000000000 USBD_SetClassConfig
-     /tmp/ccvk9m29.s:198    .text.USBD_ClrClassConfig:0000000000000000 $t
-     /tmp/ccvk9m29.s:205    .text.USBD_ClrClassConfig:0000000000000000 USBD_ClrClassConfig
-     /tmp/ccvk9m29.s:216    .text.USBD_LL_SetupStage:0000000000000000 $t
-     /tmp/ccvk9m29.s:223    .text.USBD_LL_SetupStage:0000000000000000 USBD_LL_SetupStage
-     /tmp/ccvk9m29.s:266    .text.USBD_LL_DataOutStage:0000000000000000 $t
-     /tmp/ccvk9m29.s:273    .text.USBD_LL_DataOutStage:0000000000000000 USBD_LL_DataOutStage
-     /tmp/ccvk9m29.s:328    .text.USBD_LL_DataInStage:0000000000000000 $t
-     /tmp/ccvk9m29.s:335    .text.USBD_LL_DataInStage:0000000000000000 USBD_LL_DataInStage
-     /tmp/ccvk9m29.s:423    .text.USBD_LL_Reset:0000000000000000 $t
-     /tmp/ccvk9m29.s:430    .text.USBD_LL_Reset:0000000000000000 USBD_LL_Reset
-     /tmp/ccvk9m29.s:461    .text.USBD_LL_SetSpeed:0000000000000000 $t
-     /tmp/ccvk9m29.s:468    .text.USBD_LL_SetSpeed:0000000000000000 USBD_LL_SetSpeed
-     /tmp/ccvk9m29.s:477    .text.USBD_LL_Suspend:0000000000000000 $t
-     /tmp/ccvk9m29.s:484    .text.USBD_LL_Suspend:0000000000000000 USBD_LL_Suspend
-     /tmp/ccvk9m29.s:496    .text.USBD_LL_Resume:0000000000000000 $t
-     /tmp/ccvk9m29.s:503    .text.USBD_LL_Resume:0000000000000000 USBD_LL_Resume
-     /tmp/ccvk9m29.s:513    .text.USBD_LL_SOF:0000000000000000 $t
-     /tmp/ccvk9m29.s:520    .text.USBD_LL_SOF:0000000000000000 USBD_LL_SOF
-     /tmp/ccvk9m29.s:539    .text.USBD_LL_IsoINIncomplete:0000000000000000 $t
-     /tmp/ccvk9m29.s:546    .text.USBD_LL_IsoINIncomplete:0000000000000000 USBD_LL_IsoINIncomplete
-     /tmp/ccvk9m29.s:554    .text.USBD_LL_IsoOUTIncomplete:0000000000000000 $t
-     /tmp/ccvk9m29.s:561    .text.USBD_LL_IsoOUTIncomplete:0000000000000000 USBD_LL_IsoOUTIncomplete
-     /tmp/ccvk9m29.s:569    .text.USBD_LL_DevConnected:0000000000000000 $t
-     /tmp/ccvk9m29.s:576    .text.USBD_LL_DevConnected:0000000000000000 USBD_LL_DevConnected
-     /tmp/ccvk9m29.s:584    .text.USBD_LL_DevDisconnected:0000000000000000 $t
-     /tmp/ccvk9m29.s:591    .text.USBD_LL_DevDisconnected:0000000000000000 USBD_LL_DevDisconnected
-     /tmp/ccvk9m29.s:605    .rodata.USBD_Init.str1.4:0000000000000000 $d
-     /tmp/ccvk9m29.s:611    .rodata.USBD_RegisterClass.str1.4:0000000000000000 $d
+     /tmp/ccQ0EkUc.s:14     .text.USBD_Init:0000000000000000 $t
+     /tmp/ccQ0EkUc.s:22     .text.USBD_Init:0000000000000000 USBD_Init
+     /tmp/ccQ0EkUc.s:56     .text.USBD_Init:0000000000000040 $d
+     /tmp/ccQ0EkUc.s:60     .text.USBD_DeInit:0000000000000000 $t
+     /tmp/ccQ0EkUc.s:67     .text.USBD_DeInit:0000000000000000 USBD_DeInit
+     /tmp/ccQ0EkUc.s:86     .text.USBD_RegisterClass:0000000000000000 $t
+     /tmp/ccQ0EkUc.s:93     .text.USBD_RegisterClass:0000000000000000 USBD_RegisterClass
+     /tmp/ccQ0EkUc.s:114    .text.USBD_RegisterClass:0000000000000024 $d
+     /tmp/ccQ0EkUc.s:118    .text.USBD_Start:0000000000000000 $t
+     /tmp/ccQ0EkUc.s:125    .text.USBD_Start:0000000000000000 USBD_Start
+     /tmp/ccQ0EkUc.s:134    .text.USBD_Stop:0000000000000000 $t
+     /tmp/ccQ0EkUc.s:141    .text.USBD_Stop:0000000000000000 USBD_Stop
+     /tmp/ccQ0EkUc.s:156    .text.USBD_RunTestMode:0000000000000000 $t
+     /tmp/ccQ0EkUc.s:163    .text.USBD_RunTestMode:0000000000000000 USBD_RunTestMode
+     /tmp/ccQ0EkUc.s:171    .text.USBD_SetClassConfig:0000000000000000 $t
+     /tmp/ccQ0EkUc.s:178    .text.USBD_SetClassConfig:0000000000000000 USBD_SetClassConfig
+     /tmp/ccQ0EkUc.s:198    .text.USBD_ClrClassConfig:0000000000000000 $t
+     /tmp/ccQ0EkUc.s:205    .text.USBD_ClrClassConfig:0000000000000000 USBD_ClrClassConfig
+     /tmp/ccQ0EkUc.s:216    .text.USBD_LL_SetupStage:0000000000000000 $t
+     /tmp/ccQ0EkUc.s:223    .text.USBD_LL_SetupStage:0000000000000000 USBD_LL_SetupStage
+     /tmp/ccQ0EkUc.s:266    .text.USBD_LL_DataOutStage:0000000000000000 $t
+     /tmp/ccQ0EkUc.s:273    .text.USBD_LL_DataOutStage:0000000000000000 USBD_LL_DataOutStage
+     /tmp/ccQ0EkUc.s:328    .text.USBD_LL_DataInStage:0000000000000000 $t
+     /tmp/ccQ0EkUc.s:335    .text.USBD_LL_DataInStage:0000000000000000 USBD_LL_DataInStage
+     /tmp/ccQ0EkUc.s:423    .text.USBD_LL_Reset:0000000000000000 $t
+     /tmp/ccQ0EkUc.s:430    .text.USBD_LL_Reset:0000000000000000 USBD_LL_Reset
+     /tmp/ccQ0EkUc.s:461    .text.USBD_LL_SetSpeed:0000000000000000 $t
+     /tmp/ccQ0EkUc.s:468    .text.USBD_LL_SetSpeed:0000000000000000 USBD_LL_SetSpeed
+     /tmp/ccQ0EkUc.s:477    .text.USBD_LL_Suspend:0000000000000000 $t
+     /tmp/ccQ0EkUc.s:484    .text.USBD_LL_Suspend:0000000000000000 USBD_LL_Suspend
+     /tmp/ccQ0EkUc.s:496    .text.USBD_LL_Resume:0000000000000000 $t
+     /tmp/ccQ0EkUc.s:503    .text.USBD_LL_Resume:0000000000000000 USBD_LL_Resume
+     /tmp/ccQ0EkUc.s:513    .text.USBD_LL_SOF:0000000000000000 $t
+     /tmp/ccQ0EkUc.s:520    .text.USBD_LL_SOF:0000000000000000 USBD_LL_SOF
+     /tmp/ccQ0EkUc.s:539    .text.USBD_LL_IsoINIncomplete:0000000000000000 $t
+     /tmp/ccQ0EkUc.s:546    .text.USBD_LL_IsoINIncomplete:0000000000000000 USBD_LL_IsoINIncomplete
+     /tmp/ccQ0EkUc.s:554    .text.USBD_LL_IsoOUTIncomplete:0000000000000000 $t
+     /tmp/ccQ0EkUc.s:561    .text.USBD_LL_IsoOUTIncomplete:0000000000000000 USBD_LL_IsoOUTIncomplete
+     /tmp/ccQ0EkUc.s:569    .text.USBD_LL_DevConnected:0000000000000000 $t
+     /tmp/ccQ0EkUc.s:576    .text.USBD_LL_DevConnected:0000000000000000 USBD_LL_DevConnected
+     /tmp/ccQ0EkUc.s:584    .text.USBD_LL_DevDisconnected:0000000000000000 $t
+     /tmp/ccQ0EkUc.s:591    .text.USBD_LL_DevDisconnected:0000000000000000 USBD_LL_DevDisconnected
+     /tmp/ccQ0EkUc.s:605    .rodata.USBD_Init.str1.4:0000000000000000 $d
+     /tmp/ccQ0EkUc.s:611    .rodata.USBD_RegisterClass.str1.4:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 USBD_LL_Init
@@ -674,7 +674,7 @@ USBD_LL_Start
 USBD_ParseSetupRequest
 USBD_LL_StallEP
 USBD_StdDevReq
-ARM GAS  /tmp/ccvk9m29.s 			page 13
+ARM GAS  /tmp/ccQ0EkUc.s 			page 13
 
 
 USBD_StdItfReq

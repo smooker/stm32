@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccc3S8W4.s 			page 1
+ARM GAS  /tmp/ccoaZ5BQ.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccc3S8W4.s 			page 1
   61              		.section	.text._exit,"ax",%progbits
   62              		.align	1
   63              		.global	_exit
-ARM GAS  /tmp/ccc3S8W4.s 			page 2
+ARM GAS  /tmp/ccoaZ5BQ.s 			page 2
 
 
   64              		.syntax unified
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccc3S8W4.s 			page 1
  123 0008 B542     		cmp	r5, r6
  124 000a 05DA     		bge	.L17
  125 000c 14F8010B 		ldrb	r0, [r4], #1	@ zero_extendqisi2
-ARM GAS  /tmp/ccc3S8W4.s 			page 3
+ARM GAS  /tmp/ccoaZ5BQ.s 			page 3
 
 
  126 0010 FFF7FEFF 		bl	__io_putchar
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccc3S8W4.s 			page 1
  183              		.fpu softvfp
  185              	_close:
  186              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  /tmp/ccc3S8W4.s 			page 4
+ARM GAS  /tmp/ccoaZ5BQ.s 			page 4
 
 
  187              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccc3S8W4.s 			page 1
  249              		@ frame_needed = 0, uses_anonymous_args = 1
  250              		@ link register save eliminated.
  251 0000 0EB4     		push	{r1, r2, r3}
-ARM GAS  /tmp/ccc3S8W4.s 			page 5
+ARM GAS  /tmp/ccoaZ5BQ.s 			page 5
 
 
  252 0002 4FF0FF30 		mov	r0, #-1
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccc3S8W4.s 			page 1
  313              		.fpu softvfp
  315              	_stat:
  316              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  /tmp/ccc3S8W4.s 			page 6
+ARM GAS  /tmp/ccoaZ5BQ.s 			page 6
 
 
  317              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccc3S8W4.s 			page 1
  378              		.global	environ
  379              		.global	__env
  380              		.section	.bss.__env,"aw",%nobits
-ARM GAS  /tmp/ccc3S8W4.s 			page 7
+ARM GAS  /tmp/ccoaZ5BQ.s 			page 7
 
 
  381              		.align	2
@@ -376,56 +376,56 @@ ARM GAS  /tmp/ccc3S8W4.s 			page 1
  399              		.weak	__io_putchar
  400              		.weak	__io_getchar
  401              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 8-2018-q4-major) 8.2.1 20181213 (release) [gcc
-ARM GAS  /tmp/ccc3S8W4.s 			page 8
+ARM GAS  /tmp/ccoaZ5BQ.s 			page 8
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 syscalls.c
-     /tmp/ccc3S8W4.s:14     .text.initialise_monitor_handles:0000000000000000 $t
-     /tmp/ccc3S8W4.s:22     .text.initialise_monitor_handles:0000000000000000 initialise_monitor_handles
-     /tmp/ccc3S8W4.s:29     .text._getpid:0000000000000000 $t
-     /tmp/ccc3S8W4.s:36     .text._getpid:0000000000000000 _getpid
-     /tmp/ccc3S8W4.s:44     .text._kill:0000000000000000 $t
-     /tmp/ccc3S8W4.s:51     .text._kill:0000000000000000 _kill
-     /tmp/ccc3S8W4.s:62     .text._exit:0000000000000000 $t
-     /tmp/ccc3S8W4.s:69     .text._exit:0000000000000000 _exit
-     /tmp/ccc3S8W4.s:80     .text._read:0000000000000000 $t
-     /tmp/ccc3S8W4.s:87     .text._read:0000000000000000 _read
-     /tmp/ccc3S8W4.s:108    .text._write:0000000000000000 $t
-     /tmp/ccc3S8W4.s:115    .text._write:0000000000000000 _write
-     /tmp/ccc3S8W4.s:134    .text._sbrk:0000000000000000 $t
-     /tmp/ccc3S8W4.s:141    .text._sbrk:0000000000000000 _sbrk
-     /tmp/ccc3S8W4.s:174    .text._sbrk:0000000000000034 $d
-     /tmp/ccc3S8W4.s:178    .text._close:0000000000000000 $t
-     /tmp/ccc3S8W4.s:185    .text._close:0000000000000000 _close
-     /tmp/ccc3S8W4.s:193    .text._fstat:0000000000000000 $t
-     /tmp/ccc3S8W4.s:200    .text._fstat:0000000000000000 _fstat
-     /tmp/ccc3S8W4.s:210    .text._isatty:0000000000000000 $t
-     /tmp/ccc3S8W4.s:217    .text._isatty:0000000000000000 _isatty
-     /tmp/ccc3S8W4.s:225    .text._lseek:0000000000000000 $t
-     /tmp/ccc3S8W4.s:232    .text._lseek:0000000000000000 _lseek
-     /tmp/ccc3S8W4.s:240    .text._open:0000000000000000 $t
-     /tmp/ccc3S8W4.s:247    .text._open:0000000000000000 _open
-     /tmp/ccc3S8W4.s:257    .text._wait:0000000000000000 $t
-     /tmp/ccc3S8W4.s:264    .text._wait:0000000000000000 _wait
-     /tmp/ccc3S8W4.s:275    .text._unlink:0000000000000000 $t
-     /tmp/ccc3S8W4.s:282    .text._unlink:0000000000000000 _unlink
-     /tmp/ccc3S8W4.s:293    .text._times:0000000000000000 $t
-     /tmp/ccc3S8W4.s:300    .text._times:0000000000000000 _times
-     /tmp/ccc3S8W4.s:308    .text._stat:0000000000000000 $t
-     /tmp/ccc3S8W4.s:315    .text._stat:0000000000000000 _stat
-     /tmp/ccc3S8W4.s:325    .text._link:0000000000000000 $t
-     /tmp/ccc3S8W4.s:332    .text._link:0000000000000000 _link
-     /tmp/ccc3S8W4.s:343    .text._fork:0000000000000000 $t
-     /tmp/ccc3S8W4.s:350    .text._fork:0000000000000000 _fork
-     /tmp/ccc3S8W4.s:361    .text._execve:0000000000000000 $t
-     /tmp/ccc3S8W4.s:368    .text._execve:0000000000000000 _execve
-     /tmp/ccc3S8W4.s:397    .data.environ:0000000000000000 environ
-     /tmp/ccc3S8W4.s:384    .bss.__env:0000000000000000 __env
-     /tmp/ccc3S8W4.s:381    .bss.__env:0000000000000000 $d
-     /tmp/ccc3S8W4.s:387    .bss.heap_end.6073:0000000000000000 $d
-     /tmp/ccc3S8W4.s:391    .bss.heap_end.6073:0000000000000000 heap_end.6073
-     /tmp/ccc3S8W4.s:394    .data.environ:0000000000000000 $d
+     /tmp/ccoaZ5BQ.s:14     .text.initialise_monitor_handles:0000000000000000 $t
+     /tmp/ccoaZ5BQ.s:22     .text.initialise_monitor_handles:0000000000000000 initialise_monitor_handles
+     /tmp/ccoaZ5BQ.s:29     .text._getpid:0000000000000000 $t
+     /tmp/ccoaZ5BQ.s:36     .text._getpid:0000000000000000 _getpid
+     /tmp/ccoaZ5BQ.s:44     .text._kill:0000000000000000 $t
+     /tmp/ccoaZ5BQ.s:51     .text._kill:0000000000000000 _kill
+     /tmp/ccoaZ5BQ.s:62     .text._exit:0000000000000000 $t
+     /tmp/ccoaZ5BQ.s:69     .text._exit:0000000000000000 _exit
+     /tmp/ccoaZ5BQ.s:80     .text._read:0000000000000000 $t
+     /tmp/ccoaZ5BQ.s:87     .text._read:0000000000000000 _read
+     /tmp/ccoaZ5BQ.s:108    .text._write:0000000000000000 $t
+     /tmp/ccoaZ5BQ.s:115    .text._write:0000000000000000 _write
+     /tmp/ccoaZ5BQ.s:134    .text._sbrk:0000000000000000 $t
+     /tmp/ccoaZ5BQ.s:141    .text._sbrk:0000000000000000 _sbrk
+     /tmp/ccoaZ5BQ.s:174    .text._sbrk:0000000000000034 $d
+     /tmp/ccoaZ5BQ.s:178    .text._close:0000000000000000 $t
+     /tmp/ccoaZ5BQ.s:185    .text._close:0000000000000000 _close
+     /tmp/ccoaZ5BQ.s:193    .text._fstat:0000000000000000 $t
+     /tmp/ccoaZ5BQ.s:200    .text._fstat:0000000000000000 _fstat
+     /tmp/ccoaZ5BQ.s:210    .text._isatty:0000000000000000 $t
+     /tmp/ccoaZ5BQ.s:217    .text._isatty:0000000000000000 _isatty
+     /tmp/ccoaZ5BQ.s:225    .text._lseek:0000000000000000 $t
+     /tmp/ccoaZ5BQ.s:232    .text._lseek:0000000000000000 _lseek
+     /tmp/ccoaZ5BQ.s:240    .text._open:0000000000000000 $t
+     /tmp/ccoaZ5BQ.s:247    .text._open:0000000000000000 _open
+     /tmp/ccoaZ5BQ.s:257    .text._wait:0000000000000000 $t
+     /tmp/ccoaZ5BQ.s:264    .text._wait:0000000000000000 _wait
+     /tmp/ccoaZ5BQ.s:275    .text._unlink:0000000000000000 $t
+     /tmp/ccoaZ5BQ.s:282    .text._unlink:0000000000000000 _unlink
+     /tmp/ccoaZ5BQ.s:293    .text._times:0000000000000000 $t
+     /tmp/ccoaZ5BQ.s:300    .text._times:0000000000000000 _times
+     /tmp/ccoaZ5BQ.s:308    .text._stat:0000000000000000 $t
+     /tmp/ccoaZ5BQ.s:315    .text._stat:0000000000000000 _stat
+     /tmp/ccoaZ5BQ.s:325    .text._link:0000000000000000 $t
+     /tmp/ccoaZ5BQ.s:332    .text._link:0000000000000000 _link
+     /tmp/ccoaZ5BQ.s:343    .text._fork:0000000000000000 $t
+     /tmp/ccoaZ5BQ.s:350    .text._fork:0000000000000000 _fork
+     /tmp/ccoaZ5BQ.s:361    .text._execve:0000000000000000 $t
+     /tmp/ccoaZ5BQ.s:368    .text._execve:0000000000000000 _execve
+     /tmp/ccoaZ5BQ.s:397    .data.environ:0000000000000000 environ
+     /tmp/ccoaZ5BQ.s:384    .bss.__env:0000000000000000 __env
+     /tmp/ccoaZ5BQ.s:381    .bss.__env:0000000000000000 $d
+     /tmp/ccoaZ5BQ.s:387    .bss.heap_end.6073:0000000000000000 $d
+     /tmp/ccoaZ5BQ.s:391    .bss.heap_end.6073:0000000000000000 heap_end.6073
+     /tmp/ccoaZ5BQ.s:394    .data.environ:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 __errno

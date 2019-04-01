@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccCLygcQ.s 			page 1
+ARM GAS  /tmp/ccpwTPd3.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccCLygcQ.s 			page 1
   58 0024 0020     		movs	r0, #0
   59 0026 10BD     		pop	{r4, pc}
   61              		.section	.text.USBD_CDC_GetFSCfgDesc,"ax",%progbits
-ARM GAS  /tmp/ccCLygcQ.s 			page 2
+ARM GAS  /tmp/ccpwTPd3.s 			page 2
 
 
   62              		.align	1
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccCLygcQ.s 			page 1
  122              		.align	1
  123              		.global	USBD_CDC_GetDeviceQualifierDescriptor
  124              		.syntax unified
-ARM GAS  /tmp/ccCLygcQ.s 			page 3
+ARM GAS  /tmp/ccpwTPd3.s 			page 3
 
 
  125              		.thumb
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccCLygcQ.s 			page 1
  184 0006 D0F81862 		ldr	r6, [r0, #536]
  185 000a 0B78     		ldrb	r3, [r1]	@ zero_extendqisi2
  186 000c 13F06002 		ands	r2, r3, #96
-ARM GAS  /tmp/ccCLygcQ.s 			page 4
+ARM GAS  /tmp/ccpwTPd3.s 			page 4
 
 
  187 0010 24D0     		beq	.L24
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccCLygcQ.s 			page 1
  242              		.fpu softvfp
  244              	USBD_CDC_DeInit:
  245              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  /tmp/ccCLygcQ.s 			page 5
+ARM GAS  /tmp/ccpwTPd3.s 			page 5
 
 
  246              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccCLygcQ.s 			page 1
  302 0038 C4F81802 		str	r0, [r4, #536]
  303 003c 48B3     		cbz	r0, .L40
  304 003e D4F81C32 		ldr	r3, [r4, #540]
-ARM GAS  /tmp/ccCLygcQ.s 			page 6
+ARM GAS  /tmp/ccpwTPd3.s 			page 6
 
 
  305 0042 1B68     		ldr	r3, [r3]
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccCLygcQ.s 			page 1
  361 000c 7047     		bx	lr
  363              		.section	.text.USBD_CDC_SetTxBuffer,"ax",%progbits
  364              		.align	1
-ARM GAS  /tmp/ccCLygcQ.s 			page 7
+ARM GAS  /tmp/ccpwTPd3.s 			page 7
 
 
  365              		.global	USBD_CDC_SetTxBuffer
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccCLygcQ.s 			page 1
  424 0026 0020     		movs	r0, #0
  425 0028 F2E7     		b	.L48
  426              	.L49:
-ARM GAS  /tmp/ccCLygcQ.s 			page 8
+ARM GAS  /tmp/ccpwTPd3.s 			page 8
 
 
  427 002a 0220     		movs	r0, #2
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccCLygcQ.s 			page 1
  488 0028 00000000 		.word	USBD_CDC_GetHSCfgDesc
  489 002c 00000000 		.word	USBD_CDC_GetFSCfgDesc
  490 0030 00000000 		.word	USBD_CDC_GetOtherSpeedCfgDesc
-ARM GAS  /tmp/ccCLygcQ.s 			page 9
+ARM GAS  /tmp/ccpwTPd3.s 			page 9
 
 
  491 0034 00000000 		.word	USBD_CDC_GetDeviceQualifierDescriptor
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccCLygcQ.s 			page 1
  547 0031 0A       		.byte	10
  548 0032 00       		.byte	0
  549 0033 00       		.byte	0
-ARM GAS  /tmp/ccCLygcQ.s 			page 10
+ARM GAS  /tmp/ccpwTPd3.s 			page 10
 
 
  550 0034 00       		.byte	0
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccCLygcQ.s 			page 1
  606 0023 00       		.byte	0
  607 0024 01       		.byte	1
  608 0025 07       		.byte	7
-ARM GAS  /tmp/ccCLygcQ.s 			page 11
+ARM GAS  /tmp/ccpwTPd3.s 			page 11
 
 
  609 0026 05       		.byte	5
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccCLygcQ.s 			page 1
  667 0007 C0       		.byte	-64
  668 0008 32       		.byte	50
  669 0009 09       		.byte	9
-ARM GAS  /tmp/ccCLygcQ.s 			page 12
+ARM GAS  /tmp/ccpwTPd3.s 			page 12
 
 
  670 000a 04       		.byte	4
@@ -718,62 +718,62 @@ ARM GAS  /tmp/ccCLygcQ.s 			page 1
  724 0040 40       		.byte	64
  725 0041 00       		.byte	0
  726 0042 00       		.byte	0
-ARM GAS  /tmp/ccCLygcQ.s 			page 13
+ARM GAS  /tmp/ccpwTPd3.s 			page 13
 
 
  727              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 8-2018-q4-major) 8.2.1 20181213 (release) [gcc
-ARM GAS  /tmp/ccCLygcQ.s 			page 14
+ARM GAS  /tmp/ccpwTPd3.s 			page 14
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 usbd_cdc.c
-     /tmp/ccCLygcQ.s:14     .text.USBD_CDC_DataIn:0000000000000000 $t
-     /tmp/ccCLygcQ.s:21     .text.USBD_CDC_DataIn:0000000000000000 USBD_CDC_DataIn
-     /tmp/ccCLygcQ.s:35     .text.USBD_CDC_EP0_RxReady:0000000000000000 $t
-     /tmp/ccCLygcQ.s:41     .text.USBD_CDC_EP0_RxReady:0000000000000000 USBD_CDC_EP0_RxReady
-     /tmp/ccCLygcQ.s:62     .text.USBD_CDC_GetFSCfgDesc:0000000000000000 $t
-     /tmp/ccCLygcQ.s:68     .text.USBD_CDC_GetFSCfgDesc:0000000000000000 USBD_CDC_GetFSCfgDesc
-     /tmp/ccCLygcQ.s:79     .text.USBD_CDC_GetFSCfgDesc:0000000000000008 $d
-     /tmp/ccCLygcQ.s:82     .text.USBD_CDC_GetHSCfgDesc:0000000000000000 $t
-     /tmp/ccCLygcQ.s:88     .text.USBD_CDC_GetHSCfgDesc:0000000000000000 USBD_CDC_GetHSCfgDesc
-     /tmp/ccCLygcQ.s:99     .text.USBD_CDC_GetHSCfgDesc:0000000000000008 $d
-     /tmp/ccCLygcQ.s:102    .text.USBD_CDC_GetOtherSpeedCfgDesc:0000000000000000 $t
-     /tmp/ccCLygcQ.s:108    .text.USBD_CDC_GetOtherSpeedCfgDesc:0000000000000000 USBD_CDC_GetOtherSpeedCfgDesc
-     /tmp/ccCLygcQ.s:119    .text.USBD_CDC_GetOtherSpeedCfgDesc:0000000000000008 $d
-     /tmp/ccCLygcQ.s:122    .text.USBD_CDC_GetDeviceQualifierDescriptor:0000000000000000 $t
-     /tmp/ccCLygcQ.s:129    .text.USBD_CDC_GetDeviceQualifierDescriptor:0000000000000000 USBD_CDC_GetDeviceQualifierDescriptor
-     /tmp/ccCLygcQ.s:140    .text.USBD_CDC_GetDeviceQualifierDescriptor:0000000000000008 $d
-     /tmp/ccCLygcQ.s:143    .text.USBD_CDC_DataOut:0000000000000000 $t
-     /tmp/ccCLygcQ.s:149    .text.USBD_CDC_DataOut:0000000000000000 USBD_CDC_DataOut
-     /tmp/ccCLygcQ.s:172    .text.USBD_CDC_Setup:0000000000000000 $t
-     /tmp/ccCLygcQ.s:178    .text.USBD_CDC_Setup:0000000000000000 USBD_CDC_Setup
-     /tmp/ccCLygcQ.s:235    .text.USBD_CDC_Setup:0000000000000070 $d
-     /tmp/ccCLygcQ.s:238    .text.USBD_CDC_DeInit:0000000000000000 $t
-     /tmp/ccCLygcQ.s:244    .text.USBD_CDC_DeInit:0000000000000000 USBD_CDC_DeInit
-     /tmp/ccCLygcQ.s:271    .text.USBD_CDC_Init:0000000000000000 $t
-     /tmp/ccCLygcQ.s:277    .text.USBD_CDC_Init:0000000000000000 USBD_CDC_Init
-     /tmp/ccCLygcQ.s:344    .text.USBD_CDC_RegisterInterface:0000000000000000 $t
-     /tmp/ccCLygcQ.s:351    .text.USBD_CDC_RegisterInterface:0000000000000000 USBD_CDC_RegisterInterface
-     /tmp/ccCLygcQ.s:364    .text.USBD_CDC_SetTxBuffer:0000000000000000 $t
-     /tmp/ccCLygcQ.s:371    .text.USBD_CDC_SetTxBuffer:0000000000000000 USBD_CDC_SetTxBuffer
-     /tmp/ccCLygcQ.s:382    .text.USBD_CDC_SetRxBuffer:0000000000000000 $t
-     /tmp/ccCLygcQ.s:389    .text.USBD_CDC_SetRxBuffer:0000000000000000 USBD_CDC_SetRxBuffer
-     /tmp/ccCLygcQ.s:399    .text.USBD_CDC_TransmitPacket:0000000000000000 $t
-     /tmp/ccCLygcQ.s:406    .text.USBD_CDC_TransmitPacket:0000000000000000 USBD_CDC_TransmitPacket
-     /tmp/ccCLygcQ.s:431    .text.USBD_CDC_ReceivePacket:0000000000000000 $t
-     /tmp/ccCLygcQ.s:438    .text.USBD_CDC_ReceivePacket:0000000000000000 USBD_CDC_ReceivePacket
-     /tmp/ccCLygcQ.s:659    .data.USBD_CDC_OtherSpeedCfgDesc:0000000000000000 USBD_CDC_OtherSpeedCfgDesc
-     /tmp/ccCLygcQ.s:497    .data.USBD_CDC_CfgFSDesc:0000000000000000 USBD_CDC_CfgFSDesc
-     /tmp/ccCLygcQ.s:570    .data.USBD_CDC_CfgHSDesc:0000000000000000 USBD_CDC_CfgHSDesc
-     /tmp/ccCLygcQ.s:477    .data.USBD_CDC:0000000000000000 USBD_CDC
-     /tmp/ccCLygcQ.s:471    .bss.ifalt.7775:0000000000000000 ifalt.7775
-     /tmp/ccCLygcQ.s:472    .bss.ifalt.7775:0000000000000000 $d
-     /tmp/ccCLygcQ.s:474    .data.USBD_CDC:0000000000000000 $d
-     /tmp/ccCLygcQ.s:493    .data.USBD_CDC_CfgFSDesc:0000000000000000 $d
-     /tmp/ccCLygcQ.s:566    .data.USBD_CDC_CfgHSDesc:0000000000000000 $d
-     /tmp/ccCLygcQ.s:639    .data.USBD_CDC_DeviceQualifierDesc:0000000000000000 $d
-     /tmp/ccCLygcQ.s:643    .data.USBD_CDC_DeviceQualifierDesc:0000000000000000 USBD_CDC_DeviceQualifierDesc
-     /tmp/ccCLygcQ.s:655    .data.USBD_CDC_OtherSpeedCfgDesc:0000000000000000 $d
+     /tmp/ccpwTPd3.s:14     .text.USBD_CDC_DataIn:0000000000000000 $t
+     /tmp/ccpwTPd3.s:21     .text.USBD_CDC_DataIn:0000000000000000 USBD_CDC_DataIn
+     /tmp/ccpwTPd3.s:35     .text.USBD_CDC_EP0_RxReady:0000000000000000 $t
+     /tmp/ccpwTPd3.s:41     .text.USBD_CDC_EP0_RxReady:0000000000000000 USBD_CDC_EP0_RxReady
+     /tmp/ccpwTPd3.s:62     .text.USBD_CDC_GetFSCfgDesc:0000000000000000 $t
+     /tmp/ccpwTPd3.s:68     .text.USBD_CDC_GetFSCfgDesc:0000000000000000 USBD_CDC_GetFSCfgDesc
+     /tmp/ccpwTPd3.s:79     .text.USBD_CDC_GetFSCfgDesc:0000000000000008 $d
+     /tmp/ccpwTPd3.s:82     .text.USBD_CDC_GetHSCfgDesc:0000000000000000 $t
+     /tmp/ccpwTPd3.s:88     .text.USBD_CDC_GetHSCfgDesc:0000000000000000 USBD_CDC_GetHSCfgDesc
+     /tmp/ccpwTPd3.s:99     .text.USBD_CDC_GetHSCfgDesc:0000000000000008 $d
+     /tmp/ccpwTPd3.s:102    .text.USBD_CDC_GetOtherSpeedCfgDesc:0000000000000000 $t
+     /tmp/ccpwTPd3.s:108    .text.USBD_CDC_GetOtherSpeedCfgDesc:0000000000000000 USBD_CDC_GetOtherSpeedCfgDesc
+     /tmp/ccpwTPd3.s:119    .text.USBD_CDC_GetOtherSpeedCfgDesc:0000000000000008 $d
+     /tmp/ccpwTPd3.s:122    .text.USBD_CDC_GetDeviceQualifierDescriptor:0000000000000000 $t
+     /tmp/ccpwTPd3.s:129    .text.USBD_CDC_GetDeviceQualifierDescriptor:0000000000000000 USBD_CDC_GetDeviceQualifierDescriptor
+     /tmp/ccpwTPd3.s:140    .text.USBD_CDC_GetDeviceQualifierDescriptor:0000000000000008 $d
+     /tmp/ccpwTPd3.s:143    .text.USBD_CDC_DataOut:0000000000000000 $t
+     /tmp/ccpwTPd3.s:149    .text.USBD_CDC_DataOut:0000000000000000 USBD_CDC_DataOut
+     /tmp/ccpwTPd3.s:172    .text.USBD_CDC_Setup:0000000000000000 $t
+     /tmp/ccpwTPd3.s:178    .text.USBD_CDC_Setup:0000000000000000 USBD_CDC_Setup
+     /tmp/ccpwTPd3.s:235    .text.USBD_CDC_Setup:0000000000000070 $d
+     /tmp/ccpwTPd3.s:238    .text.USBD_CDC_DeInit:0000000000000000 $t
+     /tmp/ccpwTPd3.s:244    .text.USBD_CDC_DeInit:0000000000000000 USBD_CDC_DeInit
+     /tmp/ccpwTPd3.s:271    .text.USBD_CDC_Init:0000000000000000 $t
+     /tmp/ccpwTPd3.s:277    .text.USBD_CDC_Init:0000000000000000 USBD_CDC_Init
+     /tmp/ccpwTPd3.s:344    .text.USBD_CDC_RegisterInterface:0000000000000000 $t
+     /tmp/ccpwTPd3.s:351    .text.USBD_CDC_RegisterInterface:0000000000000000 USBD_CDC_RegisterInterface
+     /tmp/ccpwTPd3.s:364    .text.USBD_CDC_SetTxBuffer:0000000000000000 $t
+     /tmp/ccpwTPd3.s:371    .text.USBD_CDC_SetTxBuffer:0000000000000000 USBD_CDC_SetTxBuffer
+     /tmp/ccpwTPd3.s:382    .text.USBD_CDC_SetRxBuffer:0000000000000000 $t
+     /tmp/ccpwTPd3.s:389    .text.USBD_CDC_SetRxBuffer:0000000000000000 USBD_CDC_SetRxBuffer
+     /tmp/ccpwTPd3.s:399    .text.USBD_CDC_TransmitPacket:0000000000000000 $t
+     /tmp/ccpwTPd3.s:406    .text.USBD_CDC_TransmitPacket:0000000000000000 USBD_CDC_TransmitPacket
+     /tmp/ccpwTPd3.s:431    .text.USBD_CDC_ReceivePacket:0000000000000000 $t
+     /tmp/ccpwTPd3.s:438    .text.USBD_CDC_ReceivePacket:0000000000000000 USBD_CDC_ReceivePacket
+     /tmp/ccpwTPd3.s:659    .data.USBD_CDC_OtherSpeedCfgDesc:0000000000000000 USBD_CDC_OtherSpeedCfgDesc
+     /tmp/ccpwTPd3.s:497    .data.USBD_CDC_CfgFSDesc:0000000000000000 USBD_CDC_CfgFSDesc
+     /tmp/ccpwTPd3.s:570    .data.USBD_CDC_CfgHSDesc:0000000000000000 USBD_CDC_CfgHSDesc
+     /tmp/ccpwTPd3.s:477    .data.USBD_CDC:0000000000000000 USBD_CDC
+     /tmp/ccpwTPd3.s:471    .bss.ifalt.7775:0000000000000000 ifalt.7775
+     /tmp/ccpwTPd3.s:472    .bss.ifalt.7775:0000000000000000 $d
+     /tmp/ccpwTPd3.s:474    .data.USBD_CDC:0000000000000000 $d
+     /tmp/ccpwTPd3.s:493    .data.USBD_CDC_CfgFSDesc:0000000000000000 $d
+     /tmp/ccpwTPd3.s:566    .data.USBD_CDC_CfgHSDesc:0000000000000000 $d
+     /tmp/ccpwTPd3.s:639    .data.USBD_CDC_DeviceQualifierDesc:0000000000000000 $d
+     /tmp/ccpwTPd3.s:643    .data.USBD_CDC_DeviceQualifierDesc:0000000000000000 USBD_CDC_DeviceQualifierDesc
+     /tmp/ccpwTPd3.s:655    .data.USBD_CDC_OtherSpeedCfgDesc:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 USBD_LL_GetRxDataSize
@@ -782,7 +782,7 @@ USBD_CtlPrepareRx
 USBD_LL_CloseEP
 USBD_static_free
 USBD_LL_OpenEP
-ARM GAS  /tmp/ccCLygcQ.s 			page 15
+ARM GAS  /tmp/ccpwTPd3.s 			page 15
 
 
 USBD_static_malloc

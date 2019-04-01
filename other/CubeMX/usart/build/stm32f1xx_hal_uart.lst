@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccL7ClOf.s 			page 1
+ARM GAS  /tmp/ccPeulGp.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccL7ClOf.s 			page 1
   59              		.thumb
   60              		.thumb_func
   61              		.fpu softvfp
-ARM GAS  /tmp/ccL7ClOf.s 			page 2
+ARM GAS  /tmp/ccPeulGp.s 			page 2
 
 
   63              	UART_Transmit_IT:
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccL7ClOf.s 			page 1
  118              		.section	.text.UART_SetConfig,"ax",%progbits
  119              		.align	1
  120              		.syntax unified
-ARM GAS  /tmp/ccL7ClOf.s 			page 3
+ARM GAS  /tmp/ccPeulGp.s 			page 3
 
 
  121              		.thumb
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccL7ClOf.s 			page 1
  176 0082 6C68     		ldr	r4, [r5, #4]
  177 0084 A400     		lsls	r4, r4, #2
  178 0086 B0FBF4F4 		udiv	r4, r0, r4
-ARM GAS  /tmp/ccL7ClOf.s 			page 4
+ARM GAS  /tmp/ccPeulGp.s 			page 4
 
 
  179 008a A7FB0434 		umull	r3, r4, r7, r4
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccL7ClOf.s 			page 1
  233 0132 6C68     		ldr	r4, [r5, #4]
  234 0134 A400     		lsls	r4, r4, #2
  235 0136 B0FBF4F4 		udiv	r4, r0, r4
-ARM GAS  /tmp/ccL7ClOf.s 			page 5
+ARM GAS  /tmp/ccPeulGp.s 			page 5
 
 
  236 013a A7FB0434 		umull	r3, r4, r7, r4
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccL7ClOf.s 			page 1
  292 000e 2B68     		ldr	r3, [r5]
  293 0010 1B68     		ldr	r3, [r3]
  294 0012 37EA0303 		bics	r3, r7, r3
-ARM GAS  /tmp/ccL7ClOf.s 			page 6
+ARM GAS  /tmp/ccPeulGp.s 			page 6
 
 
  295 0016 0CBF     		ite	eq
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccL7ClOf.s 			page 1
  353 0000 58B3     		cbz	r0, .L31
  354 0002 10B5     		push	{r4, lr}
  355 0004 0446     		mov	r4, r0
-ARM GAS  /tmp/ccL7ClOf.s 			page 7
+ARM GAS  /tmp/ccPeulGp.s 			page 7
 
 
  356 0006 90F83930 		ldrb	r3, [r0, #57]	@ zero_extendqisi2
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccL7ClOf.s 			page 1
  412 0010 84F83930 		strb	r3, [r4, #57]
  413 0014 2268     		ldr	r2, [r4]
  414 0016 D368     		ldr	r3, [r2, #12]
-ARM GAS  /tmp/ccL7ClOf.s 			page 8
+ARM GAS  /tmp/ccPeulGp.s 			page 8
 
 
  415 0018 23F40053 		bic	r3, r3, #8192
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccL7ClOf.s 			page 1
  471 0018 D368     		ldr	r3, [r2, #12]
  472 001a 23F40053 		bic	r3, r3, #8192
  473 001e D360     		str	r3, [r2, #12]
-ARM GAS  /tmp/ccL7ClOf.s 			page 9
+ARM GAS  /tmp/ccPeulGp.s 			page 9
 
 
  474 0020 2046     		mov	r0, r4
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccL7ClOf.s 			page 1
  530 0012 2DD0     		beq	.L63
  531              	.L57:
  532 0014 2423     		movs	r3, #36
-ARM GAS  /tmp/ccL7ClOf.s 			page 10
+ARM GAS  /tmp/ccPeulGp.s 			page 10
 
 
  533 0016 84F83930 		strb	r3, [r4, #57]
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccL7ClOf.s 			page 1
  590              		.section	.text.HAL_UART_DeInit,"ax",%progbits
  591              		.align	1
  592              		.global	HAL_UART_DeInit
-ARM GAS  /tmp/ccL7ClOf.s 			page 11
+ARM GAS  /tmp/ccPeulGp.s 			page 11
 
 
  593              		.syntax unified
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccL7ClOf.s 			page 1
  650 0034 80F83930 		strb	r3, [r0, #57]
  651 0038 FFF7FEFF 		bl	HAL_GetTick
  652 003c 0746     		mov	r7, r0
-ARM GAS  /tmp/ccL7ClOf.s 			page 12
+ARM GAS  /tmp/ccPeulGp.s 			page 12
 
 
  653 003e A4F82480 		strh	r8, [r4, #36]	@ movhi
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccL7ClOf.s 			page 1
  707 00b2 84F83920 		strb	r2, [r4, #57]
  708 00b6 0022     		movs	r2, #0
  709 00b8 84F83820 		strb	r2, [r4, #56]
-ARM GAS  /tmp/ccL7ClOf.s 			page 13
+ARM GAS  /tmp/ccPeulGp.s 			page 13
 
 
  710 00bc 00E0     		b	.L73
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccL7ClOf.s 			page 1
  766 002a 80F83830 		strb	r3, [r0, #56]
  767 002e 0023     		movs	r3, #0
  768 0030 C363     		str	r3, [r0, #60]
-ARM GAS  /tmp/ccL7ClOf.s 			page 14
+ARM GAS  /tmp/ccPeulGp.s 			page 14
 
 
  769 0032 2223     		movs	r3, #34
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccL7ClOf.s 			page 1
  823 00ae E3D1     		bne	.L95
  824 00b0 2368     		ldr	r3, [r4]
  825 00b2 5B68     		ldr	r3, [r3, #4]
-ARM GAS  /tmp/ccL7ClOf.s 			page 15
+ARM GAS  /tmp/ccPeulGp.s 			page 15
 
 
  826 00b4 05F8013B 		strb	r3, [r5], #1
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccL7ClOf.s 			page 1
  882 0020 2122     		movs	r2, #33
  883 0022 80F83920 		strb	r2, [r0, #57]
  884 0026 80F83830 		strb	r3, [r0, #56]
-ARM GAS  /tmp/ccL7ClOf.s 			page 16
+ARM GAS  /tmp/ccPeulGp.s 			page 16
 
 
  885 002a 0168     		ldr	r1, [r0]
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccL7ClOf.s 			page 1
  941 003e 0168     		ldr	r1, [r0]
  942 0040 CA68     		ldr	r2, [r1, #12]
  943 0042 42F02002 		orr	r2, r2, #32
-ARM GAS  /tmp/ccL7ClOf.s 			page 17
+ARM GAS  /tmp/ccPeulGp.s 			page 17
 
 
  944 0046 CA60     		str	r2, [r1, #12]
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccL7ClOf.s 			page 1
  1000 0042 226B     		ldr	r2, [r4, #48]
  1001 0044 1048     		ldr	r0, .L125+8
  1002 0046 1063     		str	r0, [r2, #48]
-ARM GAS  /tmp/ccL7ClOf.s 			page 18
+ARM GAS  /tmp/ccPeulGp.s 			page 18
 
 
  1003 0048 226B     		ldr	r2, [r4, #48]
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccL7ClOf.s 			page 1
  1059 0014 3ED0     		beq	.L131
  1060 0016 90F83830 		ldrb	r3, [r0, #56]	@ zero_extendqisi2
  1061 001a 012B     		cmp	r3, #1
-ARM GAS  /tmp/ccL7ClOf.s 			page 19
+ARM GAS  /tmp/ccPeulGp.s 			page 19
 
 
  1062 001c 3CD0     		beq	.L132
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccL7ClOf.s 			page 1
  1116              	.L130:
  1117 0090 0120     		movs	r0, #1
  1118 0092 FBE7     		b	.L128
-ARM GAS  /tmp/ccL7ClOf.s 			page 20
+ARM GAS  /tmp/ccPeulGp.s 			page 20
 
 
  1119              	.L131:
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccL7ClOf.s 			page 1
  1175 0048 EAE7     		b	.L138
  1176              	.L142:
  1177 004a 002A     		cmp	r2, #0
-ARM GAS  /tmp/ccL7ClOf.s 			page 21
+ARM GAS  /tmp/ccPeulGp.s 			page 21
 
 
  1178 004c F1D0     		beq	.L139
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/ccL7ClOf.s 			page 1
  1234 003c 0193     		str	r3, [sp, #4]
  1235 003e 0368     		ldr	r3, [r0]
  1236 0040 1A68     		ldr	r2, [r3]
-ARM GAS  /tmp/ccL7ClOf.s 			page 22
+ARM GAS  /tmp/ccPeulGp.s 			page 22
 
 
  1237 0042 0192     		str	r2, [sp, #4]
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/ccL7ClOf.s 			page 1
  1293 0028 02F08002 		and	r2, r2, #128
  1294 002c 002A     		cmp	r2, #0
  1295 002e F0D0     		beq	.L156
-ARM GAS  /tmp/ccL7ClOf.s 			page 23
+ARM GAS  /tmp/ccPeulGp.s 			page 23
 
 
  1296 0030 4B69     		ldr	r3, [r1, #20]
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/ccL7ClOf.s 			page 1
  1352 0032 006B     		ldr	r0, [r0, #48]
  1353 0034 FFF7FEFF 		bl	HAL_DMA_Abort
  1354              	.L164:
-ARM GAS  /tmp/ccL7ClOf.s 			page 24
+ARM GAS  /tmp/ccPeulGp.s 			page 24
 
 
  1355 0038 2368     		ldr	r3, [r4]
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/ccL7ClOf.s 			page 1
  1411 0032 2023     		movs	r3, #32
  1412 0034 84F83930 		strb	r3, [r4, #57]
  1413 0038 10BD     		pop	{r4, pc}
-ARM GAS  /tmp/ccL7ClOf.s 			page 25
+ARM GAS  /tmp/ccPeulGp.s 			page 25
 
 
  1415              		.section	.text.HAL_UART_AbortReceive,"ax",%progbits
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/ccL7ClOf.s 			page 1
  1473              		.thumb
  1474              		.thumb_func
  1475              		.fpu softvfp
-ARM GAS  /tmp/ccL7ClOf.s 			page 26
+ARM GAS  /tmp/ccPeulGp.s 			page 26
 
 
  1477              	UART_DMATransmitCplt:
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/ccL7ClOf.s 			page 1
  1535              		@ link register save eliminated.
  1536 0000 7047     		bx	lr
  1538              		.section	.text.UART_DMATxHalfCplt,"ax",%progbits
-ARM GAS  /tmp/ccL7ClOf.s 			page 27
+ARM GAS  /tmp/ccPeulGp.s 			page 27
 
 
  1539              		.align	1
@@ -1618,7 +1618,7 @@ ARM GAS  /tmp/ccL7ClOf.s 			page 1
  1598 0032 83F83A20 		strb	r2, [r3, #58]
  1599              	.L185:
  1600 0036 1846     		mov	r0, r3
-ARM GAS  /tmp/ccL7ClOf.s 			page 28
+ARM GAS  /tmp/ccPeulGp.s 			page 28
 
 
  1601 0038 FFF7FEFF 		bl	HAL_UART_RxCpltCallback
@@ -1678,7 +1678,7 @@ ARM GAS  /tmp/ccL7ClOf.s 			page 1
  1657 0054 0133     		adds	r3, r3, #1
  1658 0056 8362     		str	r3, [r0, #40]
  1659 0058 E4E7     		b	.L191
-ARM GAS  /tmp/ccL7ClOf.s 			page 29
+ARM GAS  /tmp/ccPeulGp.s 			page 29
 
 
  1660              	.L192:
@@ -1738,7 +1738,7 @@ ARM GAS  /tmp/ccL7ClOf.s 			page 1
  1718 0008 08BD     		pop	{r3, pc}
  1720              		.section	.text.HAL_UART_ErrorCallback,"ax",%progbits
  1721              		.align	1
-ARM GAS  /tmp/ccL7ClOf.s 			page 30
+ARM GAS  /tmp/ccPeulGp.s 			page 30
 
 
  1722              		.weak	HAL_UART_ErrorCallback
@@ -1798,7 +1798,7 @@ ARM GAS  /tmp/ccL7ClOf.s 			page 1
  1779 004c 0023     		movs	r3, #0
  1780 004e E385     		strh	r3, [r4, #46]	@ movhi
  1781 0050 2046     		mov	r0, r4
-ARM GAS  /tmp/ccL7ClOf.s 			page 31
+ARM GAS  /tmp/ccPeulGp.s 			page 31
 
 
  1782 0052 FFF7FEFF 		bl	UART_EndRxTransfer
@@ -1858,7 +1858,7 @@ ARM GAS  /tmp/ccL7ClOf.s 			page 1
  1838              	.L213:
  1839 0062 13F0040F 		tst	r3, #4
  1840 0066 04D0     		beq	.L214
-ARM GAS  /tmp/ccL7ClOf.s 			page 32
+ARM GAS  /tmp/ccPeulGp.s 			page 32
 
 
  1841 0068 1AB1     		cbz	r2, .L214
@@ -1918,7 +1918,7 @@ ARM GAS  /tmp/ccL7ClOf.s 			page 1
  1895 00e4 9847     		blx	r3
  1896 00e6 ADE7     		b	.L208
  1897              	.L228:
-ARM GAS  /tmp/ccL7ClOf.s 			page 33
+ARM GAS  /tmp/ccPeulGp.s 			page 33
 
 
  1898 00e8 2046     		mov	r0, r4
@@ -1978,7 +1978,7 @@ ARM GAS  /tmp/ccL7ClOf.s 			page 1
  1956              		@ frame_needed = 0, uses_anonymous_args = 0
  1957              		@ link register save eliminated.
  1958 0000 7047     		bx	lr
-ARM GAS  /tmp/ccL7ClOf.s 			page 34
+ARM GAS  /tmp/ccPeulGp.s 			page 34
 
 
  1960              		.section	.text.HAL_UART_Abort_IT,"ax",%progbits
@@ -2038,7 +2038,7 @@ ARM GAS  /tmp/ccL7ClOf.s 			page 1
  2015              	.L236:
  2016 0062 0022     		movs	r2, #0
  2017 0064 5A63     		str	r2, [r3, #52]
-ARM GAS  /tmp/ccL7ClOf.s 			page 35
+ARM GAS  /tmp/ccPeulGp.s 			page 35
 
 
  2018 0066 E0E7     		b	.L235
@@ -2098,7 +2098,7 @@ ARM GAS  /tmp/ccL7ClOf.s 			page 1
  2073              		.thumb_func
  2074              		.fpu softvfp
  2076              	UART_DMARxAbortCallback:
-ARM GAS  /tmp/ccL7ClOf.s 			page 36
+ARM GAS  /tmp/ccPeulGp.s 			page 36
 
 
  2077              		@ args = 0, pretend = 0, frame = 0
@@ -2158,7 +2158,7 @@ ARM GAS  /tmp/ccL7ClOf.s 			page 1
  2134              		.syntax unified
  2135              		.thumb
  2136              		.thumb_func
-ARM GAS  /tmp/ccL7ClOf.s 			page 37
+ARM GAS  /tmp/ccPeulGp.s 			page 37
 
 
  2137              		.fpu softvfp
@@ -2218,7 +2218,7 @@ ARM GAS  /tmp/ccL7ClOf.s 			page 1
  2194 0056 0020     		movs	r0, #0
  2195 0058 10BD     		pop	{r4, pc}
  2196              	.L264:
-ARM GAS  /tmp/ccL7ClOf.s 			page 38
+ARM GAS  /tmp/ccPeulGp.s 			page 38
 
 
  2197 005a 00BF     		.align	2
@@ -2278,7 +2278,7 @@ ARM GAS  /tmp/ccL7ClOf.s 			page 1
  2257 001c 12F0400F 		tst	r2, #64
  2258 0020 17D0     		beq	.L269
  2259 0022 5A69     		ldr	r2, [r3, #20]
-ARM GAS  /tmp/ccL7ClOf.s 			page 39
+ARM GAS  /tmp/ccPeulGp.s 			page 39
 
 
  2260 0024 22F04002 		bic	r2, r2, #64
@@ -2338,7 +2338,7 @@ ARM GAS  /tmp/ccL7ClOf.s 			page 1
  2317              		.thumb
  2318              		.thumb_func
  2319              		.fpu softvfp
-ARM GAS  /tmp/ccL7ClOf.s 			page 40
+ARM GAS  /tmp/ccPeulGp.s 			page 40
 
 
  2321              	HAL_LIN_SendBreak:
@@ -2398,7 +2398,7 @@ ARM GAS  /tmp/ccL7ClOf.s 			page 1
  2377 0030 7047     		bx	lr
  2379              		.section	.text.HAL_MultiProcessor_ExitMuteMode,"ax",%progbits
  2380              		.align	1
-ARM GAS  /tmp/ccL7ClOf.s 			page 41
+ARM GAS  /tmp/ccPeulGp.s 			page 41
 
 
  2381              		.global	HAL_MultiProcessor_ExitMuteMode
@@ -2458,7 +2458,7 @@ ARM GAS  /tmp/ccL7ClOf.s 			page 1
  2438 0028 0023     		movs	r3, #0
  2439 002a 80F83830 		strb	r3, [r0, #56]
  2440 002e 1846     		mov	r0, r3
-ARM GAS  /tmp/ccL7ClOf.s 			page 42
+ARM GAS  /tmp/ccPeulGp.s 			page 42
 
 
  2441 0030 7047     		bx	lr
@@ -2518,7 +2518,7 @@ ARM GAS  /tmp/ccL7ClOf.s 			page 1
  2500              		.syntax unified
  2501              		.thumb
  2502              		.thumb_func
-ARM GAS  /tmp/ccL7ClOf.s 			page 43
+ARM GAS  /tmp/ccPeulGp.s 			page 43
 
 
  2503              		.fpu softvfp
@@ -2529,134 +2529,134 @@ ARM GAS  /tmp/ccL7ClOf.s 			page 1
  2509 0000 C06B     		ldr	r0, [r0, #60]
  2510 0002 7047     		bx	lr
  2512              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 8-2018-q4-major) 8.2.1 20181213 (release) [gcc
-ARM GAS  /tmp/ccL7ClOf.s 			page 44
+ARM GAS  /tmp/ccPeulGp.s 			page 44
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f1xx_hal_uart.c
-     /tmp/ccL7ClOf.s:14     .text.UART_EndTxTransfer:0000000000000000 $t
-     /tmp/ccL7ClOf.s:21     .text.UART_EndTxTransfer:0000000000000000 UART_EndTxTransfer
-     /tmp/ccL7ClOf.s:34     .text.UART_EndRxTransfer:0000000000000000 $t
-     /tmp/ccL7ClOf.s:40     .text.UART_EndRxTransfer:0000000000000000 UART_EndRxTransfer
-     /tmp/ccL7ClOf.s:57     .text.UART_Transmit_IT:0000000000000000 $t
-     /tmp/ccL7ClOf.s:63     .text.UART_Transmit_IT:0000000000000000 UART_Transmit_IT
-     /tmp/ccL7ClOf.s:119    .text.UART_SetConfig:0000000000000000 $t
-     /tmp/ccL7ClOf.s:125    .text.UART_SetConfig:0000000000000000 UART_SetConfig
-     /tmp/ccL7ClOf.s:272    .text.UART_SetConfig:00000000000001a4 $d
-     /tmp/ccL7ClOf.s:276    .text.UART_WaitOnFlagUntilTimeout:0000000000000000 $t
-     /tmp/ccL7ClOf.s:282    .text.UART_WaitOnFlagUntilTimeout:0000000000000000 UART_WaitOnFlagUntilTimeout
-     /tmp/ccL7ClOf.s:329    .text.HAL_UART_MspInit:0000000000000000 $t
-     /tmp/ccL7ClOf.s:336    .text.HAL_UART_MspInit:0000000000000000 HAL_UART_MspInit
-     /tmp/ccL7ClOf.s:343    .text.HAL_UART_Init:0000000000000000 $t
-     /tmp/ccL7ClOf.s:350    .text.HAL_UART_Init:0000000000000000 HAL_UART_Init
-     /tmp/ccL7ClOf.s:394    .text.HAL_HalfDuplex_Init:0000000000000000 $t
-     /tmp/ccL7ClOf.s:401    .text.HAL_HalfDuplex_Init:0000000000000000 HAL_HalfDuplex_Init
-     /tmp/ccL7ClOf.s:450    .text.HAL_LIN_Init:0000000000000000 $t
-     /tmp/ccL7ClOf.s:457    .text.HAL_LIN_Init:0000000000000000 HAL_LIN_Init
-     /tmp/ccL7ClOf.s:512    .text.HAL_MultiProcessor_Init:0000000000000000 $t
-     /tmp/ccL7ClOf.s:519    .text.HAL_MultiProcessor_Init:0000000000000000 HAL_MultiProcessor_Init
-     /tmp/ccL7ClOf.s:577    .text.HAL_UART_MspDeInit:0000000000000000 $t
-     /tmp/ccL7ClOf.s:584    .text.HAL_UART_MspDeInit:0000000000000000 HAL_UART_MspDeInit
-     /tmp/ccL7ClOf.s:591    .text.HAL_UART_DeInit:0000000000000000 $t
-     /tmp/ccL7ClOf.s:598    .text.HAL_UART_DeInit:0000000000000000 HAL_UART_DeInit
-     /tmp/ccL7ClOf.s:618    .text.HAL_UART_Transmit:0000000000000000 $t
-     /tmp/ccL7ClOf.s:625    .text.HAL_UART_Transmit:0000000000000000 HAL_UART_Transmit
-     /tmp/ccL7ClOf.s:738    .text.HAL_UART_Receive:0000000000000000 $t
-     /tmp/ccL7ClOf.s:745    .text.HAL_UART_Receive:0000000000000000 HAL_UART_Receive
-     /tmp/ccL7ClOf.s:857    .text.HAL_UART_Transmit_IT:0000000000000000 $t
-     /tmp/ccL7ClOf.s:864    .text.HAL_UART_Transmit_IT:0000000000000000 HAL_UART_Transmit_IT
-     /tmp/ccL7ClOf.s:905    .text.HAL_UART_Receive_IT:0000000000000000 $t
-     /tmp/ccL7ClOf.s:912    .text.HAL_UART_Receive_IT:0000000000000000 HAL_UART_Receive_IT
-     /tmp/ccL7ClOf.s:961    .text.HAL_UART_Transmit_DMA:0000000000000000 $t
-     /tmp/ccL7ClOf.s:968    .text.HAL_UART_Transmit_DMA:0000000000000000 HAL_UART_Transmit_DMA
-     /tmp/ccL7ClOf.s:1035   .text.HAL_UART_Transmit_DMA:0000000000000080 $d
-     /tmp/ccL7ClOf.s:1477   .text.UART_DMATransmitCplt:0000000000000000 UART_DMATransmitCplt
-     /tmp/ccL7ClOf.s:1545   .text.UART_DMATxHalfCplt:0000000000000000 UART_DMATxHalfCplt
-     /tmp/ccL7ClOf.s:1741   .text.UART_DMAError:0000000000000000 UART_DMAError
-     /tmp/ccL7ClOf.s:1040   .text.HAL_UART_Receive_DMA:0000000000000000 $t
-     /tmp/ccL7ClOf.s:1047   .text.HAL_UART_Receive_DMA:0000000000000000 HAL_UART_Receive_DMA
-     /tmp/ccL7ClOf.s:1128   .text.HAL_UART_Receive_DMA:000000000000009c $d
-     /tmp/ccL7ClOf.s:1574   .text.UART_DMAReceiveCplt:0000000000000000 UART_DMAReceiveCplt
-     /tmp/ccL7ClOf.s:1712   .text.UART_DMARxHalfCplt:0000000000000000 UART_DMARxHalfCplt
-     /tmp/ccL7ClOf.s:1133   .text.HAL_UART_DMAPause:0000000000000000 $t
-     /tmp/ccL7ClOf.s:1140   .text.HAL_UART_DMAPause:0000000000000000 HAL_UART_DMAPause
-     /tmp/ccL7ClOf.s:1196   .text.HAL_UART_DMAResume:0000000000000000 $t
-     /tmp/ccL7ClOf.s:1203   .text.HAL_UART_DMAResume:0000000000000000 HAL_UART_DMAResume
-     /tmp/ccL7ClOf.s:1263   .text.HAL_UART_DMAStop:0000000000000000 $t
-     /tmp/ccL7ClOf.s:1270   .text.HAL_UART_DMAStop:0000000000000000 HAL_UART_DMAStop
-     /tmp/ccL7ClOf.s:1321   .text.HAL_UART_Abort:0000000000000000 $t
-     /tmp/ccL7ClOf.s:1328   .text.HAL_UART_Abort:0000000000000000 HAL_UART_Abort
-     /tmp/ccL7ClOf.s:1379   .text.HAL_UART_AbortTransmit:0000000000000000 $t
-     /tmp/ccL7ClOf.s:1386   .text.HAL_UART_AbortTransmit:0000000000000000 HAL_UART_AbortTransmit
-     /tmp/ccL7ClOf.s:1416   .text.HAL_UART_AbortReceive:0000000000000000 $t
-ARM GAS  /tmp/ccL7ClOf.s 			page 45
+     /tmp/ccPeulGp.s:14     .text.UART_EndTxTransfer:0000000000000000 $t
+     /tmp/ccPeulGp.s:21     .text.UART_EndTxTransfer:0000000000000000 UART_EndTxTransfer
+     /tmp/ccPeulGp.s:34     .text.UART_EndRxTransfer:0000000000000000 $t
+     /tmp/ccPeulGp.s:40     .text.UART_EndRxTransfer:0000000000000000 UART_EndRxTransfer
+     /tmp/ccPeulGp.s:57     .text.UART_Transmit_IT:0000000000000000 $t
+     /tmp/ccPeulGp.s:63     .text.UART_Transmit_IT:0000000000000000 UART_Transmit_IT
+     /tmp/ccPeulGp.s:119    .text.UART_SetConfig:0000000000000000 $t
+     /tmp/ccPeulGp.s:125    .text.UART_SetConfig:0000000000000000 UART_SetConfig
+     /tmp/ccPeulGp.s:272    .text.UART_SetConfig:00000000000001a4 $d
+     /tmp/ccPeulGp.s:276    .text.UART_WaitOnFlagUntilTimeout:0000000000000000 $t
+     /tmp/ccPeulGp.s:282    .text.UART_WaitOnFlagUntilTimeout:0000000000000000 UART_WaitOnFlagUntilTimeout
+     /tmp/ccPeulGp.s:329    .text.HAL_UART_MspInit:0000000000000000 $t
+     /tmp/ccPeulGp.s:336    .text.HAL_UART_MspInit:0000000000000000 HAL_UART_MspInit
+     /tmp/ccPeulGp.s:343    .text.HAL_UART_Init:0000000000000000 $t
+     /tmp/ccPeulGp.s:350    .text.HAL_UART_Init:0000000000000000 HAL_UART_Init
+     /tmp/ccPeulGp.s:394    .text.HAL_HalfDuplex_Init:0000000000000000 $t
+     /tmp/ccPeulGp.s:401    .text.HAL_HalfDuplex_Init:0000000000000000 HAL_HalfDuplex_Init
+     /tmp/ccPeulGp.s:450    .text.HAL_LIN_Init:0000000000000000 $t
+     /tmp/ccPeulGp.s:457    .text.HAL_LIN_Init:0000000000000000 HAL_LIN_Init
+     /tmp/ccPeulGp.s:512    .text.HAL_MultiProcessor_Init:0000000000000000 $t
+     /tmp/ccPeulGp.s:519    .text.HAL_MultiProcessor_Init:0000000000000000 HAL_MultiProcessor_Init
+     /tmp/ccPeulGp.s:577    .text.HAL_UART_MspDeInit:0000000000000000 $t
+     /tmp/ccPeulGp.s:584    .text.HAL_UART_MspDeInit:0000000000000000 HAL_UART_MspDeInit
+     /tmp/ccPeulGp.s:591    .text.HAL_UART_DeInit:0000000000000000 $t
+     /tmp/ccPeulGp.s:598    .text.HAL_UART_DeInit:0000000000000000 HAL_UART_DeInit
+     /tmp/ccPeulGp.s:618    .text.HAL_UART_Transmit:0000000000000000 $t
+     /tmp/ccPeulGp.s:625    .text.HAL_UART_Transmit:0000000000000000 HAL_UART_Transmit
+     /tmp/ccPeulGp.s:738    .text.HAL_UART_Receive:0000000000000000 $t
+     /tmp/ccPeulGp.s:745    .text.HAL_UART_Receive:0000000000000000 HAL_UART_Receive
+     /tmp/ccPeulGp.s:857    .text.HAL_UART_Transmit_IT:0000000000000000 $t
+     /tmp/ccPeulGp.s:864    .text.HAL_UART_Transmit_IT:0000000000000000 HAL_UART_Transmit_IT
+     /tmp/ccPeulGp.s:905    .text.HAL_UART_Receive_IT:0000000000000000 $t
+     /tmp/ccPeulGp.s:912    .text.HAL_UART_Receive_IT:0000000000000000 HAL_UART_Receive_IT
+     /tmp/ccPeulGp.s:961    .text.HAL_UART_Transmit_DMA:0000000000000000 $t
+     /tmp/ccPeulGp.s:968    .text.HAL_UART_Transmit_DMA:0000000000000000 HAL_UART_Transmit_DMA
+     /tmp/ccPeulGp.s:1035   .text.HAL_UART_Transmit_DMA:0000000000000080 $d
+     /tmp/ccPeulGp.s:1477   .text.UART_DMATransmitCplt:0000000000000000 UART_DMATransmitCplt
+     /tmp/ccPeulGp.s:1545   .text.UART_DMATxHalfCplt:0000000000000000 UART_DMATxHalfCplt
+     /tmp/ccPeulGp.s:1741   .text.UART_DMAError:0000000000000000 UART_DMAError
+     /tmp/ccPeulGp.s:1040   .text.HAL_UART_Receive_DMA:0000000000000000 $t
+     /tmp/ccPeulGp.s:1047   .text.HAL_UART_Receive_DMA:0000000000000000 HAL_UART_Receive_DMA
+     /tmp/ccPeulGp.s:1128   .text.HAL_UART_Receive_DMA:000000000000009c $d
+     /tmp/ccPeulGp.s:1574   .text.UART_DMAReceiveCplt:0000000000000000 UART_DMAReceiveCplt
+     /tmp/ccPeulGp.s:1712   .text.UART_DMARxHalfCplt:0000000000000000 UART_DMARxHalfCplt
+     /tmp/ccPeulGp.s:1133   .text.HAL_UART_DMAPause:0000000000000000 $t
+     /tmp/ccPeulGp.s:1140   .text.HAL_UART_DMAPause:0000000000000000 HAL_UART_DMAPause
+     /tmp/ccPeulGp.s:1196   .text.HAL_UART_DMAResume:0000000000000000 $t
+     /tmp/ccPeulGp.s:1203   .text.HAL_UART_DMAResume:0000000000000000 HAL_UART_DMAResume
+     /tmp/ccPeulGp.s:1263   .text.HAL_UART_DMAStop:0000000000000000 $t
+     /tmp/ccPeulGp.s:1270   .text.HAL_UART_DMAStop:0000000000000000 HAL_UART_DMAStop
+     /tmp/ccPeulGp.s:1321   .text.HAL_UART_Abort:0000000000000000 $t
+     /tmp/ccPeulGp.s:1328   .text.HAL_UART_Abort:0000000000000000 HAL_UART_Abort
+     /tmp/ccPeulGp.s:1379   .text.HAL_UART_AbortTransmit:0000000000000000 $t
+     /tmp/ccPeulGp.s:1386   .text.HAL_UART_AbortTransmit:0000000000000000 HAL_UART_AbortTransmit
+     /tmp/ccPeulGp.s:1416   .text.HAL_UART_AbortReceive:0000000000000000 $t
+ARM GAS  /tmp/ccPeulGp.s 			page 45
 
 
-     /tmp/ccL7ClOf.s:1423   .text.HAL_UART_AbortReceive:0000000000000000 HAL_UART_AbortReceive
-     /tmp/ccL7ClOf.s:1457   .text.HAL_UART_TxCpltCallback:0000000000000000 $t
-     /tmp/ccL7ClOf.s:1464   .text.HAL_UART_TxCpltCallback:0000000000000000 HAL_UART_TxCpltCallback
-     /tmp/ccL7ClOf.s:1471   .text.UART_DMATransmitCplt:0000000000000000 $t
-     /tmp/ccL7ClOf.s:1504   .text.UART_EndTransmit_IT:0000000000000000 $t
-     /tmp/ccL7ClOf.s:1510   .text.UART_EndTransmit_IT:0000000000000000 UART_EndTransmit_IT
-     /tmp/ccL7ClOf.s:1525   .text.HAL_UART_TxHalfCpltCallback:0000000000000000 $t
-     /tmp/ccL7ClOf.s:1532   .text.HAL_UART_TxHalfCpltCallback:0000000000000000 HAL_UART_TxHalfCpltCallback
-     /tmp/ccL7ClOf.s:1539   .text.UART_DMATxHalfCplt:0000000000000000 $t
-     /tmp/ccL7ClOf.s:1554   .text.HAL_UART_RxCpltCallback:0000000000000000 $t
-     /tmp/ccL7ClOf.s:1561   .text.HAL_UART_RxCpltCallback:0000000000000000 HAL_UART_RxCpltCallback
-     /tmp/ccL7ClOf.s:1568   .text.UART_DMAReceiveCplt:0000000000000000 $t
-     /tmp/ccL7ClOf.s:1605   .text.UART_Receive_IT:0000000000000000 $t
-     /tmp/ccL7ClOf.s:1611   .text.UART_Receive_IT:0000000000000000 UART_Receive_IT
-     /tmp/ccL7ClOf.s:1692   .text.HAL_UART_RxHalfCpltCallback:0000000000000000 $t
-     /tmp/ccL7ClOf.s:1699   .text.HAL_UART_RxHalfCpltCallback:0000000000000000 HAL_UART_RxHalfCpltCallback
-     /tmp/ccL7ClOf.s:1706   .text.UART_DMARxHalfCplt:0000000000000000 $t
-     /tmp/ccL7ClOf.s:1721   .text.HAL_UART_ErrorCallback:0000000000000000 $t
-     /tmp/ccL7ClOf.s:1728   .text.HAL_UART_ErrorCallback:0000000000000000 HAL_UART_ErrorCallback
-     /tmp/ccL7ClOf.s:1735   .text.UART_DMAError:0000000000000000 $t
-     /tmp/ccL7ClOf.s:1786   .text.HAL_UART_IRQHandler:0000000000000000 $t
-     /tmp/ccL7ClOf.s:1793   .text.HAL_UART_IRQHandler:0000000000000000 HAL_UART_IRQHandler
-     /tmp/ccL7ClOf.s:1926   .text.HAL_UART_IRQHandler:000000000000011c $d
-     /tmp/ccL7ClOf.s:1935   .text.UART_DMAAbortOnError:0000000000000000 UART_DMAAbortOnError
-     /tmp/ccL7ClOf.s:1929   .text.UART_DMAAbortOnError:0000000000000000 $t
-     /tmp/ccL7ClOf.s:1947   .text.HAL_UART_AbortCpltCallback:0000000000000000 $t
-     /tmp/ccL7ClOf.s:1954   .text.HAL_UART_AbortCpltCallback:0000000000000000 HAL_UART_AbortCpltCallback
-     /tmp/ccL7ClOf.s:1961   .text.HAL_UART_Abort_IT:0000000000000000 $t
-     /tmp/ccL7ClOf.s:1968   .text.HAL_UART_Abort_IT:0000000000000000 HAL_UART_Abort_IT
-     /tmp/ccL7ClOf.s:2066   .text.HAL_UART_Abort_IT:00000000000000bc $d
-     /tmp/ccL7ClOf.s:2107   .text.UART_DMATxAbortCallback:0000000000000000 UART_DMATxAbortCallback
-     /tmp/ccL7ClOf.s:2076   .text.UART_DMARxAbortCallback:0000000000000000 UART_DMARxAbortCallback
-     /tmp/ccL7ClOf.s:2070   .text.UART_DMARxAbortCallback:0000000000000000 $t
-     /tmp/ccL7ClOf.s:2101   .text.UART_DMATxAbortCallback:0000000000000000 $t
-     /tmp/ccL7ClOf.s:2132   .text.HAL_UART_AbortTransmitCpltCallback:0000000000000000 $t
-     /tmp/ccL7ClOf.s:2139   .text.HAL_UART_AbortTransmitCpltCallback:0000000000000000 HAL_UART_AbortTransmitCpltCallback
-     /tmp/ccL7ClOf.s:2146   .text.HAL_UART_AbortTransmit_IT:0000000000000000 $t
-     /tmp/ccL7ClOf.s:2153   .text.HAL_UART_AbortTransmit_IT:0000000000000000 HAL_UART_AbortTransmit_IT
-     /tmp/ccL7ClOf.s:2199   .text.HAL_UART_AbortTransmit_IT:000000000000005c $d
-     /tmp/ccL7ClOf.s:2208   .text.UART_DMATxOnlyAbortCallback:0000000000000000 UART_DMATxOnlyAbortCallback
-     /tmp/ccL7ClOf.s:2202   .text.UART_DMATxOnlyAbortCallback:0000000000000000 $t
-     /tmp/ccL7ClOf.s:2221   .text.HAL_UART_AbortReceiveCpltCallback:0000000000000000 $t
-     /tmp/ccL7ClOf.s:2228   .text.HAL_UART_AbortReceiveCpltCallback:0000000000000000 HAL_UART_AbortReceiveCpltCallback
-     /tmp/ccL7ClOf.s:2235   .text.HAL_UART_AbortReceive_IT:0000000000000000 $t
-     /tmp/ccL7ClOf.s:2242   .text.HAL_UART_AbortReceive_IT:0000000000000000 HAL_UART_AbortReceive_IT
-     /tmp/ccL7ClOf.s:2292   .text.HAL_UART_AbortReceive_IT:0000000000000064 $d
-     /tmp/ccL7ClOf.s:2301   .text.UART_DMARxOnlyAbortCallback:0000000000000000 UART_DMARxOnlyAbortCallback
-     /tmp/ccL7ClOf.s:2295   .text.UART_DMARxOnlyAbortCallback:0000000000000000 $t
-     /tmp/ccL7ClOf.s:2314   .text.HAL_LIN_SendBreak:0000000000000000 $t
-     /tmp/ccL7ClOf.s:2321   .text.HAL_LIN_SendBreak:0000000000000000 HAL_LIN_SendBreak
-     /tmp/ccL7ClOf.s:2347   .text.HAL_MultiProcessor_EnterMuteMode:0000000000000000 $t
-     /tmp/ccL7ClOf.s:2354   .text.HAL_MultiProcessor_EnterMuteMode:0000000000000000 HAL_MultiProcessor_EnterMuteMode
-     /tmp/ccL7ClOf.s:2380   .text.HAL_MultiProcessor_ExitMuteMode:0000000000000000 $t
-     /tmp/ccL7ClOf.s:2387   .text.HAL_MultiProcessor_ExitMuteMode:0000000000000000 HAL_MultiProcessor_ExitMuteMode
-     /tmp/ccL7ClOf.s:2413   .text.HAL_HalfDuplex_EnableTransmitter:0000000000000000 $t
-     /tmp/ccL7ClOf.s:2420   .text.HAL_HalfDuplex_EnableTransmitter:0000000000000000 HAL_HalfDuplex_EnableTransmitter
-     /tmp/ccL7ClOf.s:2447   .text.HAL_HalfDuplex_EnableReceiver:0000000000000000 $t
-ARM GAS  /tmp/ccL7ClOf.s 			page 46
+     /tmp/ccPeulGp.s:1423   .text.HAL_UART_AbortReceive:0000000000000000 HAL_UART_AbortReceive
+     /tmp/ccPeulGp.s:1457   .text.HAL_UART_TxCpltCallback:0000000000000000 $t
+     /tmp/ccPeulGp.s:1464   .text.HAL_UART_TxCpltCallback:0000000000000000 HAL_UART_TxCpltCallback
+     /tmp/ccPeulGp.s:1471   .text.UART_DMATransmitCplt:0000000000000000 $t
+     /tmp/ccPeulGp.s:1504   .text.UART_EndTransmit_IT:0000000000000000 $t
+     /tmp/ccPeulGp.s:1510   .text.UART_EndTransmit_IT:0000000000000000 UART_EndTransmit_IT
+     /tmp/ccPeulGp.s:1525   .text.HAL_UART_TxHalfCpltCallback:0000000000000000 $t
+     /tmp/ccPeulGp.s:1532   .text.HAL_UART_TxHalfCpltCallback:0000000000000000 HAL_UART_TxHalfCpltCallback
+     /tmp/ccPeulGp.s:1539   .text.UART_DMATxHalfCplt:0000000000000000 $t
+     /tmp/ccPeulGp.s:1554   .text.HAL_UART_RxCpltCallback:0000000000000000 $t
+     /tmp/ccPeulGp.s:1561   .text.HAL_UART_RxCpltCallback:0000000000000000 HAL_UART_RxCpltCallback
+     /tmp/ccPeulGp.s:1568   .text.UART_DMAReceiveCplt:0000000000000000 $t
+     /tmp/ccPeulGp.s:1605   .text.UART_Receive_IT:0000000000000000 $t
+     /tmp/ccPeulGp.s:1611   .text.UART_Receive_IT:0000000000000000 UART_Receive_IT
+     /tmp/ccPeulGp.s:1692   .text.HAL_UART_RxHalfCpltCallback:0000000000000000 $t
+     /tmp/ccPeulGp.s:1699   .text.HAL_UART_RxHalfCpltCallback:0000000000000000 HAL_UART_RxHalfCpltCallback
+     /tmp/ccPeulGp.s:1706   .text.UART_DMARxHalfCplt:0000000000000000 $t
+     /tmp/ccPeulGp.s:1721   .text.HAL_UART_ErrorCallback:0000000000000000 $t
+     /tmp/ccPeulGp.s:1728   .text.HAL_UART_ErrorCallback:0000000000000000 HAL_UART_ErrorCallback
+     /tmp/ccPeulGp.s:1735   .text.UART_DMAError:0000000000000000 $t
+     /tmp/ccPeulGp.s:1786   .text.HAL_UART_IRQHandler:0000000000000000 $t
+     /tmp/ccPeulGp.s:1793   .text.HAL_UART_IRQHandler:0000000000000000 HAL_UART_IRQHandler
+     /tmp/ccPeulGp.s:1926   .text.HAL_UART_IRQHandler:000000000000011c $d
+     /tmp/ccPeulGp.s:1935   .text.UART_DMAAbortOnError:0000000000000000 UART_DMAAbortOnError
+     /tmp/ccPeulGp.s:1929   .text.UART_DMAAbortOnError:0000000000000000 $t
+     /tmp/ccPeulGp.s:1947   .text.HAL_UART_AbortCpltCallback:0000000000000000 $t
+     /tmp/ccPeulGp.s:1954   .text.HAL_UART_AbortCpltCallback:0000000000000000 HAL_UART_AbortCpltCallback
+     /tmp/ccPeulGp.s:1961   .text.HAL_UART_Abort_IT:0000000000000000 $t
+     /tmp/ccPeulGp.s:1968   .text.HAL_UART_Abort_IT:0000000000000000 HAL_UART_Abort_IT
+     /tmp/ccPeulGp.s:2066   .text.HAL_UART_Abort_IT:00000000000000bc $d
+     /tmp/ccPeulGp.s:2107   .text.UART_DMATxAbortCallback:0000000000000000 UART_DMATxAbortCallback
+     /tmp/ccPeulGp.s:2076   .text.UART_DMARxAbortCallback:0000000000000000 UART_DMARxAbortCallback
+     /tmp/ccPeulGp.s:2070   .text.UART_DMARxAbortCallback:0000000000000000 $t
+     /tmp/ccPeulGp.s:2101   .text.UART_DMATxAbortCallback:0000000000000000 $t
+     /tmp/ccPeulGp.s:2132   .text.HAL_UART_AbortTransmitCpltCallback:0000000000000000 $t
+     /tmp/ccPeulGp.s:2139   .text.HAL_UART_AbortTransmitCpltCallback:0000000000000000 HAL_UART_AbortTransmitCpltCallback
+     /tmp/ccPeulGp.s:2146   .text.HAL_UART_AbortTransmit_IT:0000000000000000 $t
+     /tmp/ccPeulGp.s:2153   .text.HAL_UART_AbortTransmit_IT:0000000000000000 HAL_UART_AbortTransmit_IT
+     /tmp/ccPeulGp.s:2199   .text.HAL_UART_AbortTransmit_IT:000000000000005c $d
+     /tmp/ccPeulGp.s:2208   .text.UART_DMATxOnlyAbortCallback:0000000000000000 UART_DMATxOnlyAbortCallback
+     /tmp/ccPeulGp.s:2202   .text.UART_DMATxOnlyAbortCallback:0000000000000000 $t
+     /tmp/ccPeulGp.s:2221   .text.HAL_UART_AbortReceiveCpltCallback:0000000000000000 $t
+     /tmp/ccPeulGp.s:2228   .text.HAL_UART_AbortReceiveCpltCallback:0000000000000000 HAL_UART_AbortReceiveCpltCallback
+     /tmp/ccPeulGp.s:2235   .text.HAL_UART_AbortReceive_IT:0000000000000000 $t
+     /tmp/ccPeulGp.s:2242   .text.HAL_UART_AbortReceive_IT:0000000000000000 HAL_UART_AbortReceive_IT
+     /tmp/ccPeulGp.s:2292   .text.HAL_UART_AbortReceive_IT:0000000000000064 $d
+     /tmp/ccPeulGp.s:2301   .text.UART_DMARxOnlyAbortCallback:0000000000000000 UART_DMARxOnlyAbortCallback
+     /tmp/ccPeulGp.s:2295   .text.UART_DMARxOnlyAbortCallback:0000000000000000 $t
+     /tmp/ccPeulGp.s:2314   .text.HAL_LIN_SendBreak:0000000000000000 $t
+     /tmp/ccPeulGp.s:2321   .text.HAL_LIN_SendBreak:0000000000000000 HAL_LIN_SendBreak
+     /tmp/ccPeulGp.s:2347   .text.HAL_MultiProcessor_EnterMuteMode:0000000000000000 $t
+     /tmp/ccPeulGp.s:2354   .text.HAL_MultiProcessor_EnterMuteMode:0000000000000000 HAL_MultiProcessor_EnterMuteMode
+     /tmp/ccPeulGp.s:2380   .text.HAL_MultiProcessor_ExitMuteMode:0000000000000000 $t
+     /tmp/ccPeulGp.s:2387   .text.HAL_MultiProcessor_ExitMuteMode:0000000000000000 HAL_MultiProcessor_ExitMuteMode
+     /tmp/ccPeulGp.s:2413   .text.HAL_HalfDuplex_EnableTransmitter:0000000000000000 $t
+     /tmp/ccPeulGp.s:2420   .text.HAL_HalfDuplex_EnableTransmitter:0000000000000000 HAL_HalfDuplex_EnableTransmitter
+     /tmp/ccPeulGp.s:2447   .text.HAL_HalfDuplex_EnableReceiver:0000000000000000 $t
+ARM GAS  /tmp/ccPeulGp.s 			page 46
 
 
-     /tmp/ccL7ClOf.s:2454   .text.HAL_HalfDuplex_EnableReceiver:0000000000000000 HAL_HalfDuplex_EnableReceiver
-     /tmp/ccL7ClOf.s:2481   .text.HAL_UART_GetState:0000000000000000 $t
-     /tmp/ccL7ClOf.s:2488   .text.HAL_UART_GetState:0000000000000000 HAL_UART_GetState
-     /tmp/ccL7ClOf.s:2498   .text.HAL_UART_GetError:0000000000000000 $t
-     /tmp/ccL7ClOf.s:2505   .text.HAL_UART_GetError:0000000000000000 HAL_UART_GetError
+     /tmp/ccPeulGp.s:2454   .text.HAL_HalfDuplex_EnableReceiver:0000000000000000 HAL_HalfDuplex_EnableReceiver
+     /tmp/ccPeulGp.s:2481   .text.HAL_UART_GetState:0000000000000000 $t
+     /tmp/ccPeulGp.s:2488   .text.HAL_UART_GetState:0000000000000000 HAL_UART_GetState
+     /tmp/ccPeulGp.s:2498   .text.HAL_UART_GetError:0000000000000000 $t
+     /tmp/ccPeulGp.s:2505   .text.HAL_UART_GetError:0000000000000000 HAL_UART_GetError
 
 UNDEFINED SYMBOLS
 HAL_RCC_GetPCLK1Freq

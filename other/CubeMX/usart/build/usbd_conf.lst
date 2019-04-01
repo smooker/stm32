@@ -1,4 +1,4 @@
-ARM GAS  /tmp/cc1nE22q.s 			page 1
+ARM GAS  /tmp/ccWMG73E.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  /tmp/cc1nE22q.s 			page 1
   58 0008 7047     		bx	lr
   59              	.L13:
   60 000a 00B5     		push	{lr}
-ARM GAS  /tmp/cc1nE22q.s 			page 2
+ARM GAS  /tmp/ccWMG73E.s 			page 2
 
 
   61 000c 83B0     		sub	sp, sp, #12
@@ -118,7 +118,7 @@ ARM GAS  /tmp/cc1nE22q.s 			page 1
  118              		.global	HAL_PCD_SetupStageCallback
  119              		.syntax unified
  120              		.thumb
-ARM GAS  /tmp/cc1nE22q.s 			page 3
+ARM GAS  /tmp/ccWMG73E.s 			page 3
 
 
  121              		.thumb_func
@@ -178,7 +178,7 @@ ARM GAS  /tmp/cc1nE22q.s 			page 1
  182 0006 FFF7FEFF 		bl	USBD_LL_SOF
  183 000a 08BD     		pop	{r3, pc}
  185              		.section	.text.HAL_PCD_ResetCallback,"ax",%progbits
-ARM GAS  /tmp/cc1nE22q.s 			page 4
+ARM GAS  /tmp/ccWMG73E.s 			page 4
 
 
  186              		.align	1
@@ -238,7 +238,7 @@ ARM GAS  /tmp/cc1nE22q.s 			page 1
  244              		.thumb
  245              		.thumb_func
  246              		.fpu softvfp
-ARM GAS  /tmp/cc1nE22q.s 			page 5
+ARM GAS  /tmp/ccWMG73E.s 			page 5
 
 
  248              	HAL_PCD_ResumeCallback:
@@ -298,7 +298,7 @@ ARM GAS  /tmp/cc1nE22q.s 			page 1
  309              		.thumb_func
  310              		.fpu softvfp
  312              	HAL_PCD_DisconnectCallback:
-ARM GAS  /tmp/cc1nE22q.s 			page 6
+ARM GAS  /tmp/ccWMG73E.s 			page 6
 
 
  313              		@ args = 0, pretend = 0, frame = 0
@@ -358,7 +358,7 @@ ARM GAS  /tmp/cc1nE22q.s 			page 1
  369 0062 4FF48073 		mov	r3, #256
  370 0066 0022     		movs	r2, #0
  371 0068 8221     		movs	r1, #130
-ARM GAS  /tmp/cc1nE22q.s 			page 7
+ARM GAS  /tmp/ccWMG73E.s 			page 7
 
 
  372 006a D4F82002 		ldr	r0, [r4, #544]
@@ -418,7 +418,7 @@ ARM GAS  /tmp/cc1nE22q.s 			page 1
  432 0006 FFF7FEFF 		bl	HAL_PCD_Stop
  433 000a FFF7FEFF 		bl	USBD_Get_USB_Status
  434 000e 08BD     		pop	{r3, pc}
-ARM GAS  /tmp/cc1nE22q.s 			page 8
+ARM GAS  /tmp/ccWMG73E.s 			page 8
 
 
  436              		.section	.text.USBD_LL_OpenEP,"ax",%progbits
@@ -478,7 +478,7 @@ ARM GAS  /tmp/cc1nE22q.s 			page 1
  496              		.fpu softvfp
  498              	USBD_LL_StallEP:
  499              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  /tmp/cc1nE22q.s 			page 9
+ARM GAS  /tmp/ccWMG73E.s 			page 9
 
 
  500              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -538,7 +538,7 @@ ARM GAS  /tmp/cc1nE22q.s 			page 1
  560 0000 08B5     		push	{r3, lr}
  561 0002 D0F82002 		ldr	r0, [r0, #544]
  562 0006 FFF7FEFF 		bl	HAL_PCD_SetAddress
-ARM GAS  /tmp/cc1nE22q.s 			page 10
+ARM GAS  /tmp/ccWMG73E.s 			page 10
 
 
  563 000a FFF7FEFF 		bl	USBD_Get_USB_Status
@@ -598,7 +598,7 @@ ARM GAS  /tmp/cc1nE22q.s 			page 1
  625              		@ args = 0, pretend = 0, frame = 0
  626              		@ frame_needed = 0, uses_anonymous_args = 0
  627 0000 08B5     		push	{r3, lr}
-ARM GAS  /tmp/cc1nE22q.s 			page 11
+ARM GAS  /tmp/ccWMG73E.s 			page 11
 
 
  628 0002 FFF7FEFF 		bl	HAL_Delay
@@ -655,89 +655,89 @@ ARM GAS  /tmp/cc1nE22q.s 			page 1
  685      00000000 
  685      00000000 
  686              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 8-2018-q4-major) 8.2.1 20181213 (release) [gcc
-ARM GAS  /tmp/cc1nE22q.s 			page 12
+ARM GAS  /tmp/ccWMG73E.s 			page 12
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 usbd_conf.c
-     /tmp/cc1nE22q.s:14     .text.USBD_Get_USB_Status:0000000000000000 $t
-     /tmp/cc1nE22q.s:21     .text.USBD_Get_USB_Status:0000000000000000 USBD_Get_USB_Status
-     /tmp/cc1nE22q.s:29     .text.USBD_Get_USB_Status:0000000000000008 $d
-     /tmp/cc1nE22q.s:44     .text.HAL_PCD_MspInit:0000000000000000 $t
-     /tmp/cc1nE22q.s:51     .text.HAL_PCD_MspInit:0000000000000000 HAL_PCD_MspInit
-     /tmp/cc1nE22q.s:82     .text.HAL_PCD_MspInit:000000000000003c $d
-     /tmp/cc1nE22q.s:85     .text.HAL_PCD_MspDeInit:0000000000000000 $t
-     /tmp/cc1nE22q.s:92     .text.HAL_PCD_MspDeInit:0000000000000000 HAL_PCD_MspDeInit
-     /tmp/cc1nE22q.s:113    .text.HAL_PCD_MspDeInit:0000000000000020 $d
-     /tmp/cc1nE22q.s:117    .text.HAL_PCD_SetupStageCallback:0000000000000000 $t
-     /tmp/cc1nE22q.s:124    .text.HAL_PCD_SetupStageCallback:0000000000000000 HAL_PCD_SetupStageCallback
-     /tmp/cc1nE22q.s:134    .text.HAL_PCD_DataOutStageCallback:0000000000000000 $t
-     /tmp/cc1nE22q.s:141    .text.HAL_PCD_DataOutStageCallback:0000000000000000 HAL_PCD_DataOutStageCallback
-     /tmp/cc1nE22q.s:152    .text.HAL_PCD_DataInStageCallback:0000000000000000 $t
-     /tmp/cc1nE22q.s:159    .text.HAL_PCD_DataInStageCallback:0000000000000000 HAL_PCD_DataInStageCallback
-     /tmp/cc1nE22q.s:170    .text.HAL_PCD_SOFCallback:0000000000000000 $t
-     /tmp/cc1nE22q.s:177    .text.HAL_PCD_SOFCallback:0000000000000000 HAL_PCD_SOFCallback
-     /tmp/cc1nE22q.s:186    .text.HAL_PCD_ResetCallback:0000000000000000 $t
-     /tmp/cc1nE22q.s:193    .text.HAL_PCD_ResetCallback:0000000000000000 HAL_PCD_ResetCallback
-     /tmp/cc1nE22q.s:213    .text.HAL_PCD_SuspendCallback:0000000000000000 $t
-     /tmp/cc1nE22q.s:220    .text.HAL_PCD_SuspendCallback:0000000000000000 HAL_PCD_SuspendCallback
-     /tmp/cc1nE22q.s:238    .text.HAL_PCD_SuspendCallback:000000000000001c $d
-     /tmp/cc1nE22q.s:241    .text.HAL_PCD_ResumeCallback:0000000000000000 $t
-     /tmp/cc1nE22q.s:248    .text.HAL_PCD_ResumeCallback:0000000000000000 HAL_PCD_ResumeCallback
-     /tmp/cc1nE22q.s:257    .text.HAL_PCD_ISOOUTIncompleteCallback:0000000000000000 $t
-     /tmp/cc1nE22q.s:264    .text.HAL_PCD_ISOOUTIncompleteCallback:0000000000000000 HAL_PCD_ISOOUTIncompleteCallback
-     /tmp/cc1nE22q.s:273    .text.HAL_PCD_ISOINIncompleteCallback:0000000000000000 $t
-     /tmp/cc1nE22q.s:280    .text.HAL_PCD_ISOINIncompleteCallback:0000000000000000 HAL_PCD_ISOINIncompleteCallback
-     /tmp/cc1nE22q.s:289    .text.HAL_PCD_ConnectCallback:0000000000000000 $t
-     /tmp/cc1nE22q.s:296    .text.HAL_PCD_ConnectCallback:0000000000000000 HAL_PCD_ConnectCallback
-     /tmp/cc1nE22q.s:305    .text.HAL_PCD_DisconnectCallback:0000000000000000 $t
-     /tmp/cc1nE22q.s:312    .text.HAL_PCD_DisconnectCallback:0000000000000000 HAL_PCD_DisconnectCallback
-     /tmp/cc1nE22q.s:321    .text.USBD_LL_Init:0000000000000000 $t
-     /tmp/cc1nE22q.s:328    .text.USBD_LL_Init:0000000000000000 USBD_LL_Init
-     /tmp/cc1nE22q.s:382    .text.USBD_LL_Init:000000000000007c $d
+     /tmp/ccWMG73E.s:14     .text.USBD_Get_USB_Status:0000000000000000 $t
+     /tmp/ccWMG73E.s:21     .text.USBD_Get_USB_Status:0000000000000000 USBD_Get_USB_Status
+     /tmp/ccWMG73E.s:29     .text.USBD_Get_USB_Status:0000000000000008 $d
+     /tmp/ccWMG73E.s:44     .text.HAL_PCD_MspInit:0000000000000000 $t
+     /tmp/ccWMG73E.s:51     .text.HAL_PCD_MspInit:0000000000000000 HAL_PCD_MspInit
+     /tmp/ccWMG73E.s:82     .text.HAL_PCD_MspInit:000000000000003c $d
+     /tmp/ccWMG73E.s:85     .text.HAL_PCD_MspDeInit:0000000000000000 $t
+     /tmp/ccWMG73E.s:92     .text.HAL_PCD_MspDeInit:0000000000000000 HAL_PCD_MspDeInit
+     /tmp/ccWMG73E.s:113    .text.HAL_PCD_MspDeInit:0000000000000020 $d
+     /tmp/ccWMG73E.s:117    .text.HAL_PCD_SetupStageCallback:0000000000000000 $t
+     /tmp/ccWMG73E.s:124    .text.HAL_PCD_SetupStageCallback:0000000000000000 HAL_PCD_SetupStageCallback
+     /tmp/ccWMG73E.s:134    .text.HAL_PCD_DataOutStageCallback:0000000000000000 $t
+     /tmp/ccWMG73E.s:141    .text.HAL_PCD_DataOutStageCallback:0000000000000000 HAL_PCD_DataOutStageCallback
+     /tmp/ccWMG73E.s:152    .text.HAL_PCD_DataInStageCallback:0000000000000000 $t
+     /tmp/ccWMG73E.s:159    .text.HAL_PCD_DataInStageCallback:0000000000000000 HAL_PCD_DataInStageCallback
+     /tmp/ccWMG73E.s:170    .text.HAL_PCD_SOFCallback:0000000000000000 $t
+     /tmp/ccWMG73E.s:177    .text.HAL_PCD_SOFCallback:0000000000000000 HAL_PCD_SOFCallback
+     /tmp/ccWMG73E.s:186    .text.HAL_PCD_ResetCallback:0000000000000000 $t
+     /tmp/ccWMG73E.s:193    .text.HAL_PCD_ResetCallback:0000000000000000 HAL_PCD_ResetCallback
+     /tmp/ccWMG73E.s:213    .text.HAL_PCD_SuspendCallback:0000000000000000 $t
+     /tmp/ccWMG73E.s:220    .text.HAL_PCD_SuspendCallback:0000000000000000 HAL_PCD_SuspendCallback
+     /tmp/ccWMG73E.s:238    .text.HAL_PCD_SuspendCallback:000000000000001c $d
+     /tmp/ccWMG73E.s:241    .text.HAL_PCD_ResumeCallback:0000000000000000 $t
+     /tmp/ccWMG73E.s:248    .text.HAL_PCD_ResumeCallback:0000000000000000 HAL_PCD_ResumeCallback
+     /tmp/ccWMG73E.s:257    .text.HAL_PCD_ISOOUTIncompleteCallback:0000000000000000 $t
+     /tmp/ccWMG73E.s:264    .text.HAL_PCD_ISOOUTIncompleteCallback:0000000000000000 HAL_PCD_ISOOUTIncompleteCallback
+     /tmp/ccWMG73E.s:273    .text.HAL_PCD_ISOINIncompleteCallback:0000000000000000 $t
+     /tmp/ccWMG73E.s:280    .text.HAL_PCD_ISOINIncompleteCallback:0000000000000000 HAL_PCD_ISOINIncompleteCallback
+     /tmp/ccWMG73E.s:289    .text.HAL_PCD_ConnectCallback:0000000000000000 $t
+     /tmp/ccWMG73E.s:296    .text.HAL_PCD_ConnectCallback:0000000000000000 HAL_PCD_ConnectCallback
+     /tmp/ccWMG73E.s:305    .text.HAL_PCD_DisconnectCallback:0000000000000000 $t
+     /tmp/ccWMG73E.s:312    .text.HAL_PCD_DisconnectCallback:0000000000000000 HAL_PCD_DisconnectCallback
+     /tmp/ccWMG73E.s:321    .text.USBD_LL_Init:0000000000000000 $t
+     /tmp/ccWMG73E.s:328    .text.USBD_LL_Init:0000000000000000 USBD_LL_Init
+     /tmp/ccWMG73E.s:382    .text.USBD_LL_Init:000000000000007c $d
                             *COM*:0000000000000460 hpcd_USB_FS
-     /tmp/cc1nE22q.s:386    .text.USBD_LL_DeInit:0000000000000000 $t
-     /tmp/cc1nE22q.s:393    .text.USBD_LL_DeInit:0000000000000000 USBD_LL_DeInit
-     /tmp/cc1nE22q.s:403    .text.USBD_LL_Start:0000000000000000 $t
-     /tmp/cc1nE22q.s:410    .text.USBD_LL_Start:0000000000000000 USBD_LL_Start
-     /tmp/cc1nE22q.s:420    .text.USBD_LL_Stop:0000000000000000 $t
-     /tmp/cc1nE22q.s:427    .text.USBD_LL_Stop:0000000000000000 USBD_LL_Stop
-     /tmp/cc1nE22q.s:437    .text.USBD_LL_OpenEP:0000000000000000 $t
-     /tmp/cc1nE22q.s:444    .text.USBD_LL_OpenEP:0000000000000000 USBD_LL_OpenEP
-     /tmp/cc1nE22q.s:457    .text.USBD_LL_CloseEP:0000000000000000 $t
-     /tmp/cc1nE22q.s:464    .text.USBD_LL_CloseEP:0000000000000000 USBD_LL_CloseEP
-     /tmp/cc1nE22q.s:474    .text.USBD_LL_FlushEP:0000000000000000 $t
-     /tmp/cc1nE22q.s:481    .text.USBD_LL_FlushEP:0000000000000000 USBD_LL_FlushEP
-     /tmp/cc1nE22q.s:491    .text.USBD_LL_StallEP:0000000000000000 $t
-     /tmp/cc1nE22q.s:498    .text.USBD_LL_StallEP:0000000000000000 USBD_LL_StallEP
-     /tmp/cc1nE22q.s:508    .text.USBD_LL_ClearStallEP:0000000000000000 $t
-     /tmp/cc1nE22q.s:515    .text.USBD_LL_ClearStallEP:0000000000000000 USBD_LL_ClearStallEP
-     /tmp/cc1nE22q.s:525    .text.USBD_LL_IsStallEP:0000000000000000 $t
-     /tmp/cc1nE22q.s:532    .text.USBD_LL_IsStallEP:0000000000000000 USBD_LL_IsStallEP
-     /tmp/cc1nE22q.s:550    .text.USBD_LL_SetUSBAddress:0000000000000000 $t
-ARM GAS  /tmp/cc1nE22q.s 			page 13
+     /tmp/ccWMG73E.s:386    .text.USBD_LL_DeInit:0000000000000000 $t
+     /tmp/ccWMG73E.s:393    .text.USBD_LL_DeInit:0000000000000000 USBD_LL_DeInit
+     /tmp/ccWMG73E.s:403    .text.USBD_LL_Start:0000000000000000 $t
+     /tmp/ccWMG73E.s:410    .text.USBD_LL_Start:0000000000000000 USBD_LL_Start
+     /tmp/ccWMG73E.s:420    .text.USBD_LL_Stop:0000000000000000 $t
+     /tmp/ccWMG73E.s:427    .text.USBD_LL_Stop:0000000000000000 USBD_LL_Stop
+     /tmp/ccWMG73E.s:437    .text.USBD_LL_OpenEP:0000000000000000 $t
+     /tmp/ccWMG73E.s:444    .text.USBD_LL_OpenEP:0000000000000000 USBD_LL_OpenEP
+     /tmp/ccWMG73E.s:457    .text.USBD_LL_CloseEP:0000000000000000 $t
+     /tmp/ccWMG73E.s:464    .text.USBD_LL_CloseEP:0000000000000000 USBD_LL_CloseEP
+     /tmp/ccWMG73E.s:474    .text.USBD_LL_FlushEP:0000000000000000 $t
+     /tmp/ccWMG73E.s:481    .text.USBD_LL_FlushEP:0000000000000000 USBD_LL_FlushEP
+     /tmp/ccWMG73E.s:491    .text.USBD_LL_StallEP:0000000000000000 $t
+     /tmp/ccWMG73E.s:498    .text.USBD_LL_StallEP:0000000000000000 USBD_LL_StallEP
+     /tmp/ccWMG73E.s:508    .text.USBD_LL_ClearStallEP:0000000000000000 $t
+     /tmp/ccWMG73E.s:515    .text.USBD_LL_ClearStallEP:0000000000000000 USBD_LL_ClearStallEP
+     /tmp/ccWMG73E.s:525    .text.USBD_LL_IsStallEP:0000000000000000 $t
+     /tmp/ccWMG73E.s:532    .text.USBD_LL_IsStallEP:0000000000000000 USBD_LL_IsStallEP
+     /tmp/ccWMG73E.s:550    .text.USBD_LL_SetUSBAddress:0000000000000000 $t
+ARM GAS  /tmp/ccWMG73E.s 			page 13
 
 
-     /tmp/cc1nE22q.s:557    .text.USBD_LL_SetUSBAddress:0000000000000000 USBD_LL_SetUSBAddress
-     /tmp/cc1nE22q.s:567    .text.USBD_LL_Transmit:0000000000000000 $t
-     /tmp/cc1nE22q.s:574    .text.USBD_LL_Transmit:0000000000000000 USBD_LL_Transmit
-     /tmp/cc1nE22q.s:584    .text.USBD_LL_PrepareReceive:0000000000000000 $t
-     /tmp/cc1nE22q.s:591    .text.USBD_LL_PrepareReceive:0000000000000000 USBD_LL_PrepareReceive
-     /tmp/cc1nE22q.s:601    .text.USBD_LL_GetRxDataSize:0000000000000000 $t
-     /tmp/cc1nE22q.s:608    .text.USBD_LL_GetRxDataSize:0000000000000000 USBD_LL_GetRxDataSize
-     /tmp/cc1nE22q.s:617    .text.USBD_LL_Delay:0000000000000000 $t
-     /tmp/cc1nE22q.s:624    .text.USBD_LL_Delay:0000000000000000 USBD_LL_Delay
-     /tmp/cc1nE22q.s:632    .text.USBD_static_malloc:0000000000000000 $t
-     /tmp/cc1nE22q.s:639    .text.USBD_static_malloc:0000000000000000 USBD_static_malloc
-     /tmp/cc1nE22q.s:648    .text.USBD_static_malloc:0000000000000004 $d
-     /tmp/cc1nE22q.s:651    .text.USBD_static_free:0000000000000000 $t
-     /tmp/cc1nE22q.s:658    .text.USBD_static_free:0000000000000000 USBD_static_free
-     /tmp/cc1nE22q.s:665    .text.HAL_PCDEx_SetConnectionState:0000000000000000 $t
-     /tmp/cc1nE22q.s:672    .text.HAL_PCDEx_SetConnectionState:0000000000000000 HAL_PCDEx_SetConnectionState
-     /tmp/cc1nE22q.s:680    .bss.mem.7863:0000000000000000 $d
-     /tmp/cc1nE22q.s:684    .bss.mem.7863:0000000000000000 mem.7863
-     /tmp/cc1nE22q.s:32     .text.USBD_Get_USB_Status:000000000000000b $d
-     /tmp/cc1nE22q.s:32     .text.USBD_Get_USB_Status:000000000000000c $t
+     /tmp/ccWMG73E.s:557    .text.USBD_LL_SetUSBAddress:0000000000000000 USBD_LL_SetUSBAddress
+     /tmp/ccWMG73E.s:567    .text.USBD_LL_Transmit:0000000000000000 $t
+     /tmp/ccWMG73E.s:574    .text.USBD_LL_Transmit:0000000000000000 USBD_LL_Transmit
+     /tmp/ccWMG73E.s:584    .text.USBD_LL_PrepareReceive:0000000000000000 $t
+     /tmp/ccWMG73E.s:591    .text.USBD_LL_PrepareReceive:0000000000000000 USBD_LL_PrepareReceive
+     /tmp/ccWMG73E.s:601    .text.USBD_LL_GetRxDataSize:0000000000000000 $t
+     /tmp/ccWMG73E.s:608    .text.USBD_LL_GetRxDataSize:0000000000000000 USBD_LL_GetRxDataSize
+     /tmp/ccWMG73E.s:617    .text.USBD_LL_Delay:0000000000000000 $t
+     /tmp/ccWMG73E.s:624    .text.USBD_LL_Delay:0000000000000000 USBD_LL_Delay
+     /tmp/ccWMG73E.s:632    .text.USBD_static_malloc:0000000000000000 $t
+     /tmp/ccWMG73E.s:639    .text.USBD_static_malloc:0000000000000000 USBD_static_malloc
+     /tmp/ccWMG73E.s:648    .text.USBD_static_malloc:0000000000000004 $d
+     /tmp/ccWMG73E.s:651    .text.USBD_static_free:0000000000000000 $t
+     /tmp/ccWMG73E.s:658    .text.USBD_static_free:0000000000000000 USBD_static_free
+     /tmp/ccWMG73E.s:665    .text.HAL_PCDEx_SetConnectionState:0000000000000000 $t
+     /tmp/ccWMG73E.s:672    .text.HAL_PCDEx_SetConnectionState:0000000000000000 HAL_PCDEx_SetConnectionState
+     /tmp/ccWMG73E.s:680    .bss.mem.7863:0000000000000000 $d
+     /tmp/ccWMG73E.s:684    .bss.mem.7863:0000000000000000 mem.7863
+     /tmp/ccWMG73E.s:32     .text.USBD_Get_USB_Status:000000000000000b $d
+     /tmp/ccWMG73E.s:32     .text.USBD_Get_USB_Status:000000000000000c $t
 
 UNDEFINED SYMBOLS
 HAL_NVIC_SetPriority

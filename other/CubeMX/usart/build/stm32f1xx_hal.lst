@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccC4ZKun.s 			page 1
+ARM GAS  /tmp/ccOKLGua.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccC4ZKun.s 			page 1
   60 0010 DC60     		str	r4, [r3, #12]
   61 0012 FFF7FEFF 		bl	HAL_MspDeInit
   62 0016 2046     		mov	r0, r4
-ARM GAS  /tmp/ccC4ZKun.s 			page 2
+ARM GAS  /tmp/ccOKLGua.s 			page 2
 
 
   63 0018 10BD     		pop	{r4, pc}
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccC4ZKun.s 			page 1
  120              		.thumb_func
  121              		.fpu softvfp
  123              	HAL_Init:
-ARM GAS  /tmp/ccC4ZKun.s 			page 3
+ARM GAS  /tmp/ccOKLGua.s 			page 3
 
 
  124              		@ args = 0, pretend = 0, frame = 0
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccC4ZKun.s 			page 1
  182 0004 7047     		bx	lr
  183              	.L24:
  184 0006 00BF     		.align	2
-ARM GAS  /tmp/ccC4ZKun.s 			page 4
+ARM GAS  /tmp/ccOKLGua.s 			page 4
 
 
  185              	.L23:
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccC4ZKun.s 			page 1
  244              		.thumb
  245              		.thumb_func
  246              		.fpu softvfp
-ARM GAS  /tmp/ccC4ZKun.s 			page 5
+ARM GAS  /tmp/ccOKLGua.s 			page 5
 
 
  248              	HAL_GetTickFreq:
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccC4ZKun.s 			page 1
  306 0008 1360     		str	r3, [r2]
  307 000a 7047     		bx	lr
  308              	.L46:
-ARM GAS  /tmp/ccC4ZKun.s 			page 6
+ARM GAS  /tmp/ccOKLGua.s 			page 6
 
 
  309              		.align	2
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccC4ZKun.s 			page 1
  369 0006 7047     		bx	lr
  370              	.L55:
  371              		.align	2
-ARM GAS  /tmp/ccC4ZKun.s 			page 7
+ARM GAS  /tmp/ccOKLGua.s 			page 7
 
 
  372              	.L54:
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccC4ZKun.s 			page 1
  432 0004 23F00103 		bic	r3, r3, #1
  433 0008 5360     		str	r3, [r2, #4]
  434 000a 7047     		bx	lr
-ARM GAS  /tmp/ccC4ZKun.s 			page 8
+ARM GAS  /tmp/ccOKLGua.s 			page 8
 
 
  435              	.L64:
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccC4ZKun.s 			page 1
  495              		@ link register save eliminated.
  496 0000 024A     		ldr	r2, .L72
  497 0002 5368     		ldr	r3, [r2, #4]
-ARM GAS  /tmp/ccC4ZKun.s 			page 9
+ARM GAS  /tmp/ccOKLGua.s 			page 9
 
 
  498 0004 43F00403 		orr	r3, r3, #4
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccC4ZKun.s 			page 1
  557              		.global	uwTickFreq
  558              		.global	uwTickPrio
  559              		.comm	uwTick,4,4
-ARM GAS  /tmp/ccC4ZKun.s 			page 10
+ARM GAS  /tmp/ccOKLGua.s 			page 10
 
 
  560              		.section	.data.uwTickFreq,"aw"
@@ -551,85 +551,85 @@ ARM GAS  /tmp/ccC4ZKun.s 			page 1
  571              	uwTickPrio:
  572 0000 10000000 		.word	16
  573              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 8-2018-q4-major) 8.2.1 20181213 (release) [gcc
-ARM GAS  /tmp/ccC4ZKun.s 			page 11
+ARM GAS  /tmp/ccOKLGua.s 			page 11
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f1xx_hal.c
-     /tmp/ccC4ZKun.s:14     .text.HAL_MspInit:0000000000000000 $t
-     /tmp/ccC4ZKun.s:22     .text.HAL_MspInit:0000000000000000 HAL_MspInit
-     /tmp/ccC4ZKun.s:29     .text.HAL_MspDeInit:0000000000000000 $t
-     /tmp/ccC4ZKun.s:36     .text.HAL_MspDeInit:0000000000000000 HAL_MspDeInit
-     /tmp/ccC4ZKun.s:43     .text.HAL_DeInit:0000000000000000 $t
-     /tmp/ccC4ZKun.s:50     .text.HAL_DeInit:0000000000000000 HAL_DeInit
-     /tmp/ccC4ZKun.s:67     .text.HAL_DeInit:000000000000001c $d
-     /tmp/ccC4ZKun.s:70     .text.HAL_InitTick:0000000000000000 $t
-     /tmp/ccC4ZKun.s:77     .text.HAL_InitTick:0000000000000000 HAL_InitTick
-     /tmp/ccC4ZKun.s:111    .text.HAL_InitTick:0000000000000040 $d
-     /tmp/ccC4ZKun.s:116    .text.HAL_Init:0000000000000000 $t
-     /tmp/ccC4ZKun.s:123    .text.HAL_Init:0000000000000000 HAL_Init
-     /tmp/ccC4ZKun.s:141    .text.HAL_Init:0000000000000020 $d
-     /tmp/ccC4ZKun.s:144    .text.HAL_IncTick:0000000000000000 $t
-     /tmp/ccC4ZKun.s:151    .text.HAL_IncTick:0000000000000000 HAL_IncTick
-     /tmp/ccC4ZKun.s:165    .text.HAL_IncTick:0000000000000010 $d
+     /tmp/ccOKLGua.s:14     .text.HAL_MspInit:0000000000000000 $t
+     /tmp/ccOKLGua.s:22     .text.HAL_MspInit:0000000000000000 HAL_MspInit
+     /tmp/ccOKLGua.s:29     .text.HAL_MspDeInit:0000000000000000 $t
+     /tmp/ccOKLGua.s:36     .text.HAL_MspDeInit:0000000000000000 HAL_MspDeInit
+     /tmp/ccOKLGua.s:43     .text.HAL_DeInit:0000000000000000 $t
+     /tmp/ccOKLGua.s:50     .text.HAL_DeInit:0000000000000000 HAL_DeInit
+     /tmp/ccOKLGua.s:67     .text.HAL_DeInit:000000000000001c $d
+     /tmp/ccOKLGua.s:70     .text.HAL_InitTick:0000000000000000 $t
+     /tmp/ccOKLGua.s:77     .text.HAL_InitTick:0000000000000000 HAL_InitTick
+     /tmp/ccOKLGua.s:111    .text.HAL_InitTick:0000000000000040 $d
+     /tmp/ccOKLGua.s:116    .text.HAL_Init:0000000000000000 $t
+     /tmp/ccOKLGua.s:123    .text.HAL_Init:0000000000000000 HAL_Init
+     /tmp/ccOKLGua.s:141    .text.HAL_Init:0000000000000020 $d
+     /tmp/ccOKLGua.s:144    .text.HAL_IncTick:0000000000000000 $t
+     /tmp/ccOKLGua.s:151    .text.HAL_IncTick:0000000000000000 HAL_IncTick
+     /tmp/ccOKLGua.s:165    .text.HAL_IncTick:0000000000000010 $d
                             *COM*:0000000000000004 uwTick
-     /tmp/ccC4ZKun.s:169    .text.HAL_GetTick:0000000000000000 $t
-     /tmp/ccC4ZKun.s:176    .text.HAL_GetTick:0000000000000000 HAL_GetTick
-     /tmp/ccC4ZKun.s:186    .text.HAL_GetTick:0000000000000008 $d
-     /tmp/ccC4ZKun.s:189    .text.HAL_GetTickPrio:0000000000000000 $t
-     /tmp/ccC4ZKun.s:196    .text.HAL_GetTickPrio:0000000000000000 HAL_GetTickPrio
-     /tmp/ccC4ZKun.s:206    .text.HAL_GetTickPrio:0000000000000008 $d
-     /tmp/ccC4ZKun.s:209    .text.HAL_SetTickFreq:0000000000000000 $t
-     /tmp/ccC4ZKun.s:216    .text.HAL_SetTickFreq:0000000000000000 HAL_SetTickFreq
-     /tmp/ccC4ZKun.s:237    .text.HAL_SetTickFreq:000000000000001c $d
-     /tmp/ccC4ZKun.s:241    .text.HAL_GetTickFreq:0000000000000000 $t
-     /tmp/ccC4ZKun.s:248    .text.HAL_GetTickFreq:0000000000000000 HAL_GetTickFreq
-     /tmp/ccC4ZKun.s:258    .text.HAL_GetTickFreq:0000000000000008 $d
-     /tmp/ccC4ZKun.s:261    .text.HAL_Delay:0000000000000000 $t
-     /tmp/ccC4ZKun.s:268    .text.HAL_Delay:0000000000000000 HAL_Delay
-     /tmp/ccC4ZKun.s:289    .text.HAL_Delay:0000000000000024 $d
-     /tmp/ccC4ZKun.s:292    .text.HAL_SuspendTick:0000000000000000 $t
-     /tmp/ccC4ZKun.s:299    .text.HAL_SuspendTick:0000000000000000 HAL_SuspendTick
-     /tmp/ccC4ZKun.s:311    .text.HAL_SuspendTick:000000000000000c $d
-     /tmp/ccC4ZKun.s:314    .text.HAL_ResumeTick:0000000000000000 $t
-     /tmp/ccC4ZKun.s:321    .text.HAL_ResumeTick:0000000000000000 HAL_ResumeTick
-     /tmp/ccC4ZKun.s:333    .text.HAL_ResumeTick:000000000000000c $d
-     /tmp/ccC4ZKun.s:336    .text.HAL_GetHalVersion:0000000000000000 $t
-     /tmp/ccC4ZKun.s:343    .text.HAL_GetHalVersion:0000000000000000 HAL_GetHalVersion
-     /tmp/ccC4ZKun.s:352    .text.HAL_GetHalVersion:0000000000000004 $d
-     /tmp/ccC4ZKun.s:355    .text.HAL_GetREVID:0000000000000000 $t
-     /tmp/ccC4ZKun.s:362    .text.HAL_GetREVID:0000000000000000 HAL_GetREVID
-     /tmp/ccC4ZKun.s:373    .text.HAL_GetREVID:0000000000000008 $d
-     /tmp/ccC4ZKun.s:376    .text.HAL_GetDEVID:0000000000000000 $t
-     /tmp/ccC4ZKun.s:383    .text.HAL_GetDEVID:0000000000000000 HAL_GetDEVID
-     /tmp/ccC4ZKun.s:394    .text.HAL_GetDEVID:000000000000000c $d
-     /tmp/ccC4ZKun.s:397    .text.HAL_DBGMCU_EnableDBGSleepMode:0000000000000000 $t
-     /tmp/ccC4ZKun.s:404    .text.HAL_DBGMCU_EnableDBGSleepMode:0000000000000000 HAL_DBGMCU_EnableDBGSleepMode
-     /tmp/ccC4ZKun.s:416    .text.HAL_DBGMCU_EnableDBGSleepMode:000000000000000c $d
-     /tmp/ccC4ZKun.s:419    .text.HAL_DBGMCU_DisableDBGSleepMode:0000000000000000 $t
-     /tmp/ccC4ZKun.s:426    .text.HAL_DBGMCU_DisableDBGSleepMode:0000000000000000 HAL_DBGMCU_DisableDBGSleepMode
-     /tmp/ccC4ZKun.s:438    .text.HAL_DBGMCU_DisableDBGSleepMode:000000000000000c $d
-     /tmp/ccC4ZKun.s:441    .text.HAL_DBGMCU_EnableDBGStopMode:0000000000000000 $t
-     /tmp/ccC4ZKun.s:448    .text.HAL_DBGMCU_EnableDBGStopMode:0000000000000000 HAL_DBGMCU_EnableDBGStopMode
-ARM GAS  /tmp/ccC4ZKun.s 			page 12
+     /tmp/ccOKLGua.s:169    .text.HAL_GetTick:0000000000000000 $t
+     /tmp/ccOKLGua.s:176    .text.HAL_GetTick:0000000000000000 HAL_GetTick
+     /tmp/ccOKLGua.s:186    .text.HAL_GetTick:0000000000000008 $d
+     /tmp/ccOKLGua.s:189    .text.HAL_GetTickPrio:0000000000000000 $t
+     /tmp/ccOKLGua.s:196    .text.HAL_GetTickPrio:0000000000000000 HAL_GetTickPrio
+     /tmp/ccOKLGua.s:206    .text.HAL_GetTickPrio:0000000000000008 $d
+     /tmp/ccOKLGua.s:209    .text.HAL_SetTickFreq:0000000000000000 $t
+     /tmp/ccOKLGua.s:216    .text.HAL_SetTickFreq:0000000000000000 HAL_SetTickFreq
+     /tmp/ccOKLGua.s:237    .text.HAL_SetTickFreq:000000000000001c $d
+     /tmp/ccOKLGua.s:241    .text.HAL_GetTickFreq:0000000000000000 $t
+     /tmp/ccOKLGua.s:248    .text.HAL_GetTickFreq:0000000000000000 HAL_GetTickFreq
+     /tmp/ccOKLGua.s:258    .text.HAL_GetTickFreq:0000000000000008 $d
+     /tmp/ccOKLGua.s:261    .text.HAL_Delay:0000000000000000 $t
+     /tmp/ccOKLGua.s:268    .text.HAL_Delay:0000000000000000 HAL_Delay
+     /tmp/ccOKLGua.s:289    .text.HAL_Delay:0000000000000024 $d
+     /tmp/ccOKLGua.s:292    .text.HAL_SuspendTick:0000000000000000 $t
+     /tmp/ccOKLGua.s:299    .text.HAL_SuspendTick:0000000000000000 HAL_SuspendTick
+     /tmp/ccOKLGua.s:311    .text.HAL_SuspendTick:000000000000000c $d
+     /tmp/ccOKLGua.s:314    .text.HAL_ResumeTick:0000000000000000 $t
+     /tmp/ccOKLGua.s:321    .text.HAL_ResumeTick:0000000000000000 HAL_ResumeTick
+     /tmp/ccOKLGua.s:333    .text.HAL_ResumeTick:000000000000000c $d
+     /tmp/ccOKLGua.s:336    .text.HAL_GetHalVersion:0000000000000000 $t
+     /tmp/ccOKLGua.s:343    .text.HAL_GetHalVersion:0000000000000000 HAL_GetHalVersion
+     /tmp/ccOKLGua.s:352    .text.HAL_GetHalVersion:0000000000000004 $d
+     /tmp/ccOKLGua.s:355    .text.HAL_GetREVID:0000000000000000 $t
+     /tmp/ccOKLGua.s:362    .text.HAL_GetREVID:0000000000000000 HAL_GetREVID
+     /tmp/ccOKLGua.s:373    .text.HAL_GetREVID:0000000000000008 $d
+     /tmp/ccOKLGua.s:376    .text.HAL_GetDEVID:0000000000000000 $t
+     /tmp/ccOKLGua.s:383    .text.HAL_GetDEVID:0000000000000000 HAL_GetDEVID
+     /tmp/ccOKLGua.s:394    .text.HAL_GetDEVID:000000000000000c $d
+     /tmp/ccOKLGua.s:397    .text.HAL_DBGMCU_EnableDBGSleepMode:0000000000000000 $t
+     /tmp/ccOKLGua.s:404    .text.HAL_DBGMCU_EnableDBGSleepMode:0000000000000000 HAL_DBGMCU_EnableDBGSleepMode
+     /tmp/ccOKLGua.s:416    .text.HAL_DBGMCU_EnableDBGSleepMode:000000000000000c $d
+     /tmp/ccOKLGua.s:419    .text.HAL_DBGMCU_DisableDBGSleepMode:0000000000000000 $t
+     /tmp/ccOKLGua.s:426    .text.HAL_DBGMCU_DisableDBGSleepMode:0000000000000000 HAL_DBGMCU_DisableDBGSleepMode
+     /tmp/ccOKLGua.s:438    .text.HAL_DBGMCU_DisableDBGSleepMode:000000000000000c $d
+     /tmp/ccOKLGua.s:441    .text.HAL_DBGMCU_EnableDBGStopMode:0000000000000000 $t
+     /tmp/ccOKLGua.s:448    .text.HAL_DBGMCU_EnableDBGStopMode:0000000000000000 HAL_DBGMCU_EnableDBGStopMode
+ARM GAS  /tmp/ccOKLGua.s 			page 12
 
 
-     /tmp/ccC4ZKun.s:460    .text.HAL_DBGMCU_EnableDBGStopMode:000000000000000c $d
-     /tmp/ccC4ZKun.s:463    .text.HAL_DBGMCU_DisableDBGStopMode:0000000000000000 $t
-     /tmp/ccC4ZKun.s:470    .text.HAL_DBGMCU_DisableDBGStopMode:0000000000000000 HAL_DBGMCU_DisableDBGStopMode
-     /tmp/ccC4ZKun.s:482    .text.HAL_DBGMCU_DisableDBGStopMode:000000000000000c $d
-     /tmp/ccC4ZKun.s:485    .text.HAL_DBGMCU_EnableDBGStandbyMode:0000000000000000 $t
-     /tmp/ccC4ZKun.s:492    .text.HAL_DBGMCU_EnableDBGStandbyMode:0000000000000000 HAL_DBGMCU_EnableDBGStandbyMode
-     /tmp/ccC4ZKun.s:504    .text.HAL_DBGMCU_EnableDBGStandbyMode:000000000000000c $d
-     /tmp/ccC4ZKun.s:507    .text.HAL_DBGMCU_DisableDBGStandbyMode:0000000000000000 $t
-     /tmp/ccC4ZKun.s:514    .text.HAL_DBGMCU_DisableDBGStandbyMode:0000000000000000 HAL_DBGMCU_DisableDBGStandbyMode
-     /tmp/ccC4ZKun.s:526    .text.HAL_DBGMCU_DisableDBGStandbyMode:000000000000000c $d
-     /tmp/ccC4ZKun.s:529    .text.HAL_GetUID:0000000000000000 $t
-     /tmp/ccC4ZKun.s:536    .text.HAL_GetUID:0000000000000000 HAL_GetUID
-     /tmp/ccC4ZKun.s:553    .text.HAL_GetUID:0000000000000014 $d
-     /tmp/ccC4ZKun.s:564    .data.uwTickFreq:0000000000000000 uwTickFreq
-     /tmp/ccC4ZKun.s:571    .data.uwTickPrio:0000000000000000 uwTickPrio
-     /tmp/ccC4ZKun.s:567    .data.uwTickPrio:0000000000000000 $d
+     /tmp/ccOKLGua.s:460    .text.HAL_DBGMCU_EnableDBGStopMode:000000000000000c $d
+     /tmp/ccOKLGua.s:463    .text.HAL_DBGMCU_DisableDBGStopMode:0000000000000000 $t
+     /tmp/ccOKLGua.s:470    .text.HAL_DBGMCU_DisableDBGStopMode:0000000000000000 HAL_DBGMCU_DisableDBGStopMode
+     /tmp/ccOKLGua.s:482    .text.HAL_DBGMCU_DisableDBGStopMode:000000000000000c $d
+     /tmp/ccOKLGua.s:485    .text.HAL_DBGMCU_EnableDBGStandbyMode:0000000000000000 $t
+     /tmp/ccOKLGua.s:492    .text.HAL_DBGMCU_EnableDBGStandbyMode:0000000000000000 HAL_DBGMCU_EnableDBGStandbyMode
+     /tmp/ccOKLGua.s:504    .text.HAL_DBGMCU_EnableDBGStandbyMode:000000000000000c $d
+     /tmp/ccOKLGua.s:507    .text.HAL_DBGMCU_DisableDBGStandbyMode:0000000000000000 $t
+     /tmp/ccOKLGua.s:514    .text.HAL_DBGMCU_DisableDBGStandbyMode:0000000000000000 HAL_DBGMCU_DisableDBGStandbyMode
+     /tmp/ccOKLGua.s:526    .text.HAL_DBGMCU_DisableDBGStandbyMode:000000000000000c $d
+     /tmp/ccOKLGua.s:529    .text.HAL_GetUID:0000000000000000 $t
+     /tmp/ccOKLGua.s:536    .text.HAL_GetUID:0000000000000000 HAL_GetUID
+     /tmp/ccOKLGua.s:553    .text.HAL_GetUID:0000000000000014 $d
+     /tmp/ccOKLGua.s:564    .data.uwTickFreq:0000000000000000 uwTickFreq
+     /tmp/ccOKLGua.s:571    .data.uwTickPrio:0000000000000000 uwTickPrio
+     /tmp/ccOKLGua.s:567    .data.uwTickPrio:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 HAL_SYSTICK_Config

@@ -1,4 +1,4 @@
-ARM GAS  /tmp/cctNlp8E.s 			page 1
+ARM GAS  /tmp/cc4eiE1v.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  /tmp/cctNlp8E.s 			page 1
   58 0018 2046     		mov	r0, r4
   59 001a FFF7FEFF 		bl	USBD_CtlSendStatus
   60 001e 10BD     		pop	{r4, pc}
-ARM GAS  /tmp/cctNlp8E.s 			page 2
+ARM GAS  /tmp/cc4eiE1v.s 			page 2
 
 
   62              		.section	.text.USBD_ParseSetupRequest,"ax",%progbits
@@ -118,7 +118,7 @@ ARM GAS  /tmp/cctNlp8E.s 			page 1
  121              		@ frame_needed = 0, uses_anonymous_args = 0
  122 0000 30B5     		push	{r4, r5, lr}
  123 0002 83B0     		sub	sp, sp, #12
-ARM GAS  /tmp/cctNlp8E.s 			page 3
+ARM GAS  /tmp/cc4eiE1v.s 			page 3
 
 
  124 0004 0446     		mov	r4, r0
@@ -178,7 +178,7 @@ ARM GAS  /tmp/cctNlp8E.s 			page 1
  178 006a 34D8     		bhi	.L25
  179 006c DFE802F0 		tbb	[pc, r2]
  180              	.L27:
-ARM GAS  /tmp/cctNlp8E.s 			page 4
+ARM GAS  /tmp/cc4eiE1v.s 			page 4
 
 
  181 0070 03       		.byte	(.L32-.L27)/2
@@ -238,7 +238,7 @@ ARM GAS  /tmp/cctNlp8E.s 			page 1
  235 00de 037C     		ldrb	r3, [r0, #16]	@ zero_extendqisi2
  236 00e0 33B9     		cbnz	r3, .L34
  237 00e2 D0F81432 		ldr	r3, [r0, #532]
-ARM GAS  /tmp/cctNlp8E.s 			page 5
+ARM GAS  /tmp/cc4eiE1v.s 			page 5
 
 
  238 00e6 5B6B     		ldr	r3, [r3, #52]
@@ -298,7 +298,7 @@ ARM GAS  /tmp/cctNlp8E.s 			page 1
  294 0018 0CD0     		beq	.L46
  295 001a 80F8FE51 		strb	r5, [r0, #510]
  296 001e 2946     		mov	r1, r5
-ARM GAS  /tmp/cctNlp8E.s 			page 6
+ARM GAS  /tmp/cc4eiE1v.s 			page 6
 
 
  297 0020 FFF7FEFF 		bl	USBD_LL_SetUSBAddress
@@ -358,7 +358,7 @@ ARM GAS  /tmp/cctNlp8E.s 			page 1
  353 0036 FFF7FEFF 		bl	USBD_SetClassConfig
  354 003a 0228     		cmp	r0, #2
  355 003c 03D0     		beq	.L61
-ARM GAS  /tmp/cctNlp8E.s 			page 7
+ARM GAS  /tmp/cc4eiE1v.s 			page 7
 
 
  356 003e 2046     		mov	r0, r4
@@ -418,7 +418,7 @@ ARM GAS  /tmp/cctNlp8E.s 			page 1
  412              	USBD_GetConfig:
  413              		@ args = 0, pretend = 0, frame = 0
  414              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /tmp/cctNlp8E.s 			page 8
+ARM GAS  /tmp/cc4eiE1v.s 			page 8
 
 
  415 0000 08B5     		push	{r3, lr}
@@ -478,7 +478,7 @@ ARM GAS  /tmp/cctNlp8E.s 			page 1
  471 0026 FFF7FEFF 		bl	USBD_CtlError
  472 002a FBE7     		b	.L75
  474              		.section	.text.USBD_ClrFeature,"ax",%progbits
-ARM GAS  /tmp/cctNlp8E.s 			page 9
+ARM GAS  /tmp/cc4eiE1v.s 			page 9
 
 
  475              		.align	1
@@ -538,7 +538,7 @@ ARM GAS  /tmp/cctNlp8E.s 			page 1
  532 0015 0C       		.byte	(.L86-.L87)/2
  533              		.p2align 1
  534              	.L89:
-ARM GAS  /tmp/cctNlp8E.s 			page 10
+ARM GAS  /tmp/cc4eiE1v.s 			page 10
 
 
  535 0016 FFF7FEFF 		bl	USBD_GetDescriptor
@@ -598,7 +598,7 @@ ARM GAS  /tmp/cctNlp8E.s 			page 1
  591 002c 01E0     		b	.L99
  592              	.L97:
  593 002e FFF7FEFF 		bl	USBD_CtlError
-ARM GAS  /tmp/cctNlp8E.s 			page 11
+ARM GAS  /tmp/cc4eiE1v.s 			page 11
 
 
  594              	.L99:
@@ -658,7 +658,7 @@ ARM GAS  /tmp/cctNlp8E.s 			page 1
  650              	.L107:
  651 0056 6388     		ldrh	r3, [r4, #2]
  652 0058 13B9     		cbnz	r3, .L109
-ARM GAS  /tmp/cctNlp8E.s 			page 12
+ARM GAS  /tmp/cc4eiE1v.s 			page 12
 
 
  653 005a 09B1     		cbz	r1, .L109
@@ -718,7 +718,7 @@ ARM GAS  /tmp/cctNlp8E.s 			page 1
  707 00cc 032B     		cmp	r3, #3
  708 00ce 0BD0     		beq	.L115
  709 00d0 2146     		mov	r1, r4
-ARM GAS  /tmp/cctNlp8E.s 			page 13
+ARM GAS  /tmp/cc4eiE1v.s 			page 13
 
 
  710 00d2 2846     		mov	r0, r5
@@ -778,7 +778,7 @@ ARM GAS  /tmp/cctNlp8E.s 			page 1
  766 000e 0130     		adds	r0, r0, #1
  767 0010 4000     		lsls	r0, r0, #1
  768 0012 80B2     		uxth	r0, r0
-ARM GAS  /tmp/cctNlp8E.s 			page 14
+ARM GAS  /tmp/cc4eiE1v.s 			page 14
 
 
  769 0014 3080     		strh	r0, [r6]	@ movhi
@@ -807,49 +807,49 @@ ARM GAS  /tmp/cctNlp8E.s 			page 1
  795              	cfgidx.7780:
  796 0000 00       		.space	1
  797              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 8-2018-q4-major) 8.2.1 20181213 (release) [gcc
-ARM GAS  /tmp/cctNlp8E.s 			page 15
+ARM GAS  /tmp/cc4eiE1v.s 			page 15
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 usbd_ctlreq.c
-     /tmp/cctNlp8E.s:14     .text.USBD_GetLen:0000000000000000 $t
-     /tmp/cctNlp8E.s:21     .text.USBD_GetLen:0000000000000000 USBD_GetLen
-     /tmp/cctNlp8E.s:38     .text.USBD_SetFeature:0000000000000000 $t
-     /tmp/cctNlp8E.s:44     .text.USBD_SetFeature:0000000000000000 USBD_SetFeature
-     /tmp/cctNlp8E.s:63     .text.USBD_ParseSetupRequest:0000000000000000 $t
-     /tmp/cctNlp8E.s:70     .text.USBD_ParseSetupRequest:0000000000000000 USBD_ParseSetupRequest
-     /tmp/cctNlp8E.s:93     .text.USBD_CtlError:0000000000000000 $t
-     /tmp/cctNlp8E.s:100    .text.USBD_CtlError:0000000000000000 USBD_CtlError
-     /tmp/cctNlp8E.s:113    .text.USBD_GetDescriptor:0000000000000000 $t
-     /tmp/cctNlp8E.s:119    .text.USBD_GetDescriptor:0000000000000000 USBD_GetDescriptor
-     /tmp/cctNlp8E.s:133    .text.USBD_GetDescriptor:0000000000000018 $d
-     /tmp/cctNlp8E.s:181    .text.USBD_GetDescriptor:0000000000000070 $d
-     /tmp/cctNlp8E.s:187    .text.USBD_GetDescriptor:0000000000000076 $t
-     /tmp/cctNlp8E.s:275    .text.USBD_SetAddress:0000000000000000 $t
-     /tmp/cctNlp8E.s:281    .text.USBD_SetAddress:0000000000000000 USBD_SetAddress
-     /tmp/cctNlp8E.s:318    .text.USBD_SetConfig:0000000000000000 $t
-     /tmp/cctNlp8E.s:324    .text.USBD_SetConfig:0000000000000000 USBD_SetConfig
-     /tmp/cctNlp8E.s:403    .text.USBD_SetConfig:00000000000000a0 $d
-     /tmp/cctNlp8E.s:406    .text.USBD_GetConfig:0000000000000000 $t
-     /tmp/cctNlp8E.s:412    .text.USBD_GetConfig:0000000000000000 USBD_GetConfig
-     /tmp/cctNlp8E.s:444    .text.USBD_GetStatus:0000000000000000 $t
-     /tmp/cctNlp8E.s:450    .text.USBD_GetStatus:0000000000000000 USBD_GetStatus
-     /tmp/cctNlp8E.s:475    .text.USBD_ClrFeature:0000000000000000 $t
-     /tmp/cctNlp8E.s:481    .text.USBD_ClrFeature:0000000000000000 USBD_ClrFeature
-     /tmp/cctNlp8E.s:507    .text.USBD_StdDevReq:0000000000000000 $t
-     /tmp/cctNlp8E.s:514    .text.USBD_StdDevReq:0000000000000000 USBD_StdDevReq
-     /tmp/cctNlp8E.s:523    .text.USBD_StdDevReq:000000000000000c $d
-     /tmp/cctNlp8E.s:533    .text.USBD_StdDevReq:0000000000000016 $t
-     /tmp/cctNlp8E.s:562    .text.USBD_StdItfReq:0000000000000000 $t
-     /tmp/cctNlp8E.s:569    .text.USBD_StdItfReq:0000000000000000 USBD_StdItfReq
-     /tmp/cctNlp8E.s:599    .text.USBD_StdEPReq:0000000000000000 $t
-     /tmp/cctNlp8E.s:606    .text.USBD_StdEPReq:0000000000000000 USBD_StdEPReq
-     /tmp/cctNlp8E.s:750    .text.USBD_GetString:0000000000000000 $t
-     /tmp/cctNlp8E.s:757    .text.USBD_GetString:0000000000000000 USBD_GetString
-     /tmp/cctNlp8E.s:795    .bss.cfgidx.7780:0000000000000000 cfgidx.7780
-     /tmp/cctNlp8E.s:796    .bss.cfgidx.7780:0000000000000000 $d
-     /tmp/cctNlp8E.s:140    .text.USBD_GetDescriptor:000000000000001f $d
-     /tmp/cctNlp8E.s:140    .text.USBD_GetDescriptor:0000000000000020 $t
+     /tmp/cc4eiE1v.s:14     .text.USBD_GetLen:0000000000000000 $t
+     /tmp/cc4eiE1v.s:21     .text.USBD_GetLen:0000000000000000 USBD_GetLen
+     /tmp/cc4eiE1v.s:38     .text.USBD_SetFeature:0000000000000000 $t
+     /tmp/cc4eiE1v.s:44     .text.USBD_SetFeature:0000000000000000 USBD_SetFeature
+     /tmp/cc4eiE1v.s:63     .text.USBD_ParseSetupRequest:0000000000000000 $t
+     /tmp/cc4eiE1v.s:70     .text.USBD_ParseSetupRequest:0000000000000000 USBD_ParseSetupRequest
+     /tmp/cc4eiE1v.s:93     .text.USBD_CtlError:0000000000000000 $t
+     /tmp/cc4eiE1v.s:100    .text.USBD_CtlError:0000000000000000 USBD_CtlError
+     /tmp/cc4eiE1v.s:113    .text.USBD_GetDescriptor:0000000000000000 $t
+     /tmp/cc4eiE1v.s:119    .text.USBD_GetDescriptor:0000000000000000 USBD_GetDescriptor
+     /tmp/cc4eiE1v.s:133    .text.USBD_GetDescriptor:0000000000000018 $d
+     /tmp/cc4eiE1v.s:181    .text.USBD_GetDescriptor:0000000000000070 $d
+     /tmp/cc4eiE1v.s:187    .text.USBD_GetDescriptor:0000000000000076 $t
+     /tmp/cc4eiE1v.s:275    .text.USBD_SetAddress:0000000000000000 $t
+     /tmp/cc4eiE1v.s:281    .text.USBD_SetAddress:0000000000000000 USBD_SetAddress
+     /tmp/cc4eiE1v.s:318    .text.USBD_SetConfig:0000000000000000 $t
+     /tmp/cc4eiE1v.s:324    .text.USBD_SetConfig:0000000000000000 USBD_SetConfig
+     /tmp/cc4eiE1v.s:403    .text.USBD_SetConfig:00000000000000a0 $d
+     /tmp/cc4eiE1v.s:406    .text.USBD_GetConfig:0000000000000000 $t
+     /tmp/cc4eiE1v.s:412    .text.USBD_GetConfig:0000000000000000 USBD_GetConfig
+     /tmp/cc4eiE1v.s:444    .text.USBD_GetStatus:0000000000000000 $t
+     /tmp/cc4eiE1v.s:450    .text.USBD_GetStatus:0000000000000000 USBD_GetStatus
+     /tmp/cc4eiE1v.s:475    .text.USBD_ClrFeature:0000000000000000 $t
+     /tmp/cc4eiE1v.s:481    .text.USBD_ClrFeature:0000000000000000 USBD_ClrFeature
+     /tmp/cc4eiE1v.s:507    .text.USBD_StdDevReq:0000000000000000 $t
+     /tmp/cc4eiE1v.s:514    .text.USBD_StdDevReq:0000000000000000 USBD_StdDevReq
+     /tmp/cc4eiE1v.s:523    .text.USBD_StdDevReq:000000000000000c $d
+     /tmp/cc4eiE1v.s:533    .text.USBD_StdDevReq:0000000000000016 $t
+     /tmp/cc4eiE1v.s:562    .text.USBD_StdItfReq:0000000000000000 $t
+     /tmp/cc4eiE1v.s:569    .text.USBD_StdItfReq:0000000000000000 USBD_StdItfReq
+     /tmp/cc4eiE1v.s:599    .text.USBD_StdEPReq:0000000000000000 $t
+     /tmp/cc4eiE1v.s:606    .text.USBD_StdEPReq:0000000000000000 USBD_StdEPReq
+     /tmp/cc4eiE1v.s:750    .text.USBD_GetString:0000000000000000 $t
+     /tmp/cc4eiE1v.s:757    .text.USBD_GetString:0000000000000000 USBD_GetString
+     /tmp/cc4eiE1v.s:795    .bss.cfgidx.7780:0000000000000000 cfgidx.7780
+     /tmp/cc4eiE1v.s:796    .bss.cfgidx.7780:0000000000000000 $d
+     /tmp/cc4eiE1v.s:140    .text.USBD_GetDescriptor:000000000000001f $d
+     /tmp/cc4eiE1v.s:140    .text.USBD_GetDescriptor:0000000000000020 $t
 
 UNDEFINED SYMBOLS
 USBD_CtlSendStatus

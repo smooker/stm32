@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccssEE41.s 			page 1
+ARM GAS  /tmp/cczquuAC.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccssEE41.s 			page 1
   60              		@ args = 0, pretend = 0, frame = 0
   61              		@ frame_needed = 0, uses_anonymous_args = 0
   62              		@ link register save eliminated.
-ARM GAS  /tmp/ccssEE41.s 			page 2
+ARM GAS  /tmp/cczquuAC.s 			page 2
 
 
   63 0000 B0F84030 		ldrh	r3, [r0, #64]
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccssEE41.s 			page 1
  123              		@ frame_needed = 0, uses_anonymous_args = 0
  124              		@ link register save eliminated.
  125 0000 0020     		movs	r0, #0
-ARM GAS  /tmp/ccssEE41.s 			page 3
+ARM GAS  /tmp/cczquuAC.s 			page 3
 
 
  126 0002 7047     		bx	lr
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccssEE41.s 			page 1
  184 0044 8B7A     		ldrb	r3, [r1, #10]	@ zero_extendqisi2
  185 0046 002B     		cmp	r3, #0
  186 0048 40F0AF80 		bne	.L17
-ARM GAS  /tmp/ccssEE41.s 			page 4
+ARM GAS  /tmp/cczquuAC.s 			page 4
 
 
  187 004c 4B78     		ldrb	r3, [r1, #1]	@ zero_extendqisi2
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccssEE41.s 			page 1
  241              	.L15:
  242 00e6 0A78     		ldrb	r2, [r1]	@ zero_extendqisi2
  243 00e8 30F82230 		ldrh	r3, [r0, r2, lsl #2]
-ARM GAS  /tmp/ccssEE41.s 			page 5
+ARM GAS  /tmp/cczquuAC.s 			page 5
 
 
  244 00ec 9BB2     		uxth	r3, r3
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccssEE41.s 			page 1
  298 0188 43F08003 		orr	r3, r3, #128
  299 018c 20F82230 		strh	r3, [r0, r2, lsl #2]	@ movhi
  300 0190 8DE7     		b	.L20
-ARM GAS  /tmp/ccssEE41.s 			page 6
+ARM GAS  /tmp/cczquuAC.s 			page 6
 
 
  301              	.L21:
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccssEE41.s 			page 1
  355 0226 13F0400F 		tst	r3, #64
  356 022a 0BD0     		beq	.L28
  357 022c 30F82230 		ldrh	r3, [r0, r2, lsl #2]
-ARM GAS  /tmp/ccssEE41.s 			page 7
+ARM GAS  /tmp/cczquuAC.s 			page 7
 
 
  358 0230 23F0F003 		bic	r3, r3, #240
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccssEE41.s 			page 1
  412 02d4 43F0C003 		orr	r3, r3, #192
  413 02d8 20F82230 		strh	r3, [r0, r2, lsl #2]	@ movhi
  414              	.L30:
-ARM GAS  /tmp/ccssEE41.s 			page 8
+ARM GAS  /tmp/cczquuAC.s 			page 8
 
 
  415 02dc 0A78     		ldrb	r2, [r1]	@ zero_extendqisi2
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccssEE41.s 			page 1
  471 0034 9BB2     		uxth	r3, r3
  472 0036 23F4E043 		bic	r3, r3, #28672
  473 003a 23F04003 		bic	r3, r3, #64
-ARM GAS  /tmp/ccssEE41.s 			page 9
+ARM GAS  /tmp/cczquuAC.s 			page 9
 
 
  474 003e 43F40043 		orr	r3, r3, #32768
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccssEE41.s 			page 1
  528 00d8 43F0C003 		orr	r3, r3, #192
  529 00dc 20F82230 		strh	r3, [r0, r2, lsl #2]	@ movhi
  530              	.L40:
-ARM GAS  /tmp/ccssEE41.s 			page 10
+ARM GAS  /tmp/cczquuAC.s 			page 10
 
 
  531 00e0 0A78     		ldrb	r2, [r1]	@ zero_extendqisi2
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccssEE41.s 			page 1
  585 017e 23F0F003 		bic	r3, r3, #240
  586 0182 1B05     		lsls	r3, r3, #20
  587 0184 1B0D     		lsrs	r3, r3, #20
-ARM GAS  /tmp/ccssEE41.s 			page 11
+ARM GAS  /tmp/cczquuAC.s 			page 11
 
 
  588 0186 43F44043 		orr	r3, r3, #49152
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccssEE41.s 			page 1
  648              		@ frame_needed = 0, uses_anonymous_args = 0
  649              		@ link register save eliminated.
  650 0000 0A78     		ldrb	r2, [r1]	@ zero_extendqisi2
-ARM GAS  /tmp/ccssEE41.s 			page 12
+ARM GAS  /tmp/cczquuAC.s 			page 12
 
 
  651 0002 92B9     		cbnz	r2, .L49
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccssEE41.s 			page 1
  707 0018 1B05     		lsls	r3, r3, #20
  708 001a 1B0D     		lsrs	r3, r3, #20
  709 001c 43F40043 		orr	r3, r3, #32768
-ARM GAS  /tmp/ccssEE41.s 			page 13
+ARM GAS  /tmp/cczquuAC.s 			page 13
 
 
  710 0020 43F0C003 		orr	r3, r3, #192
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccssEE41.s 			page 1
  766 000e 0322     		movs	r2, #3
  767 0010 A3F84020 		strh	r2, [r3, #64]	@ movhi
  768 0014 7047     		bx	lr
-ARM GAS  /tmp/ccssEE41.s 			page 14
+ARM GAS  /tmp/cczquuAC.s 			page 14
 
 
  770              		.section	.text.USB_SetDevAddress,"ax",%progbits
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccssEE41.s 			page 1
  831 0000 B0F84400 		ldrh	r0, [r0, #68]
  832 0004 7047     		bx	lr
  834              		.section	.text.USB_ReadDevAllOutEpInterrupt,"ax",%progbits
-ARM GAS  /tmp/ccssEE41.s 			page 15
+ARM GAS  /tmp/cczquuAC.s 			page 15
 
 
  835              		.align	1
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccssEE41.s 			page 1
  897              		.syntax unified
  898              		.thumb
  899              		.thumb_func
-ARM GAS  /tmp/ccssEE41.s 			page 16
+ARM GAS  /tmp/cczquuAC.s 			page 16
 
 
  900              		.fpu softvfp
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccssEE41.s 			page 1
  962              		.align	1
  963              		.global	USB_WritePMA
  964              		.syntax unified
-ARM GAS  /tmp/ccssEE41.s 			page 17
+ARM GAS  /tmp/cczquuAC.s 			page 17
 
 
  965              		.thumb
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccssEE41.s 			page 1
  1022 002a 00EB4202 		add	r2, r0, r2, lsl #1
  1023 002e 3E2B     		cmp	r3, #62
  1024 0030 40F2DD80 		bls	.L101
-ARM GAS  /tmp/ccssEE41.s 			page 18
+ARM GAS  /tmp/cczquuAC.s 			page 18
 
 
  1025 0034 C3F34F14 		ubfx	r4, r3, #5, #16
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccssEE41.s 			page 1
  1079 00be 92B2     		uxth	r2, r2
  1080 00c0 C3F80024 		str	r2, [r3, #1024]
  1081 00c4 28E0     		b	.L88
-ARM GAS  /tmp/ccssEE41.s 			page 19
+ARM GAS  /tmp/cczquuAC.s 			page 19
 
 
  1082              	.L80:
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccssEE41.s 			page 1
  1136 0146 34F82230 		ldrh	r3, [r4, r2, lsl #2]
  1137 014a 9BB2     		uxth	r3, r3
  1138 014c 23F4E043 		bic	r3, r3, #28672
-ARM GAS  /tmp/ccssEE41.s 			page 20
+ARM GAS  /tmp/cczquuAC.s 			page 20
 
 
  1139 0150 23F04003 		bic	r3, r3, #64
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccssEE41.s 			page 1
  1193 01dc 43F08003 		orr	r3, r3, #128
  1194 01e0 24F82230 		strh	r3, [r4, r2, lsl #2]	@ movhi
  1195 01e4 AEE7     		b	.L83
-ARM GAS  /tmp/ccssEE41.s 			page 21
+ARM GAS  /tmp/cczquuAC.s 			page 21
 
 
  1196              	.L98:
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/ccssEE41.s 			page 1
  1250 0268 C2F80044 		str	r4, [r2, #1024]
  1251 026c F0E6     		b	.L103
  1252              	.L106:
-ARM GAS  /tmp/ccssEE41.s 			page 22
+ARM GAS  /tmp/cczquuAC.s 			page 22
 
 
  1253 026e C3F34F04 		ubfx	r4, r3, #1, #16
@@ -1316,73 +1316,73 @@ ARM GAS  /tmp/ccssEE41.s 			page 1
  1307              	.L119:
  1308 001a 7047     		bx	lr
  1310              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 8-2018-q4-major) 8.2.1 20181213 (release) [gcc
-ARM GAS  /tmp/ccssEE41.s 			page 23
+ARM GAS  /tmp/cczquuAC.s 			page 23
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f1xx_ll_usb.c
-     /tmp/ccssEE41.s:14     .text.USB_CoreInit:0000000000000000 $t
-     /tmp/ccssEE41.s:22     .text.USB_CoreInit:0000000000000000 USB_CoreInit
-     /tmp/ccssEE41.s:34     .text.USB_EnableGlobalInt:0000000000000000 $t
-     /tmp/ccssEE41.s:41     .text.USB_EnableGlobalInt:0000000000000000 USB_EnableGlobalInt
-     /tmp/ccssEE41.s:52     .text.USB_DisableGlobalInt:0000000000000000 $t
-     /tmp/ccssEE41.s:59     .text.USB_DisableGlobalInt:0000000000000000 USB_DisableGlobalInt
-     /tmp/ccssEE41.s:72     .text.USB_SetCurrentMode:0000000000000000 $t
-     /tmp/ccssEE41.s:79     .text.USB_SetCurrentMode:0000000000000000 USB_SetCurrentMode
-     /tmp/ccssEE41.s:87     .text.USB_DevInit:0000000000000000 $t
-     /tmp/ccssEE41.s:94     .text.USB_DevInit:0000000000000000 USB_DevInit
-     /tmp/ccssEE41.s:114    .text.USB_FlushTxFifo:0000000000000000 $t
-     /tmp/ccssEE41.s:121    .text.USB_FlushTxFifo:0000000000000000 USB_FlushTxFifo
-     /tmp/ccssEE41.s:129    .text.USB_FlushRxFifo:0000000000000000 $t
-     /tmp/ccssEE41.s:136    .text.USB_FlushRxFifo:0000000000000000 USB_FlushRxFifo
-     /tmp/ccssEE41.s:144    .text.USB_ActivateEndpoint:0000000000000000 $t
-     /tmp/ccssEE41.s:151    .text.USB_ActivateEndpoint:0000000000000000 USB_ActivateEndpoint
-     /tmp/ccssEE41.s:161    .text.USB_ActivateEndpoint:000000000000000c $d
-     /tmp/ccssEE41.s:165    .text.USB_ActivateEndpoint:0000000000000010 $t
-     /tmp/ccssEE41.s:441    .text.USB_DeactivateEndpoint:0000000000000000 $t
-     /tmp/ccssEE41.s:448    .text.USB_DeactivateEndpoint:0000000000000000 USB_DeactivateEndpoint
-     /tmp/ccssEE41.s:609    .text.USB_WritePacket:0000000000000000 $t
-     /tmp/ccssEE41.s:616    .text.USB_WritePacket:0000000000000000 USB_WritePacket
-     /tmp/ccssEE41.s:624    .text.USB_ReadPacket:0000000000000000 $t
-     /tmp/ccssEE41.s:631    .text.USB_ReadPacket:0000000000000000 USB_ReadPacket
-     /tmp/ccssEE41.s:639    .text.USB_EPSetStall:0000000000000000 $t
-     /tmp/ccssEE41.s:646    .text.USB_EPSetStall:0000000000000000 USB_EPSetStall
-     /tmp/ccssEE41.s:688    .text.USB_EPClearStall:0000000000000000 $t
-     /tmp/ccssEE41.s:695    .text.USB_EPClearStall:0000000000000000 USB_EPClearStall
-     /tmp/ccssEE41.s:750    .text.USB_StopDevice:0000000000000000 $t
-     /tmp/ccssEE41.s:757    .text.USB_StopDevice:0000000000000000 USB_StopDevice
-     /tmp/ccssEE41.s:771    .text.USB_SetDevAddress:0000000000000000 $t
-     /tmp/ccssEE41.s:778    .text.USB_SetDevAddress:0000000000000000 USB_SetDevAddress
-     /tmp/ccssEE41.s:790    .text.USB_DevConnect:0000000000000000 $t
-     /tmp/ccssEE41.s:797    .text.USB_DevConnect:0000000000000000 USB_DevConnect
-     /tmp/ccssEE41.s:805    .text.USB_DevDisconnect:0000000000000000 $t
-     /tmp/ccssEE41.s:812    .text.USB_DevDisconnect:0000000000000000 USB_DevDisconnect
-     /tmp/ccssEE41.s:820    .text.USB_ReadInterrupts:0000000000000000 $t
-     /tmp/ccssEE41.s:827    .text.USB_ReadInterrupts:0000000000000000 USB_ReadInterrupts
-     /tmp/ccssEE41.s:835    .text.USB_ReadDevAllOutEpInterrupt:0000000000000000 $t
-     /tmp/ccssEE41.s:842    .text.USB_ReadDevAllOutEpInterrupt:0000000000000000 USB_ReadDevAllOutEpInterrupt
-     /tmp/ccssEE41.s:850    .text.USB_ReadDevAllInEpInterrupt:0000000000000000 $t
-     /tmp/ccssEE41.s:857    .text.USB_ReadDevAllInEpInterrupt:0000000000000000 USB_ReadDevAllInEpInterrupt
-     /tmp/ccssEE41.s:865    .text.USB_ReadDevOutEPInterrupt:0000000000000000 $t
-     /tmp/ccssEE41.s:872    .text.USB_ReadDevOutEPInterrupt:0000000000000000 USB_ReadDevOutEPInterrupt
-     /tmp/ccssEE41.s:880    .text.USB_ReadDevInEPInterrupt:0000000000000000 $t
-     /tmp/ccssEE41.s:887    .text.USB_ReadDevInEPInterrupt:0000000000000000 USB_ReadDevInEPInterrupt
-     /tmp/ccssEE41.s:895    .text.USB_ClearInterrupts:0000000000000000 $t
-     /tmp/ccssEE41.s:902    .text.USB_ClearInterrupts:0000000000000000 USB_ClearInterrupts
-     /tmp/ccssEE41.s:909    .text.USB_EP0_OutStart:0000000000000000 $t
-     /tmp/ccssEE41.s:916    .text.USB_EP0_OutStart:0000000000000000 USB_EP0_OutStart
-     /tmp/ccssEE41.s:924    .text.USB_ActivateRemoteWakeup:0000000000000000 $t
-     /tmp/ccssEE41.s:931    .text.USB_ActivateRemoteWakeup:0000000000000000 USB_ActivateRemoteWakeup
-     /tmp/ccssEE41.s:942    .text.USB_DeActivateRemoteWakeup:0000000000000000 $t
-     /tmp/ccssEE41.s:949    .text.USB_DeActivateRemoteWakeup:0000000000000000 USB_DeActivateRemoteWakeup
-     /tmp/ccssEE41.s:962    .text.USB_WritePMA:0000000000000000 $t
-ARM GAS  /tmp/ccssEE41.s 			page 24
+     /tmp/cczquuAC.s:14     .text.USB_CoreInit:0000000000000000 $t
+     /tmp/cczquuAC.s:22     .text.USB_CoreInit:0000000000000000 USB_CoreInit
+     /tmp/cczquuAC.s:34     .text.USB_EnableGlobalInt:0000000000000000 $t
+     /tmp/cczquuAC.s:41     .text.USB_EnableGlobalInt:0000000000000000 USB_EnableGlobalInt
+     /tmp/cczquuAC.s:52     .text.USB_DisableGlobalInt:0000000000000000 $t
+     /tmp/cczquuAC.s:59     .text.USB_DisableGlobalInt:0000000000000000 USB_DisableGlobalInt
+     /tmp/cczquuAC.s:72     .text.USB_SetCurrentMode:0000000000000000 $t
+     /tmp/cczquuAC.s:79     .text.USB_SetCurrentMode:0000000000000000 USB_SetCurrentMode
+     /tmp/cczquuAC.s:87     .text.USB_DevInit:0000000000000000 $t
+     /tmp/cczquuAC.s:94     .text.USB_DevInit:0000000000000000 USB_DevInit
+     /tmp/cczquuAC.s:114    .text.USB_FlushTxFifo:0000000000000000 $t
+     /tmp/cczquuAC.s:121    .text.USB_FlushTxFifo:0000000000000000 USB_FlushTxFifo
+     /tmp/cczquuAC.s:129    .text.USB_FlushRxFifo:0000000000000000 $t
+     /tmp/cczquuAC.s:136    .text.USB_FlushRxFifo:0000000000000000 USB_FlushRxFifo
+     /tmp/cczquuAC.s:144    .text.USB_ActivateEndpoint:0000000000000000 $t
+     /tmp/cczquuAC.s:151    .text.USB_ActivateEndpoint:0000000000000000 USB_ActivateEndpoint
+     /tmp/cczquuAC.s:161    .text.USB_ActivateEndpoint:000000000000000c $d
+     /tmp/cczquuAC.s:165    .text.USB_ActivateEndpoint:0000000000000010 $t
+     /tmp/cczquuAC.s:441    .text.USB_DeactivateEndpoint:0000000000000000 $t
+     /tmp/cczquuAC.s:448    .text.USB_DeactivateEndpoint:0000000000000000 USB_DeactivateEndpoint
+     /tmp/cczquuAC.s:609    .text.USB_WritePacket:0000000000000000 $t
+     /tmp/cczquuAC.s:616    .text.USB_WritePacket:0000000000000000 USB_WritePacket
+     /tmp/cczquuAC.s:624    .text.USB_ReadPacket:0000000000000000 $t
+     /tmp/cczquuAC.s:631    .text.USB_ReadPacket:0000000000000000 USB_ReadPacket
+     /tmp/cczquuAC.s:639    .text.USB_EPSetStall:0000000000000000 $t
+     /tmp/cczquuAC.s:646    .text.USB_EPSetStall:0000000000000000 USB_EPSetStall
+     /tmp/cczquuAC.s:688    .text.USB_EPClearStall:0000000000000000 $t
+     /tmp/cczquuAC.s:695    .text.USB_EPClearStall:0000000000000000 USB_EPClearStall
+     /tmp/cczquuAC.s:750    .text.USB_StopDevice:0000000000000000 $t
+     /tmp/cczquuAC.s:757    .text.USB_StopDevice:0000000000000000 USB_StopDevice
+     /tmp/cczquuAC.s:771    .text.USB_SetDevAddress:0000000000000000 $t
+     /tmp/cczquuAC.s:778    .text.USB_SetDevAddress:0000000000000000 USB_SetDevAddress
+     /tmp/cczquuAC.s:790    .text.USB_DevConnect:0000000000000000 $t
+     /tmp/cczquuAC.s:797    .text.USB_DevConnect:0000000000000000 USB_DevConnect
+     /tmp/cczquuAC.s:805    .text.USB_DevDisconnect:0000000000000000 $t
+     /tmp/cczquuAC.s:812    .text.USB_DevDisconnect:0000000000000000 USB_DevDisconnect
+     /tmp/cczquuAC.s:820    .text.USB_ReadInterrupts:0000000000000000 $t
+     /tmp/cczquuAC.s:827    .text.USB_ReadInterrupts:0000000000000000 USB_ReadInterrupts
+     /tmp/cczquuAC.s:835    .text.USB_ReadDevAllOutEpInterrupt:0000000000000000 $t
+     /tmp/cczquuAC.s:842    .text.USB_ReadDevAllOutEpInterrupt:0000000000000000 USB_ReadDevAllOutEpInterrupt
+     /tmp/cczquuAC.s:850    .text.USB_ReadDevAllInEpInterrupt:0000000000000000 $t
+     /tmp/cczquuAC.s:857    .text.USB_ReadDevAllInEpInterrupt:0000000000000000 USB_ReadDevAllInEpInterrupt
+     /tmp/cczquuAC.s:865    .text.USB_ReadDevOutEPInterrupt:0000000000000000 $t
+     /tmp/cczquuAC.s:872    .text.USB_ReadDevOutEPInterrupt:0000000000000000 USB_ReadDevOutEPInterrupt
+     /tmp/cczquuAC.s:880    .text.USB_ReadDevInEPInterrupt:0000000000000000 $t
+     /tmp/cczquuAC.s:887    .text.USB_ReadDevInEPInterrupt:0000000000000000 USB_ReadDevInEPInterrupt
+     /tmp/cczquuAC.s:895    .text.USB_ClearInterrupts:0000000000000000 $t
+     /tmp/cczquuAC.s:902    .text.USB_ClearInterrupts:0000000000000000 USB_ClearInterrupts
+     /tmp/cczquuAC.s:909    .text.USB_EP0_OutStart:0000000000000000 $t
+     /tmp/cczquuAC.s:916    .text.USB_EP0_OutStart:0000000000000000 USB_EP0_OutStart
+     /tmp/cczquuAC.s:924    .text.USB_ActivateRemoteWakeup:0000000000000000 $t
+     /tmp/cczquuAC.s:931    .text.USB_ActivateRemoteWakeup:0000000000000000 USB_ActivateRemoteWakeup
+     /tmp/cczquuAC.s:942    .text.USB_DeActivateRemoteWakeup:0000000000000000 $t
+     /tmp/cczquuAC.s:949    .text.USB_DeActivateRemoteWakeup:0000000000000000 USB_DeActivateRemoteWakeup
+     /tmp/cczquuAC.s:962    .text.USB_WritePMA:0000000000000000 $t
+ARM GAS  /tmp/cczquuAC.s 			page 24
 
 
-     /tmp/ccssEE41.s:969    .text.USB_WritePMA:0000000000000000 USB_WritePMA
-     /tmp/ccssEE41.s:994    .text.USB_EPStartXfer:0000000000000000 $t
-     /tmp/ccssEE41.s:1001   .text.USB_EPStartXfer:0000000000000000 USB_EPStartXfer
-     /tmp/ccssEE41.s:1286   .text.USB_ReadPMA:0000000000000000 $t
-     /tmp/ccssEE41.s:1293   .text.USB_ReadPMA:0000000000000000 USB_ReadPMA
+     /tmp/cczquuAC.s:969    .text.USB_WritePMA:0000000000000000 USB_WritePMA
+     /tmp/cczquuAC.s:994    .text.USB_EPStartXfer:0000000000000000 $t
+     /tmp/cczquuAC.s:1001   .text.USB_EPStartXfer:0000000000000000 USB_EPStartXfer
+     /tmp/cczquuAC.s:1286   .text.USB_ReadPMA:0000000000000000 $t
+     /tmp/cczquuAC.s:1293   .text.USB_ReadPMA:0000000000000000 USB_ReadPMA
 
 NO UNDEFINED SYMBOLS
