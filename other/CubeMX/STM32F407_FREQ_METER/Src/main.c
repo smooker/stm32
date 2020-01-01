@@ -92,6 +92,30 @@ int main(void)
   MX_FSMC_Init();
   /* USER CODE BEGIN 2 */
 
+  //here
+
+//  HAL_GPIO_WritePin(RST_GPIO_Port, RST_Pin, GPIO_PIN_RESET);
+//  HAL_Delay(10);
+//  HAL_GPIO_WritePin(RST_GPIO_Port, RST_Pin, GPIO_PIN_SET);
+
+  ILI9341_Init();
+  ILI9341_setRotation(3);
+
+  ILI9341_Fill(COLOR_BLUE);
+
+  //Draw and fill circle
+  ILI9341_drawCircle(50,50, 40, COLOR_GREEN);
+  ILI9341_fillCircle(110,190, 80, COLOR_RED);
+  //Print text
+  ILI9341_printText("HELLO", 60, 90, COLOR_YELLOW, COLOR_YELLOW, 5);
+  //Print-Fill triangle
+  ILI9341_fillTriangle(10, 160, 110, 160, 190, 300, COLOR_BLACK);
+
+  HAL_Delay(1000);
+
+
+//  ILI9341_printImage(50, 50, 80, 130, myImage, sizeof(myImage));
+
   /* USER CODE END 2 */
 
   /* Infinite loop */

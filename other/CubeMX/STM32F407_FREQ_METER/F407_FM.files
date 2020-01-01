@@ -856,6 +856,8 @@ Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_tim.c
 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usart.c
 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c
 Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_utils.c
+LCD/MA_ILI9341.h
+LCD/MA_ILI9341.c
 Inc/main.h
 Inc/stm32f4xx_hal_conf.h
 Inc/stm32f4xx_it.h
@@ -863,3 +865,4 @@ Src/main.c
 Src/stm32f4xx_hal_msp.c
 Src/stm32f4xx_it.c
 Src/system_stm32f4xx.c
+
