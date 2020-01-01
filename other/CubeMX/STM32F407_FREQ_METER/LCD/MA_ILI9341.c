@@ -71,7 +71,7 @@ void ILI9341_Init(void)
 
      ILI9341_SendCommand16(ILI9341_FRC);
    ILI9341_SendData16(0);
-   ILI9341_SendData16(0x1F);
+   ILI9341_SendData16(0x1B);
    //-------------ddram ----------------------------
    ILI9341_SendCommand16 (ILI9341_COLUMN_ADDR); // column set
    ILI9341_SendData16   (0x00); // x0_HIGH---0
@@ -118,8 +118,9 @@ void ILI9341_Init(void)
 //5. Write data to a single pixel
 void ILI9341_DrawPixel(uint16_t x, uint16_t y, uint16_t color) {
   ILI9341_SetCursorPosition(x, y, x, y);
-    ILI9341_SendData16(color>>8);
-    ILI9341_SendData16(color&0xFF);
+    //ILI9341_SendData16(color>>8);
+    //ILI9341_SendData16(color&0xFF);
+  ILI9341_SendData16(color&0xFFFF);
 }
 //6. Fill the entire screen with a background color
 void ILI9341_Fill(uint16_t color) {
@@ -136,8 +137,10 @@ void ILI9341_Fill(uint16_t color) {
 	
 	while (n) {
 			n--;
-       ILI9341_SendData16(color>>8);
-                ILI9341_SendData16(color&0xff);
+            ILI9341_SendData16(color);
+       //smooker
+       //ILI9341_SendData16(color>>8);
+       //         ILI9341_SendData16(color&0xff);
 	}
 }
 //7. Rectangle drawing functions
@@ -147,15 +150,16 @@ void ILI9341_Fill_Rect(unsigned int x0,unsigned int y0, unsigned int x1,unsigned
 	ILI9341_SetCursorPosition(x0, y0, x1, y1);
 	while (n) {
 			n--;
-      ILI9341_SendData16(color>>8);
-                ILI9341_SendData16(color&0xff);
+        ILI9341_SendData16(color);
+//      ILI9341_SendData16(color>>8);
+//                ILI9341_SendData16(color&0xff);
 	}
 }
 
 //8. Circle drawing functions
 void ILI9341_drawCircle(int16_t x0, int16_t y0, int16_t r, uint16_t color)
 {
-	int16_t f = 1 - r;
+  int16_t f = 1 - r;
   int16_t ddF_x = 1;
   int16_t ddF_y = -2 * r;
   int16_t x = 0;

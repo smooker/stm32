@@ -106,8 +106,10 @@ int main(void)
   //Draw and fill circle
   ILI9341_drawCircle(50,50, 40, COLOR_GREEN);
   ILI9341_fillCircle(110,190, 80, COLOR_RED);
+
   //Print text
-  ILI9341_printText("HELLO", 60, 90, COLOR_YELLOW, COLOR_YELLOW, 5);
+  ILI9341_printText("LZ3NY", 20, 80, COLOR_YELLOW, COLOR_YELLOW, 4);
+  ILI9341_printText("LZ1CCM", 20, 120, COLOR_YELLOW, COLOR_YELLOW, 4);
   //Print-Fill triangle
   ILI9341_fillTriangle(10, 160, 110, 160, 190, 300, COLOR_BLACK);
 
