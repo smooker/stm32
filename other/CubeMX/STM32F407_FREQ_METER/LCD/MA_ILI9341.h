@@ -358,9 +358,9 @@ const unsigned char font1[] = {
 
 //***** Functions prototypes *****//
 //1. Write Command to LCD
-void ILI9341_SendCommand(uint8_t com);
+void ILI9341_SendCommand16(uint8_t com);
 //2. Write data to LCD
-void ILI9341_SendData(uint8_t data);
+void ILI9341_SendData16(uint16_t data);
 //3. Set cursor position
 void ILI9341_SetCursorPosition(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2);
 //4. Initialise function
