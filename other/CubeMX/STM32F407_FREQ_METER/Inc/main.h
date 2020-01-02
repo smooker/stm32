@@ -29,10 +29,10 @@ extern "C" {
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f4xx_hal.h"
-#include "../LCD/MA_ILI9341.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "../LCD/MA_ILI9341.h"
 
 /* USER CODE END Includes */
 
