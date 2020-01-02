@@ -15,3 +15,6 @@
 [submodule "dfu-util"]
 	path = dfu-util
 	url = git://git.code.sf.net/p/dfu-util/dfu-util
+[submodule "qemu_stm32"]
+	path = qemu_stm32
+	url = https://github.com/beckus/qemu_stm32.git
