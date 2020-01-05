@@ -25,6 +25,8 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "usbd_cdc_if.h"
+#include "stdio.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -68,6 +70,31 @@ static void MX_USB_OTG_HS_PCD_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+
+//#ifdef __GNUC__
+///* With GCC/RAISONANCE, small printf (option LD Linker->Libraries->Small printf
+//   set to 'Yes') calls __io_putchar() */
+//#define PUTCHAR_PROTOTYPE int __io_putchar(int ch)
+//#else
+//#define PUTCHAR_PROTOTYPE int fputc(int ch, FILE *f)
+//#endif /* __GNUC__ */
+/**
+ * @brief  Retargets the C library printf function to the USART.
+ * @param  None
+ * @retval None
+ */
+int __io_putchar(int ch) {
+  /* Place your implementation of fputc here */
+  /* e.g. write a character to the EVAL_COM1 and Loop until the end of
+   * transmission */
+//    const char buffer[] = "G";
+    HAL_GPIO_TogglePin(LED_D2_Pin, LED_D2_GPIO_Port);
+//  HAL_UART_Transmit(&huart1, (uint8_t *)&ch, 1, 0xFFFF);
+//#error "putchar prototype not defined!"
+    while(!(CDC_Transmit_FS(ch, 1) == USBD_BUSY));
+//    CDC_Transmit_FS(ch, 1);
+  return ch;
+}
 
 /* USER CODE END 0 */
 
@@ -137,6 +164,11 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+
+  char buffer[] = "proba\r\n";
+
+  int i = 0;
+
   while (1)
   {
     /* USER CODE END WHILE */
@@ -150,12 +182,13 @@ int main(void)
     ILI9341_printText("LZ3NY", 20, 80, COLOR_YELLOW, COLOR_YELLOW, 4);
     //Print-Fill triangle
     ILI9341_fillTriangle(10, 160, 110, 160, 190, 300, COLOR_BLACK);
-    HAL_Delay(3000);
+    HAL_Delay(1000);
     ILI9341_printText("LZ1CCM", 20, 120, COLOR_YELLOW, COLOR_YELLOW, 4);
-    HAL_Delay(3000);
+    HAL_Delay(1000);
 
-    char *msg = "ALABALA\r\n";
-    CDC_Transmit_FS(&msg, strlen(msg));
+    CDC_Transmit_FS(buffer, sizeof(buffer));
+
+    printf("cnt:%03d\r\n", i++);
     HAL_Delay(100);
   }
   /* USER CODE END 3 */
@@ -330,6 +363,9 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
   __HAL_RCC_GPIOD_CLK_ENABLE();
 
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOA, LED_D2_Pin|LED_D3_Pin, GPIO_PIN_RESET);
+
   /*Configure GPIO pins : PE2 PE3 PE4 PE5 
                            PE6 PE0 PE1 */
   GPIO_InitStruct.Pin = GPIO_PIN_2|GPIO_PIN_3|GPIO_PIN_4|GPIO_PIN_5 
@@ -347,15 +383,20 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
   /*Configure GPIO pins : PA0 PA1 PA2 PA3 
-                           PA4 PA5 PA6 PA7 
-                           PA8 PA9 PA10 PA13 
-                           PA14 PA15 */
+                           PA4 PA5 PA8 PA9 
+                           PA10 PA13 PA14 PA15 */
   GPIO_InitStruct.Pin = GPIO_PIN_0|GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3 
-                          |GPIO_PIN_4|GPIO_PIN_5|GPIO_PIN_6|GPIO_PIN_7 
-                          |GPIO_PIN_8|GPIO_PIN_9|GPIO_PIN_10|GPIO_PIN_13 
-                          |GPIO_PIN_14|GPIO_PIN_15;
+                          |GPIO_PIN_4|GPIO_PIN_5|GPIO_PIN_8|GPIO_PIN_9 
+                          |GPIO_PIN_10|GPIO_PIN_13|GPIO_PIN_14|GPIO_PIN_15;
   GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : LED_D2_Pin LED_D3_Pin */
+  GPIO_InitStruct.Pin = LED_D2_Pin|LED_D3_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
   /*Configure GPIO pins : PB0 PB1 PB2 PB11 
@@ -443,6 +484,7 @@ void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler_Debug */
   /* User can add his own implementation to report the HAL error return state */
+    printf("Error_Handler\r\n");
 
   /* USER CODE END Error_Handler_Debug */
 }
@@ -460,6 +502,7 @@ void assert_failed(uint8_t *file, uint32_t line)
   /* USER CODE BEGIN 6 */
   /* User can add his own implementation to report the file name and line number,
      tex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
+    printf("Wrong parameters value: file %s on line %ld\r\n", file, line);
   /* USER CODE END 6 */
 }
 #endif /* USE_FULL_ASSERT */

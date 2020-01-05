@@ -1,0 +1,2 @@
+#!/bin/bash
+~/.local/bin/arm-none-eabi-gdb -d ./ -f /home/smooker/src/stm32/other/CubeMX/usart/build/usart.elf

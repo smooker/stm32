@@ -1004,3 +1004,4 @@ Src/stm32f4xx_it.c
 Src/system_stm32f4xx.c
 startup_stm32f407xx.s
 Src/usbd_cdc_if.c
+Src/syscalls.c

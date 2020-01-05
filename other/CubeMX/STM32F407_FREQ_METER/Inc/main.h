@@ -32,6 +32,7 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+//#include <stdio.h>
 #include "../LCD/MA_ILI9341.h"
 
 /* USER CODE END Includes */
@@ -59,6 +60,10 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define LED_D2_Pin GPIO_PIN_6
+#define LED_D2_GPIO_Port GPIOA
+#define LED_D3_Pin GPIO_PIN_7
+#define LED_D3_GPIO_Port GPIOA
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */
