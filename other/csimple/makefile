@@ -10,7 +10,7 @@ build: test_program.c startup_stm32f103xb.s stm32.ld clean
 	arm-none-eabi-ld -Tstm32.ld -o test_program.elf startup.o test_program.o
 	arm-none-eabi-objcopy -O binary test_program.elf test_program.bin
 
-build_debug: test_program.c startup_stm32f103xb.s stm32.ld clean
+build_debug: test_program.c startup.c stm32.ld clean
 	@echo
 	@echo "Build debug image"
 #	arm-none-eabi-gcc -O0 -c -g -mcpu=cortex-m3 -mthumb -o system_stm32f1xx.o system_stm32f1xx.c

@@ -147,6 +147,10 @@ USBD_CDC_ItfTypeDef USBD_Interface_fops_FS =
   CDC_Receive_FS
 };
 
+static uint8_t lineCoding[7]  //115200, 8N1
+              = {0x00, 0xc2, 0x01, 0x00, 0x00, 0x00, 0x08};
+
+
 /* Private functions ---------------------------------------------------------*/
 /**
   * @brief  Initializes the CDC media low layer over the FS USB IP
@@ -183,6 +187,7 @@ static int8_t CDC_DeInit_FS(void)
 static int8_t CDC_Control_FS(uint8_t cmd, uint8_t* pbuf, uint16_t length)
 {
   /* USER CODE BEGIN 5 */
+    printf("wow\r\n");
   switch(cmd)
   {
     case CDC_SEND_ENCAPSULATED_COMMAND:
@@ -222,13 +227,22 @@ static int8_t CDC_Control_FS(uint8_t cmd, uint8_t* pbuf, uint16_t length)
   /*                                        4 - Space                            */
   /* 6      | bDataBits  |   1   | Number Data bits (5, 6, 7, 8 or 16).          */
   /*******************************************************************************/
-    case CDC_SET_LINE_CODING:
 
+    case CDC_SET_LINE_CODING:
+      memcpy(lineCoding, pbuf, sizeof(lineCoding));
     break;
 
     case CDC_GET_LINE_CODING:
-
+      memcpy(pbuf, lineCoding, sizeof(lineCoding));
     break;
+
+//    case CDC_SET_LINE_CODING:
+
+//    break;
+
+//    case CDC_GET_LINE_CODING:
+
+//    break;
 
     case CDC_SET_CONTROL_LINE_STATE:
 
@@ -282,6 +296,7 @@ static int8_t CDC_Receive_FS(uint8_t* Buf, uint32_t *Len)
   */
 uint8_t CDC_Transmit_FS(uint8_t* Buf, uint16_t Len)
 {
+//  CDC_Init_FS();
   uint8_t result = USBD_OK;
   /* USER CODE BEGIN 7 */
   USBD_CDC_HandleTypeDef *hcdc = (USBD_CDC_HandleTypeDef*)hUsbDeviceFS.pClassData;

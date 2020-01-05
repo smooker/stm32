@@ -37,6 +37,8 @@ extern "C" {
 
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
+#define LED_D2_Pin GPIO_PIN_13
+#define LED_D2_GPIO_Port GPIOC
 
 /* USER CODE END ET */
 
@@ -58,8 +60,6 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define LED_GREEN_Pin GPIO_PIN_13
-#define LED_GREEN_GPIO_Port GPIOC
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */
