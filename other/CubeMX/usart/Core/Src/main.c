@@ -87,6 +87,15 @@ PUTCHAR_PROTOTYPE {
 
   HAL_UART_Transmit(&huart1, (uint8_t *)&ch, 1, 0xFFFF);
   while(!(CDC_Transmit_FS(&ch, 1) == USBD_BUSY));
+  HAL_Delay(1);
+  asm("NOP");
+  asm("NOP");
+  asm("NOP");
+  asm("NOP");
+  asm("NOP");
+  asm("NOP");
+
+//  CDC_Transmit_FS(&ch, 1);
 //  HAL_UART_Transmit(&huart1, (uint8_t *)&asdf, 1, 0xFFFF);
   return ch;
 }
@@ -143,10 +152,10 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-    printf("welcome to www.waveshere.com !!! %d\n\r", cnt++);
-    HAL_Delay(1000);
+    printf("welcome to www.waveshere.com !!! %05d\n", cnt++);
+    HAL_Delay(200);
     HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_SET);
-    HAL_Delay(1000);
+    HAL_Delay(200);
 //    static uint8_t asdf = 123;
 //    while(asdf != 0) {
 //        asdf = CDC_Transmit_FS("X", 1);
