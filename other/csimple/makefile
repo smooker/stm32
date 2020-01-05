@@ -2,21 +2,23 @@ all:
 	@echo "Make targets"
 	@cat makefile | grep '^[a-zA-Z]' | sed 's/:.*//g' | sed 's/^/  /g'
 
-build: test_program.c startup.c stm32.ld clean
+build: test_program.c startup_stm32f103xb.s stm32.ld clean
 	@echo
 	@echo "Build production image"
 	arm-none-eabi-gcc -c -mcpu=cortex-m3 -mthumb -o test_program.o test_program.c
-	arm-none-eabi-gcc -c -mcpu=cortex-m3 -mthumb -o startup.o startup.c
+	arm-none-eabi-gcc -c -mcpu=cortex-m3 -mthumb -o startup.o startup_stm32f103xb.s
 	arm-none-eabi-ld -Tstm32.ld -o test_program.elf startup.o test_program.o
 	arm-none-eabi-objcopy -O binary test_program.elf test_program.bin
 
-build_debug: test_program.c startup.c stm32.ld clean
+build_debug: test_program.c startup_stm32f103xb.s stm32.ld clean
 	@echo
 	@echo "Build debug image"
+#	arm-none-eabi-gcc -O0 -c -g -mcpu=cortex-m3 -mthumb -o system_stm32f1xx.o system_stm32f1xx.c
 	arm-none-eabi-gcc -O0 -c -g -mcpu=cortex-m3 -mthumb -o test_program.o test_program.c
 	arm-none-eabi-gcc -O0 -c -g -mcpu=cortex-m3 -mthumb -o startup.o startup.c
 	arm-none-eabi-ld -Tstm32.ld -o test_program.elf startup.o test_program.o
 	arm-none-eabi-objcopy -O binary test_program.elf test_program.bin
+	arm-none-eabi-objcopy -O ihex test_program.elf test_program.hex
 
 print_gcc_assembler:
 	@echo
@@ -24,8 +26,8 @@ print_gcc_assembler:
 	arm-none-eabi-gcc -S -mcpu=cortex-m3 -mthumb test_program.c
 	cat test_program.s
 	@echo
-	@echo "Print assembler code of startup.c using the arm-none-eabi-gcc -S option"
-	arm-none-eabi-gcc -S -mcpu=cortex-m3 -mthumb startup.c
+	@echo "Print assembler code of startup_stm32f103xb.s using the arm-none-eabi-gcc -S option"
+	arm-none-eabi-gcc -S -mcpu=cortex-m3 -mthumb startup_stm32f103xb.s
 	cat startup.s
 
 print_disassemble:
@@ -78,4 +80,4 @@ clean:
 	rm -f *.o
 	rm -f *.elf
 	rm -f *.bin
-	rm -f *.s
+	rm -f *.hex
