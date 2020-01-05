@@ -1,0 +1,21 @@
+# 
+arm-none-eabi-objdump -h build/syscalls.o
+arm-none-eabi-nm --numeric-sort  build/usart.elf
+
+
+gdb-multiarch ./usart.elf
+
+>>> stop
+>>> load usart.hex
+Loading section .sec1, size 0x7078 lma 0x8000000
+Start address 0x8005c98, load size 28792
+Transfer rate: 17 KB/sec, 959 bytes/write.
+>>> compare-sections
+Section .isr_vector, range 0x8000000 -- 0x800010c: matched.
+Section .text, range 0x800010c -- 0x8006cd8: matched.
+Section .rodata, range 0x8006cd8 -- 0x8006e90: matched.
+Section .init_array, range 0x8006e90 -- 0x8006e94: matched.
+Section .fini_array, range 0x8006e94 -- 0x8006e98: matched.
+Section .data, range 0x8006e98 -- 0x8007078: matched.
+
+
