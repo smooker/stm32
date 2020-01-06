@@ -100,6 +100,9 @@ uint8_t UserTxBufferFS[APP_TX_DATA_SIZE];
 
 /* USER CODE BEGIN PRIVATE_VARIABLES */
 
+static uint8_t lineCoding[7]  //115200, 8N1
+              = {0x00, 0xc2, 0x01, 0x00, 0x00, 0x00, 0x08};
+
 /* USER CODE END PRIVATE_VARIABLES */
 
 /**
@@ -146,9 +149,6 @@ USBD_CDC_ItfTypeDef USBD_Interface_fops_FS =
   CDC_Control_FS,
   CDC_Receive_FS
 };
-
-static uint8_t lineCoding[7]  //115200, 8N1
-              = {0x00, 0xc2, 0x01, 0x00, 0x00, 0x00, 0x08};
 
 
 /* Private functions ---------------------------------------------------------*/
