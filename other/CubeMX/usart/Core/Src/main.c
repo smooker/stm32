@@ -25,6 +25,12 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
+#include <inttypes.h>
+#include "usbd_cdc_if.h"
+#include "stm32f103xb.h"
+#include "stm32f1xx_hal_rcc_ex.h"
+#include "stm32f1xx_hal_flash.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -44,8 +50,13 @@
 
 /* Private variables ---------------------------------------------------------*/
 UART_HandleTypeDef huart1;
+DMA_HandleTypeDef hdma_usart1_rx;
+DMA_HandleTypeDef hdma_usart1_tx;
 
 /* USER CODE BEGIN PV */
+
+/* Single byte to store input */
+uint8_t byte;
 
 /* USER CODE END PV */
 
@@ -53,20 +64,24 @@ UART_HandleTypeDef huart1;
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_USART1_UART_Init(void);
+static void MX_DMA_Init(void);
 /* USER CODE BEGIN PFP */
+
+/* This callback is called by the HAL_UART_IRQHandler when the given number of bytes are received */
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+  if (huart->Instance == USART1)
+  {
+//    HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
+    HAL_UART_Receive_IT(&huart1, byte, 1);
+      asm("bkpt 255");
+  }
+}
 
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-/*
-void _putchar(char character)
-{
-  int ch = character;
-  // send char to console etc.
-    HAL_UART_Transmit(&huart1, (uint8_t*)&ch, 1, 0xFFFF);
-}
-*/
 
 #ifdef __GNUC__
 /* With GCC/RAISONANCE, small printf (option LD Linker->Libraries->Small printf
@@ -86,17 +101,13 @@ PUTCHAR_PROTOTYPE {
    * transmission */
 
   HAL_UART_Transmit(&huart1, (uint8_t *)&ch, 1, 0xFFFF);
-  while(!(CDC_Transmit_FS(&ch, 1) == USBD_BUSY));
-  HAL_Delay(1);
-  asm("NOP");
-  asm("NOP");
-  asm("NOP");
-  asm("NOP");
-  asm("NOP");
-  asm("NOP");
+  while(!(CDC_Transmit_FS((uint8_t *)&ch, 1) == USBD_BUSY));
+  HAL_Delay(5);
 
+//  asm("NOP");
 //  CDC_Transmit_FS(&ch, 1);
 //  HAL_UART_Transmit(&huart1, (uint8_t *)&asdf, 1, 0xFFFF);
+
   return ch;
 }
 
@@ -133,33 +144,28 @@ int main(void)
   MX_GPIO_Init();
   MX_USART1_UART_Init();
   MX_USB_DEVICE_Init();
+  MX_DMA_Init();
   /* USER CODE BEGIN 2 */
 
-  printf("\n\r UART Printf Example: retarget the C library printf function to "
-         "the UART\n\r");
+  printf("\nUART Printf Example: retarget the C library printf function to the UART\n");
 
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 
-  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_SET);
-
   int cnt = 0;
+
   while (1) {
     HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);
 
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-    printf("welcome to www.waveshere.com !!! %05d\n", cnt++);
+    printf("keepalive: %05d\r\n", cnt++);
     HAL_Delay(200);
     HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_SET);
     HAL_Delay(200);
-//    static uint8_t asdf = 123;
-//    while(asdf != 0) {
-//        asdf = CDC_Transmit_FS("X", 1);
-//  }
   }
   /* USER CODE END 3 */
 }
@@ -237,7 +243,31 @@ static void MX_USART1_UART_Init(void)
   }
   /* USER CODE BEGIN USART1_Init 2 */
 
+  /* Peripheral interrupt init*/
+  HAL_NVIC_SetPriority(USART1_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(USART1_IRQn);
+  __HAL_UART_ENABLE_IT(&huart1, UART_IT_RXNE);
+
   /* USER CODE END USART1_Init 2 */
+
+}
+
+/** 
+  * Enable DMA controller clock
+  */
+static void MX_DMA_Init(void) 
+{
+
+  /* DMA controller clock enable */
+  __HAL_RCC_DMA1_CLK_ENABLE();
+
+  /* DMA interrupt init */
+  /* DMA1_Channel4_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA1_Channel4_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA1_Channel4_IRQn);
+  /* DMA1_Channel5_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA1_Channel5_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA1_Channel5_IRQn);
 
 }
 
@@ -319,7 +349,7 @@ void assert_failed(uint8_t *file, uint32_t line)
      number,
      tex: printf("Wrong parameters value: file %s on line %d\r\n", file, line)
    */
-  printf("Wrong parameters value: file %s on line %ul\r\n", file, line);
+  printf("Wrong parameters value: file %s on line %lu\r\n", file, (long unsigned int)line);
   /* USER CODE END 6 */
 }
 #endif /* USE_FULL_ASSERT */

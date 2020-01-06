@@ -1,7 +1,6 @@
 Core/Inc/main.h
 Core/Inc/stm32f1xx_hal_conf.h
 Core/Inc/stm32f1xx_it.h
-Core/Src/main.c
 Core/Src/stm32f1xx_hal_msp.c
 Core/Src/stm32f1xx_it.c
 Core/Src/system_stm32f1xx.c
@@ -396,3 +395,4 @@ USB_DEVICE/Target/usbd_conf.c
 USB_DEVICE/Target/usbd_conf.h
 startup_stm32f103xb.s
 syscalls.c
+Core/Src/main.c
