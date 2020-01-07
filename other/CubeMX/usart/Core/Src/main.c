@@ -102,7 +102,7 @@ PUTCHAR_PROTOTYPE {
 
   HAL_UART_Transmit(&huart1, (uint8_t *)&ch, 1, 0xFFFF);
   while(!(CDC_Transmit_FS((uint8_t *)&ch, 1) == USBD_BUSY));
-  HAL_Delay(5);
+//  HAL_Delay(5);
 
 //  asm("NOP");
 //  CDC_Transmit_FS(&ch, 1);
@@ -285,6 +285,20 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOD_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
+
+  //PULL DOWN USB DP TO FORCE RENUMERATION
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_12, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin : PA12 */
+  GPIO_InitStruct.Pin = GPIO_PIN_12;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+  HAL_Delay(100);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);

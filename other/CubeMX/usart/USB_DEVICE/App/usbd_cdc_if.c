@@ -172,6 +172,13 @@ static int8_t CDC_Init_FS(void)
 static int8_t CDC_DeInit_FS(void)
 {
   /* USER CODE BEGIN 4 */
+    PCD_HandleTypeDef *hpcd = (PCD_HandleTypeDef *)hUsbDeviceFS.pData;
+
+    if (hpcd != NULL)
+    {
+       HAL_PCD_DevDisconnect(hpcd);
+       USBD_DeInit(&hUsbDeviceFS);
+    }
   return (USBD_OK);
   /* USER CODE END 4 */
 }

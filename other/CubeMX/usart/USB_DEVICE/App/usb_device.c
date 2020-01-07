@@ -56,6 +56,19 @@ USBD_HandleTypeDef hUsbDeviceFS;
  */
 /* USER CODE BEGIN 1 */
 
+void MX_USB_DEVICE_DeInit(void)
+{
+
+// PCD_HandleTypeDef *hpcd = (PCD_HandleTypeDef *)hUsbDeviceFS.pData;
+
+// if (hpcd != NULL)
+// {
+//    asm("bkpt 255");
+//    HAL_PCD_DevDisconnect(hpcd);
+//    USBD_DeInit(&hUsbDeviceFS);
+// }
+}
+
 /* USER CODE END 1 */
 
 /**
@@ -65,7 +78,9 @@ USBD_HandleTypeDef hUsbDeviceFS;
 void MX_USB_DEVICE_Init(void)
 {
   /* USER CODE BEGIN USB_DEVICE_Init_PreTreatment */
-  
+
+    MX_USB_DEVICE_DeInit();
+
   /* USER CODE END USB_DEVICE_Init_PreTreatment */
   
   /* Init Device Library, add supported class and start the library. */
@@ -87,7 +102,7 @@ void MX_USB_DEVICE_Init(void)
   }
 
   /* USER CODE BEGIN USB_DEVICE_Init_PostTreatment */
-  
+
   /* USER CODE END USB_DEVICE_Init_PostTreatment */
 }
 
