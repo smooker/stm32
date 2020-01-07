@@ -144,10 +144,11 @@ int main(void)
   MX_GPIO_Init();
   MX_USART1_UART_Init();
   MX_USB_DEVICE_Init();
+  HAL_Delay(2000);       //smooker give a time to CDC to establish connection
   MX_DMA_Init();
   /* USER CODE BEGIN 2 */
 
-  printf("\nUART Printf Example: retarget the C library printf function to the UART\n");
+  printf("\r\nUART Printf Example: retarget the C library printf function to the UART\r\n");
 
   /* USER CODE END 2 */
 
