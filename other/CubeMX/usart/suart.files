@@ -396,3 +396,5 @@ USB_DEVICE/Target/usbd_conf.h
 startup_stm32f103xb.s
 syscalls.c
 Core/Src/main.c
+eeprom/eeprom.c
+eeprom/eeprom.h
