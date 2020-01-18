@@ -33,7 +33,7 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#define  BKPT asm("bkpt 255")
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/

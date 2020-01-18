@@ -141,8 +141,8 @@ int main(void)
 
   /* USER CODE BEGIN SysInit */
 
-  HAL_FLASH_Unlock();
-  EE_Init();
+//  HAL_FLASH_Unlock();
+//  EE_Init();
 
   /* USER CODE END SysInit */
 
@@ -154,11 +154,13 @@ int main(void)
   MX_DMA_Init();
   /* USER CODE BEGIN 2 */
 
-  EE_ReadVariable(VirtAddVarTab[0], &VarDataTab[0]);
+  BKPT;
+
+//  EE_ReadVariable(VirtAddVarTab[0], &VarDataTab[0]);
 
   printf("\r\nUART Printf Example: retarget the C library printf function to the UART.\r\nStarted: %05d times.\r\n", VarDataTab[0]);
-  VarDataTab[0]++;
-  EE_WriteVariable(VirtAddVarTab[0], VarDataTab[0]);
+//  VarDataTab[0]++;
+//  EE_WriteVariable(VirtAddVarTab[0], VarDataTab[0]);
 
   /* USER CODE END 2 */
 
