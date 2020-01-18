@@ -68,7 +68,7 @@ uint16_t EE_Init(void)
 
   /* Fill EraseInit structure*/
   s_eraseinit.TypeErase   = FLASH_TYPEERASE_PAGES;
-  s_eraseinit.PageAddress = PAGE0_ID;
+  s_eraseinit.PageAddress = PAGE0_BASE_ADDRESS;
   s_eraseinit.NbPages     = 1;
   
   /* Check for invalid header states and repair if necessary */
@@ -155,7 +155,7 @@ uint16_t EE_Init(void)
           return flashstatus;
         }
         s_eraseinit.TypeErase   = FLASH_TYPEERASE_PAGES;
-        s_eraseinit.PageAddress = PAGE1_ID;
+        s_eraseinit.PageAddress = PAGE1_BASE_ADDRESS;
         s_eraseinit.NbPages     = 1;
         /* Erase Page1 */
         if(!EE_VerifyPageFullyErased(PAGE1_BASE_ADDRESS))
@@ -171,7 +171,7 @@ uint16_t EE_Init(void)
       else if (pagestatus1 == ERASED) /* Page0 receive, Page1 erased */
       {
         s_eraseinit.TypeErase   = FLASH_TYPEERASE_PAGES;
-        s_eraseinit.PageAddress = PAGE1_ID;
+        s_eraseinit.PageAddress = PAGE1_BASE_ADDRESS;
         s_eraseinit.NbPages     = 1;
         /* Erase Page1 */
         if(!EE_VerifyPageFullyErased(PAGE1_BASE_ADDRESS))
@@ -217,7 +217,7 @@ uint16_t EE_Init(void)
       else if (pagestatus1 == ERASED) /* Page0 valid, Page1 erased */
       {
         s_eraseinit.TypeErase   = FLASH_TYPEERASE_PAGES;
-        s_eraseinit.PageAddress = PAGE1_ID;
+        s_eraseinit.PageAddress = PAGE1_BASE_ADDRESS;
         s_eraseinit.NbPages     = 1;
         /* Erase Page1 */
         if(!EE_VerifyPageFullyErased(PAGE1_BASE_ADDRESS))
@@ -264,7 +264,7 @@ uint16_t EE_Init(void)
           return flashstatus;
         }
         s_eraseinit.TypeErase   = FLASH_TYPEERASE_PAGES;
-        s_eraseinit.PageAddress = PAGE0_ID;
+        s_eraseinit.PageAddress = PAGE0_BASE_ADDRESS;
         s_eraseinit.NbPages     = 1;
         /* Erase Page0 */
         if(!EE_VerifyPageFullyErased(PAGE0_BASE_ADDRESS))
@@ -431,7 +431,7 @@ static HAL_StatusTypeDef EE_Format(void)
   FLASH_EraseInitTypeDef s_eraseinit;
 
   s_eraseinit.TypeErase   = FLASH_TYPEERASE_PAGES;
-  s_eraseinit.PageAddress = PAGE0_ID;
+  s_eraseinit.PageAddress = PAGE0_BASE_ADDRESS;
   s_eraseinit.NbPages     = 1;
   /* Erase Page0 */
   if(!EE_VerifyPageFullyErased(PAGE0_BASE_ADDRESS))
@@ -451,7 +451,7 @@ static HAL_StatusTypeDef EE_Format(void)
     return flashstatus;
   }
 
-  s_eraseinit.PageAddress = PAGE1_ID;
+  s_eraseinit.PageAddress = PAGE1_BASE_ADDRESS;
   /* Erase Page1 */
   if(!EE_VerifyPageFullyErased(PAGE1_BASE_ADDRESS))
   {  
@@ -627,7 +627,7 @@ static uint16_t EE_PageTransfer(uint16_t VirtAddress, uint16_t Data)
     newpageaddress = PAGE0_BASE_ADDRESS;
 
     /* Old page ID where variable will be taken from */
-    oldpageid = PAGE1_ID;
+    oldpageid = PAGE1_BASE_ADDRESS;
   }
   else if (validpage == PAGE0)  /* Page0 valid */
   {
@@ -635,7 +635,7 @@ static uint16_t EE_PageTransfer(uint16_t VirtAddress, uint16_t Data)
     newpageaddress = PAGE1_BASE_ADDRESS;
 
     /* Old page ID where variable will be taken from */
-    oldpageid = PAGE0_ID;
+    oldpageid = PAGE0_BASE_ADDRESS;
   }
   else
   {
