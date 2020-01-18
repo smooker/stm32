@@ -250,8 +250,6 @@ typedef struct
        /* STM32F101xG || STM32F103xG */ 
        /* STM32F105xC || STM32F107xC */
 
-#pragma message "smooker:FLASH_PAGE_SIZE:" XSTR(FLASH_PAGE_SIZE)
-
 /**
   * @}
   */

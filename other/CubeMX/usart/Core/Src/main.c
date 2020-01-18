@@ -51,15 +51,15 @@
 
 /* Private variables ---------------------------------------------------------*/
 UART_HandleTypeDef huart1;
-DMA_HandleTypeDef hdma_usart1_rx;
-DMA_HandleTypeDef hdma_usart1_tx;
+
+/* USER CODE BEGIN PV */
+// eeprom variables
 uint16_t VirtAddVarTab[NB_OF_VAR] = {0x5555, 0x6666, 0x7777};
 uint16_t VarDataTab[NB_OF_VAR] = {0, 0, 0};
 
-/* USER CODE BEGIN PV */
-
 /* Single byte to store input */
 uint8_t byte;
+uint32_t rxcnt = 0;
 
 /* USER CODE END PV */
 
@@ -67,7 +67,6 @@ uint8_t byte;
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_USART1_UART_Init(void);
-static void MX_DMA_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* This callback is called by the HAL_UART_IRQHandler when the given number of bytes are received */
@@ -75,9 +74,10 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
   if (huart->Instance == USART1)
   {
-//    HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
+    HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
     HAL_UART_Receive_IT(&huart1, byte, 1);
-      asm("bkpt 255");
+    BKPT;
+    rxcnt++;
   }
 }
 
@@ -141,8 +141,8 @@ int main(void)
 
   /* USER CODE BEGIN SysInit */
 
-//  HAL_FLASH_Unlock();
-//  EE_Init();
+  HAL_FLASH_Unlock();
+  EE_Init();
 
   /* USER CODE END SysInit */
 
@@ -150,17 +150,15 @@ int main(void)
   MX_GPIO_Init();
   MX_USART1_UART_Init();
   MX_USB_DEVICE_Init();
-  HAL_Delay(2000);       //smooker give a time to CDC to establish connection
-  MX_DMA_Init();
   /* USER CODE BEGIN 2 */
 
-  BKPT;
+//  BKPT;
 
-//  EE_ReadVariable(VirtAddVarTab[0], &VarDataTab[0]);
+  EE_ReadVariable(VirtAddVarTab[0], &VarDataTab[0]);
 
   printf("\r\nUART Printf Example: retarget the C library printf function to the UART.\r\nStarted: %05d times.\r\n", VarDataTab[0]);
-//  VarDataTab[0]++;
-//  EE_WriteVariable(VirtAddVarTab[0], VarDataTab[0]);
+  VarDataTab[0]++;
+  EE_WriteVariable(VirtAddVarTab[0], VarDataTab[0]);
 
   /* USER CODE END 2 */
 
@@ -175,7 +173,7 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-    printf("keepalive: %05d\r\n", cnt++);
+    printf("keepalive: %05d:%05d\r\n", cnt++, rxcnt);
     HAL_Delay(200);
     HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_SET);
     HAL_Delay(200);
@@ -215,7 +213,7 @@ void SystemClock_Config(void)
   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
 
-  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2) != HAL_OK)
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_1) != HAL_OK)
   {
     Error_Handler();
   }
@@ -265,25 +263,6 @@ static void MX_USART1_UART_Init(void)
 
 }
 
-/** 
-  * Enable DMA controller clock
-  */
-static void MX_DMA_Init(void) 
-{
-
-  /* DMA controller clock enable */
-  __HAL_RCC_DMA1_CLK_ENABLE();
-
-  /* DMA interrupt init */
-  /* DMA1_Channel4_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(DMA1_Channel4_IRQn, 0, 0);
-  HAL_NVIC_EnableIRQ(DMA1_Channel4_IRQn);
-  /* DMA1_Channel5_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(DMA1_Channel5_IRQn, 0, 0);
-  HAL_NVIC_EnableIRQ(DMA1_Channel5_IRQn);
-
-}
-
 /**
   * @brief GPIO Initialization Function
   * @param None
@@ -299,27 +278,13 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
-  //PULL DOWN USB DP TO FORCE RENUMERATION
-
-  /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_12, GPIO_PIN_RESET);
-
-  /*Configure GPIO pin : PA12 */
-  GPIO_InitStruct.Pin = GPIO_PIN_12;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_PULLUP;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-
-  HAL_Delay(100);
-
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);
 
   /*Configure GPIO pin : PC13 */
   GPIO_InitStruct.Pin = GPIO_PIN_13;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
