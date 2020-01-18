@@ -76,7 +76,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
   {
     HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
     HAL_UART_Receive_IT(&huart1, byte, 1);
-    BKPT;
+//    BKPT;
     rxcnt++;
   }
 }
@@ -308,9 +308,32 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
+/* USER CODE BEGIN 400 */
+
+  USB_Enumeration();
+
+/* USER CODE END 400 */
 }
 
 /* USER CODE BEGIN 4 */
+
+//PULL DOWN USB DP TO FORCE RENUMERATION
+void USB_Enumeration()
+{
+    GPIO_InitTypeDef GPIO_InitStruct = {0};
+
+    /*Configure GPIO pin Output Level */
+    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_12, GPIO_PIN_RESET);
+
+    /*Configure GPIO pin : PA12 */
+    GPIO_InitStruct.Pin = GPIO_PIN_12;
+    GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+    GPIO_InitStruct.Pull = GPIO_PULLUP;
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+    HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+    HAL_Delay(100);
+}
 
 /* USER CODE END 4 */
 
