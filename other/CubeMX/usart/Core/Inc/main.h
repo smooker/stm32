@@ -33,16 +33,24 @@ extern "C" {
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
-#define  BKPT asm("bkpt 255")
-#define XSTR(x) STR(x)
-#define STR(x) #x
-
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
+
+#define BKPT asm("bkpt 255")
+#define XSTR(x) STR(x)
+#define STR(x) #x
+
 #define LED_D2_Pin GPIO_PIN_13
 #define LED_D2_GPIO_Port GPIOC
+/* Size of Trasmission buffer */
+#define TXBUFFERSIZE                      (COUNTOF(aTxBuffer) - 1)
+/* Size of Reception buffer */
+#define RXBUFFERSIZE                      TXBUFFERSIZE
+
+/* Exported macro ------------------------------------------------------------*/
+#define COUNTOF(__BUFFER__)   (sizeof(__BUFFER__) / sizeof(*(__BUFFER__)))
 
 /* USER CODE END ET */
 
@@ -61,6 +69,7 @@ void Error_Handler(void);
 
 /* USER CODE BEGIN EFP */
     void USB_Enumeration();
+
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/

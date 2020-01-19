@@ -53,9 +53,18 @@
 UART_HandleTypeDef huart1;
 
 /* USER CODE BEGIN PV */
+
 // eeprom variables
 uint16_t VirtAddVarTab[NB_OF_VAR] = {0x5555, 0x6666, 0x7777};
 uint16_t VarDataTab[NB_OF_VAR] = {0, 0, 0};
+
+
+//UART
+__IO ITStatus UartReady = RESET;
+uint8_t aTxBuffer[] = "*UART*                     \n";
+uint8_t aRxBuffer[RXBUFFERSIZE];
+
+static uint16_t Buffercmp(uint8_t* pBuffer1, uint8_t* pBuffer2, uint16_t BufferLength);
 
 /* Single byte to store input */
 uint8_t byte;
@@ -72,13 +81,21 @@ static void MX_USART1_UART_Init(void);
 /* This callback is called by the HAL_UART_IRQHandler when the given number of bytes are received */
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
+  UartReady = SET;
+
   if (huart->Instance == USART1)
   {
     HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
-    HAL_UART_Receive_IT(&huart1, byte, 1);
-//    BKPT;
+    printf("rx: %02d:0x%02x\r\n", rxcnt, aRxBuffer[0]);
     rxcnt++;
   }
+}
+
+
+void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
+{
+  /* Set transmission flag: transfer complete */
+  UartReady = SET;
 }
 
 /* USER CODE END PFP */
@@ -103,15 +120,23 @@ PUTCHAR_PROTOTYPE {
   /* e.g. write a character to the EVAL_COM1 and Loop until the end of
    * transmission */
 
-  HAL_UART_Transmit(&huart1, (uint8_t *)&ch, 1, 0xFFFF);
-  while(!(CDC_Transmit_FS((uint8_t *)&ch, 1) == USBD_BUSY));
-//  HAL_Delay(5);
+    /* Reset transmission flag */
+//    UartReady = RESET;
+//    HAL_UART_Transmit_IT(&huart1, (uint8_t*)ch, 1);
+    HAL_UART_Transmit(&huart1, (uint8_t*)&ch, 1, 0x10);
 
-//  asm("NOP");
-//  CDC_Transmit_FS(&ch, 1);
-//  HAL_UART_Transmit(&huart1, (uint8_t *)&asdf, 1, 0xFFFF);
+//    if(HAL_UART_Transmit_IT(&huart1, (uint8_t*)&ch, 1) != HAL_OK)
+//    {
+//      Error_Handler();
+//    }
 
-  return ch;
+//    while (UartReady != SET)
+//    {
+//    }
+
+    while(!(CDC_Transmit_FS((uint8_t *)&ch, 1) == USBD_BUSY));
+
+    return ch;
 }
 
 /* USER CODE END 0 */
@@ -157,8 +182,16 @@ int main(void)
   EE_ReadVariable(VirtAddVarTab[0], &VarDataTab[0]);
 
   printf("\r\nUART Printf Example: retarget the C library printf function to the UART.\r\nStarted: %05d times.\r\n", VarDataTab[0]);
+
+//  if(HAL_UART_Transmit_IT(&huart1, (uint8_t*)aTxBuffer, TXBUFFERSIZE)!= HAL_OK)
+//  {
+//    Error_Handler();
+//  }
+
   VarDataTab[0]++;
   EE_WriteVariable(VirtAddVarTab[0], VarDataTab[0]);
+
+  UartReady = RESET;
 
   /* USER CODE END 2 */
 
@@ -166,6 +199,12 @@ int main(void)
   /* USER CODE BEGIN WHILE */
 
   int cnt = 0;
+
+  //
+  if(HAL_UART_Receive_IT(&huart1, (uint8_t *)aRxBuffer, RXBUFFERSIZE) != HAL_OK)
+  {
+    Error_Handler();
+  }
 
   while (1) {
     HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);
@@ -248,6 +287,12 @@ static void MX_USART1_UART_Init(void)
   huart1.Init.Mode = UART_MODE_TX_RX;
   huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
   huart1.Init.OverSampling = UART_OVERSAMPLING_16;
+
+  if(HAL_UART_DeInit(&huart1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
   if (HAL_UART_Init(&huart1) != HAL_OK)
   {
     Error_Handler();
