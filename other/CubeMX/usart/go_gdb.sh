@@ -1,2 +1,2 @@
 #!/bin/bash
-gdb-multiarch -x ./script.gdb
+gdb-multiarch -x ./script2.gdb

@@ -3,5 +3,6 @@ file ./build/usart.elf
 compare-sections
 #hbreak main
 #next
+#watch huart
 run
 

@@ -81,21 +81,22 @@ static void MX_USART1_UART_Init(void);
 /* This callback is called by the HAL_UART_IRQHandler when the given number of bytes are received */
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
-  UartReady = SET;
-
   if (huart->Instance == USART1)
   {
     HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
     printf("rx: %02d:0x%02x\r\n", rxcnt, aRxBuffer[0]);
     rxcnt++;
   }
+  BKPT;
 }
-
 
 void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
 {
-  /* Set transmission flag: transfer complete */
-  UartReady = SET;
+    if (huart->Instance == USART1)
+    {
+        /* Set transmission flag: transfer complete */
+        UartReady = SET;
+    }
 }
 
 /* USER CODE END PFP */
@@ -120,19 +121,25 @@ PUTCHAR_PROTOTYPE {
   /* e.g. write a character to the EVAL_COM1 and Loop until the end of
    * transmission */
 
-    /* Reset transmission flag */
-//    UartReady = RESET;
-//    HAL_UART_Transmit_IT(&huart1, (uint8_t*)ch, 1);
-    HAL_UART_Transmit(&huart1, (uint8_t*)&ch, 1, 0x10);
+// polling
+//    HAL_UART_Transmit(&huart1, (uint8_t*)&ch, 1, 0x10);
 
-//    if(HAL_UART_Transmit_IT(&huart1, (uint8_t*)&ch, 1) != HAL_OK)
+
+// interrupt
+    HAL_StatusTypeDef stat;
+
+    stat = HAL_UART_Transmit_IT(&huart1, (uint8_t*)&ch, 1);
+//    if(stat != HAL_OK)
 //    {
 //      Error_Handler();
 //    }
 
-//    while (UartReady != SET)
-//    {
-//    }
+//    /*##-5- Wait for the end of the transfer ###################################*/
+    while (UartReady != SET)
+    {
+    }
+
+    UartReady = RESET;
 
     while(!(CDC_Transmit_FS((uint8_t *)&ch, 1) == USBD_BUSY));
 
@@ -181,7 +188,7 @@ int main(void)
 
   EE_ReadVariable(VirtAddVarTab[0], &VarDataTab[0]);
 
-  printf("\r\nUART Printf Example: retarget the C library printf function to the UART.\r\nStarted: %05d times.\r\n", VarDataTab[0]);
+  printf("Started:%03d times.\r\n", VarDataTab[0]);
 
 //  if(HAL_UART_Transmit_IT(&huart1, (uint8_t*)aTxBuffer, TXBUFFERSIZE)!= HAL_OK)
 //  {
@@ -190,8 +197,6 @@ int main(void)
 
   VarDataTab[0]++;
   EE_WriteVariable(VirtAddVarTab[0], VarDataTab[0]);
-
-  UartReady = RESET;
 
   /* USER CODE END 2 */
 
@@ -286,7 +291,7 @@ static void MX_USART1_UART_Init(void)
   huart1.Init.Parity = UART_PARITY_NONE;
   huart1.Init.Mode = UART_MODE_TX_RX;
   huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
-  huart1.Init.OverSampling = UART_OVERSAMPLING_16;
+//  huart1.Init.OverSampling = UART_OVERSAMPLING_16;
 
   if(HAL_UART_DeInit(&huart1) != HAL_OK)
   {
@@ -415,8 +420,9 @@ void assert_failed(uint8_t *file, uint32_t line)
      number,
      tex: printf("Wrong parameters value: file %s on line %d\r\n", file, line)
    */
+
   printf("Wrong parameters value: file %s on line %lu\r\n", file, (long unsigned int)line);
-//  asm("bkpt 255");
+
   /* USER CODE END 6 */
 }
 #endif /* USE_FULL_ASSERT */
