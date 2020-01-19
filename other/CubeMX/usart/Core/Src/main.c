@@ -63,7 +63,7 @@ uint16_t VarDataTab[NB_OF_VAR] = {0, 0, 0};
 
 //UART
 __IO ITStatus UartReady = RESET;
-uint8_t aTxBuffer[255] = "*PUTKART*                     \n";
+uint8_t aTxBuffer[256] = "\r\n*smooUART*\r\n";
 uint8_t aRxBuffer[RXBUFFERSIZE];
 
 /* Single byte to store input */
@@ -82,15 +82,14 @@ static void MX_DMA_Init(void);
 /* This callback is called by the HAL_UART_IRQHandler when the given number of bytes are received */
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
-  BKPT;
+//  BKPT;
 
   if (huart->Instance == USART1)
   {
     HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
-//    printf("rx: %02d:0x%02x\r\n", rxcnt, aRxBuffer[0]);
     rxcnt++;
-//if(HAL_UART_Receive_DMA(&huart1, (uint8_t *)aRxBuffer, 1) != HAL_OK)
-    if(HAL_UART_Receive_IT(&huart1, (uint8_t *)aRxBuffer, 1) != HAL_OK)
+    if(HAL_UART_Receive_DMA(&huart1, (uint8_t *)aRxBuffer, 1) != HAL_OK)
+//    if(HAL_UART_Receive_IT(&huart1, (uint8_t *)aRxBuffer, 1) != HAL_OK)
     {
       Error_Handler();
     }
@@ -146,8 +145,8 @@ PUTCHAR_PROTOTYPE {
 
     UartReady = RESET;
 
-    stat = HAL_UART_Transmit_IT(&huart1, (uint8_t*)&ch, 1);
-//    stat = HAL_UART_Transmit_DMA(&huart1, (uint8_t*)&ch, 1);
+//    stat = HAL_UART_Transmit_IT(&huart1, (uint8_t*)&ch, 1);
+    stat = HAL_UART_Transmit_DMA(&huart1, (uint8_t*)&ch, 1);
     if(stat != HAL_OK)
     {
       Error_Handler();
@@ -222,7 +221,7 @@ int main(void)
   {
   }
 
-  HAL_Delay(500);
+//  HAL_Delay(500);
 
 //  BKPT;
 
@@ -236,7 +235,17 @@ int main(void)
 
   UartReady = RESET;
 
-  BKPT;
+  if(HAL_UART_Receive_DMA(&huart1, (uint8_t *)&aRxBuffer, 1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+//  while (UartReady != SET)
+//  {
+//      cnt2++;
+//  }
+
+//  BKPT;
 
   EE_ReadVariable(VirtAddVarTab[0], &VarDataTab[0]);
 
@@ -251,13 +260,6 @@ int main(void)
   /* USER CODE BEGIN WHILE */
 
   int cnt = 0;
-
-  //
-//  if(HAL_UART_Receive_IT(&huart1, (uint8_t *)aRxBuffer, RXBUFFERSIZE) != HAL_OK)
-  if(HAL_UART_Receive_IT(&huart1, (uint8_t *)aRxBuffer, 1) != HAL_OK)
-  {
-    Error_Handler();
-  }
 
   while (1) {
     HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);
