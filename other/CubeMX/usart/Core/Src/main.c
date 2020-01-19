@@ -64,8 +64,6 @@ __IO ITStatus UartReady = RESET;
 uint8_t aTxBuffer[] = "*UART*                     \n";
 uint8_t aRxBuffer[RXBUFFERSIZE];
 
-static uint16_t Buffercmp(uint8_t* pBuffer1, uint8_t* pBuffer2, uint16_t BufferLength);
-
 /* Single byte to store input */
 uint8_t byte;
 uint32_t rxcnt = 0;
@@ -81,13 +79,18 @@ static void MX_USART1_UART_Init(void);
 /* This callback is called by the HAL_UART_IRQHandler when the given number of bytes are received */
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
+//  BKPT;
+
   if (huart->Instance == USART1)
   {
     HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
-    printf("rx: %02d:0x%02x\r\n", rxcnt, aRxBuffer[0]);
+//    printf("rx: %02d:0x%02x\r\n", rxcnt, aRxBuffer[0]);
     rxcnt++;
+    if(HAL_UART_Receive_IT(&huart1, (uint8_t *)aRxBuffer, 1) != HAL_OK)
+    {
+      Error_Handler();
+    }
   }
-  BKPT;
 }
 
 void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
@@ -128,15 +131,22 @@ PUTCHAR_PROTOTYPE {
 // interrupt
     HAL_StatusTypeDef stat;
 
-    stat = HAL_UART_Transmit_IT(&huart1, (uint8_t*)&ch, 1);
-//    if(stat != HAL_OK)
-//    {
-//      Error_Handler();
-//    }
+    //check if we can transmit
 
-//    /*##-5- Wait for the end of the transfer ###################################*/
+    UartReady = RESET;
+
+    stat = HAL_UART_Transmit_IT(&huart1, (uint8_t*)&ch, 1);
+    if(stat != HAL_OK)
+    {
+      Error_Handler();
+    }
+
+    uint32_t cnt = 0;
+
+    /*## Wait for the end of the transfer ###################################*/
     while (UartReady != SET)
     {
+        cnt++;
     }
 
     UartReady = RESET;
@@ -190,11 +200,6 @@ int main(void)
 
   printf("Started:%03d times.\r\n", VarDataTab[0]);
 
-//  if(HAL_UART_Transmit_IT(&huart1, (uint8_t*)aTxBuffer, TXBUFFERSIZE)!= HAL_OK)
-//  {
-//    Error_Handler();
-//  }
-
   VarDataTab[0]++;
   EE_WriteVariable(VirtAddVarTab[0], VarDataTab[0]);
 
@@ -206,7 +211,8 @@ int main(void)
   int cnt = 0;
 
   //
-  if(HAL_UART_Receive_IT(&huart1, (uint8_t *)aRxBuffer, RXBUFFERSIZE) != HAL_OK)
+//  if(HAL_UART_Receive_IT(&huart1, (uint8_t *)aRxBuffer, RXBUFFERSIZE) != HAL_OK)
+  if(HAL_UART_Receive_IT(&huart1, (uint8_t *)aRxBuffer, 1) != HAL_OK)
   {
     Error_Handler();
   }
@@ -214,10 +220,15 @@ int main(void)
   while (1) {
     HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);
 
+//    if(HAL_UART_Receive_IT(&huart1, (uint8_t *)aRxBuffer, 1) != HAL_OK)
+//    {
+//      Error_Handler();
+//    }
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-    printf("keepalive: %05d:%05d\r\n", cnt++, rxcnt);
+    printf("keepalive: %05d:%05d:%02x\r\n", cnt++, rxcnt, aRxBuffer[0]);
     HAL_Delay(200);
     HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_SET);
     HAL_Delay(200);
@@ -291,7 +302,7 @@ static void MX_USART1_UART_Init(void)
   huart1.Init.Parity = UART_PARITY_NONE;
   huart1.Init.Mode = UART_MODE_TX_RX;
   huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
-//  huart1.Init.OverSampling = UART_OVERSAMPLING_16;
+  huart1.Init.OverSampling = UART_OVERSAMPLING_16;
 
   if(HAL_UART_DeInit(&huart1) != HAL_OK)
   {
@@ -305,9 +316,11 @@ static void MX_USART1_UART_Init(void)
   /* USER CODE BEGIN USART1_Init 2 */
 
   /* Peripheral interrupt init*/
-  HAL_NVIC_SetPriority(USART1_IRQn, 0, 0);
+  HAL_NVIC_SetPriority(USART1_IRQn, 0, 1);
   HAL_NVIC_EnableIRQ(USART1_IRQn);
   __HAL_UART_ENABLE_IT(&huart1, UART_IT_RXNE);
+//  __HAL_UART_ENABLE_IT(&huart1, UART_IT_TXE);
+  //__HAL_UART_ENABLE_IT(&huart1, UART_IT_RXNE | UART_IT_TXE);
 
   /* USER CODE END USART1_Init 2 */
 

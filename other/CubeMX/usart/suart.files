@@ -1,4 +1,5 @@
 Core/Inc/main.h
+Core/Src/main.c
 Core/Inc/stm32f1xx_hal_conf.h
 Core/Inc/stm32f1xx_it.h
 Core/Src/stm32f1xx_hal_msp.c
@@ -395,6 +396,5 @@ USB_DEVICE/Target/usbd_conf.c
 USB_DEVICE/Target/usbd_conf.h
 startup_stm32f103xb.s
 syscalls.c
-Core/Src/main.c
 eeprom/eeprom.c
 eeprom/eeprom.h
