@@ -51,6 +51,8 @@
 
 /* Private variables ---------------------------------------------------------*/
 UART_HandleTypeDef huart1;
+DMA_HandleTypeDef hdma_usart1_rx;
+DMA_HandleTypeDef hdma_usart1_tx;
 
 /* USER CODE BEGIN PV */
 
@@ -61,7 +63,7 @@ uint16_t VarDataTab[NB_OF_VAR] = {0, 0, 0};
 
 //UART
 __IO ITStatus UartReady = RESET;
-uint8_t aTxBuffer[] = "*UART*                     \n";
+uint8_t aTxBuffer[255] = "*PUTKART*                     \n";
 uint8_t aRxBuffer[RXBUFFERSIZE];
 
 /* Single byte to store input */
@@ -74,18 +76,20 @@ uint32_t rxcnt = 0;
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_USART1_UART_Init(void);
+static void MX_DMA_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* This callback is called by the HAL_UART_IRQHandler when the given number of bytes are received */
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
-//  BKPT;
+  BKPT;
 
   if (huart->Instance == USART1)
   {
     HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
 //    printf("rx: %02d:0x%02x\r\n", rxcnt, aRxBuffer[0]);
     rxcnt++;
+//if(HAL_UART_Receive_DMA(&huart1, (uint8_t *)aRxBuffer, 1) != HAL_OK)
     if(HAL_UART_Receive_IT(&huart1, (uint8_t *)aRxBuffer, 1) != HAL_OK)
     {
       Error_Handler();
@@ -93,13 +97,20 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
   }
 }
 
+void HAL_UART_ErrorCallback(UART_HandleTypeDef *huart)
+{
+    BKPT;
+}
+
 void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
 {
+//    BKPT;
     if (huart->Instance == USART1)
     {
         /* Set transmission flag: transfer complete */
         UartReady = SET;
     }
+//    BKPT;
 }
 
 /* USER CODE END PFP */
@@ -136,6 +147,7 @@ PUTCHAR_PROTOTYPE {
     UartReady = RESET;
 
     stat = HAL_UART_Transmit_IT(&huart1, (uint8_t*)&ch, 1);
+//    stat = HAL_UART_Transmit_DMA(&huart1, (uint8_t*)&ch, 1);
     if(stat != HAL_OK)
     {
       Error_Handler();
@@ -151,7 +163,7 @@ PUTCHAR_PROTOTYPE {
 
     UartReady = RESET;
 
-    while(!(CDC_Transmit_FS((uint8_t *)&ch, 1) == USBD_BUSY));
+//    while(!(CDC_Transmit_FS((uint8_t *)&ch, 1) == USBD_BUSY));
 
     return ch;
 }
@@ -190,11 +202,41 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_DMA_Init();            //has to be before usart!
   MX_USART1_UART_Init();
-  MX_USB_DEVICE_Init();
+//  USB_Enumeration();
+//  MX_USB_DEVICE_Init();
   /* USER CODE BEGIN 2 */
 
+//    BKPT;
+
+  HAL_StatusTypeDef stat = HAL_ERROR;
+//  stat = HAL_UART_Transmit_IT(&huart1, (uint8_t*)&aTxBuffer, 16);
+  stat = HAL_UART_Transmit_DMA(&huart1, (uint8_t*)&aTxBuffer, 16);
+  if(stat != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  while (HAL_UART_GetState(&huart1) != HAL_UART_STATE_READY)
+  {
+  }
+
+  HAL_Delay(500);
+
 //  BKPT;
+
+  uint32_t cnt2 = 0;
+
+  /*## Wait for the end of the transfer ###################################*/
+  while (UartReady != SET)
+  {
+      cnt2++;
+  }
+
+  UartReady = RESET;
+
+  BKPT;
 
   EE_ReadVariable(VirtAddVarTab[0], &VarDataTab[0]);
 
@@ -219,11 +261,6 @@ int main(void)
 
   while (1) {
     HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);
-
-//    if(HAL_UART_Receive_IT(&huart1, (uint8_t *)aRxBuffer, 1) != HAL_OK)
-//    {
-//      Error_Handler();
-//    }
 
     /* USER CODE END WHILE */
 
@@ -303,12 +340,6 @@ static void MX_USART1_UART_Init(void)
   huart1.Init.Mode = UART_MODE_TX_RX;
   huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
   huart1.Init.OverSampling = UART_OVERSAMPLING_16;
-
-  if(HAL_UART_DeInit(&huart1) != HAL_OK)
-  {
-    Error_Handler();
-  }
-
   if (HAL_UART_Init(&huart1) != HAL_OK)
   {
     Error_Handler();
@@ -316,13 +347,32 @@ static void MX_USART1_UART_Init(void)
   /* USER CODE BEGIN USART1_Init 2 */
 
   /* Peripheral interrupt init*/
-  HAL_NVIC_SetPriority(USART1_IRQn, 0, 1);
-  HAL_NVIC_EnableIRQ(USART1_IRQn);
-  __HAL_UART_ENABLE_IT(&huart1, UART_IT_RXNE);
+//  HAL_NVIC_SetPriority(USART1_IRQn, 0, 1);
+//  HAL_NVIC_EnableIRQ(USART1_IRQn);
+//  __HAL_UART_ENABLE_IT(&huart1, UART_IT_RXNE);
 //  __HAL_UART_ENABLE_IT(&huart1, UART_IT_TXE);
   //__HAL_UART_ENABLE_IT(&huart1, UART_IT_RXNE | UART_IT_TXE);
 
   /* USER CODE END USART1_Init 2 */
+
+}
+
+/** 
+  * Enable DMA controller clock
+  */
+static void MX_DMA_Init(void) 
+{
+
+  /* DMA controller clock enable */
+  __HAL_RCC_DMA1_CLK_ENABLE();
+
+  /* DMA interrupt init */
+  /* DMA1_Channel4_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA1_Channel4_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA1_Channel4_IRQn);
+  /* DMA1_Channel5_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA1_Channel5_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA1_Channel5_IRQn);
 
 }
 
@@ -371,11 +421,6 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
-/* USER CODE BEGIN 400 */
-
-  USB_Enumeration();
-
-/* USER CODE END 400 */
 }
 
 /* USER CODE BEGIN 4 */
